@@ -14,6 +14,7 @@
 */
 AngryBirdsGame::AngryBirdsGame()
 {
+	std::srand(time(NULL));
 }
 
 /**
@@ -24,8 +25,6 @@ AngryBirdsGame::~AngryBirdsGame()
 {
 	this->inputs->unregisterCallback(key_callback_id);
 	this->inputs->unregisterCallback(mouse_callback_id);
-
-
 }
 
 /**
@@ -45,6 +44,8 @@ bool AngryBirdsGame::init()
 
 	toggleFPS();
 	renderer->setWindowTitle("Angry Birds!");
+	renderer->setWindowedMode(ASGE::Renderer::WindowMode::WINDOWED);
+	renderer->setClearColour(ASGE::COLOURS::BLACK);
 
 	// input handling functions
 	inputs->use_threads = false;
@@ -55,9 +56,29 @@ bool AngryBirdsGame::init()
 	mouse_callback_id =inputs->addCallbackFnc(
 		ASGE::E_MOUSE_CLICK, &AngryBirdsGame::clickHandler, this);
 
+	if (!loadBackgrounds())
+	{
+		return false;
+	}
 
+	if (!menu_layer.addSpriteComponent(renderer.get(), "Resources\\Textures\\menu.jpg"))
+	{
+		return false;
+	}
 
+	return true;
+}
 
+bool AngryBirdsGame::loadBackgrounds()
+{
+	std::string filename = "Resources\\Textures\\lvl";
+	filename += std::to_string(std::rand() % 3 + 1);
+	filename += ".png";
+
+	if (!background_layer.addSpriteComponent(renderer.get(), filename))
+	{
+		return false;
+	}
 
 	return true;
 }
@@ -76,8 +97,8 @@ void AngryBirdsGame::setupResolution()
 	// how will the game be framed in native 16:9 resolutions?
 	// here are some abritrary values for you to adjust as you see fit
 	// https://www.gamasutra.com/blogs/KenanBolukbasi/20171002/306822/Scaling_and_MultiResolution_in_2D_Games.php
-	game_width = 1024;
-	game_height = 576;
+	game_width = 1920;
+	game_height = 1080;
 }
 
 /**
@@ -98,8 +119,28 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 	{
 		signalExit();
 	}
-
-
+	
+	else if (key->key == ASGE::KEYS::KEY_ENTER && 
+		     key->action == ASGE::KEYS::KEY_PRESSED &&
+		     key->mods == 0x0004)
+	{
+		if (renderer->getWindowMode() == ASGE::Renderer::WindowMode::WINDOWED)
+		{
+			renderer->setWindowedMode(ASGE::Renderer::WindowMode::FULLSCREEN);
+		}
+		else
+		{
+			renderer->setWindowedMode(ASGE::Renderer::WindowMode::WINDOWED);
+		}
+	}
+	
+	else if (in_menu)
+	{
+		if (key->key == ASGE::KEYS::KEY_SPACE)
+		{
+			in_menu = !in_menu;
+		}
+	}
 }
 
 /**
@@ -152,15 +193,13 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 void AngryBirdsGame::render(const ASGE::GameTime &)
 {
 	renderer->setFont(0);
-
+	
 	if (in_menu)
 	{
-
+		renderer->renderSprite(*menu_layer.spriteComponent()->getSprite());
 	}
 	else
 	{
-
+		renderer->renderSprite(*background_layer.spriteComponent()->getSprite());
 	}
-
-
 }

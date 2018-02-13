@@ -16,11 +16,13 @@ public:
 	AngryBirdsGame();
 	~AngryBirdsGame();
 	virtual bool init() override;
+	
 
 private:
 	void keyHandler(const ASGE::SharedEventData data);
 	void clickHandler(const ASGE::SharedEventData data);
 	void setupResolution();
+	bool loadBackgrounds();
 
 	virtual void update(const ASGE::GameTime &) override;
 	virtual void render(const ASGE::GameTime &) override;
@@ -29,7 +31,8 @@ private:
 	int  mouse_callback_id = -1;        /**< Mouse Input Callback ID. */
 
 	//Add your GameObjects
-
+	GameObject background_layer;
+	GameObject menu_layer;
 
 	bool in_menu = true;
 };
