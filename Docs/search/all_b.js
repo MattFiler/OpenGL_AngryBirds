@@ -18,5 +18,6 @@ var searchData=
   ['mods',['mods',['../struct_a_s_g_e_1_1_key_event.html#a19aeabca2e5f43cf0902649a0a0f22bb',1,'ASGE::KeyEvent::mods()'],['../struct_a_s_g_e_1_1_click_event.html#a4ff41e37712e2110190d1056b16fd664',1,'ASGE::ClickEvent::mods()']]],
   ['monochrome',['MONOCHROME',['../class_a_s_g_e_1_1_texture2_d.html#af7841112f5f42d8bd299acd8e93e6fd7ad3bd2e4728dd792cbc75a4e243c384c7',1,'ASGE::Texture2D']]],
   ['monochrome_5falpha',['MONOCHROME_ALPHA',['../class_a_s_g_e_1_1_texture2_d.html#af7841112f5f42d8bd299acd8e93e6fd7ab4c2df61c28c729abbaeefaf441e8255',1,'ASGE::Texture2D']]],
+  ['mouse_2eh',['Mouse.h',['../_mouse_8h.html',1,'']]],
   ['moveevent',['MoveEvent',['../struct_a_s_g_e_1_1_move_event.html',1,'ASGE']]]
 ];

@@ -16,7 +16,7 @@ namespace ASGE {
 		* The constructor takes an array of 3 floats. These
 		* are then mapped on the RGB values inside the struct.
 		*/
-		Colour(const float rgb[3])
+		Colour(const float rgb[3]) noexcept
 		{
 			r = rgb[0];
 			g = rgb[1];

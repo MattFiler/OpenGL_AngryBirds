@@ -14,6 +14,8 @@ namespace ASGE {
 	{
 	public:
 		
+		virtual ~OGLGame() = default;
+
 		/**
 		* Initialises the OpenGL subsystem.
 		* @return True if successful.
@@ -25,7 +27,7 @@ namespace ASGE {
 		* Terminates the OpenGL subsystem.
 		* @return True if managed gracefully.
 		*/
-		virtual bool exitAPI() override final;
+		virtual bool exitAPI() noexcept override final;
 		
 		/**
 		* Prepares the OpenGL subsystem for the next frame.

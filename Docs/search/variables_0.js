@@ -2,6 +2,7 @@ var searchData=
 [
   ['action',['action',['../struct_a_s_g_e_1_1_key_event.html#ae665294eac68c3c25832d4e5c757f258',1,'ASGE::KeyEvent::action()'],['../struct_a_s_g_e_1_1_click_event.html#affb3b1e4f8b9f69de6403c57bbca9102',1,'ASGE::ClickEvent::action()']]],
   ['aliceblue',['ALICEBLUE',['../namespace_a_s_g_e_1_1_c_o_l_o_u_r_s.html#a0075f78152dfc365f65f0f4f43109b1f',1,'ASGE::COLOURS']]],
+  ['alpha',['alpha',['../class_a_s_g_e_1_1_sprite.html#a19cc51b5afacce4f211a8d19d910fb0b',1,'ASGE::Sprite']]],
   ['angle',['angle',['../class_a_s_g_e_1_1_sprite.html#a54bc4a2af66842d65a9ab1e714af1c33',1,'ASGE::Sprite']]],
   ['antiquewhite',['ANTIQUEWHITE',['../namespace_a_s_g_e_1_1_c_o_l_o_u_r_s.html#ab19e5c8c2374d38f4a3c61b1ae8aa6e2',1,'ASGE::COLOURS']]],
   ['aqua',['AQUA',['../namespace_a_s_g_e_1_1_c_o_l_o_u_r_s.html#a13c2a32dc340adb3eb235fc0b6335aea',1,'ASGE::COLOURS']]],

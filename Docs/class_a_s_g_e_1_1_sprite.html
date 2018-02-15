@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AwesomeSauce Game Engine
-   &#160;<span id="projectnumber">0.0.2</span>
+   &#160;<span id="projectnumber">0.1.2</span>
    </div>
    <div id="projectbrief">Simple OGL engine</div>
   </td>
@@ -94,66 +94,87 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8654d09c32c0f96113407e7a4dddb796"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a8654d09c32c0f96113407e7a4dddb796">~Sprite</a> ()=default</td></tr>
 <tr class="memdesc:a8654d09c32c0f96113407e7a4dddb796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a8654d09c32c0f96113407e7a4dddb796">More...</a><br /></td></tr>
 <tr class="separator:a8654d09c32c0f96113407e7a4dddb796"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82fe04d96df4ef6a75bbda75f4d310e4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a82fe04d96df4ef6a75bbda75f4d310e4">loadTexture</a> (const char *)=0</td></tr>
-<tr class="memdesc:a82fe04d96df4ef6a75bbda75f4d310e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function for loading texture on to the GPU.  <a href="#a82fe04d96df4ef6a75bbda75f4d310e4">More...</a><br /></td></tr>
-<tr class="separator:a82fe04d96df4ef6a75bbda75f4d310e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf90a012edc3227ad54cfaf6d26083fa"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#adf90a012edc3227ad54cfaf6d26083fa">loadTexture</a> (const std::string &amp;)=0</td></tr>
+<tr class="memdesc:adf90a012edc3227ad54cfaf6d26083fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function for loading texture on to the GPU.  <a href="#adf90a012edc3227ad54cfaf6d26083fa">More...</a><br /></td></tr>
+<tr class="separator:adf90a012edc3227ad54cfaf6d26083fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81e1cf1926f3ed455d7dd0f5d97cb43c"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_a_s_g_e_1_1_texture2_d.html">Texture2D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a81e1cf1926f3ed455d7dd0f5d97cb43c">getTexture</a> () const =0</td></tr>
 <tr class="memdesc:a81e1cf1926f3ed455d7dd0f5d97cb43c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function for retrieving the loaded texture.  <a href="#a81e1cf1926f3ed455d7dd0f5d97cb43c">More...</a><br /></td></tr>
 <tr class="separator:a81e1cf1926f3ed455d7dd0f5d97cb43c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acded936f83b74b5c33d8f037c0e8b81c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#acded936f83b74b5c33d8f037c0e8b81c">xPos</a> () const</td></tr>
-<tr class="memdesc:acded936f83b74b5c33d8f037c0e8b81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprite's position on the X axis.  <a href="#acded936f83b74b5c33d8f037c0e8b81c">More...</a><br /></td></tr>
-<tr class="separator:acded936f83b74b5c33d8f037c0e8b81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71cb68ad83feb00ee248986be6608614"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a71cb68ad83feb00ee248986be6608614">xPos</a> (float x)</td></tr>
-<tr class="memdesc:a71cb68ad83feb00ee248986be6608614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the sprite's position on the X axis.  <a href="#a71cb68ad83feb00ee248986be6608614">More...</a><br /></td></tr>
-<tr class="separator:a71cb68ad83feb00ee248986be6608614"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23bb6608aefe1e1e69bd5160c76b06e0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a23bb6608aefe1e1e69bd5160c76b06e0">yPos</a> () const</td></tr>
-<tr class="memdesc:a23bb6608aefe1e1e69bd5160c76b06e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprite's position on the Y axis.  <a href="#a23bb6608aefe1e1e69bd5160c76b06e0">More...</a><br /></td></tr>
-<tr class="separator:a23bb6608aefe1e1e69bd5160c76b06e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a129809d409d543fea32d8e31ae8d58ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a129809d409d543fea32d8e31ae8d58ea">yPos</a> (float y)</td></tr>
-<tr class="memdesc:a129809d409d543fea32d8e31ae8d58ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprite's position on the Y axis.  <a href="#a129809d409d543fea32d8e31ae8d58ea">More...</a><br /></td></tr>
-<tr class="separator:a129809d409d543fea32d8e31ae8d58ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3b56df2e51489ad2f1bfb568a4009d9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#aa3b56df2e51489ad2f1bfb568a4009d9">width</a> () const</td></tr>
-<tr class="memdesc:aa3b56df2e51489ad2f1bfb568a4009d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the width of the sprite.  <a href="#aa3b56df2e51489ad2f1bfb568a4009d9">More...</a><br /></td></tr>
-<tr class="separator:aa3b56df2e51489ad2f1bfb568a4009d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a466d4c552ccadc9e2d41fa20e91912af"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a466d4c552ccadc9e2d41fa20e91912af">height</a> () const</td></tr>
-<tr class="memdesc:a466d4c552ccadc9e2d41fa20e91912af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the height of the sprite.  <a href="#a466d4c552ccadc9e2d41fa20e91912af">More...</a><br /></td></tr>
-<tr class="separator:a466d4c552ccadc9e2d41fa20e91912af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dc03bd27c9974229b196f28d1b3a6b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a4dc03bd27c9974229b196f28d1b3a6b3">dimensions</a> (float &amp;<a class="el" href="class_a_s_g_e_1_1_sprite.html#aa3b56df2e51489ad2f1bfb568a4009d9">width</a>, float &amp;<a class="el" href="class_a_s_g_e_1_1_sprite.html#a466d4c552ccadc9e2d41fa20e91912af">height</a>) const</td></tr>
-<tr class="memdesc:a4dc03bd27c9974229b196f28d1b3a6b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the height and the width of the sprite.  <a href="#a4dc03bd27c9974229b196f28d1b3a6b3">More...</a><br /></td></tr>
-<tr class="separator:a4dc03bd27c9974229b196f28d1b3a6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a722853ea9c13a25aa09fe1c0a4cc67c1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a722853ea9c13a25aa09fe1c0a4cc67c1">rotationInRadians</a> () const</td></tr>
-<tr class="memdesc:a722853ea9c13a25aa09fe1c0a4cc67c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the rotation of the sprite in radians.  <a href="#a722853ea9c13a25aa09fe1c0a4cc67c1">More...</a><br /></td></tr>
-<tr class="separator:a722853ea9c13a25aa09fe1c0a4cc67c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3dec09cc1a4da913a32a20454ac10a5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#af3dec09cc1a4da913a32a20454ac10a5">xPos</a> () const noexcept</td></tr>
+<tr class="memdesc:af3dec09cc1a4da913a32a20454ac10a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprite's position on the X axis.  <a href="#af3dec09cc1a4da913a32a20454ac10a5">More...</a><br /></td></tr>
+<tr class="separator:af3dec09cc1a4da913a32a20454ac10a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c547e9585a4292528d73e478d6b39d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a68c547e9585a4292528d73e478d6b39d">xPos</a> (float x) noexcept</td></tr>
+<tr class="memdesc:a68c547e9585a4292528d73e478d6b39d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the sprite's position on the X axis.  <a href="#a68c547e9585a4292528d73e478d6b39d">More...</a><br /></td></tr>
+<tr class="separator:a68c547e9585a4292528d73e478d6b39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a802c704eec77978a12fa3e664f72c588"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a802c704eec77978a12fa3e664f72c588">yPos</a> () const noexcept</td></tr>
+<tr class="memdesc:a802c704eec77978a12fa3e664f72c588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprite's position on the Y axis.  <a href="#a802c704eec77978a12fa3e664f72c588">More...</a><br /></td></tr>
+<tr class="separator:a802c704eec77978a12fa3e664f72c588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9db36190e101b3693ee2feb77e7b08c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a9db36190e101b3693ee2feb77e7b08c0">yPos</a> (float y) noexcept</td></tr>
+<tr class="memdesc:a9db36190e101b3693ee2feb77e7b08c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprite's position on the Y axis.  <a href="#a9db36190e101b3693ee2feb77e7b08c0">More...</a><br /></td></tr>
+<tr class="separator:a9db36190e101b3693ee2feb77e7b08c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9771e50714c11d301f90d63a497095e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#ac9771e50714c11d301f90d63a497095e">width</a> () const noexcept</td></tr>
+<tr class="memdesc:ac9771e50714c11d301f90d63a497095e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the width of the sprite.  <a href="#ac9771e50714c11d301f90d63a497095e">More...</a><br /></td></tr>
+<tr class="separator:ac9771e50714c11d301f90d63a497095e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7db027cd03dc1eddcb7c8ca9ceb9baf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#aa7db027cd03dc1eddcb7c8ca9ceb9baf">width</a> (float width) noexcept</td></tr>
+<tr class="memdesc:aa7db027cd03dc1eddcb7c8ca9ceb9baf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the width of the sprite.  <a href="#aa7db027cd03dc1eddcb7c8ca9ceb9baf">More...</a><br /></td></tr>
+<tr class="separator:aa7db027cd03dc1eddcb7c8ca9ceb9baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a619cba6dc8edc60bc1bcb8fdbddbf942"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a619cba6dc8edc60bc1bcb8fdbddbf942">height</a> () const noexcept</td></tr>
+<tr class="memdesc:a619cba6dc8edc60bc1bcb8fdbddbf942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the height of the sprite.  <a href="#a619cba6dc8edc60bc1bcb8fdbddbf942">More...</a><br /></td></tr>
+<tr class="separator:a619cba6dc8edc60bc1bcb8fdbddbf942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2f237378842777b5740ed7a68e3e81c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#af2f237378842777b5740ed7a68e3e81c">height</a> (float height) noexcept</td></tr>
+<tr class="memdesc:af2f237378842777b5740ed7a68e3e81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the height of the sprite.  <a href="#af2f237378842777b5740ed7a68e3e81c">More...</a><br /></td></tr>
+<tr class="separator:af2f237378842777b5740ed7a68e3e81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4feb31bc624909ea3c4a8d976199037"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#ab4feb31bc624909ea3c4a8d976199037">dimensions</a> (float &amp;<a class="el" href="class_a_s_g_e_1_1_sprite.html#ac9771e50714c11d301f90d63a497095e">width</a>, float &amp;<a class="el" href="class_a_s_g_e_1_1_sprite.html#a619cba6dc8edc60bc1bcb8fdbddbf942">height</a>) const noexcept</td></tr>
+<tr class="memdesc:ab4feb31bc624909ea3c4a8d976199037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the height and the width of the sprite.  <a href="#ab4feb31bc624909ea3c4a8d976199037">More...</a><br /></td></tr>
+<tr class="separator:ab4feb31bc624909ea3c4a8d976199037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32450bd0452d4213b0e50f644a4d1feb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a32450bd0452d4213b0e50f644a4d1feb">rotationInRadians</a> () const noexcept</td></tr>
+<tr class="memdesc:a32450bd0452d4213b0e50f644a4d1feb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the rotation of the sprite in radians.  <a href="#a32450bd0452d4213b0e50f644a4d1feb">More...</a><br /></td></tr>
+<tr class="separator:a32450bd0452d4213b0e50f644a4d1feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec28f87e0bd20a870cb255fdfb1c68ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#aec28f87e0bd20a870cb255fdfb1c68ea">rotationInRadians</a> (float rotation_radians)</td></tr>
 <tr class="memdesc:aec28f87e0bd20a870cb255fdfb1c68ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the rotation of the sprite in radians.  <a href="#aec28f87e0bd20a870cb255fdfb1c68ea">More...</a><br /></td></tr>
 <tr class="separator:aec28f87e0bd20a870cb255fdfb1c68ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d5f542fb62fdef13334aee49160eda2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a1d5f542fb62fdef13334aee49160eda2">scale</a> () const</td></tr>
-<tr class="memdesc:a1d5f542fb62fdef13334aee49160eda2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the scale of the sprite.  <a href="#a1d5f542fb62fdef13334aee49160eda2">More...</a><br /></td></tr>
-<tr class="separator:a1d5f542fb62fdef13334aee49160eda2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b8b7820089a3656c03bd2eb4acb2e3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a2b8b7820089a3656c03bd2eb4acb2e3f">scale</a> (float scale_value)</td></tr>
-<tr class="memdesc:a2b8b7820089a3656c03bd2eb4acb2e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scale of the sprite.  <a href="#a2b8b7820089a3656c03bd2eb4acb2e3f">More...</a><br /></td></tr>
-<tr class="separator:a2b8b7820089a3656c03bd2eb4acb2e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dc5f76a4734022f4a7b418ac4e7a4d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_a_s_g_e_1_1_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a8dc5f76a4734022f4a7b418ac4e7a4d7">colour</a> () const</td></tr>
-<tr class="memdesc:a8dc5f76a4734022f4a7b418ac4e7a4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the colour of the sprite.  <a href="#a8dc5f76a4734022f4a7b418ac4e7a4d7">More...</a><br /></td></tr>
-<tr class="separator:a8dc5f76a4734022f4a7b418ac4e7a4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e4dca35c0d94fccaaf6541913112e3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a1e4dca35c0d94fccaaf6541913112e3e">colour</a> (<a class="el" href="struct_a_s_g_e_1_1_colour.html">ASGE::Colour</a> sprite_colour)</td></tr>
-<tr class="memdesc:a1e4dca35c0d94fccaaf6541913112e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the colour of the sprite.  <a href="#a1e4dca35c0d94fccaaf6541913112e3e">More...</a><br /></td></tr>
-<tr class="separator:a1e4dca35c0d94fccaaf6541913112e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9172940b3ea2dfc1c1d359b41479515"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#ad9172940b3ea2dfc1c1d359b41479515">isFlippedOnX</a> () const</td></tr>
-<tr class="memdesc:ad9172940b3ea2dfc1c1d359b41479515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if the texture is flipped on the X axis.  <a href="#ad9172940b3ea2dfc1c1d359b41479515">More...</a><br /></td></tr>
-<tr class="separator:ad9172940b3ea2dfc1c1d359b41479515"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af395335611d84b573ed23d3d04214f7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#af395335611d84b573ed23d3d04214f7f">isFlippedOnY</a> () const</td></tr>
-<tr class="memdesc:af395335611d84b573ed23d3d04214f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if the texture is flipped on the Y axis.  <a href="#af395335611d84b573ed23d3d04214f7f">More...</a><br /></td></tr>
-<tr class="separator:af395335611d84b573ed23d3d04214f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a939610278f1f9b3992871c15fb54e6cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a939610278f1f9b3992871c15fb54e6cc">setFlipFlags</a> (<a class="el" href="class_a_s_g_e_1_1_sprite.html#aa08b8df5a3a45b638ba454007affe8af">FlipFlags</a> flags)</td></tr>
-<tr class="memdesc:a939610278f1f9b3992871c15fb54e6cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the flip state of the texture.  <a href="#a939610278f1f9b3992871c15fb54e6cc">More...</a><br /></td></tr>
-<tr class="separator:a939610278f1f9b3992871c15fb54e6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fb888f0eefed1839441f23a9654c031"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a3fb888f0eefed1839441f23a9654c031">scale</a> () const noexcept</td></tr>
+<tr class="memdesc:a3fb888f0eefed1839441f23a9654c031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the scale of the sprite.  <a href="#a3fb888f0eefed1839441f23a9654c031">More...</a><br /></td></tr>
+<tr class="separator:a3fb888f0eefed1839441f23a9654c031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad086f868557a515b434729c9eedf4b42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#ad086f868557a515b434729c9eedf4b42">scale</a> (float scale_value) noexcept</td></tr>
+<tr class="memdesc:ad086f868557a515b434729c9eedf4b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scale of the sprite.  <a href="#ad086f868557a515b434729c9eedf4b42">More...</a><br /></td></tr>
+<tr class="separator:ad086f868557a515b434729c9eedf4b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665595fd4bd6ffcb66e6093704b33ff2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_a_s_g_e_1_1_colour.html">Colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a665595fd4bd6ffcb66e6093704b33ff2">colour</a> () const noexcept</td></tr>
+<tr class="memdesc:a665595fd4bd6ffcb66e6093704b33ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the colour of the sprite.  <a href="#a665595fd4bd6ffcb66e6093704b33ff2">More...</a><br /></td></tr>
+<tr class="separator:a665595fd4bd6ffcb66e6093704b33ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48f757c2400f66e32421355c44e1b228"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a48f757c2400f66e32421355c44e1b228">colour</a> (<a class="el" href="struct_a_s_g_e_1_1_colour.html">ASGE::Colour</a> sprite_colour) noexcept</td></tr>
+<tr class="memdesc:a48f757c2400f66e32421355c44e1b228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the colour of the sprite.  <a href="#a48f757c2400f66e32421355c44e1b228">More...</a><br /></td></tr>
+<tr class="separator:a48f757c2400f66e32421355c44e1b228"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e1f5682d1d18ed27049a9807ce13cff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a4e1f5682d1d18ed27049a9807ce13cff">isFlippedOnX</a> () const noexcept</td></tr>
+<tr class="memdesc:a4e1f5682d1d18ed27049a9807ce13cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if the texture is flipped on the X axis.  <a href="#a4e1f5682d1d18ed27049a9807ce13cff">More...</a><br /></td></tr>
+<tr class="separator:a4e1f5682d1d18ed27049a9807ce13cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f639d1ca9176dbf7585bbdc90b9dc7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a6f639d1ca9176dbf7585bbdc90b9dc7a">isFlippedOnY</a> () const noexcept</td></tr>
+<tr class="memdesc:a6f639d1ca9176dbf7585bbdc90b9dc7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if the texture is flipped on the Y axis.  <a href="#a6f639d1ca9176dbf7585bbdc90b9dc7a">More...</a><br /></td></tr>
+<tr class="separator:a6f639d1ca9176dbf7585bbdc90b9dc7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa721f67dc83511112309625f00be466b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#aa721f67dc83511112309625f00be466b">setFlipFlags</a> (<a class="el" href="class_a_s_g_e_1_1_sprite.html#aa08b8df5a3a45b638ba454007affe8af">FlipFlags</a> flags) noexcept</td></tr>
+<tr class="memdesc:aa721f67dc83511112309625f00be466b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the flip state of the texture.  <a href="#aa721f67dc83511112309625f00be466b">More...</a><br /></td></tr>
+<tr class="separator:aa721f67dc83511112309625f00be466b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2dbb35370d6256e0ad98c7ca1868278"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#ab2dbb35370d6256e0ad98c7ca1868278">opacity</a> (float <a class="el" href="class_a_s_g_e_1_1_sprite.html#a19cc51b5afacce4f211a8d19d910fb0b">alpha</a>) noexcept</td></tr>
+<tr class="memdesc:ab2dbb35370d6256e0ad98c7ca1868278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the opacity of the sprite.  <a href="#ab2dbb35370d6256e0ad98c7ca1868278">More...</a><br /></td></tr>
+<tr class="separator:ab2dbb35370d6256e0ad98c7ca1868278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a276464239a84028f612e54602d78dcdc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a276464239a84028f612e54602d78dcdc">opacity</a> () const noexcept</td></tr>
+<tr class="memdesc:a276464239a84028f612e54602d78dcdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the opacity of the sprite.  <a href="#a276464239a84028f612e54602d78dcdc">More...</a><br /></td></tr>
+<tr class="separator:a276464239a84028f612e54602d78dcdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef5b516aee32da9ea275ac12cbf2040d"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#aef5b516aee32da9ea275ac12cbf2040d">srcRect</a> () noexcept</td></tr>
+<tr class="memdesc:aef5b516aee32da9ea275ac12cbf2040d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the source rectangle used for rendering.  <a href="#aef5b516aee32da9ea275ac12cbf2040d">More...</a><br /></td></tr>
+<tr class="separator:aef5b516aee32da9ea275ac12cbf2040d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fbc6d01b044ba29210dec38f85edde7"><td class="memItemLeft" align="right" valign="top">const float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a0fbc6d01b044ba29210dec38f85edde7">srcRect</a> () const noexcept</td></tr>
+<tr class="memdesc:a0fbc6d01b044ba29210dec38f85edde7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a read-only source rectangle used for rendering.  <a href="#a0fbc6d01b044ba29210dec38f85edde7">More...</a><br /></td></tr>
+<tr class="separator:a0fbc6d01b044ba29210dec38f85edde7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aa2f0976a90cc112023e7fef965f77cea"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#aa2f0976a90cc112023e7fef965f77cea">dims</a> [2] { 0,0 }</td></tr>
 <tr class="memdesc:aa2f0976a90cc112023e7fef965f77cea"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> Dimensions.  <a href="#aa2f0976a90cc112023e7fef965f77cea">More...</a><br /></td></tr>
 <tr class="separator:aa2f0976a90cc112023e7fef965f77cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0327f779995c255e275801ad5ac987c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#aa0327f779995c255e275801ad5ac987c">src_rect</a> [4] { 0,0,0,0 }</td></tr>
+<tr class="memdesc:aa0327f779995c255e275801ad5ac987c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> Rectangle.  <a href="#aa0327f779995c255e275801ad5ac987c">More...</a><br /></td></tr>
+<tr class="separator:aa0327f779995c255e275801ad5ac987c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bee4a158dbd414b9461e159eede3889"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a1bee4a158dbd414b9461e159eede3889">position</a> [2] { 0,0 }</td></tr>
 <tr class="memdesc:a1bee4a158dbd414b9461e159eede3889"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> Position.  <a href="#a1bee4a158dbd414b9461e159eede3889">More...</a><br /></td></tr>
 <tr class="separator:a1bee4a158dbd414b9461e159eede3889"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,6 +184,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:af2c9e031a632f1c68a00185cfb881a16"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#af2c9e031a632f1c68a00185cfb881a16">scale_factor</a> = 1.0f</td></tr>
 <tr class="memdesc:af2c9e031a632f1c68a00185cfb881a16"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> Scale.  <a href="#af2c9e031a632f1c68a00185cfb881a16">More...</a><br /></td></tr>
 <tr class="separator:af2c9e031a632f1c68a00185cfb881a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19cc51b5afacce4f211a8d19d910fb0b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a19cc51b5afacce4f211a8d19d910fb0b">alpha</a> = 1.0f</td></tr>
+<tr class="memdesc:a19cc51b5afacce4f211a8d19d910fb0b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> Opacity.  <a href="#a19cc51b5afacce4f211a8d19d910fb0b">More...</a><br /></td></tr>
+<tr class="separator:a19cc51b5afacce4f211a8d19d910fb0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a989baa2501a62055099d32667f222344"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_s_g_e_1_1_sprite.html#aa08b8df5a3a45b638ba454007affe8af">FlipFlags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_sprite.html#a989baa2501a62055099d32667f222344">flip_flags</a></td></tr>
 <tr class="memdesc:a989baa2501a62055099d32667f222344"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> Texture Flip.  <a href="#a989baa2501a62055099d32667f222344">More...</a><br /></td></tr>
 <tr class="separator:a989baa2501a62055099d32667f222344"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,7 +208,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to flip the texture's UV coordinates. The flip is performed inside the shader and on the CPU. </p>
+<p>Used to flip the texture's UV coordinates. The flip is performed on the CPU when calculating the UVs. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa08b8df5a3a45b638ba454007affe8afa1ae2f6f47e142afdae15251e9f5cac5b"></a>NORMAL&#160;</td><td class="fielddoc"><p>texture is not flipped. </p>
 </td></tr>
@@ -226,11 +250,14 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8dc5f76a4734022f4a7b418ac4e7a4d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dc5f76a4734022f4a7b418ac4e7a4d7">&#9670;&nbsp;</a></span>colour() <span class="overload">[1/2]</span></h2>
+<a id="a665595fd4bd6ffcb66e6093704b33ff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a665595fd4bd6ffcb66e6093704b33ff2">&#9670;&nbsp;</a></span>colour() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="struct_a_s_g_e_1_1_colour.html">Colour</a> ASGE::Sprite::colour </td>
@@ -239,16 +266,24 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>The colour of the sprite can be influenced by providing a tint. </p><dl class="section return"><dt>Returns</dt><dd>The sprite's colour. </dd></dl>
 
 </div>
 </div>
-<a id="a1e4dca35c0d94fccaaf6541913112e3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e4dca35c0d94fccaaf6541913112e3e">&#9670;&nbsp;</a></span>colour() <span class="overload">[2/2]</span></h2>
+<a id="a48f757c2400f66e32421355c44e1b228"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f757c2400f66e32421355c44e1b228">&#9670;&nbsp;</a></span>colour() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ASGE::Sprite::colour </td>
@@ -258,6 +293,11 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>The colour of the sprite can be influenced by providing a tint. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -268,11 +308,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4dc03bd27c9974229b196f28d1b3a6b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dc03bd27c9974229b196f28d1b3a6b3">&#9670;&nbsp;</a></span>dimensions()</h2>
+<a id="ab4feb31bc624909ea3c4a8d976199037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4feb31bc624909ea3c4a8d976199037">&#9670;&nbsp;</a></span>dimensions()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ASGE::Sprite::dimensions </td>
@@ -292,6 +335,11 @@ Protected Attributes</h2></td></tr>
           <td></td><td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Updates the width and the height of two parameters passed in to the function. It does <b>not</b> return a value. The width and height is found in the resultant parameters. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -329,11 +377,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a466d4c552ccadc9e2d41fa20e91912af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a466d4c552ccadc9e2d41fa20e91912af">&#9670;&nbsp;</a></span>height()</h2>
+<a id="a619cba6dc8edc60bc1bcb8fdbddbf942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a619cba6dc8edc60bc1bcb8fdbddbf942">&#9670;&nbsp;</a></span>height() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float ASGE::Sprite::height </td>
@@ -342,16 +393,56 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Width is used to determine how wide/long a sprite will be when it's rendered to the screen. It is mapped using pixels. </p><dl class="section return"><dt>Returns</dt><dd>The sprites height. </dd></dl>
+<p>Height is used to determine how tall a sprite will be when it's rendered to the screen. It is mapped using pixels. </p><dl class="section return"><dt>Returns</dt><dd>The sprites height. </dd></dl>
 
 </div>
 </div>
-<a id="ad9172940b3ea2dfc1c1d359b41479515"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9172940b3ea2dfc1c1d359b41479515">&#9670;&nbsp;</a></span>isFlippedOnX()</h2>
+<a id="af2f237378842777b5740ed7a68e3e81c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2f237378842777b5740ed7a68e3e81c">&#9670;&nbsp;</a></span>height() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ASGE::Sprite::height </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Height is used to determine how tall a sprite will be when it's rendered to the screen. It is mapped using pixels. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>The sprites height. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e1f5682d1d18ed27049a9807ce13cff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e1f5682d1d18ed27049a9807ce13cff">&#9670;&nbsp;</a></span>isFlippedOnX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool ASGE::Sprite::isFlippedOnX </td>
@@ -360,16 +451,24 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>It is possible to flip the UV coordinates used on the sprite's texture. This will check to see if the X axis is flipped. </p><dl class="section return"><dt>Returns</dt><dd>If the texture is flipped on the X axis. </dd></dl>
 
 </div>
 </div>
-<a id="af395335611d84b573ed23d3d04214f7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af395335611d84b573ed23d3d04214f7f">&#9670;&nbsp;</a></span>isFlippedOnY()</h2>
+<a id="a6f639d1ca9176dbf7585bbdc90b9dc7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f639d1ca9176dbf7585bbdc90b9dc7a">&#9670;&nbsp;</a></span>isFlippedOnY()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool ASGE::Sprite::isFlippedOnY </td>
@@ -378,13 +477,18 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>It is possible to flip the UV coordinates used on the sprite's texture. This will check to see if the Y axis is flipped. </p><dl class="section return"><dt>Returns</dt><dd>If the texture is flipped on the Y axis. </dd></dl>
 
 </div>
 </div>
-<a id="a82fe04d96df4ef6a75bbda75f4d310e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82fe04d96df4ef6a75bbda75f4d310e4">&#9670;&nbsp;</a></span>loadTexture()</h2>
+<a id="adf90a012edc3227ad54cfaf6d26083fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf90a012edc3227ad54cfaf6d26083fa">&#9670;&nbsp;</a></span>loadTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,7 +499,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual bool ASGE::Sprite::loadTexture </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -410,11 +514,72 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a722853ea9c13a25aa09fe1c0a4cc67c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a722853ea9c13a25aa09fe1c0a4cc67c1">&#9670;&nbsp;</a></span>rotationInRadians() <span class="overload">[1/2]</span></h2>
+<a id="ab2dbb35370d6256e0ad98c7ca1868278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2dbb35370d6256e0ad98c7ca1868278">&#9670;&nbsp;</a></span>opacity() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ASGE::Sprite::opacity </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>alpha</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function let's you control the opacity of the sprite by modifying the alpha channel during the render cycle. 1.0f is opaque and 0.0f is completely transparent. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">alpha</td><td>The new value for the alpha channel. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a276464239a84028f612e54602d78dcdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a276464239a84028f612e54602d78dcdc">&#9670;&nbsp;</a></span>opacity() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ASGE::Sprite::opacity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function let's you obtain the opacity of the sprite. The opacity is controlled by using the alpha channel. 1.0f is opaque and 0.0f is completely transparent. </p><dl class="section return"><dt>Returns</dt><dd>The value for the alpha channel. </dd></dl>
+
+</div>
+</div>
+<a id="a32450bd0452d4213b0e50f644a4d1feb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32450bd0452d4213b0e50f644a4d1feb">&#9670;&nbsp;</a></span>rotationInRadians() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float ASGE::Sprite::rotationInRadians </td>
@@ -423,6 +588,11 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>The angle of rotation is used to rotate the sprite around it's origin. The origin defaults to the mid-point of the sprite. The angle of rotation is expressed in radians. </p><dl class="section return"><dt>Returns</dt><dd>The sprites angle of rotation in radians. </dd></dl>
 
@@ -452,11 +622,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1d5f542fb62fdef13334aee49160eda2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d5f542fb62fdef13334aee49160eda2">&#9670;&nbsp;</a></span>scale() <span class="overload">[1/2]</span></h2>
+<a id="a3fb888f0eefed1839441f23a9654c031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fb888f0eefed1839441f23a9654c031">&#9670;&nbsp;</a></span>scale() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float ASGE::Sprite::scale </td>
@@ -465,16 +638,24 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>The scale can be adjusted to automatically make the sprite bigger or smaller than it's original size, allowing for on the fly alterations withouth having to edit the sprite's true size. The scaling operation is performed in both axis. </p><dl class="section return"><dt>Returns</dt><dd>The scale factor. </dd></dl>
 
 </div>
 </div>
-<a id="a2b8b7820089a3656c03bd2eb4acb2e3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b8b7820089a3656c03bd2eb4acb2e3f">&#9670;&nbsp;</a></span>scale() <span class="overload">[2/2]</span></h2>
+<a id="ad086f868557a515b434729c9eedf4b42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad086f868557a515b434729c9eedf4b42">&#9670;&nbsp;</a></span>scale() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ASGE::Sprite::scale </td>
@@ -484,6 +665,11 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>The scale can be adjusted to automatically make the sprite bigger or smaller than it's original size, allowing for on the fly alterations withouth having to edit the sprite's true size. The scaling operation is performed in both axis. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -494,11 +680,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a939610278f1f9b3992871c15fb54e6cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a939610278f1f9b3992871c15fb54e6cc">&#9670;&nbsp;</a></span>setFlipFlags()</h2>
+<a id="aa721f67dc83511112309625f00be466b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa721f67dc83511112309625f00be466b">&#9670;&nbsp;</a></span>setFlipFlags()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ASGE::Sprite::setFlipFlags </td>
@@ -508,6 +697,11 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>It is possible to flip the UV coordinates used on the sprite's texture. This function allows setting of the flip flags. These are then used to control shader's UV mappings. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -518,11 +712,66 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa3b56df2e51489ad2f1bfb568a4009d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3b56df2e51489ad2f1bfb568a4009d9">&#9670;&nbsp;</a></span>width()</h2>
+<a id="aef5b516aee32da9ea275ac12cbf2040d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef5b516aee32da9ea275ac12cbf2040d">&#9670;&nbsp;</a></span>srcRect() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* ASGE::Sprite::srcRect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>It is possible to render a subset of a sprite using a rectangle. The rectangle will use [0] and [1] for the beginning x and y position in the texture and [2] and [3] for the width and height. This is useful when the texture is a sprite sheet. </p><dl class="section return"><dt>Returns</dt><dd>The rectangle used for the UV source. </dd></dl>
+
+</div>
+</div>
+<a id="a0fbc6d01b044ba29210dec38f85edde7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fbc6d01b044ba29210dec38f85edde7">&#9670;&nbsp;</a></span>srcRect() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float* ASGE::Sprite::srcRect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>It is possible to render a subset of a sprite using a rectangle. The rectangle will use [0] and [1] for the beginning x and y position in the texture and [2] and [3] for the width and height. This is useful when the texture is a sprite sheet. </p><dl class="section return"><dt>Returns</dt><dd>The rectangle (as a constant) used for the UV source. </dd></dl>
+
+</div>
+</div>
+<a id="ac9771e50714c11d301f90d63a497095e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9771e50714c11d301f90d63a497095e">&#9670;&nbsp;</a></span>width() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float ASGE::Sprite::width </td>
@@ -531,16 +780,56 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Width is used to determine how wide/long a sprite will be when it's rendered to the screen. It is mapped using pixels. </p><dl class="section return"><dt>Returns</dt><dd>The sprites width. </dd></dl>
 
 </div>
 </div>
-<a id="acded936f83b74b5c33d8f037c0e8b81c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acded936f83b74b5c33d8f037c0e8b81c">&#9670;&nbsp;</a></span>xPos() <span class="overload">[1/2]</span></h2>
+<a id="aa7db027cd03dc1eddcb7c8ca9ceb9baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7db027cd03dc1eddcb7c8ca9ceb9baf">&#9670;&nbsp;</a></span>width() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ASGE::Sprite::width </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Width is used to determine how wide/long a sprite will be when it's rendered to the screen. It is mapped using pixels. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>The sprites width. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af3dec09cc1a4da913a32a20454ac10a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3dec09cc1a4da913a32a20454ac10a5">&#9670;&nbsp;</a></span>xPos() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float ASGE::Sprite::xPos </td>
@@ -549,16 +838,24 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> positions are described using Cartesian Coordinates. The horizontal position in this engine is labelled <b>X</b> and runs from left to right. It is mapped directly to screen space. </p><dl class="section return"><dt>Returns</dt><dd>The position on the x axis </dd></dl>
 
 </div>
 </div>
-<a id="a71cb68ad83feb00ee248986be6608614"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71cb68ad83feb00ee248986be6608614">&#9670;&nbsp;</a></span>xPos() <span class="overload">[2/2]</span></h2>
+<a id="a68c547e9585a4292528d73e478d6b39d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c547e9585a4292528d73e478d6b39d">&#9670;&nbsp;</a></span>xPos() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ASGE::Sprite::xPos </td>
@@ -568,6 +865,11 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> positions are described using Cartesian Coordinates. The horizontal position in this engine is labelled <b>X</b> and runs from left to right. It is mapped directly to screen </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -578,11 +880,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a23bb6608aefe1e1e69bd5160c76b06e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23bb6608aefe1e1e69bd5160c76b06e0">&#9670;&nbsp;</a></span>yPos() <span class="overload">[1/2]</span></h2>
+<a id="a802c704eec77978a12fa3e664f72c588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a802c704eec77978a12fa3e664f72c588">&#9670;&nbsp;</a></span>yPos() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float ASGE::Sprite::yPos </td>
@@ -591,16 +896,24 @@ Protected Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> positions are described using Cartesian Coordinates. The vertical position in this engine is labelled <b>y</b> and runs from top to bottom. It is mapped directly to screen space. </p><dl class="section return"><dt>Returns</dt><dd>The new position on the y axis </dd></dl>
 
 </div>
 </div>
-<a id="a129809d409d543fea32d8e31ae8d58ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a129809d409d543fea32d8e31ae8d58ea">&#9670;&nbsp;</a></span>yPos() <span class="overload">[2/2]</span></h2>
+<a id="a9db36190e101b3693ee2feb77e7b08c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9db36190e101b3693ee2feb77e7b08c0">&#9670;&nbsp;</a></span>yPos() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ASGE::Sprite::yPos </td>
@@ -610,6 +923,11 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p><a class="el" href="class_a_s_g_e_1_1_sprite.html" title="An ASGE supported sprite. ">Sprite</a> positions are described using Cartesian Coordinates. The vertical position in this engine is labelled <b>y</b> and runs from top to bottom. It is mapped directly to screen space. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -621,6 +939,29 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a19cc51b5afacce4f211a8d19d910fb0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19cc51b5afacce4f211a8d19d910fb0b">&#9670;&nbsp;</a></span>alpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ASGE::Sprite::alpha = 1.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Controls the sprite's opacity via alpha </p>
+
+</div>
+</div>
 <a id="a54bc4a2af66842d65a9ab1e714af1c33"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a54bc4a2af66842d65a9ab1e714af1c33">&#9670;&nbsp;</a></span>angle</h2>
 
@@ -733,6 +1074,29 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Scales the sprite equally in both dims. </p>
+
+</div>
+</div>
+<a id="aa0327f779995c255e275801ad5ac987c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0327f779995c255e275801ad5ac987c">&#9670;&nbsp;</a></span>src_rect</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ASGE::Sprite::src_rect[4] { 0,0,0,0 }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The source rectangle used for drawing. </p>
 
 </div>
 </div>

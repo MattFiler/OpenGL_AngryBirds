@@ -36,7 +36,7 @@ namespace ASGE {
 			PDCURSES = 0,     /**< PDCurses for unix. An ASCII only renderer. */
 			PDCURSES_W32 = 1, /**< PDCurses for w32. An ASCII only renderer. */
 			GLEW = 2          /**< GLEW. An OpenGL library. */
-		}; RenderLib getRenderLibrary();  
+		}; RenderLib getRenderLibrary() noexcept;  
 
 		/**
 		*  Supported window modes
@@ -46,7 +46,7 @@ namespace ASGE {
 			FULLSCREEN = 0, /**< Fullscreen without decorations. Typical fullscreen rendering window. */
 			WINDOWED   = 1, /**< Windowed mode. Typical window mode, resident on the desktop. */
 			BORDERLESS = 2  /**< Bordless window mode. Windowed mode that is displayed in fullscreen. */
-		}; WindowMode getWindowMode();
+		}; WindowMode getWindowMode() noexcept;
 
 	public:
 

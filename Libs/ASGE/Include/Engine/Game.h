@@ -101,7 +101,7 @@ namespace ASGE {
 		   implementation.**
 		*  @return The result of the initialisation operation.
 		*/
-		virtual bool exitAPI() = 0;
+		virtual bool exitAPI() noexcept = 0;
 		
 		/**
 		*  The main game loop. 
@@ -119,7 +119,7 @@ namespace ASGE {
 		*  and abort the main game loop, thus exiting 
 		*  the game. 
 		*/
-		void signalExit();
+		void signalExit() noexcept;
 
 	protected:
 		/**
@@ -127,7 +127,7 @@ namespace ASGE {
 		*  Will cause the game to draw and update the FPS
 		*  on the screen every tick. 
 		*/
-		void toggleFPS();
+		void toggleFPS() noexcept;
 		
 		/**
 		*  Updates the FPS counter.
@@ -150,7 +150,7 @@ namespace ASGE {
 		bool exit		 = false; /**< Exit boolean. If true the game loop will exit. */
 
 	private:
-		static std::chrono::milliseconds getGameTime();
+		static std::chrono::milliseconds getGameTime() noexcept;
 		GameTime us; /**< Delta. The frame deltas and total running time. */
 	};
 }

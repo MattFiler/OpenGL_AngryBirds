@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['windowmode',['WindowMode',['../class_a_s_g_e_1_1_renderer.html#a829ce479969d58bf68369355cfc8ea9f',1,'ASGE::Renderer']]]
+  ['spritesortmode',['SpriteSortMode',['../namespace_a_s_g_e.html#a378b1aba7f572e3b328532ad06d0082b',1,'ASGE']]]
 ];

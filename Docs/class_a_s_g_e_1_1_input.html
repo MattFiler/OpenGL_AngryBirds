@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AwesomeSauce Game Engine
-   &#160;<span id="projectnumber">0.0.2</span>
+   &#160;<span id="projectnumber">0.1.2</span>
    </div>
    <div id="projectbrief">Simple OGL engine</div>
   </td>
@@ -95,10 +95,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace1848d30c2ad721ef46185f07973df2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_input.html#ace1848d30c2ad721ef46185f07973df2">getCursorPos</a> (double &amp;xpos, double &amp;ypos) const =0</td></tr>
 <tr class="memdesc:ace1848d30c2ad721ef46185f07973df2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the cursor's (mouse) position.  <a href="#ace1848d30c2ad721ef46185f07973df2">More...</a><br /></td></tr>
 <tr class="separator:ace1848d30c2ad721ef46185f07973df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabfbf1aab65d004caa9eab74a6c7aa61"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_input.html#aabfbf1aab65d004caa9eab74a6c7aa61">setCursorMode</a> (<a class="el" href="namespace_a_s_g_e.html#a228933e0f0f52ede62e280a55023de2c">CursorMode</a> mode)=0</td></tr>
+<tr class="memdesc:aabfbf1aab65d004caa9eab74a6c7aa61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cursor's (mouse) mode.  <a href="#aabfbf1aab65d004caa9eab74a6c7aa61">More...</a><br /></td></tr>
+<tr class="separator:aabfbf1aab65d004caa9eab74a6c7aa61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95f3989570342ce95d5f722baf8a8e79"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="struct_game_pad_data.html">GamePadData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_input.html#a95f3989570342ce95d5f722baf8a8e79">getGamePad</a> (int idx) const =0</td></tr>
 <tr class="memdesc:a95f3989570342ce95d5f722baf8a8e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtains the controllers data.  <a href="#a95f3989570342ce95d5f722baf8a8e79">More...</a><br /></td></tr>
 <tr class="separator:a95f3989570342ce95d5f722baf8a8e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46fc5c4cd323869bbbf370e906e7a08c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_input.html#a46fc5c4cd323869bbbf370e906e7a08c">sendEvent</a> (<a class="el" href="namespace_a_s_g_e.html#af9c856d1b69b981adf1fac1e726e5a59">EventType</a> type, <a class="el" href="namespace_a_s_g_e.html#afb87770d2096ea147cd94bb3f8e47ce0">SharedEventData</a> data)</td></tr>
+<tr class="memitem:a46fc5c4cd323869bbbf370e906e7a08c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s_g_e_1_1_input.html#a46fc5c4cd323869bbbf370e906e7a08c">sendEvent</a> (<a class="el" href="namespace_a_s_g_e.html#af9c856d1b69b981adf1fac1e726e5a59">EventType</a> type, <a class="el" href="namespace_a_s_g_e.html#aa98ce31de963e1cacff2c4aa4a06c70e">SharedEventData</a> data)</td></tr>
 <tr class="memdesc:a46fc5c4cd323869bbbf370e906e7a08c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an event.  <a href="#a46fc5c4cd323869bbbf370e906e7a08c">More...</a><br /></td></tr>
 <tr class="separator:a46fc5c4cd323869bbbf370e906e7a08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff53f6d3afd2d4b23d48ce1995d6426b"><td class="memTemplParams" colspan="2">template&lt;typename T , typename T2 &gt; </td></tr>
@@ -392,7 +395,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespace_a_s_g_e.html#afb87770d2096ea147cd94bb3f8e47ce0">SharedEventData</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_a_s_g_e.html#aa98ce31de963e1cacff2c4aa4a06c70e">SharedEventData</a>&#160;</td>
           <td class="paramname"><em>data</em>&#160;</td>
         </tr>
         <tr>
@@ -411,7 +414,40 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_a_s_g_e.html#af9c856d1b69b981adf1fac1e726e5a59" title="EventType. ">EventType</a> </dd>
 <dd>
-<a class="el" href="namespace_a_s_g_e.html#afb87770d2096ea147cd94bb3f8e47ce0">SharedEventData</a> </dd></dl>
+<a class="el" href="namespace_a_s_g_e.html#aa98ce31de963e1cacff2c4aa4a06c70e">SharedEventData</a> </dd></dl>
+
+</div>
+</div>
+<a id="aabfbf1aab65d004caa9eab74a6c7aa61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabfbf1aab65d004caa9eab74a6c7aa61">&#9670;&nbsp;</a></span>setCursorMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ASGE::Input::setCursorMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_a_s_g_e.html#a228933e0f0f52ede62e280a55023de2c">CursorMode</a>&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Allows control over the mouse cursors visibility and whether or not it should be locked to the window. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>The cursor mode to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespace_a_s_g_e.html#a228933e0f0f52ede62e280a55023de2c" title="CursorMode. ">ASGE::CursorMode</a> </dd></dl>
 
 </div>
 </div>

@@ -25,5 +25,6 @@ var searchData=
   ['line_5fheight',['line_height',['../struct_a_s_g_e_1_1_font.html#a1e0276678485900637f64dd83abee04a',1,'ASGE::Font']]],
   ['linen',['LINEN',['../namespace_a_s_g_e_1_1_c_o_l_o_u_r_s.html#af78ae165ba521f1c6037478e3dbe0ac5',1,'ASGE::COLOURS']]],
   ['loadfont',['loadFont',['../class_a_s_g_e_1_1_renderer.html#a89908bc92650f4edad07ab174e32ad2d',1,'ASGE::Renderer']]],
-  ['loadtexture',['loadTexture',['../class_a_s_g_e_1_1_sprite.html#a82fe04d96df4ef6a75bbda75f4d310e4',1,'ASGE::Sprite']]]
+  ['loadtexture',['loadTexture',['../class_a_s_g_e_1_1_sprite.html#adf90a012edc3227ad54cfaf6d26083fa',1,'ASGE::Sprite']]],
+  ['locked',['LOCKED',['../namespace_a_s_g_e.html#a228933e0f0f52ede62e280a55023de2caaeff3f3f2731681b2ed6a27786a56203',1,'ASGE']]]
 ];

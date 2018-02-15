@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sprite_2eh',['Sprite.h',['../_sprite_8h.html',1,'']]]
+  ['renderer_2eh',['Renderer.h',['../_renderer_8h.html',1,'']]]
 ];

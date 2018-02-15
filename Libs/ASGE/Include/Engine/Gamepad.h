@@ -26,7 +26,7 @@ struct GamePadData
 		int axis_count,
 		const float* axis_data,
 		int button_count,
-		const unsigned char* btns)
+		const unsigned char* btns) noexcept
 		: idx(id), name(n), no_of_axis(axis_count), axis(axis_data), no_of_buttons(button_count), buttons(btns)
 	{
 

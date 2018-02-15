@@ -21,6 +21,7 @@ var searchData=
   ['darkviolet',['DARKVIOLET',['../namespace_a_s_g_e_1_1_c_o_l_o_u_r_s.html#a6de8dc1b7dd71858ea706bca8f2b7eb5',1,'ASGE::COLOURS']]],
   ['deeppink',['DEEPPINK',['../namespace_a_s_g_e_1_1_c_o_l_o_u_r_s.html#acbbd21877b0b6e38cf34e4ebb8e15654',1,'ASGE::COLOURS']]],
   ['deepskyblue',['DEEPSKYBLUE',['../namespace_a_s_g_e_1_1_c_o_l_o_u_r_s.html#a887a56ec56081de2d31bb4ce14c184b2',1,'ASGE::COLOURS']]],
+  ['default_5ftext_5fcolour',['default_text_colour',['../class_a_s_g_e_1_1_renderer.html#a92631619d9914bc485ba3aaff1e11258',1,'ASGE::Renderer']]],
   ['delta_5ftime',['delta_time',['../struct_a_s_g_e_1_1_game_time.html#a44de69dde6fa8796ca7aa22f78fb2f38',1,'ASGE::GameTime']]],
   ['dimgray',['DIMGRAY',['../namespace_a_s_g_e_1_1_c_o_l_o_u_r_s.html#a6719e12aa4d3282531b43667d00d596b',1,'ASGE::COLOURS']]],
   ['dimgrey',['DIMGREY',['../namespace_a_s_g_e_1_1_c_o_l_o_u_r_s.html#a185ce226964115f9c01cc2f4d30f0280',1,'ASGE::COLOURS']]],

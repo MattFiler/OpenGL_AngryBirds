@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['normal',['NORMAL',['../class_a_s_g_e_1_1_sprite.html#aa08b8df5a3a45b638ba454007affe8afa1ae2f6f47e142afdae15251e9f5cac5b',1,'ASGE::Sprite']]]
+  ['locked',['LOCKED',['../namespace_a_s_g_e.html#a228933e0f0f52ede62e280a55023de2caaeff3f3f2731681b2ed6a27786a56203',1,'ASGE']]]
 ];

@@ -6,7 +6,7 @@
 
 #include "Gamepad.h"
 #include "InputEvents.h"
-
+#include "Mouse.h"
 
 namespace ASGE {
 	class Renderer;
@@ -60,6 +60,15 @@ namespace ASGE {
 		* @param ypos The position in the Y axis.
 		*/
 		virtual void getCursorPos(double &xpos, double &ypos) const = 0;
+
+		/**
+		* Sets the cursor's (mouse) mode.
+		* Allows control over the mouse cursors visibility and 
+		* whether or not it should be locked to the window. 
+		* @param mode The cursor mode to set.
+		* @see ASGE::CursorMode
+		*/
+		virtual void setCursorMode(CursorMode mode) = 0;
 
 		/**
 		* Obtains the controllers data.

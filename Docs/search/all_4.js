@@ -9,5 +9,5 @@ var searchData=
   ['eventdata',['EventData',['../struct_a_s_g_e_1_1_event_data.html',1,'ASGE']]],
   ['eventtype',['EventType',['../namespace_a_s_g_e.html#af9c856d1b69b981adf1fac1e726e5a59',1,'ASGE']]],
   ['exit',['exit',['../class_a_s_g_e_1_1_game.html#a6c9ba6aa07983a0d5198d97c05d9a280',1,'ASGE::Game::exit()'],['../class_a_s_g_e_1_1_renderer.html#a2e21f2479ec3c75e8b02d9aef2de0f32',1,'ASGE::Renderer::exit()']]],
-  ['exitapi',['exitAPI',['../class_a_s_g_e_1_1_game.html#a4a76296ea13fd2cdb38afe48c6315ad3',1,'ASGE::Game::exitAPI()'],['../class_a_s_g_e_1_1_o_g_l_game.html#a8d5290bbbc1b0f807bd5a4ac694b8f1b',1,'ASGE::OGLGame::exitAPI()']]]
+  ['exitapi',['exitAPI',['../class_a_s_g_e_1_1_game.html#ae89bc5ef7ebf527a4c2e92507945323d',1,'ASGE::Game::exitAPI()'],['../class_a_s_g_e_1_1_o_g_l_game.html#ac23be51c7d0e88c168385a988132ffec',1,'ASGE::OGLGame::exitAPI()']]]
 ];

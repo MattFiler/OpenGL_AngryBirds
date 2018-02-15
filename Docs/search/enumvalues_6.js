@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['monochrome',['MONOCHROME',['../class_a_s_g_e_1_1_texture2_d.html#af7841112f5f42d8bd299acd8e93e6fd7ad3bd2e4728dd792cbc75a4e243c384c7',1,'ASGE::Texture2D']]],
-  ['monochrome_5falpha',['MONOCHROME_ALPHA',['../class_a_s_g_e_1_1_texture2_d.html#af7841112f5f42d8bd299acd8e93e6fd7ab4c2df61c28c729abbaeefaf441e8255',1,'ASGE::Texture2D']]]
+  ['immediate',['IMMEDIATE',['../namespace_a_s_g_e.html#a378b1aba7f572e3b328532ad06d0082bae35884a2445bc4ae2df52f188763273c',1,'ASGE']]],
+  ['invalid',['INVALID',['../class_a_s_g_e_1_1_renderer.html#a14ffdff2b727c15e5a6d1182a3899aa8accc0377a8afbf50e7094f5c23a8af223',1,'ASGE::Renderer']]]
 ];

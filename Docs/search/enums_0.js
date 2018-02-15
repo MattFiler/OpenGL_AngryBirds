@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eventtype',['EventType',['../namespace_a_s_g_e.html#af9c856d1b69b981adf1fac1e726e5a59',1,'ASGE']]]
+  ['cursormode',['CursorMode',['../namespace_a_s_g_e.html#a228933e0f0f52ede62e280a55023de2c',1,'ASGE']]]
 ];

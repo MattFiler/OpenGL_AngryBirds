@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['flipflags',['FlipFlags',['../class_a_s_g_e_1_1_sprite.html#aa08b8df5a3a45b638ba454007affe8af',1,'ASGE::Sprite']]],
-  ['format',['Format',['../class_a_s_g_e_1_1_texture2_d.html#af7841112f5f42d8bd299acd8e93e6fd7',1,'ASGE::Texture2D']]]
+  ['eventtype',['EventType',['../namespace_a_s_g_e.html#af9c856d1b69b981adf1fac1e726e5a59',1,'ASGE']]]
 ];

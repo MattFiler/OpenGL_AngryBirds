@@ -49,7 +49,7 @@ namespace ASGE
 		* @param width The width of the texture.
 		* @param height the height of the texture. 
 		*/
-		Texture2D(int width, int height)
+		Texture2D(int width, int height) noexcept
 		{
 			dims[0] = width;
 			dims[1] = height;
@@ -78,7 +78,7 @@ namespace ASGE
 		* @param f The format of the stored texture.
 		* @see Format
 		*/
-		void setFormat(Format f) {	format = f; }
+		void setFormat(Format f) noexcept {	format = f; } 
 
 		/**
 		* Retrieves the format of the stored texture. 
@@ -105,13 +105,13 @@ namespace ASGE
 		* Retrieves the width of the loaded texture.
 		* @return The width of the texture.
 		*/
-		unsigned int getWidth()  const { return dims[0]; }
+		unsigned int getWidth()  const noexcept { return dims[0]; }
 		
 		/**
 		* Retrieves the width of the loaded texture.
 		* @return The height of the texture.
 		*/
-		unsigned int getHeight() const { return dims[1]; }
+		unsigned int getHeight() const noexcept { return dims[1]; }
 
 	protected:
 		Format format = RGB;			/**< Texture2D Format. The pixel format used when loading the texture file. */

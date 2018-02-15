@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xpos',['xPos',['../class_a_s_g_e_1_1_sprite.html#acded936f83b74b5c33d8f037c0e8b81c',1,'ASGE::Sprite::xPos() const'],['../class_a_s_g_e_1_1_sprite.html#a71cb68ad83feb00ee248986be6608614',1,'ASGE::Sprite::xPos(float x)']]]
+  ['xpos',['xPos',['../class_a_s_g_e_1_1_sprite.html#af3dec09cc1a4da913a32a20454ac10a5',1,'ASGE::Sprite::xPos() const noexcept'],['../class_a_s_g_e_1_1_sprite.html#a68c547e9585a4292528d73e478d6b39d',1,'ASGE::Sprite::xPos(float x) noexcept']]]
 ];

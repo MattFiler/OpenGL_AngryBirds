@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['rgb',['RGB',['../class_a_s_g_e_1_1_texture2_d.html#af7841112f5f42d8bd299acd8e93e6fd7a331dfe6059d60b8207a491d3a8f349e5',1,'ASGE::Texture2D']]],
-  ['rgba',['RGBA',['../class_a_s_g_e_1_1_texture2_d.html#af7841112f5f42d8bd299acd8e93e6fd7a9cb259c799e93077d50f4dd12b2edc6c',1,'ASGE::Texture2D']]]
+  ['normal',['NORMAL',['../class_a_s_g_e_1_1_sprite.html#aa08b8df5a3a45b638ba454007affe8afa1ae2f6f47e142afdae15251e9f5cac5b',1,'ASGE::Sprite::NORMAL()'],['../namespace_a_s_g_e.html#a228933e0f0f52ede62e280a55023de2ca1e23852820b9154316c7c06e2b7ba051',1,'ASGE::NORMAL()']]]
 ];
