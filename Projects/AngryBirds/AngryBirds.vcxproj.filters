@@ -19,6 +19,18 @@
     <ClCompile Include="..\..\Source\SpriteComponent.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\AngryCode\AngryRender.cpp">
+      <Filter>Source\AngryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryCode\AngryUpdate.cpp">
+      <Filter>Source\AngryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryCode\AngryInput.cpp">
+      <Filter>Source\AngryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryStructs\AngryGamestateData.cpp">
+      <Filter>Source\AngryStructs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -26,6 +38,21 @@
     </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{150ff3c8-9b98-46c7-9e2b-ccd67ca720c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\AngryCode">
+      <UniqueIdentifier>{6471a57e-ce4e-4117-8e0a-346d4b44138d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\AngryCode">
+      <UniqueIdentifier>{6bf501b4-7e37-4a43-957f-b8edf197309e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\AngryStructs">
+      <UniqueIdentifier>{56b5ae44-82b9-427d-b74c-8445762b1a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\AngryEnums">
+      <UniqueIdentifier>{69a20072-d6fd-4cf2-bd7d-477597f1576a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\AngryStructs">
+      <UniqueIdentifier>{267554c0-492f-4a2a-8ce5-849698223054}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +70,21 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\SpriteComponent.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryCode\AngryInput.h">
+      <Filter>Headers\AngryCode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryCode\AngryRender.h">
+      <Filter>Headers\AngryCode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryCode\AngryUpdate.h">
+      <Filter>Headers\AngryCode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryStructs\AngryGamestateData.h">
+      <Filter>Headers\AngryStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryEnums\AngryGamestate.h">
+      <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

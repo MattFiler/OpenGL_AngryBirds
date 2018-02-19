@@ -115,11 +115,13 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 {
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 	
+	//Close the game when ESC is pressed
 	if (key->key == ASGE::KEYS::KEY_ESCAPE)
 	{
 		signalExit();
 	}
 	
+	//Go fullscreen if ALT+ENTER is pressed
 	else if (key->key == ASGE::KEYS::KEY_ENTER && 
 		     key->action == ASGE::KEYS::KEY_PRESSED &&
 		     key->mods == 0x0004)
@@ -134,11 +136,17 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 		}
 	}
 	
-	else if (in_menu)
-	{
-		if (key->key == ASGE::KEYS::KEY_SPACE)
-		{
-			in_menu = !in_menu;
+	//Handle keypresses by gamestate
+	switch (angrybirds_gamestate.current_gamestate) {
+		//IN MENU
+		case AngryGamestate::IN_MENU: {
+			angrybirds_input.gstateInMenu(data);
+			break;
+		}
+		//IN GAME
+		case AngryGamestate::IS_PLAYING: {
+			angrybirds_input.gstatePlaying(data);
+			break;
 		}
 	}
 }
@@ -171,16 +179,7 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 */
 void AngryBirdsGame::update(const ASGE::GameTime& us)
 {
-	if (!in_menu)
-	{
-
-	}
-
 	auto dt_sec = us.delta_time.count() / 1000.0;
-
-	//make sure you use delta time in any movement calculations!
-
-
 }
 
 /**
@@ -193,13 +192,20 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 void AngryBirdsGame::render(const ASGE::GameTime &)
 {
 	renderer->setFont(0);
-	
-	if (in_menu)
-	{
-		renderer->renderSprite(*menu_layer.spriteComponent()->getSprite());
-	}
-	else
-	{
-		renderer->renderSprite(*background_layer.spriteComponent()->getSprite());
+
+	//Render gamestate-specific sprites
+	switch (angrybirds_gamestate.current_gamestate) {
+		//IN MENU
+		case AngryGamestate::IN_MENU: {
+			//Menu screen
+			renderer->renderSprite(*menu_layer.spriteComponent()->getSprite());
+			break;
+		}
+		//IN GAME
+		case AngryGamestate::IS_PLAYING: {
+			//Render game
+			renderer->renderSprite(*background_layer.spriteComponent()->getSprite());
+			break;
+		}
 	}
 }

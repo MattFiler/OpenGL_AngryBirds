@@ -98,6 +98,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\AngryCode\AngryInput.cpp" />
+    <ClCompile Include="..\..\Source\AngryCode\AngryRender.cpp" />
+    <ClCompile Include="..\..\Source\AngryCode\AngryUpdate.cpp" />
+    <ClCompile Include="..\..\Source\AngryStructs\AngryGamestateData.cpp" />
     <ClCompile Include="..\..\Source\GameObject.cpp" />
     <ClCompile Include="..\..\Source\main.cpp" />
     <ClCompile Include="..\..\Source\Game.cpp" />
@@ -106,6 +110,11 @@
     <ClCompile Include="..\..\Source\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\AngryCode\AngryInput.h" />
+    <ClInclude Include="..\..\Source\AngryCode\AngryRender.h" />
+    <ClInclude Include="..\..\Source\AngryCode\AngryUpdate.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryGamestate.h" />
+    <ClInclude Include="..\..\Source\AngryStructs\AngryGamestateData.h" />
     <ClInclude Include="..\..\Source\Game.h" />
     <ClInclude Include="..\..\Source\GameObject.h" />
     <ClInclude Include="..\..\Source\Rect.h" />

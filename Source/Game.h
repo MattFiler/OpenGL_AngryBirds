@@ -5,6 +5,11 @@
 #include "GameObject.h"
 #include "Rect.h"
 
+#include "AngryCode/AngryRender.h"
+#include "AngryCode/AngryUpdate.h"
+#include "AngryCode/AngryInput.h"
+
+#include "AngryStructs/AngryGamestateData.h"
 
 /**
 *  An OpenGL Game based on ASGE.
@@ -35,4 +40,10 @@ private:
 	GameObject menu_layer;
 
 	bool in_menu = true;
+
+	AngryUpdate angrybirds_update;
+	AngryRender angrybirds_render;
+	AngryInput angrybirds_input;
+	
+	AngryGamestateData angrybirds_gamestate;
 };
