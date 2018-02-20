@@ -61,7 +61,12 @@ bool AngryBirdsGame::init()
 		return false;
 	}
 
-	if (!menu_layer.addSpriteComponent(renderer.get(), "Resources\\Textures\\menu.jpg"))
+	if (!angrybirds_sprites.menu_layer.addSpriteComponent(renderer.get(), "Resources\\Textures\\menu.jpg"))
+	{
+		return false;
+	}
+
+	if (!angrybirds_sprites.devtest.addSpriteComponent(renderer.get(), "Resources\\Textures\\kenney_physicspack\\PNG\\Aliens\\alienGreen_square.jpg"))
 	{
 		return false;
 	}
@@ -75,7 +80,7 @@ bool AngryBirdsGame::loadBackgrounds()
 	filename += std::to_string(std::rand() % 3 + 1);
 	filename += ".png";
 
-	if (!background_layer.addSpriteComponent(renderer.get(), filename))
+	if (!angrybirds_sprites.background_layer.addSpriteComponent(renderer.get(), filename))
 	{
 		return false;
 	}
@@ -189,7 +194,7 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 			 swapped accordingly and the image shown.
 *   @return  void
 */
-void AngryBirdsGame::render(const ASGE::GameTime &)
+void AngryBirdsGame::render(const ASGE::GameTime& us)
 {
 	renderer->setFont(0);
 
@@ -198,13 +203,13 @@ void AngryBirdsGame::render(const ASGE::GameTime &)
 		//IN MENU
 		case AngryGamestate::IN_MENU: {
 			//Menu screen
-			renderer->renderSprite(*menu_layer.spriteComponent()->getSprite());
+			angrybirds_render.gstateInMenu(us, renderer.get());
 			break;
 		}
 		//IN GAME
 		case AngryGamestate::IS_PLAYING: {
 			//Render game
-			renderer->renderSprite(*background_layer.spriteComponent()->getSprite());
+			angrybirds_render.gstatePlaying(us, renderer.get());
 			break;
 		}
 	}

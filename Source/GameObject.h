@@ -3,6 +3,8 @@
 #include "SpriteComponent.h"
 #include "Vector2.h"
 
+#include "AngryEnums\AngryPigStates.h"
+
 /**
 *  Objects used throughout the game.
 *  Provides a nice solid base class for objects in this game world.
@@ -33,6 +35,12 @@ public:
 	*  @return true if the component is successfully added
 	*/
 	bool  addSpriteComponent(ASGE::Renderer* renderer, const std::string& texture_file_name);
+
+
+	/* FOR PIGS ONLY */
+	AngryPigStates getPigState();
+	void setPigState(AngryPigStates pig_state);
+
 	
 	/**
 	*  Returns the sprite componenent.
@@ -47,4 +55,7 @@ private:
 
 	void freeSpriteComponent();	
 	SpriteComponent* sprite_component = nullptr;
+
+	/* FOR PIGS ONLY */
+	AngryPigStates pig_state;
 };

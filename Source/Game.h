@@ -4,6 +4,7 @@
 
 #include "GameObject.h"
 #include "Rect.h"
+//#include "AngryStructs/AngrySprites.h"
 
 #include "AngryCode/AngryRender.h"
 #include "AngryCode/AngryUpdate.h"
@@ -35,10 +36,6 @@ private:
 	int  key_callback_id = -1;	        /**< Key Input Callback ID. */
 	int  mouse_callback_id = -1;        /**< Mouse Input Callback ID. */
 
-	//Add your GameObjects
-	GameObject background_layer;
-	GameObject menu_layer;
-
 	bool in_menu = true;
 
 	AngryUpdate angrybirds_update;
@@ -46,4 +43,5 @@ private:
 	AngryInput angrybirds_input;
 	
 	AngryGamestateData angrybirds_gamestate;
+	AngrySprites angrybirds_sprites;
 };

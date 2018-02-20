@@ -31,6 +31,9 @@
     <ClCompile Include="..\..\Source\AngryStructs\AngryGamestateData.cpp">
       <Filter>Source\AngryStructs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\AngryStructs\AngrySprites.cpp">
+      <Filter>Source\AngryStructs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\AngryEnums\AngryGamestate.h">
       <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryStructs\AngrySprites.h">
+      <Filter>Headers\AngryStructs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

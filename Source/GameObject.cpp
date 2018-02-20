@@ -1,6 +1,12 @@
 #include <Engine\Renderer.h>
 #include "GameObject.h"
 
+GameObject::GameObject() 
+{
+	/* APPLIES TO PIGS ONLY */
+	pig_state = AngryPigStates::SHOULD_SPAWN;
+}
+
 GameObject::~GameObject()
 {
 	freeSpriteComponent();
@@ -33,3 +39,12 @@ SpriteComponent* GameObject::spriteComponent()
 	return sprite_component;
 }
 
+/* APPLIES TO PIGS ONLY */
+AngryPigStates GameObject::getPigState()
+{
+	return pig_state;
+}
+void GameObject::setPigState(AngryPigStates pigState)
+{
+	pig_state = pigState;
+}

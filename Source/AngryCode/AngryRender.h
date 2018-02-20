@@ -3,6 +3,7 @@
 #include <Engine/OGLGame.h>
 
 #include "../AngryStructs/AngryGamestateData.h"
+#include "../AngryStructs/AngrySprites.h"
 
 class AngryRender {
 	public:
@@ -15,4 +16,5 @@ class AngryRender {
 
 	private:
 		AngryGamestateData angrybirds_gamestate;
+		AngrySprites angrybirds_sprites;
 };
