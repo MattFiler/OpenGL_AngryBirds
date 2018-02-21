@@ -103,6 +103,7 @@
     <ClCompile Include="..\..\Source\AngryCode\AngryUpdate.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngryGamestateData.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngrySprites.cpp" />
+    <ClCompile Include="..\..\Source\AngryStructs\AngryWorldVars.cpp" />
     <ClCompile Include="..\..\Source\GameObject.cpp" />
     <ClCompile Include="..\..\Source\main.cpp" />
     <ClCompile Include="..\..\Source\Game.cpp" />
@@ -115,8 +116,10 @@
     <ClInclude Include="..\..\Source\AngryCode\AngryRender.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryUpdate.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryGamestate.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryPigStates.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryGamestateData.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngrySprites.h" />
+    <ClInclude Include="..\..\Source\AngryStructs\AngryWorldVars.h" />
     <ClInclude Include="..\..\Source\Game.h" />
     <ClInclude Include="..\..\Source\GameObject.h" />
     <ClInclude Include="..\..\Source\Rect.h" />

@@ -5,6 +5,7 @@
 #include "../AngryStructs/AngryGamestateData.h"
 #include "../AngryStructs/AngrySprites.h"
 #include "../AngryEnums/AngryPigStates.h"
+#include "../AngryStructs/AngryWorldVars.h"
 
 class AngryUpdate {
 	public:

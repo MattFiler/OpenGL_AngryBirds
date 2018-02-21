@@ -1,9 +1,9 @@
 #pragma once
 
 /*
-Define all pig states.
+	Define all bird states.
 */
-enum class AngryPigStates : int
+enum class AngryBirdStates : int
 {
 	SHOULD_SPAWN,
 	SPAWNED,

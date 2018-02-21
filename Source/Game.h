@@ -4,7 +4,6 @@
 
 #include "GameObject.h"
 #include "Rect.h"
-//#include "AngryStructs/AngrySprites.h"
 
 #include "AngryCode/AngryRender.h"
 #include "AngryCode/AngryUpdate.h"

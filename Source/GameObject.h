@@ -18,7 +18,7 @@ public:
 	/**
 	*  Default constructor.
 	*/
-	GameObject() = default;
+	GameObject();
 	
 	/**
 	*  Destructor. Frees dynamic memory.
@@ -37,9 +37,9 @@ public:
 	bool  addSpriteComponent(ASGE::Renderer* renderer, const std::string& texture_file_name);
 
 
-	/* FOR PIGS ONLY */
-	AngryPigStates getPigState();
-	void setPigState(AngryPigStates pig_state);
+	/* FOR BIRDS ONLY */
+	AngryBirdStates getBirdState();
+	void setBirdState(AngryBirdStates pig_state);
 
 	
 	/**
@@ -56,6 +56,6 @@ private:
 	void freeSpriteComponent();	
 	SpriteComponent* sprite_component = nullptr;
 
-	/* FOR PIGS ONLY */
-	AngryPigStates pig_state;
+	/* FOR BIRDS ONLY */
+	AngryBirdStates bird_state;
 };

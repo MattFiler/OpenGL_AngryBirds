@@ -3,8 +3,8 @@
 
 GameObject::GameObject() 
 {
-	/* APPLIES TO PIGS ONLY */
-	pig_state = AngryPigStates::SHOULD_SPAWN;
+	/* APPLIES TO BIRDS ONLY */
+	bird_state = AngryBirdStates::SHOULD_SPAWN;
 }
 
 GameObject::~GameObject()
@@ -39,12 +39,12 @@ SpriteComponent* GameObject::spriteComponent()
 	return sprite_component;
 }
 
-/* APPLIES TO PIGS ONLY */
-AngryPigStates GameObject::getPigState()
+/* APPLIES TO BIRDS ONLY */
+AngryBirdStates GameObject::getBirdState()
 {
-	return pig_state;
+	return bird_state;
 }
-void GameObject::setPigState(AngryPigStates pigState)
+void GameObject::setBirdState(AngryBirdStates pigState)
 {
-	pig_state = pigState;
+	bird_state = pigState;
 }

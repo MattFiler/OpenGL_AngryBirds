@@ -34,6 +34,9 @@
     <ClCompile Include="..\..\Source\AngryStructs\AngrySprites.cpp">
       <Filter>Source\AngryStructs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\AngryStructs\AngryWorldVars.cpp">
+      <Filter>Source\AngryStructs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -90,6 +93,12 @@
       <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\AngryStructs\AngrySprites.h">
+      <Filter>Headers\AngryStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryEnums\AngryPigStates.h">
+      <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryStructs\AngryWorldVars.h">
       <Filter>Headers\AngryStructs</Filter>
     </ClInclude>
   </ItemGroup>
