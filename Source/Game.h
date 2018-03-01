@@ -11,6 +11,8 @@
 
 #include "AngryStructs/AngryGamestateData.h"
 
+#include "AngryEnums/AngryGameVars.h"
+
 /**
 *  An OpenGL Game based on ASGE.
 */
@@ -42,5 +44,6 @@ private:
 	AngryInput angrybirds_input;
 	
 	AngryGamestateData angrybirds_gamestate;
+	AngryMouseData angrybirds_mousedata;
 	AngrySprites angrybirds_sprites;
 };

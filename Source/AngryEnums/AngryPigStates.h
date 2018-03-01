@@ -12,5 +12,6 @@ enum class AngryBirdStates : int
 	HAS_BEEN_FIRED,
 	IS_IN_AIR,
 	HAS_HIT,
-	SHOULD_DESPAWN
+	SHOULD_DESPAWN,
+	DESPAWNED
 };

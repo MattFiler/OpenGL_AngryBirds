@@ -102,8 +102,9 @@
     <ClCompile Include="..\..\Source\AngryCode\AngryRender.cpp" />
     <ClCompile Include="..\..\Source\AngryCode\AngryUpdate.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngryGamestateData.cpp" />
+    <ClCompile Include="..\..\Source\AngryStructs\AngryMouseData.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngrySprites.cpp" />
-    <ClCompile Include="..\..\Source\AngryStructs\AngryWorldVars.cpp" />
+    <ClCompile Include="..\..\Source\AngryStructs\AngryFlightVars.cpp" />
     <ClCompile Include="..\..\Source\GameObject.cpp" />
     <ClCompile Include="..\..\Source\main.cpp" />
     <ClCompile Include="..\..\Source\Game.cpp" />
@@ -116,10 +117,12 @@
     <ClInclude Include="..\..\Source\AngryCode\AngryRender.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryUpdate.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryGamestate.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryGameVars.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryPigStates.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryGamestateData.h" />
+    <ClInclude Include="..\..\Source\AngryStructs\AngryMouseData.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngrySprites.h" />
-    <ClInclude Include="..\..\Source\AngryStructs\AngryWorldVars.h" />
+    <ClInclude Include="..\..\Source\AngryStructs\AngryFlightVars.h" />
     <ClInclude Include="..\..\Source\Game.h" />
     <ClInclude Include="..\..\Source\GameObject.h" />
     <ClInclude Include="..\..\Source\Rect.h" />

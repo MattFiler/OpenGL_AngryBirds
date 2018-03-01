@@ -39,12 +39,30 @@ SpriteComponent* GameObject::spriteComponent()
 	return sprite_component;
 }
 
+void GameObject::addToX(float addX)
+{
+	sprite_component->getSprite()->xPos(sprite_component->getSprite()->xPos() + addX);
+}
+void GameObject::addToY(float addY)
+{
+	sprite_component->getSprite()->yPos(sprite_component->getSprite()->yPos() + addY);
+}
+
+void GameObject::subtractFromX(float minusX)
+{
+	sprite_component->getSprite()->xPos(sprite_component->getSprite()->xPos() - minusX);
+}
+void GameObject::subtractFromY(float minusY)
+{
+	sprite_component->getSprite()->yPos(sprite_component->getSprite()->yPos() - minusY);
+}
+
 /* APPLIES TO BIRDS ONLY */
 AngryBirdStates GameObject::getBirdState()
 {
 	return bird_state;
 }
-void GameObject::setBirdState(AngryBirdStates pigState)
+void GameObject::setBirdState(AngryBirdStates newBirdState)
 {
-	bird_state = pigState;
+	bird_state = newBirdState;
 }

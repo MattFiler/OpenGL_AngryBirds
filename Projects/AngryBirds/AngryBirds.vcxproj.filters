@@ -34,7 +34,10 @@
     <ClCompile Include="..\..\Source\AngryStructs\AngrySprites.cpp">
       <Filter>Source\AngryStructs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\AngryStructs\AngryWorldVars.cpp">
+    <ClCompile Include="..\..\Source\AngryStructs\AngryFlightVars.cpp">
+      <Filter>Source\AngryStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryStructs\AngryMouseData.cpp">
       <Filter>Source\AngryStructs</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,7 +101,13 @@
     <ClInclude Include="..\..\Source\AngryEnums\AngryPigStates.h">
       <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\AngryStructs\AngryWorldVars.h">
+    <ClInclude Include="..\..\Source\AngryStructs\AngryFlightVars.h">
+      <Filter>Headers\AngryStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryEnums\AngryGameVars.h">
+      <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryStructs\AngryMouseData.h">
       <Filter>Headers\AngryStructs</Filter>
     </ClInclude>
   </ItemGroup>

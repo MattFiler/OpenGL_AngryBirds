@@ -66,7 +66,7 @@ bool AngryBirdsGame::init()
 		return false;
 	}
 
-	if (!angrybirds_sprites.devtest.addSpriteComponent(renderer.get(), "Resources\\Textures\\kenney_physicspack\\PNG\\Aliens\\alienGreen_square.jpg"))
+	if (!angrybirds_sprites.devtest.addSpriteComponent(renderer.get(), "Resources\\Textures\\kenney_physicspack\\PNG\\Aliens\\alienGreen_square.png"))
 	{
 		return false;
 	}
@@ -102,8 +102,8 @@ void AngryBirdsGame::setupResolution()
 	// how will the game be framed in native 16:9 resolutions?
 	// here are some abritrary values for you to adjust as you see fit
 	// https://www.gamasutra.com/blogs/KenanBolukbasi/20171002/306822/Scaling_and_MultiResolution_in_2D_Games.php
-	game_width = 1920;
-	game_height = 1080;
+	game_width = (int)AngryGameVars::GAME_WIDTH;
+	game_height = (int)AngryGameVars::GAME_HEIGHT;
 }
 
 /**
@@ -126,6 +126,7 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 		signalExit();
 	}
 	
+	/*
 	//Go fullscreen if ALT+ENTER is pressed
 	else if (key->key == ASGE::KEYS::KEY_ENTER && 
 		     key->action == ASGE::KEYS::KEY_PRESSED &&
@@ -140,6 +141,7 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 			renderer->setWindowedMode(ASGE::Renderer::WindowMode::WINDOWED);
 		}
 	}
+	*/
 	
 	//Handle keypresses by gamestate
 	switch (angrybirds_gamestate.current_gamestate) {
@@ -170,8 +172,21 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 {
 	auto click = static_cast<const ASGE::ClickEvent*>(data.get());
 
-	double x_pos, y_pos;
-	inputs->getCursorPos(x_pos, y_pos);
+	if (click->button == 0) 
+	{
+		//Let the game world know we're pulling the bird back
+		angrybirds_sprites.devtest.setBirdState(AngryBirdStates::IN_CANNON);
+	}
+
+	if (click->action == ASGE::KEYS::KEY_RELEASED)
+	{
+		//Set physics values of bird
+		AngryFlightVars::pullback_force = ((int)AngryGameVars::SLINGSHOT_X_ORIGIN - angrybirds_mousedata.mouse_x);
+		AngryFlightVars::pullback_angle = ((int)AngryGameVars::SLINGSHOT_Y_ORIGIN - angrybirds_mousedata.mouse_y) * -1;
+
+		//Let the game world know we've released the bird
+		angrybirds_sprites.devtest.setBirdState(AngryBirdStates::HAS_BEEN_FIRED);
+	}
 }
 
 
@@ -184,7 +199,16 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 */
 void AngryBirdsGame::update(const ASGE::GameTime& us)
 {
-	auto dt_sec = us.delta_time.count() / 1000.0;
+	//Get current cursor pos
+	inputs->getCursorPos(angrybirds_mousedata.mouse_x, angrybirds_mousedata.mouse_y);
+
+	switch (angrybirds_gamestate.current_gamestate) {
+		//IN GAME
+		case AngryGamestate::IS_PLAYING: {
+			angrybirds_update.gstatePlaying(us);
+			break;
+		}
+	}
 }
 
 /**
@@ -213,4 +237,7 @@ void AngryBirdsGame::render(const ASGE::GameTime& us)
 			break;
 		}
 	}
+
+	renderer->renderText(std::to_string(angrybirds_mousedata.mouse_x), 500, 20, ASGE::COLOURS::RED);
+	renderer->renderText(std::to_string(angrybirds_mousedata.mouse_y), 500, 60, ASGE::COLOURS::RED);
 }

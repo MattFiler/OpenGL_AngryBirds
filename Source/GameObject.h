@@ -37,9 +37,18 @@ public:
 	bool  addSpriteComponent(ASGE::Renderer* renderer, const std::string& texture_file_name);
 
 
+	//Add to the X and Y values of the object
+	void addToX(float addX);
+	void addToY(float addY);
+
+	//Minus from the X and Y values of the object
+	void subtractFromX(float minusX);
+	void subtractFromY(float minusY);
+
+
 	/* FOR BIRDS ONLY */
 	AngryBirdStates getBirdState();
-	void setBirdState(AngryBirdStates pig_state);
+	void setBirdState(AngryBirdStates newBirdState);
 
 	
 	/**
