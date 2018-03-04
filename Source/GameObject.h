@@ -45,6 +45,14 @@ public:
 	void subtractFromX(float minusX);
 	void subtractFromY(float minusY);
 
+	//Get X and Y vals easier
+	float getX();
+	float getY();
+
+	//Set X and Y vals easier
+	void setX(float x);
+	void setY(float y);
+
 
 	/* FOR BIRDS ONLY */
 	AngryBirdStates getBirdState();

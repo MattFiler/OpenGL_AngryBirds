@@ -57,6 +57,24 @@ void GameObject::subtractFromY(float minusY)
 	sprite_component->getSprite()->yPos(sprite_component->getSprite()->yPos() - minusY);
 }
 
+float GameObject::getX()
+{
+	return sprite_component->getSprite()->xPos();
+}
+float GameObject::getY()
+{
+	return sprite_component->getSprite()->yPos();
+}
+
+void GameObject::setX(float x)
+{
+	sprite_component->getSprite()->xPos(x);
+}
+void GameObject::setY(float y)
+{
+	sprite_component->getSprite()->yPos(y);
+}
+
 /* APPLIES TO BIRDS ONLY */
 AngryBirdStates GameObject::getBirdState()
 {

@@ -19,7 +19,8 @@ class AngryUpdate {
 		void gstateInMenu(const ASGE::GameTime & us);
 		void gstatePlaying(const ASGE::GameTime & us);
 
-		void handleBirdMovement(double dt_sec);
+		//Handle Bird Movement
+		void handleBirdMovement(double dt_sec, GameObject &bird);
 
 	private:
 		AngryGamestateData angrybirds_gamestate;

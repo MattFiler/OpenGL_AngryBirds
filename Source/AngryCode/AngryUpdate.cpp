@@ -23,16 +23,16 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 	auto dt_sec = us.delta_time.count() / 1000.0;
 
 	//Handle movement of the currently active bird
-	handleBirdMovement(dt_sec);
+	handleBirdMovement(dt_sec, angrybirds_sprites.devtest);
 }
 
 
 /*
 Handle movement of the currently active bird
 */
-void AngryUpdate::handleBirdMovement(double dt_sec)
+void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 {
-	switch (angrybirds_sprites.devtest.getBirdState())
+	switch (bird.getBirdState())
 	{
 		/* Bird is in cannon and ready to be fired... */
 		case (AngryBirdStates::IN_CANNON):
@@ -43,8 +43,8 @@ void AngryUpdate::handleBirdMovement(double dt_sec)
 			AngryFlightVars::pullback_force = 0;
 
 			//Set position of bird to mouse position
-			angrybirds_sprites.devtest.spriteComponent()->getSprite()->yPos(angrybirds_mousedata.mouse_y);
-			angrybirds_sprites.devtest.spriteComponent()->getSprite()->xPos(angrybirds_mousedata.mouse_x);
+			bird.setY(angrybirds_mousedata.mouse_y);
+			bird.setX(angrybirds_mousedata.mouse_x);
 
 			break;
 		}
@@ -55,16 +55,16 @@ void AngryUpdate::handleBirdMovement(double dt_sec)
 			AngryFlightVars::bird_flight_time += dt_sec;
 
 			//Move bird dependant on user input
-			angrybirds_sprites.devtest.subtractFromY((AngryFlightVars::pullback_angle * 10 * dt_sec) - (AngryFlightVars::bird_flight_time / 2));
-			angrybirds_sprites.devtest.addToX(AngryFlightVars::pullback_force * 10 * dt_sec);
+			bird.subtractFromY((AngryFlightVars::pullback_angle * 10 * dt_sec) - (AngryFlightVars::bird_flight_time / 2));
+			bird.addToX(AngryFlightVars::pullback_force * 10 * dt_sec);
 
 			//Off window
-			if (angrybirds_sprites.devtest.spriteComponent()->getSprite()->yPos() > (int)AngryGameVars::GAME_HEIGHT ||
-				//angrybirds_sprites.devtest.spriteComponent()->getSprite()->yPos() < -angrybirds_sprites.devtest.spriteComponent()->getSprite()->height() ||
-				angrybirds_sprites.devtest.spriteComponent()->getSprite()->xPos() > (int)AngryGameVars::GAME_WIDTH ||
-				angrybirds_sprites.devtest.spriteComponent()->getSprite()->xPos() < -angrybirds_sprites.devtest.spriteComponent()->getSprite()->width())
+			if (bird.getY() > (int)AngryGameVars::GAME_HEIGHT ||
+				//bird.getY() < -bird.spriteComponent()->getSprite()->height() ||
+				bird.getX() > (int)AngryGameVars::GAME_WIDTH ||
+				bird.getX() < -bird.spriteComponent()->getSprite()->width())
 			{
-				angrybirds_sprites.devtest.setBirdState(AngryBirdStates::SHOULD_DESPAWN);
+				bird.setBirdState(AngryBirdStates::SHOULD_DESPAWN);
 			}
 
 			break;
@@ -73,8 +73,8 @@ void AngryUpdate::handleBirdMovement(double dt_sec)
 		case (AngryBirdStates::SHOULD_DESPAWN):
 		{
 			//Reset bird position (will want to actually "despawn" here eventually.
-			angrybirds_sprites.devtest.spriteComponent()->getSprite()->xPos(0);
-			angrybirds_sprites.devtest.spriteComponent()->getSprite()->yPos(0);
+			bird.setX(0);
+			bird.setY(0);
 
 			break;
 		}
