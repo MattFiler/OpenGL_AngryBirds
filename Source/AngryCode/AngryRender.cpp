@@ -12,6 +12,7 @@ AngryRender::~AngryRender() {
 GAMESTATE_IN_MENU
 */
 void AngryRender::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* renderer) {
+	//Menu background
 	renderer->renderSprite(*angrybirds_sprites.menu_layer.spriteComponent()->getSprite());
 }
 
@@ -19,27 +20,12 @@ void AngryRender::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* render
 GAMESTATE_IS_PLAYING
 */
 void AngryRender::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* renderer) {
-	//Render background
+	//In-game background
 	renderer->renderSprite(*angrybirds_sprites.background_layer.spriteComponent()->getSprite());
 
-	//Render birds
-	for (int i = 0; i < (int)AngryGameVars::MAX_NUMBER_OF_BIRDS; i++) 
-	{
-		if (angrybirds_sprites.birds[i].hasSpawned()) //Only render if spawned in world
-		{
-			renderer->renderSprite(*angrybirds_sprites.birds[i].spriteComponent()->getSprite());
-		}
-	}
+	//Active player controlled bird
+	renderer->renderSprite(*angrybirds_sprites.active_bird.spriteComponent()->getSprite());
 
-	//Render pigs
-	for (int i = 0; i < (int)AngryGameVars::MAX_NUMBER_OF_PIGS; i++)
-	{
-		if (angrybirds_sprites.pigs[i].hasSpawned()) //Only render if spawned in world
-		{
-			renderer->renderSprite(*angrybirds_sprites.pigs[i].spriteComponent()->getSprite());
-		}
-	}
-
-	//Render slingshot (placeholder for now)
+	//Placeholder Slingshot
 	renderer->renderText(".", (int)AngryGameVars::SLINGSHOT_X_ORIGIN, (int)AngryGameVars::SLINGSHOT_Y_ORIGIN, ASGE::COLOURS::BLACK);
 }
