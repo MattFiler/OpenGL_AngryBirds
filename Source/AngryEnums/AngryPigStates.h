@@ -9,6 +9,7 @@ enum class AngryBirdStates : int
 	SPAWNED,
 	IN_LINEUP,
 	IN_CANNON,
+	ABOUT_TO_BE_FIRED,
 	HAS_BEEN_FIRED,
 	IS_IN_AIR,
 	HAS_HIT,

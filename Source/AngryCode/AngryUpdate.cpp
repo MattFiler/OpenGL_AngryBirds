@@ -24,6 +24,12 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 
 	//Handle movement of the currently active bird
 	handleBirdMovement(dt_sec, angrybirds_sprites.active_bird);
+
+	//If bird has despawned, put it back in cannon
+	if (angrybirds_sprites.active_bird.getBirdState() == AngryBirdStates::DESPAWNED)
+	{
+		angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::IN_CANNON);
+	}
 }
 
 
@@ -34,20 +40,34 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 {
 	switch (bird.getBirdState())
 	{
-		/* Bird is in cannon and ready to be fired... */
+		/* Bird is loaded in cannon and should spawn... */
 		case (AngryBirdStates::IN_CANNON):
 		{
+			//Spawn
+			bird.spawn();
+
+			//Set Position to cannon
+			bird.setX((float)AngryGameVars::SLINGSHOT_X_ORIGIN);
+			bird.setY((float)AngryGameVars::SLINGSHOT_Y_ORIGIN);
+
 			//Reset vars
 			AngryFlightVars::bird_flight_time = 0;
 			AngryFlightVars::pullback_angle = 0;
 			AngryFlightVars::pullback_force = 0;
 
+			break;
+		}
+
+		/* Bird is in cannon and about to be fired... */
+		case (AngryBirdStates::ABOUT_TO_BE_FIRED):
+		{
 			//Set position of bird to mouse position
-			bird.setY(angrybirds_mousedata.mouse_y);
-			bird.setX(angrybirds_mousedata.mouse_x);
+			bird.setY(angrybirds_mousedata.mouse_y - (bird.spriteComponent()->getSprite()->height() / 2));
+			bird.setX(angrybirds_mousedata.mouse_x - (bird.spriteComponent()->getSprite()->width() / 2));
 
 			break;
 		}
+
 		/* Bird has been fired from cannon... */
 		case (AngryBirdStates::HAS_BEEN_FIRED):
 		{
@@ -69,12 +89,17 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 
 			break;
 		}
+
 		/* Bird is off window and should despawn... */
 		case (AngryBirdStates::SHOULD_DESPAWN):
 		{
-			//Reset bird position (will want to actually "despawn" here eventually.
+			//Reset position
 			bird.setX(0);
 			bird.setY(0);
+
+			//Despawn
+			bird.despawn();
+			bird.setBirdState(AngryBirdStates::DESPAWNED);
 
 			break;
 		}

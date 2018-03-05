@@ -66,10 +66,14 @@ bool AngryBirdsGame::init()
 		return false;
 	}
 
-	if (!angrybirds_sprites.active_bird.addSpriteComponent(renderer.get(), "Resources\\Textures\\kenney_physicspack\\PNG\\Aliens\\alienGreen_square.png"))
+	if (!angrybirds_sprites.active_bird.addSpriteComponent(renderer.get(), "Resources\\Textures\\angrybirds\\redbird\\1.png"))
 	{
 		return false;
 	}
+	angrybirds_sprites.active_bird.spawn();
+	angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::IN_CANNON);
+
+	//angrybirds_sprites.active_bird.spriteComponent()->loadSprite(renderer.get(), "Resources\\Textures\\angrybirds\\redbird\\2.png");
 
 	return true;
 }
@@ -172,13 +176,13 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 {
 	auto click = static_cast<const ASGE::ClickEvent*>(data.get());
 
-	if (click->button == 0) 
+	if (click->button == 0 && angrybirds_sprites.active_bird.getBirdState() == AngryBirdStates::IN_CANNON)
 	{
 		//Let the game world know we're pulling the bird back
-		angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::IN_CANNON);
+		angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::ABOUT_TO_BE_FIRED);
 	}
 
-	if (click->action == ASGE::KEYS::KEY_RELEASED)
+	if (click->action == ASGE::KEYS::KEY_RELEASED && angrybirds_sprites.active_bird.getBirdState() == AngryBirdStates::ABOUT_TO_BE_FIRED)
 	{
 		//Set physics values of bird
 		AngryFlightVars::pullback_force = ((int)AngryGameVars::SLINGSHOT_X_ORIGIN - angrybirds_mousedata.mouse_x);
