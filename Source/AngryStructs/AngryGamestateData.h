@@ -4,4 +4,5 @@
 struct AngryGamestateData
 {
 	static AngryGamestate current_gamestate;
+	static int current_bird;
 };

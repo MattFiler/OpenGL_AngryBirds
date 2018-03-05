@@ -22,8 +22,14 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 	//Calculate frame time in seconds
 	auto dt_sec = us.delta_time.count() / 1000.0;
 
+	//Run out of birds to fire, game over
+	if (AngryGamestateData::current_bird == -1)
+	{
+		AngryGamestateData::current_gamestate = AngryGamestate::GAME_OVER;
+	}
+
 	//Handle movement of the currently active bird
-	handleBirdMovement(dt_sec, angrybirds_sprites.devtest);
+	handleBirdMovement(dt_sec, angrybirds_sprites.birds[AngryGamestateData::current_bird]);
 }
 
 
@@ -72,9 +78,9 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 		/* Bird is off window and should despawn... */
 		case (AngryBirdStates::SHOULD_DESPAWN):
 		{
-			//Reset bird position (will want to actually "despawn" here eventually.
-			bird.setX(0);
-			bird.setY(0);
+			//Despawn bird
+			bird.despawn();
+			AngryGamestateData::current_bird -= 1;
 
 			break;
 		}

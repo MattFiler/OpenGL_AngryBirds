@@ -56,19 +56,36 @@ bool AngryBirdsGame::init()
 	mouse_callback_id =inputs->addCallbackFnc(
 		ASGE::E_MOUSE_CLICK, &AngryBirdsGame::clickHandler, this);
 
+	//Apply background sprites
 	if (!loadBackgrounds())
 	{
 		return false;
 	}
 
+	//Apply menu sprite
 	if (!angrybirds_sprites.menu_layer.addSpriteComponent(renderer.get(), "Resources\\Textures\\menu.jpg"))
 	{
 		return false;
 	}
 
-	if (!angrybirds_sprites.devtest.addSpriteComponent(renderer.get(), "Resources\\Textures\\kenney_physicspack\\PNG\\Aliens\\alienGreen_square.png"))
+	//Spawn and apply sprite to every bird
+	for (int i = 0; i < (int)AngryGameVars::MAX_NUMBER_OF_BIRDS; i++)
 	{
-		return false;
+		if (!angrybirds_sprites.birds[i].addSpriteComponent(renderer.get(), "Resources\\Textures\\kenney_physicspack\\PNG\\Aliens\\alienGreen_square.png"))
+		{
+			return false;
+		}
+		angrybirds_sprites.birds[i].spawn();
+	}
+
+	//Spawn and apply sprite to every pig
+	for (int i = 0; i < (int)AngryGameVars::MAX_NUMBER_OF_PIGS; i++)
+	{
+		if (!angrybirds_sprites.pigs[i].addSpriteComponent(renderer.get(), "Resources\\Textures\\kenney_physicspack\\PNG\\Aliens\\alienBlue_square.png"))
+		{
+			return false;
+		}
+		angrybirds_sprites.pigs[i].despawn();
 	}
 
 	return true;
@@ -175,7 +192,7 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 	if (click->button == 0) 
 	{
 		//Let the game world know we're pulling the bird back
-		angrybirds_sprites.devtest.setBirdState(AngryBirdStates::IN_CANNON);
+		angrybirds_sprites.birds[(int)AngryGamestateData::current_bird].setBirdState(AngryBirdStates::IN_CANNON);
 	}
 
 	if (click->action == ASGE::KEYS::KEY_RELEASED)
@@ -185,7 +202,7 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 		AngryFlightVars::pullback_angle = ((int)AngryGameVars::SLINGSHOT_Y_ORIGIN - angrybirds_mousedata.mouse_y) * -1;
 
 		//Let the game world know we've released the bird
-		angrybirds_sprites.devtest.setBirdState(AngryBirdStates::HAS_BEEN_FIRED);
+		angrybirds_sprites.birds[(int)AngryGamestateData::current_bird].setBirdState(AngryBirdStates::HAS_BEEN_FIRED);
 	}
 }
 

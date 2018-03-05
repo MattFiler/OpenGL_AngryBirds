@@ -75,6 +75,19 @@ void GameObject::setY(float y)
 	sprite_component->getSprite()->yPos(y);
 }
 
+void GameObject::despawn()
+{
+	isSpawned = false;
+}
+void GameObject::spawn()
+{
+	isSpawned = true;
+}
+bool GameObject::hasSpawned()
+{
+	return isSpawned;
+}
+
 /* APPLIES TO BIRDS ONLY */
 AngryBirdStates GameObject::getBirdState()
 {

@@ -54,6 +54,12 @@ public:
 	void setY(float y);
 
 
+	//Handle spawn state
+	void despawn();
+	void spawn();
+	bool hasSpawned();
+
+
 	/* FOR BIRDS ONLY */
 	AngryBirdStates getBirdState();
 	void setBirdState(AngryBirdStates newBirdState);
@@ -69,6 +75,7 @@ public:
 
 
 private:
+	bool isSpawned = false;
 
 	void freeSpriteComponent();	
 	SpriteComponent* sprite_component = nullptr;
