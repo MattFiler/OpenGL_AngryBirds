@@ -14,7 +14,7 @@
     <ProjectGuid>{7F5C3AA2-D205-44FE-B63C-F411DEE5C8F7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>AngryBirds</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
     <ProjectName>AngryBirds</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -118,7 +118,7 @@
     <ClInclude Include="..\..\Source\AngryCode\AngryUpdate.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryGamestate.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryGameVars.h" />
-    <ClInclude Include="..\..\Source\AngryEnums\AngryPigStates.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryBirdStates.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryGamestateData.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryMouseData.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngrySprites.h" />

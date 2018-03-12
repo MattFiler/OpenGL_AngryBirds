@@ -98,9 +98,6 @@
     <ClInclude Include="..\..\Source\AngryStructs\AngrySprites.h">
       <Filter>Headers\AngryStructs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\AngryEnums\AngryPigStates.h">
-      <Filter>Headers\AngryEnums</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\AngryStructs\AngryFlightVars.h">
       <Filter>Headers\AngryStructs</Filter>
     </ClInclude>
@@ -109,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\AngryStructs\AngryMouseData.h">
       <Filter>Headers\AngryStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryEnums\AngryBirdStates.h">
+      <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -39,10 +39,12 @@ private:
 
 	bool in_menu = true;
 
+	/* AngryCode */
 	AngryUpdate angrybirds_update;
 	AngryRender angrybirds_render;
 	AngryInput angrybirds_input;
 	
+	/* AngryStructs */
 	AngryGamestateData angrybirds_gamestate;
 	AngryMouseData angrybirds_mousedata;
 	AngrySprites angrybirds_sprites;

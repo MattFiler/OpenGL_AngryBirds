@@ -7,7 +7,7 @@
 #include "../AngryStructs/AngryFlightVars.h"
 #include "../AngryStructs/AngryMouseData.h"
 
-#include "../AngryEnums/AngryPigStates.h"
+#include "../AngryEnums/AngryBirdStates.h"
 #include "../AngryEnums/AngryGameVars.h"
 
 class AngryUpdate {
@@ -23,6 +23,7 @@ class AngryUpdate {
 		void handleBirdMovement(double dt_sec, GameObject &bird);
 
 	private:
+		/* AngryStructs */
 		AngryGamestateData angrybirds_gamestate;
 		AngryMouseData angrybirds_mousedata;
 		AngrySprites angrybirds_sprites;

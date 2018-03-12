@@ -75,8 +75,10 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 			AngryFlightVars::bird_flight_time += dt_sec;
 
 			//Move bird dependant on user input
-			bird.subtractFromY((AngryFlightVars::pullback_angle * 10 * dt_sec) - (AngryFlightVars::bird_flight_time / 2));
-			bird.addToX(AngryFlightVars::pullback_force * 10 * dt_sec);
+			bird.subtractFromY((AngryFlightVars::pullback_angle * (int)AngryGameVars::FLIGHT_ANGLE_MODIFIER * dt_sec) - 
+							   (AngryFlightVars::bird_flight_time / (int)AngryGameVars::FLIGHT_TIME_MODIFIER));
+			bird.addToX(AngryFlightVars::pullback_force * 
+						(int)AngryGameVars::FLIGHT_FORCE_MODIFIER * dt_sec);
 
 			//Off window
 			if (bird.getY() > (int)AngryGameVars::GAME_HEIGHT ||
@@ -94,8 +96,8 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 		case (AngryBirdStates::SHOULD_DESPAWN):
 		{
 			//Reset position
-			bird.setX(0);
-			bird.setY(0);
+			bird.setX((int)AngryGameVars::DESPAWN_X_POS);
+			bird.setY((int)AngryGameVars::DESPAWN_Y_POS);
 
 			//Despawn
 			bird.despawn();

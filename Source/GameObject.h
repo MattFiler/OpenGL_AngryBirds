@@ -3,7 +3,7 @@
 #include "SpriteComponent.h"
 #include "Vector2.h"
 
-#include "AngryEnums\AngryPigStates.h"
+#include "AngryEnums\AngryBirdStates.h"
 
 /**
 *  Objects used throughout the game.

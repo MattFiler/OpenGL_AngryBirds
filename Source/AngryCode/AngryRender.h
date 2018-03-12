@@ -17,6 +17,7 @@ class AngryRender {
 		void gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* renderer);
 
 	private:
+		/* AngryStructs */
 		AngryGamestateData angrybirds_gamestate;
 		AngrySprites angrybirds_sprites;
 };

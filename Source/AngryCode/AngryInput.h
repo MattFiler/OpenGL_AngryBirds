@@ -14,5 +14,6 @@ class AngryInput {
 		void gstatePlaying(ASGE::SharedEventData data);
 
 	private:
+		/* AngryStructs */
 		AngryGamestateData angrybirds_gamestate;
 };
