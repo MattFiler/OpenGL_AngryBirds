@@ -1,6 +1,9 @@
 #pragma once
+#pragma comment(lib, "irrKlang.lib")
+
 #include <string>
 #include <Engine/OGLGame.h>
+#include <irrklang.h>
 
 #include "../AngryStructs/AngryGamestateData.h"
 #include "../AngryStructs/AngrySprites.h"
@@ -23,6 +26,14 @@ class AngryUpdate {
 		void handleBirdMovement(double dt_sec, GameObject &bird);
 
 	private:
+		//Define music states (to avoid multiple tracks playing)
+		enum music_state { PLAYING, NOT_PLAYING };
+		int menu_music = NOT_PLAYING;
+		int game_music = NOT_PLAYING;
+
+		//Our class' sound engine
+		irrklang::ISoundEngine* sound_engine;
+
 		/* AngryStructs */
 		AngryGamestateData angrybirds_gamestate;
 		AngryMouseData angrybirds_mousedata;

@@ -1,10 +1,11 @@
 #include "AngryUpdate.h"
 
+//Create and destroy the sound engine when the class is called
 AngryUpdate::AngryUpdate() {
-
+	sound_engine = irrklang::createIrrKlangDevice();
 }
 AngryUpdate::~AngryUpdate() {
-
+	sound_engine->drop();
 }
 
 
@@ -12,7 +13,12 @@ AngryUpdate::~AngryUpdate() {
 GAMESTATE_IN_MENU
 */
 void AngryUpdate::gstateInMenu(const ASGE::GameTime & us) {
-
+	//If not already playing, play background music
+	if (menu_music == NOT_PLAYING)
+	{
+		sound_engine->play2D("Resources\\Music\\theme.mp3", true);
+		menu_music = PLAYING;
+	}
 }
 
 /*
@@ -21,6 +27,13 @@ GAMESTATE_IS_PLAYING
 void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 	//Calculate frame time in seconds
 	auto dt_sec = us.delta_time.count() / 1000.0;
+
+	//If not already playing, play background music
+	if (game_music == NOT_PLAYING)
+	{
+		//sound_engine->play2D("somefile.mp3", true); - no music atm
+		game_music = PLAYING;
+	}
 
 	//Handle movement of the currently active bird
 	handleBirdMovement(dt_sec, angrybirds_sprites.active_bird);

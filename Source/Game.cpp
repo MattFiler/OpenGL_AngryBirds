@@ -207,6 +207,11 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 	inputs->getCursorPos(angrybirds_mousedata.mouse_x, angrybirds_mousedata.mouse_y);
 
 	switch (angrybirds_gamestate.current_gamestate) {
+		//IN MENU
+		case AngryGamestate::IN_MENU: {
+			angrybirds_update.gstateInMenu(us);
+			break;
+		}
 		//IN GAME
 		case AngryGamestate::IS_PLAYING: {
 			angrybirds_update.gstatePlaying(us);
