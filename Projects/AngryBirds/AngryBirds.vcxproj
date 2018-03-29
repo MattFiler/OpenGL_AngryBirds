@@ -108,6 +108,7 @@
     <ClCompile Include="..\..\Source\AngryStructs\AngryMouseData.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngrySprites.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngryFlightVars.cpp" />
+    <ClCompile Include="..\..\Source\GameFont.cpp" />
     <ClCompile Include="..\..\Source\GameObject.cpp" />
     <ClCompile Include="..\..\Source\main.cpp" />
     <ClCompile Include="..\..\Source\Game.cpp" />
@@ -127,6 +128,7 @@
     <ClInclude Include="..\..\Source\AngryStructs\AngrySprites.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryFlightVars.h" />
     <ClInclude Include="..\..\Source\Game.h" />
+    <ClInclude Include="..\..\Source\GameFont.h" />
     <ClInclude Include="..\..\Source\GameObject.h" />
     <ClInclude Include="..\..\Source\Rect.h" />
     <ClInclude Include="..\..\Source\SpriteComponent.h" />

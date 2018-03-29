@@ -42,7 +42,7 @@ bool AngryBirdsGame::init()
 		return false;
 	}
 
-	toggleFPS();
+	//toggleFPS();
 	renderer->setWindowTitle("Angry Birds!");
 	renderer->setWindowedMode(ASGE::Renderer::WindowMode::WINDOWED);
 	renderer->setClearColour(ASGE::COLOURS::BLACK);
@@ -56,16 +56,19 @@ bool AngryBirdsGame::init()
 	mouse_callback_id =inputs->addCallbackFnc(
 		ASGE::E_MOUSE_CLICK, &AngryBirdsGame::clickHandler, this);
 
+	/* In-Game Backgrounds */
 	if (!loadBackgrounds())
 	{
 		return false;
 	}
 
+	/* Menu Background */
 	if (!angrybirds_sprites.menu_layer.addSpriteComponent(renderer.get(), "Resources\\Textures\\menu.jpg"))
 	{
 		return false;
 	}
 
+	/* Active Bird */
 	if (!angrybirds_sprites.active_bird.addSpriteComponent(renderer.get(), "Resources\\Textures\\angrybirds\\redbird\\1.png"))
 	{
 		return false;
@@ -73,7 +76,33 @@ bool AngryBirdsGame::init()
 	angrybirds_sprites.active_bird.spawn();
 	angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::IN_CANNON);
 
-	//angrybirds_sprites.active_bird.spriteComponent()->loadSprite(renderer.get(), "Resources\\Textures\\angrybirds\\redbird\\2.png");
+	/* Inactive Birds */
+	for (int i = 0; i < (int)AngryGameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
+	{
+		if (!angrybirds_sprites.waiting_birds[i].addSpriteComponent(renderer.get(), "Resources\\Textures\\angrybirds\\redbird\\1.png"))
+		{
+			return false;
+		}
+		angrybirds_sprites.waiting_birds[i].setX((int)AngryGameVars::SLINGSHOT_X_ORIGIN - (45*i) - 40);
+		angrybirds_sprites.waiting_birds[i].setY((int)AngryGameVars::SLINGSHOT_Y_ORIGIN + 250);
+	}
+
+	/* Slingshot Components */
+	if (!angrybirds_sprites.slingshot[0].addSpriteComponent(renderer.get(), "Resources\\Textures\\angrybirds\\slingshot\\slingshot_foreground.png"))
+	{
+		return false;
+	}
+	angrybirds_sprites.slingshot[0].setX((int)AngryGameVars::SLINGSHOT_X_ORIGIN - 25);
+	angrybirds_sprites.slingshot[0].setY((int)AngryGameVars::SLINGSHOT_Y_ORIGIN);
+	if (!angrybirds_sprites.slingshot[1].addSpriteComponent(renderer.get(), "Resources\\Textures\\angrybirds\\slingshot\\slingshot_background.png"))
+	{
+		return false;
+	}
+	angrybirds_sprites.slingshot[1].setX((int)AngryGameVars::SLINGSHOT_X_ORIGIN - 25);
+	angrybirds_sprites.slingshot[1].setY((int)AngryGameVars::SLINGSHOT_Y_ORIGIN);
+
+	//Load font
+	GameFont::fonts[0] = new GameFont(renderer->loadFont("Resources\\Fonts\\regular.ttf", 45), "default", 45);
 
 	return true;
 }
@@ -129,6 +158,20 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 	{
 		signalExit();
 	}
+
+	//Handle keypresses by gamestate
+	switch (angrybirds_gamestate.current_gamestate) {
+		//IN MENU
+		case AngryGamestate::IN_MENU: {
+			angrybirds_input.gstateInMenu(data);
+			break;
+		}
+		//IN GAME
+		case AngryGamestate::IS_PLAYING: {
+			angrybirds_input.gstatePlaying(data);
+			break;
+		}
+	}
 	
 	/*
 	//Go fullscreen if ALT+ENTER is pressed
@@ -146,20 +189,6 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 		}
 	}
 	*/
-	
-	//Handle keypresses by gamestate
-	switch (angrybirds_gamestate.current_gamestate) {
-		//IN MENU
-		case AngryGamestate::IN_MENU: {
-			angrybirds_input.gstateInMenu(data);
-			break;
-		}
-		//IN GAME
-		case AngryGamestate::IS_PLAYING: {
-			angrybirds_input.gstatePlaying(data);
-			break;
-		}
-	}
 }
 
 /**
@@ -229,7 +258,7 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 */
 void AngryBirdsGame::render(const ASGE::GameTime& us)
 {
-	renderer->setFont(0);
+	renderer->setFont(GameFont::fonts[0]->id);
 
 	//Render gamestate-specific sprites
 	switch (angrybirds_gamestate.current_gamestate) {
@@ -245,8 +274,17 @@ void AngryBirdsGame::render(const ASGE::GameTime& us)
 			angrybirds_render.gstatePlaying(us, renderer.get());
 			break;
 		}
+		//HAS WON
+		case AngryGamestate::HAS_WON: {
+			//Render win screen
+			angrybirds_render.gstateGameOver(us, renderer.get());
+			break;
+		}
+		//HAS LOST
+		case AngryGamestate::HAS_LOST: {
+			//Render loss screen
+			angrybirds_render.gstateGameOver(us, renderer.get());
+			break;
+		}
 	}
-
-	renderer->renderText(std::to_string(angrybirds_mousedata.mouse_x), 500, 20, ASGE::COLOURS::RED);
-	renderer->renderText(std::to_string(angrybirds_mousedata.mouse_y), 500, 60, ASGE::COLOURS::RED);
 }

@@ -16,7 +16,7 @@ void AngryUpdate::gstateInMenu(const ASGE::GameTime & us) {
 	//If not already playing, play background music
 	if (menu_music == NOT_PLAYING)
 	{
-		sound_engine->play2D("Resources\\Music\\theme.mp3", true);
+		sound_engine->play2D("Resources\\Music\\550_music_main_MusicMain.mp3", true);
 		menu_music = PLAYING;
 	}
 }
@@ -28,20 +28,30 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 	//Calculate frame time in seconds
 	auto dt_sec = us.delta_time.count() / 1000.0;
 
-	//If not already playing, play background music
+	//If not already playing, play background music and intro sfx
 	if (game_music == NOT_PLAYING)
 	{
-		//sound_engine->play2D("somefile.mp3", true); - no music atm
+		sound_engine->stopAllSounds();
+		sound_engine->play2D("Resources\\Music\\551_sound_start_SoundStart.mp3", false);
+		sound_engine->play2D("Resources\\Music\\563_music_back_MusicBack.mp3", true);
 		game_music = PLAYING;
 	}
 
 	//Handle movement of the currently active bird
 	handleBirdMovement(dt_sec, angrybirds_sprites.active_bird);
 
-	//If bird has despawned, put it back in cannon
 	if (angrybirds_sprites.active_bird.getBirdState() == AngryBirdStates::DESPAWNED)
 	{
-		angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::IN_CANNON);
+		if (angrybirds_gamestate.lives != 0) 
+		{
+			//If bird has despawned, put it back in cannon
+			angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::IN_CANNON);
+		}
+		else
+		{
+			//We're out of lives, can't put a bird in the cannon.
+			angrybirds_gamestate.current_gamestate = AngryGamestate::HAS_LOST;
+		}
 	}
 }
 
@@ -67,6 +77,13 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 			AngryFlightVars::bird_flight_time = 0;
 			AngryFlightVars::pullback_angle = 0;
 			AngryFlightVars::pullback_force = 0;
+
+			//Play SFX
+			if (bird_sfx == NOT_PLAYING)
+			{
+				sound_engine->play2D("Resources\\Music\\552_sound_red_SoundRed.mp3", false);
+				bird_sfx = PLAYING;
+			}
 
 			break;
 		}
@@ -115,6 +132,12 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 			//Despawn
 			bird.despawn();
 			bird.setBirdState(AngryBirdStates::DESPAWNED);
+
+			//Reset music trigger
+			bird_sfx = NOT_PLAYING;
+
+			//Update lives accordingly
+			angrybirds_gamestate.lives -= 1;
 
 			break;
 		}

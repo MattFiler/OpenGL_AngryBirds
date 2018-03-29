@@ -11,7 +11,7 @@ enum class AngryGameVars : int
 
 	//Slingshot position
 	SLINGSHOT_X_ORIGIN = 250,
-	SLINGSHOT_Y_ORIGIN = 850,
+	SLINGSHOT_Y_ORIGIN = 750,
 
 	//Flight curvature modifiers
 	FLIGHT_ANGLE_MODIFIER = 10,
@@ -20,5 +20,8 @@ enum class AngryGameVars : int
 
 	//Despawn sprite holding location
 	DESPAWN_X_POS = 0,
-	DESPAWN_Y_POS = 0
+	DESPAWN_Y_POS = 0,
+
+	//Bird count (lives)
+	NUMBER_OF_STARTING_BIRDS = 6
 };

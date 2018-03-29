@@ -15,6 +15,7 @@ class AngryRender {
 		//Render Handlers
 		void gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* renderer);
 		void gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* renderer);
+		void gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* renderer);
 
 	private:
 		/* AngryStructs */

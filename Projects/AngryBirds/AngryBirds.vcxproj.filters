@@ -40,6 +40,9 @@
     <ClCompile Include="..\..\Source\AngryStructs\AngryMouseData.cpp">
       <Filter>Source\AngryStructs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\GameFont.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\AngryEnums\AngryBirdStates.h">
       <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GameFont.h">
+      <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -30,6 +30,7 @@ class AngryUpdate {
 		enum music_state { PLAYING, NOT_PLAYING };
 		int menu_music = NOT_PLAYING;
 		int game_music = NOT_PLAYING;
+		int bird_sfx = NOT_PLAYING;
 
 		//Our class' sound engine
 		irrklang::ISoundEngine* sound_engine;

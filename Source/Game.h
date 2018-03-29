@@ -3,6 +3,7 @@
 #include <Engine/OGLGame.h>
 
 #include "GameObject.h"
+#include "GameFont.h"
 #include "Rect.h"
 
 #include "AngryCode/AngryRender.h"
