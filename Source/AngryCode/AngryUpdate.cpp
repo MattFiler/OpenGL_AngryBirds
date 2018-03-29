@@ -40,6 +40,7 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 	//Handle movement of the currently active bird
 	handleBirdMovement(dt_sec, angrybirds_sprites.active_bird);
 
+	//Reload bird?
 	if (angrybirds_sprites.active_bird.getBirdState() == AngryBirdStates::DESPAWNED)
 	{
 		if (angrybirds_gamestate.lives != 0) 
@@ -50,7 +51,8 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 		else
 		{
 			//We're out of lives, can't put a bird in the cannon.
-			angrybirds_gamestate.current_gamestate = AngryGamestate::HAS_LOST;
+			angrybirds_gamestate.current_gamestate = AngryGamestate::GAME_OVER;
+			angrybirds_gamestate.win_state = AngryGamestate::HAS_LOST;
 		}
 	}
 }

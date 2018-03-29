@@ -22,6 +22,9 @@ enum class AngryGameVars : int
 	DESPAWN_X_POS = 0,
 	DESPAWN_Y_POS = 0,
 
+	//Number of flight path dots
+	MAX_FLIGHT_MARKER_DOTS = 100,
+
 	//Bird count (lives)
 	NUMBER_OF_STARTING_BIRDS = 6
 };

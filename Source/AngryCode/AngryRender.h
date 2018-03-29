@@ -5,7 +5,9 @@
 #include "../AngryStructs/AngryGamestateData.h"
 #include "../AngryStructs/AngrySprites.h"
 
+#include "../AngryEnums/AngryMenuScreens.h"
 #include "../AngryEnums/AngryGameVars.h"
+#include "../AngryEnums/AngryBackgrounds.h"
 
 class AngryRender {
 	public:

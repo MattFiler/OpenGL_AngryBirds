@@ -116,5 +116,11 @@
     <ClInclude Include="..\..\Source\GameFont.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\AngryEnums\AngryMenuScreens.h">
+      <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryEnums\AngryBackgrounds.h">
+      <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

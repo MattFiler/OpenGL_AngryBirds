@@ -3,6 +3,7 @@
 #include <Engine/OGLGame.h>
 
 #include "../AngryStructs/AngryGamestateData.h"
+#include "../AngryEnums/AngryMenuScreens.h"
 
 class AngryInput {
 	public:

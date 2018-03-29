@@ -55,15 +55,22 @@ bool AngryBirdsGame::init()
 	
 	mouse_callback_id =inputs->addCallbackFnc(
 		ASGE::E_MOUSE_CLICK, &AngryBirdsGame::clickHandler, this);
+	
 
-	/* In-Game Backgrounds */
-	if (!loadBackgrounds())
+	/* Menu Background */
+	for (int i = 0; i < (int)AngryBackgrounds::NUMBER_OF_BACKGROUNDS; i++) {
+		if (!angrybirds_sprites.backgrounds[i].addSpriteComponent(renderer.get(), "Resources\\Textures\\angrybirds\\backgrounds\\" + std::to_string(i) + ".jpg"))
+		{
+			return false;
+		}
+	}
+
+	/* Cursors */
+	if (!angrybirds_sprites.cursor[0].addSpriteComponent(renderer.get(), "Resources\\Textures\\angrybirds\\cursor\\cursor_default.png"))
 	{
 		return false;
 	}
-
-	/* Menu Background */
-	if (!angrybirds_sprites.menu_layer.addSpriteComponent(renderer.get(), "Resources\\Textures\\menu.jpg"))
+	if (!angrybirds_sprites.cursor[1].addSpriteComponent(renderer.get(), "Resources\\Textures\\angrybirds\\cursor\\cursor_grabbed.png"))
 	{
 		return false;
 	}
@@ -107,20 +114,6 @@ bool AngryBirdsGame::init()
 	return true;
 }
 
-bool AngryBirdsGame::loadBackgrounds()
-{
-	std::string filename = "Resources\\Textures\\lvl";
-	filename += std::to_string(std::rand() % 3 + 1);
-	filename += ".png";
-
-	if (!angrybirds_sprites.background_layer.addSpriteComponent(renderer.get(), filename))
-	{
-		return false;
-	}
-
-	return true;
-}
-
 /**
 *   @brief   Sets the game window resolution
 *   @details This function is designed to create the window size, any 
@@ -152,12 +145,6 @@ void AngryBirdsGame::setupResolution()
 void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 {
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
-	
-	//Close the game when ESC is pressed
-	if (key->key == ASGE::KEYS::KEY_ESCAPE)
-	{
-		signalExit();
-	}
 
 	//Handle keypresses by gamestate
 	switch (angrybirds_gamestate.current_gamestate) {
@@ -209,6 +196,9 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 	{
 		//Let the game world know we're pulling the bird back
 		angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::ABOUT_TO_BE_FIRED);
+
+		//Let the cursor know we're interacting
+		cursor_type = INTERACTION;
 	}
 
 	if (click->action == ASGE::KEYS::KEY_RELEASED && angrybirds_sprites.active_bird.getBirdState() == AngryBirdStates::ABOUT_TO_BE_FIRED)
@@ -219,6 +209,9 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 
 		//Let the game world know we've released the bird
 		angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::HAS_BEEN_FIRED);
+
+		//Let the cursor know we've finished
+		cursor_type = STANDARD;
 	}
 }
 
@@ -235,6 +228,9 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 	//Get current cursor pos
 	inputs->getCursorPos(angrybirds_mousedata.mouse_x, angrybirds_mousedata.mouse_y);
 
+	//Hide the cursor within the window (we use our own)
+	inputs->setCursorMode(ASGE::CursorMode::HIDDEN);
+
 	switch (angrybirds_gamestate.current_gamestate) {
 		//IN MENU
 		case AngryGamestate::IN_MENU: {
@@ -247,6 +243,10 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 			break;
 		}
 	}
+
+	//Always update cursor position
+	angrybirds_sprites.cursor[cursor_type].setX(angrybirds_mousedata.mouse_x);
+	angrybirds_sprites.cursor[cursor_type].setY(angrybirds_mousedata.mouse_y - 10);
 }
 
 /**
@@ -274,17 +274,14 @@ void AngryBirdsGame::render(const ASGE::GameTime& us)
 			angrybirds_render.gstatePlaying(us, renderer.get());
 			break;
 		}
-		//HAS WON
-		case AngryGamestate::HAS_WON: {
-			//Render win screen
-			angrybirds_render.gstateGameOver(us, renderer.get());
-			break;
-		}
-		//HAS LOST
-		case AngryGamestate::HAS_LOST: {
-			//Render loss screen
+		//HAS WON or HAS LOST
+		case AngryGamestate::GAME_OVER: {
+			//Render win/loss screen
 			angrybirds_render.gstateGameOver(us, renderer.get());
 			break;
 		}
 	}
+
+	//Always render cursor
+	renderer->renderSprite(*angrybirds_sprites.cursor[cursor_type].spriteComponent()->getSprite());
 }

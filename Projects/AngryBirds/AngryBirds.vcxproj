@@ -120,9 +120,11 @@
     <ClInclude Include="..\..\Source\AngryCode\AngryInput.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryRender.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryUpdate.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryBackgrounds.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryGamestate.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryGameVars.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryBirdStates.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryMenuScreens.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryGamestateData.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryMouseData.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngrySprites.h" />

@@ -13,11 +13,20 @@ GAMESTATE_IN_MENU
 */
 void AngryRender::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* renderer)
 {
-	//Menu background
-	renderer->renderSprite(*angrybirds_sprites.menu_layer.spriteComponent()->getSprite());
-
-	//Press enter text
-	renderer->renderText("PRESS ENTER TO BEGIN", ((int)AngryGameVars::GAME_WIDTH / 2) - 180, ((int)AngryGameVars::GAME_HEIGHT / 2) + ((int)AngryGameVars::GAME_HEIGHT / 2.7), 1, ASGE::COLOURS::WHITE);
+	switch (angrybirds_gamestate.menu_screen) {
+		//Splashscreen
+		case AngryMenuScreens::SPLASHSCREEN: {
+			renderer->renderSprite(*angrybirds_sprites.backgrounds[(int)AngryBackgrounds::SPLASHSCREEN_BACKGROUND].spriteComponent()->getSprite());
+			renderer->renderText("PRESS ENTER TO BEGIN", ((int)AngryGameVars::GAME_WIDTH / 2) - 180, ((int)AngryGameVars::GAME_HEIGHT / 2) + ((int)AngryGameVars::GAME_HEIGHT / 2.7), 1, ASGE::COLOURS::WHITE);
+			break;
+		}
+		//Main menu
+		case AngryMenuScreens::MAIN_MENU: {
+			renderer->renderSprite(*angrybirds_sprites.backgrounds[(int)AngryBackgrounds::MAIN_MENU_BACKGROUND].spriteComponent()->getSprite());
+			renderer->renderText("MAIN MENU", ((int)AngryGameVars::GAME_WIDTH / 2) - 180, ((int)AngryGameVars::GAME_HEIGHT / 2) + ((int)AngryGameVars::GAME_HEIGHT / 2.7), 1, ASGE::COLOURS::WHITE);
+			break;
+		}
+	}
 }
 
 /*
@@ -26,7 +35,7 @@ GAMESTATE_IS_PLAYING
 void AngryRender::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* renderer) 
 {
 	//In-game background
-	renderer->renderSprite(*angrybirds_sprites.background_layer.spriteComponent()->getSprite());
+	renderer->renderSprite(*angrybirds_sprites.backgrounds[(int)AngryBackgrounds::INGAME_BACKGROUND].spriteComponent()->getSprite());
 
 	//Slingshot background
 	renderer->renderSprite(*angrybirds_sprites.slingshot[1].spriteComponent()->getSprite());
@@ -52,11 +61,11 @@ HAS_WON, HAS_LOST
 */
 void AngryRender::gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* renderer) 
 {
-	if (angrybirds_gamestate.current_gamestate == AngryGamestate::HAS_LOST) 
+	if (angrybirds_gamestate.win_state == AngryGamestate::HAS_LOST) 
 	{
 		renderer->renderText("YOU LOST", ((int)AngryGameVars::GAME_WIDTH / 2) - 180, ((int)AngryGameVars::GAME_HEIGHT / 2), 1, ASGE::COLOURS::WHITE);
 	}
-	if (angrybirds_gamestate.current_gamestate == AngryGamestate::HAS_WON)
+	if (angrybirds_gamestate.win_state == AngryGamestate::HAS_WON)
 	{
 		renderer->renderText("YOU WON", ((int)AngryGameVars::GAME_WIDTH / 2) - 180, ((int)AngryGameVars::GAME_HEIGHT / 2), 1, ASGE::COLOURS::WHITE);
 	}

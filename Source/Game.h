@@ -40,6 +40,9 @@ private:
 
 	bool in_menu = true;
 
+	enum cursor_types { STANDARD, INTERACTION };
+	int cursor_type = STANDARD;
+
 	/* AngryCode */
 	AngryUpdate angrybirds_update;
 	AngryRender angrybirds_render;

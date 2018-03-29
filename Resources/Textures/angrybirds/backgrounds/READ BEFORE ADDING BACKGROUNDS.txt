@@ -1,0 +1,2 @@
+Filenames correlate to their index within AngryBackgrounds.h enum class.
+Only JPG is supported.
