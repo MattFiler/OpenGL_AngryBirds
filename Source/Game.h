@@ -28,7 +28,7 @@ public:
 	~AngryBirdsGame();
 	virtual bool init() override;
 
-	bool assignTextures(bool &retflag);
+	bool assignTextures();
 	
 
 private:

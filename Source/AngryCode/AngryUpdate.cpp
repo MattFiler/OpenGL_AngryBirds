@@ -27,6 +27,35 @@ GAMESTATE_IS_PLAYING
 void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 	//Calculate frame time in seconds
 	auto dt_sec = us.delta_time.count() / 1000.0;
+	game_time += dt_sec; //update gametime
+
+	//Generate level if it hasn't already been
+	if (level_spawn == NEEDS_TO_SPAWN) 
+	{
+		angrybirds_sprites.wood_rectangle_long[0].setX(500);
+		angrybirds_sprites.wood_rectangle_long[0].setY(500);
+		angrybirds_sprites.wood_rectangle_long[0].setDestruction(AngryDestructionStates::DEFAULT);
+		angrybirds_sprites.wood_rectangle_long[0].spawn();
+		angrybirds_sprites.wood_square[1].setX(200);
+		angrybirds_sprites.wood_square[1].setY(200);
+		angrybirds_sprites.wood_square[1].setRotation(90);
+		angrybirds_sprites.wood_square[1].setDestruction(AngryDestructionStates::DEFAULT);
+		angrybirds_sprites.wood_square[1].spawn();
+		angrybirds_sprites.rock_rectangle_long[1].setX(400);
+		angrybirds_sprites.rock_rectangle_long[1].setY(400);
+		angrybirds_sprites.rock_rectangle_long[1].setRotation(90);
+		angrybirds_sprites.rock_rectangle_long[1].setDestruction(AngryDestructionStates::DEFAULT);
+		angrybirds_sprites.rock_rectangle_long[1].spawn();
+		angrybirds_sprites.rock_rectangle_tall[0].setX(800);
+		angrybirds_sprites.rock_rectangle_tall[0].setY(800);
+		angrybirds_sprites.rock_rectangle_tall[0].setDestruction(AngryDestructionStates::DEFAULT);
+		angrybirds_sprites.rock_rectangle_tall[0].spawn();
+		angrybirds_sprites.ice_rectangle_long[0].setX(300);
+		angrybirds_sprites.ice_rectangle_long[0].setY(800);
+		angrybirds_sprites.ice_rectangle_long[0].setDestruction(AngryDestructionStates::DEFAULT);
+		angrybirds_sprites.ice_rectangle_long[0].spawn();
+		level_spawn = HAS_SPAWNED;
+	}
 
 	//If not already playing, play background music and intro sfx
 	if (game_music == NOT_PLAYING)
@@ -39,6 +68,160 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 
 	//Handle movement of the currently active bird
 	handleBirdMovement(dt_sec, angrybirds_sprites.active_bird);
+
+	//Handle block collision - this NEEDS refactoring ASAP.
+	for (int i = 0; i < (int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; i++)
+	{
+		//Wood
+		if (angrybirds_sprites.wood_rectangle_long[i].hasSpawned())
+		{
+			if (angrybirds_sprites.wood_rectangle_long[i].spriteComponent()->getBoundingBox().isInside(angrybirds_sprites.active_bird.spriteComponent()->getBoundingBox()))
+			{
+				if (!angrybirds_sprites.wood_rectangle_long[i].doDamage()) {
+					//Block has been destroyed
+					//SCORE += 100
+				}
+				else
+				{
+					//Block has been damaged but not destroyed
+					//SCORE += 50
+				}
+				angrybirds_sprites.active_bird.setState(AngryCharacterStates::DESPAWNED);
+			}
+		}
+		if (angrybirds_sprites.wood_rectangle_tall[i].hasSpawned())
+		{
+			if (angrybirds_sprites.wood_rectangle_tall[i].spriteComponent()->getBoundingBox().isInside(angrybirds_sprites.active_bird.spriteComponent()->getBoundingBox()))
+			{
+				if (!angrybirds_sprites.wood_rectangle_tall[i].doDamage()) {
+					//Block has been destroyed
+					//SCORE += 100
+				}
+				else
+				{
+					//Block has been damaged but not destroyed
+					//SCORE += 50
+				}
+				angrybirds_sprites.active_bird.setState(AngryCharacterStates::DESPAWNED);
+			}
+		}
+		if (angrybirds_sprites.wood_square[i].hasSpawned())
+		{
+			if (angrybirds_sprites.wood_square[i].spriteComponent()->getBoundingBox().isInside(angrybirds_sprites.active_bird.spriteComponent()->getBoundingBox()))
+			{
+				if (!angrybirds_sprites.wood_square[i].doDamage()) {
+					//Block has been destroyed
+					//SCORE += 100
+				}
+				else
+				{
+					//Block has been damaged but not destroyed
+					//SCORE += 50
+				}
+				angrybirds_sprites.active_bird.setState(AngryCharacterStates::DESPAWNED);
+			}
+		}
+
+		//Ice
+		if (angrybirds_sprites.ice_rectangle_long[i].hasSpawned())
+		{
+			if (angrybirds_sprites.ice_rectangle_long[i].spriteComponent()->getBoundingBox().isInside(angrybirds_sprites.active_bird.spriteComponent()->getBoundingBox()))
+			{
+				if (!angrybirds_sprites.ice_rectangle_long[i].doDamage()) {
+					//Block has been destroyed
+					//SCORE += 100
+				}
+				else
+				{
+					//Block has been damaged but not destroyed
+					//SCORE += 50
+				}
+				angrybirds_sprites.active_bird.setState(AngryCharacterStates::DESPAWNED);
+			}
+		}
+		if (angrybirds_sprites.ice_rectangle_tall[i].hasSpawned())
+		{
+			if (angrybirds_sprites.ice_rectangle_tall[i].spriteComponent()->getBoundingBox().isInside(angrybirds_sprites.active_bird.spriteComponent()->getBoundingBox()))
+			{
+				if (!angrybirds_sprites.ice_rectangle_tall[i].doDamage()) {
+					//Block has been destroyed
+					//SCORE += 100
+				}
+				else
+				{
+					//Block has been damaged but not destroyed
+					//SCORE += 50
+				}
+				angrybirds_sprites.active_bird.setState(AngryCharacterStates::DESPAWNED);
+			}
+		}
+		if (angrybirds_sprites.ice_square[i].hasSpawned())
+		{
+			if (angrybirds_sprites.ice_square[i].spriteComponent()->getBoundingBox().isInside(angrybirds_sprites.active_bird.spriteComponent()->getBoundingBox()))
+			{
+				if (!angrybirds_sprites.ice_square[i].doDamage()) {
+					//Block has been destroyed
+					//SCORE += 100
+				}
+				else
+				{
+					//Block has been damaged but not destroyed
+					//SCORE += 50
+				}
+				angrybirds_sprites.active_bird.setState(AngryCharacterStates::DESPAWNED);
+			}
+		}
+
+		//Rock
+		if (angrybirds_sprites.rock_rectangle_long[i].hasSpawned())
+		{
+			if (angrybirds_sprites.rock_rectangle_long[i].spriteComponent()->getBoundingBox().isInside(angrybirds_sprites.active_bird.spriteComponent()->getBoundingBox()))
+			{
+				if (!angrybirds_sprites.rock_rectangle_long[i].doDamage()) {
+					//Block has been destroyed
+					//SCORE += 100
+				}
+				else
+				{
+					//Block has been damaged but not destroyed
+					//SCORE += 50
+				}
+				angrybirds_sprites.active_bird.setState(AngryCharacterStates::DESPAWNED);
+			}
+		}
+		if (angrybirds_sprites.rock_rectangle_tall[i].hasSpawned())
+		{
+			if (angrybirds_sprites.rock_rectangle_tall[i].spriteComponent()->getBoundingBox().isInside(angrybirds_sprites.active_bird.spriteComponent()->getBoundingBox()))
+			{
+				if (!angrybirds_sprites.rock_rectangle_tall[i].doDamage()) {
+					//Block has been destroyed
+					//SCORE += 100
+				}
+				else
+				{
+					//Block has been damaged but not destroyed
+					//SCORE += 50
+				}
+				angrybirds_sprites.active_bird.setState(AngryCharacterStates::DESPAWNED);
+			}
+		}
+		if (angrybirds_sprites.rock_square[i].hasSpawned())
+		{
+			if (angrybirds_sprites.rock_square[i].spriteComponent()->getBoundingBox().isInside(angrybirds_sprites.active_bird.spriteComponent()->getBoundingBox()))
+			{
+				if (!angrybirds_sprites.rock_square[i].doDamage()) {
+					//Block has been destroyed
+					//SCORE += 100
+				}
+				else
+				{
+					//Block has been damaged but not destroyed
+					//SCORE += 50
+				}
+				angrybirds_sprites.active_bird.setState(AngryCharacterStates::DESPAWNED);
+			}
+		}
+	}
 
 	//Reload bird?
 	if (angrybirds_sprites.active_bird.getState() == AngryCharacterStates::DESPAWNED)

@@ -144,13 +144,11 @@
       <Filter>Headers\AngryStructs</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryBlockTypes.h">
+      <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AngryBirds.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Xsd Include="..\..\Source\LevelData.xsd">
-      <Filter>Source</Filter>
-    </Xsd>
   </ItemGroup>
 </Project>

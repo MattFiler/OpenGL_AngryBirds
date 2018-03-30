@@ -35,9 +35,12 @@ class AngryUpdate {
 		//Our class' sound engine
 		irrklang::ISoundEngine* sound_engine;
 
-		//Flight marker counters
-		int flight_marker_counter = 0;
-		float flight_marker_timer = 0;
+		//Level generation
+		enum level_state { NEEDS_TO_SPAWN, HAS_SPAWNED };
+		int level_spawn = NEEDS_TO_SPAWN;
+
+		//Game time
+		float game_time = 0;
 
 		/* AngryStructs */
 		AngryGamestateData angrybirds_gamestate;

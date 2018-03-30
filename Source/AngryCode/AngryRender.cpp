@@ -54,27 +54,27 @@ void AngryRender::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rende
 	{
 		//Wood
 		if (angrybirds_sprites.wood_rectangle_long[i].hasSpawned())
-			angrybirds_sprites.wood_rectangle_long[i].spriteComponent()->getSprite();
+			renderer->renderSprite(*angrybirds_sprites.wood_rectangle_long[i].spriteComponent()->getSprite());
 		if (angrybirds_sprites.wood_rectangle_tall[i].hasSpawned())
-			angrybirds_sprites.wood_rectangle_tall[i].spriteComponent()->getSprite();
+			renderer->renderSprite(*angrybirds_sprites.wood_rectangle_tall[i].spriteComponent()->getSprite());
 		if (angrybirds_sprites.wood_square[i].hasSpawned())
-			angrybirds_sprites.wood_square[i].spriteComponent()->getSprite();
+			renderer->renderSprite(*angrybirds_sprites.wood_square[i].spriteComponent()->getSprite());
 
 		//Ice
 		if (angrybirds_sprites.ice_rectangle_long[i].hasSpawned())
-			angrybirds_sprites.ice_rectangle_long[i].spriteComponent()->getSprite();
+			renderer->renderSprite(*angrybirds_sprites.ice_rectangle_long[i].spriteComponent()->getSprite());
 		if (angrybirds_sprites.ice_rectangle_tall[i].hasSpawned())
-			angrybirds_sprites.ice_rectangle_tall[i].spriteComponent()->getSprite();
+			renderer->renderSprite(*angrybirds_sprites.ice_rectangle_tall[i].spriteComponent()->getSprite());
 		if (angrybirds_sprites.ice_square[i].hasSpawned())
-			angrybirds_sprites.ice_square[i].spriteComponent()->getSprite();
+			renderer->renderSprite(*angrybirds_sprites.ice_square[i].spriteComponent()->getSprite());
 
 		//Rock
 		if (angrybirds_sprites.rock_rectangle_long[i].hasSpawned())
-			angrybirds_sprites.rock_rectangle_long[i].spriteComponent()->getSprite();
+			renderer->renderSprite(*angrybirds_sprites.rock_rectangle_long[i].spriteComponent()->getSprite());
 		if (angrybirds_sprites.rock_rectangle_tall[i].hasSpawned())
-			angrybirds_sprites.rock_rectangle_tall[i].spriteComponent()->getSprite();
+			renderer->renderSprite(*angrybirds_sprites.rock_rectangle_tall[i].spriteComponent()->getSprite());
 		if (angrybirds_sprites.rock_square[i].hasSpawned())
-			angrybirds_sprites.rock_square[i].spriteComponent()->getSprite();
+			renderer->renderSprite(*angrybirds_sprites.rock_square[i].spriteComponent()->getSprite());
 	}
 
 	//Active player controlled bird

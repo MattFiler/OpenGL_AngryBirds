@@ -3,22 +3,28 @@
 
 EnvironmentBlock::EnvironmentBlock()
 {
-	//As default, all destruction states are null - we want to allocate them
 	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i] = nullptr;
 	}
+
+	sound_engine = irrklang::createIrrKlangDevice();
 }
 EnvironmentBlock::~EnvironmentBlock()
 {
-	freeSpriteComponent();
+	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		freeSpriteComponent(i);
+	}
+
+	sound_engine->drop();
 }
 
 //State is passed to here as an int - which is representative of the enum index for AngryDestructionState
 bool EnvironmentBlock::addSpriteComponent(
 	ASGE::Renderer* renderer, const std::string& texture_file_name, int state)
 {
-	freeSpriteComponent();
+	freeSpriteComponent(state);
 
 	sprite[state] = new SpriteComponent();
 	if (sprite[state]->loadSprite(renderer, texture_file_name))
@@ -26,17 +32,14 @@ bool EnvironmentBlock::addSpriteComponent(
 		return true;
 	}
 
-	freeSpriteComponent();
+	freeSpriteComponent(state);
 	return false;
 }
 
-void  EnvironmentBlock::freeSpriteComponent()
+void  EnvironmentBlock::freeSpriteComponent(int state)
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
-	{
-		delete sprite[i];
-		sprite[i] = nullptr;
-	}
+	delete sprite[state];
+	sprite[state] = nullptr;
 }
 
 
@@ -47,20 +50,32 @@ SpriteComponent* EnvironmentBlock::spriteComponent()
 
 void EnvironmentBlock::addToX(float addX)
 {
-	sprite[(int)destruction_state]->getSprite()->xPos(sprite[(int)destruction_state]->getSprite()->xPos() + addX);
+	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->xPos(sprite[i]->getSprite()->xPos() + addX);
+	}
 }
 void EnvironmentBlock::addToY(float addY)
 {
-	sprite[(int)destruction_state]->getSprite()->yPos(sprite[(int)destruction_state]->getSprite()->yPos() + addY);
+	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->yPos(sprite[i]->getSprite()->xPos() + addY);
+	}
 }
 
 void EnvironmentBlock::subtractFromX(float minusX)
 {
-	sprite[(int)destruction_state]->getSprite()->xPos(sprite[(int)destruction_state]->getSprite()->xPos() - minusX);
+	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->xPos(sprite[i]->getSprite()->xPos() - minusX);
+	}
 }
 void EnvironmentBlock::subtractFromY(float minusY)
 {
-	sprite[(int)destruction_state]->getSprite()->yPos(sprite[(int)destruction_state]->getSprite()->yPos() - minusY);
+	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->yPos(sprite[i]->getSprite()->yPos() - minusY);
+	}
 }
 
 float EnvironmentBlock::getX()
@@ -74,11 +89,25 @@ float EnvironmentBlock::getY()
 
 void EnvironmentBlock::setX(float x)
 {
-	sprite[(int)destruction_state]->getSprite()->xPos(x);
+	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->xPos(x);
+	}
 }
 void EnvironmentBlock::setY(float y)
 {
-	sprite[(int)destruction_state]->getSprite()->yPos(y);
+	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->yPos(y);
+	}
+}
+
+void EnvironmentBlock::setRotation(float degrees)
+{
+	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->rotationInRadians(degrees * (3.14159 / 180));
+	}
 }
 
 float EnvironmentBlock::getHeight()
@@ -110,4 +139,55 @@ AngryDestructionStates EnvironmentBlock::getDestruction()
 void EnvironmentBlock::setDestruction(AngryDestructionStates state)
 {
 	destruction_state = state;
+}
+bool EnvironmentBlock::doDamage()
+{
+	AngryDestructionStates new_destruction_state = (AngryDestructionStates)((int)destruction_state + 1);
+
+	if ((int)new_destruction_state > (int)AngryDestructionStates::DESTRUCTION_COUNT - 1) {
+		switch (block_type) {
+		case AngryBlockTypes::ICE: {
+			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SFX\\1.mp3", false);
+			break;
+		}
+		case AngryBlockTypes::ROCK: {
+			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SFX\\1.mp3", false);
+			break;
+		}
+		case AngryBlockTypes::WOOD: {
+			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SFX\\1.mp3", false);
+			break;
+		}
+		}
+		has_spawned = false; //Block is destroyed
+		return false;
+	}
+	else
+	{
+		switch (block_type) {
+		case AngryBlockTypes::ICE: {
+			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SFX\\0.mp3", false);
+			break;
+		}
+		case AngryBlockTypes::ROCK: {
+			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SFX\\0.mp3", false);
+			break;
+		}
+		case AngryBlockTypes::WOOD: {
+			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SFX\\0.mp3", false);
+			break;
+		}
+		}
+		destruction_state = new_destruction_state; //Deal damage
+		return true;
+	}
+}
+
+AngryBlockTypes EnvironmentBlock::getBlockType()
+{
+	return block_type;
+}
+void EnvironmentBlock::setBlockType(AngryBlockTypes blocktype)
+{
+	block_type = blocktype;
 }
