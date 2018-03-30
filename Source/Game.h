@@ -48,9 +48,9 @@ private:
 	int cursor_type = STANDARD;
 
 	/* AngryCode */
-	AngryUpdate game_update;
-	AngryRender game_render;
-	AngryInput game_input;
+	UpdateStates game_update;
+	RenderStates game_render;
+	InputStates game_input;
 	
 	/* AngryStructs */
 	GamestateData gamestate;

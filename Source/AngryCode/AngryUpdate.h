@@ -15,10 +15,10 @@
 #include "../AngryEnums/AngryCharacterStates.h"
 #include "../AngryEnums/AngryGameVars.h"
 
-class AngryUpdate {
+class UpdateStates {
 	public:
-		AngryUpdate();
-		~AngryUpdate();
+		UpdateStates();
+		~UpdateStates();
 
 		//Update Handlers
 		void gstateInMenu(const ASGE::GameTime & us);
@@ -43,7 +43,7 @@ class AngryUpdate {
 		//Level generation
 		enum level_state { NEEDS_TO_SPAWN, HAS_SPAWNED };
 		int level_spawn = NEEDS_TO_SPAWN;
-		AngryLevels level;
+		LevelSetups level;
 
 		//Game time
 		float game_time = 0;

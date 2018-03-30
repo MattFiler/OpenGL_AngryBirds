@@ -4,11 +4,14 @@
 
 #include "../AngryStructs/AngryGamestateData.h"
 #include "../AngryEnums/AngryMenuScreens.h"
+#include "../AngryEnums/AngryGameVars.h"
 
-class AngryInput {
+#include "../AngryCode/AngryLevels.h"
+
+class InputStates {
 	public:
-		AngryInput();
-		~AngryInput();
+		InputStates();
+		~InputStates();
 
 		//Input Handlers
 		void gstateInMenu(ASGE::SharedEventData data);

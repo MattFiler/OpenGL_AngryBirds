@@ -366,6 +366,11 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 			game_update.gstatePlaying(us);
 			break;
 		}
+		//REQUESTED QUIT
+		case Gamestate::REQUESTED_QUIT: {
+			signalExit();
+			break;
+		}
 	}
 
 	//Always update cursor position

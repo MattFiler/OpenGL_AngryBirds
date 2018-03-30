@@ -1,8 +1,8 @@
 #include "AngryLevels.h"
 
-int AngryLevels::count = 5; //This is used throughout the game to define the max number of levels
+int LevelSetups::count = 2; //This is used throughout the game to define the max number of levels
 
-void AngryLevels::GenerateLevel(int level) {
+void LevelSetups::GenerateLevel(int level) {
 	switch (level) {
 		case 1: {
 			/* LEVEL ONE */
@@ -12,10 +12,15 @@ void AngryLevels::GenerateLevel(int level) {
 			placeItem(sprites.rock_rectangle_tall[0], 800, 800, 0, DestructionStates::DEFAULT);
 			placeItem(sprites.ice_rectangle_long[0], 300, 800, 0, DestructionStates::DEFAULT);
 		}
+		case 2: {
+			/* LEVEL TWO */
+			placeItem(sprites.ice_square[0], 800, 300, 0, DestructionStates::DEFAULT);
+			placeItem(sprites.ice_rectangle_long[0], 300, 800, 0, DestructionStates::DEFAULT);
+		}
 	}
 }
 
-void AngryLevels::placeItem(EnvironmentBlock& item, float x_pos, float y_pos, int rotation, DestructionStates destruction)
+void LevelSetups::placeItem(EnvironmentBlock& item, float x_pos, float y_pos, int rotation, DestructionStates destruction)
 {
 	item.setX(x_pos);
 	item.setY(y_pos);

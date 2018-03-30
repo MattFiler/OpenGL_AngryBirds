@@ -6,3 +6,5 @@ MenuScreens GamestateData::menu_screen = MenuScreens::SPLASHSCREEN; //By default
 Gamestate GamestateData::win_state = Gamestate::HAS_WON; //Set as "won" by default, but this is actually set at runtime before called
 int GamestateData::lives = (int)GameVars::NUMBER_OF_STARTING_BIRDS; //Lives defaults are preset in AngryGameVars
 int GamestateData::current_level = 0; //Set from Main Menu at runtime
+int GamestateData::main_menu_index = 0; //Set as 0 for default
+int GamestateData::level_select_menu_index = 0; //Set as 0 for default

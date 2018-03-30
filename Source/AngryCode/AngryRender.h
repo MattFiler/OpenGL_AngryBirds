@@ -9,10 +9,12 @@
 #include "../AngryEnums/AngryGameVars.h"
 #include "../AngryEnums/AngryBackgrounds.h"
 
-class AngryRender {
+#include "../AngryCode/AngryLevels.h"
+
+class RenderStates {
 	public:
-		AngryRender();
-		~AngryRender();
+		RenderStates();
+		~RenderStates();
 
 		//Render Handlers
 		void gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* renderer);

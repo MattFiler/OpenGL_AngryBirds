@@ -9,4 +9,6 @@ struct GamestateData
 	static Gamestate win_state; //Won or lost?
 	static int lives; //Number of lives the player has (number of birds on screen)
 	static int current_level; //This cannot be higher than AngryLevels.count!
+	static int main_menu_index; //Menu selected index
+	static int level_select_menu_index; //Level select menu index
 };

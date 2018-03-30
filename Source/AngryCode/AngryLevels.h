@@ -4,7 +4,7 @@
 
 #include "../AngryStructs/AngrySprites.h"
 
-class AngryLevels {
+class LevelSetups {
 public:
 	void GenerateLevel(int level);
 	static int count;

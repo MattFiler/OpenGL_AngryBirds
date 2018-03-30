@@ -1,10 +1,10 @@
 #include "AngryUpdate.h"
 
 //Create and destroy the sound engine when the class is called
-AngryUpdate::AngryUpdate() {
+UpdateStates::UpdateStates() {
 	sound_engine = irrklang::createIrrKlangDevice();
 }
-AngryUpdate::~AngryUpdate() {
+UpdateStates::~UpdateStates() {
 	sound_engine->drop();
 }
 
@@ -12,7 +12,7 @@ AngryUpdate::~AngryUpdate() {
 /*
 GAMESTATE_IN_MENU
 */
-void AngryUpdate::gstateInMenu(const ASGE::GameTime & us) {
+void UpdateStates::gstateInMenu(const ASGE::GameTime & us) {
 	//If not already playing, play background music
 	if (menu_music == NOT_PLAYING)
 	{
@@ -24,7 +24,7 @@ void AngryUpdate::gstateInMenu(const ASGE::GameTime & us) {
 /*
 GAMESTATE_IS_PLAYING
 */
-void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
+void UpdateStates::gstatePlaying(const ASGE::GameTime & us) {
 	//Calculate frame time in seconds
 	auto dt_sec = us.delta_time.count() / 1000.0;
 	game_time += dt_sec; //update gametime
@@ -86,7 +86,7 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 
 
 //Detect collision on spawned items
-void AngryUpdate::detectCollision(EnvironmentBlock& block)
+void UpdateStates::detectCollision(EnvironmentBlock& block)
 {
 	if (block.hasSpawned())
 	{
@@ -110,7 +110,7 @@ void AngryUpdate::detectCollision(EnvironmentBlock& block)
 /*
 Handle movement of the currently active bird
 */
-void AngryUpdate::handleBirdMovement(double dt_sec, Character &bird)
+void UpdateStates::handleBirdMovement(double dt_sec, Character &bird)
 {
 	switch (bird.getState())
 	{

@@ -1,9 +1,9 @@
 #include "AngryRender.h"
 
-AngryRender::AngryRender() {
+RenderStates::RenderStates() {
 
 }
-AngryRender::~AngryRender() {
+RenderStates::~RenderStates() {
 
 }
 
@@ -11,24 +11,41 @@ AngryRender::~AngryRender() {
 /*
 GAMESTATE_IN_MENU
 */
-void AngryRender::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* renderer)
+void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* renderer)
 {
 	switch (gamestate.menu_screen) {
 		//Splashscreen
 		case MenuScreens::SPLASHSCREEN: {
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::SPLASHSCREEN_BACKGROUND].spriteComponent()->getSprite());
-			renderer->renderText("PRESS ENTER TO BEGIN", ((int)GameVars::GAME_WIDTH / 2) - 180, ((int)GameVars::GAME_HEIGHT / 2) + ((int)GameVars::GAME_HEIGHT / 2.7), 1, ASGE::COLOURS::WHITE);
+
+			renderer->renderText("PRESS SPACE TO BEGIN", ((int)GameVars::GAME_WIDTH / 2) - 180, ((int)GameVars::GAME_HEIGHT / 2) + ((int)GameVars::GAME_HEIGHT / 2.7), 1, ASGE::COLOURS::WHITE);
+
 			break;
 		}
 		//Main menu
 		case MenuScreens::MAIN_MENU: {
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::MAIN_MENU_BACKGROUND].spriteComponent()->getSprite());
-			renderer->renderText("MAIN MENU", ((int)GameVars::GAME_WIDTH / 2) - 180, ((int)GameVars::GAME_HEIGHT / 2) + ((int)GameVars::GAME_HEIGHT / 2.7), 1, ASGE::COLOURS::WHITE);
 
-			//loop for the number of times in AngryLevels.count
-			//set selection to AngryGamestateData::current_level
-			//set gamestate to IN_GAME
+			renderer->renderText(gamestate.main_menu_index == 0 ? "> PLAY" : "  PLAY", (int)GameVars::GAME_WIDTH - 350, 150, 1, ASGE::COLOURS::WHITE);
+			renderer->renderText(gamestate.main_menu_index == 1 ? "> QUIT" : "  QUIT", (int)GameVars::GAME_WIDTH - 350, 250, 1, ASGE::COLOURS::WHITE);
 
+			break;
+		}
+		//Level select
+		case MenuScreens::LEVEL_SELECT: {
+			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::LEVEL_SELECT_MENU_BACKGROUND].spriteComponent()->getSprite());
+
+			for (int i = 0; i < LevelSetups::count; i++)
+			{
+				int current_level = i + 1;
+				renderer->renderText(gamestate.level_select_menu_index == i ? ("> LEVEL " + std::to_string(current_level)) : ("  LEVEL " + std::to_string(current_level)), (int)GameVars::GAME_WIDTH - 350, (current_level * 100) + 50, 1, ASGE::COLOURS::WHITE);
+			}
+
+			break;
+		}
+		//Pause menu
+		case MenuScreens::PAUSE_MENU: {
+			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::PAUSE_MENU_BACKGROUND].spriteComponent()->getSprite());
 			break;
 		}
 	}
@@ -37,7 +54,7 @@ void AngryRender::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* render
 /*
 GAMESTATE_IS_PLAYING
 */
-void AngryRender::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* renderer) 
+void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* renderer) 
 {
 	//In-game background
 	renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::INGAME_BACKGROUND].spriteComponent()->getSprite());
@@ -101,7 +118,7 @@ void AngryRender::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rende
 /*
 HAS_WON, HAS_LOST
 */
-void AngryRender::gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* renderer) 
+void RenderStates::gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* renderer) 
 {
 	if (gamestate.win_state == Gamestate::HAS_LOST) 
 	{

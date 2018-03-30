@@ -9,5 +9,7 @@ enum class Gamestate : int
 	IS_PLAYING, //In-game
 	GAME_OVER, //Game over
 	HAS_WON, //Game over - won
-	HAS_LOST //Game over - lost
+	HAS_LOST, //Game over - lost
+
+	REQUESTED_QUIT //User wants to quit
 };

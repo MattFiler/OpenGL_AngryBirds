@@ -1,9 +1,9 @@
 #include "AngryInput.h"
 
-AngryInput::AngryInput() {
+InputStates::InputStates() {
 
 }
-AngryInput::~AngryInput() {
+InputStates::~InputStates() {
 
 }
 
@@ -11,14 +11,14 @@ AngryInput::~AngryInput() {
 /*
 	GAMESTATE_IN_MENU
 */
-void AngryInput::gstateInMenu(ASGE::SharedEventData data) {
+void InputStates::gstateInMenu(ASGE::SharedEventData data) {
 	//Get key
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 
 	switch (gamestate.menu_screen) {
 		//Splashscreen
 		case MenuScreens::SPLASHSCREEN: {
-			if (key->key == ASGE::KEYS::KEY_ENTER)
+			if (key->key == ASGE::KEYS::KEY_SPACE)
 			{
 				gamestate.menu_screen = MenuScreens::MAIN_MENU;
 			}
@@ -26,10 +26,63 @@ void AngryInput::gstateInMenu(ASGE::SharedEventData data) {
 		}
 		//Main Menu
 		case MenuScreens::MAIN_MENU: {
-			if (key->key == ASGE::KEYS::KEY_SPACE)
+			//User has selected to start game
+			if (gamestate.main_menu_index == 0 &&
+				key->key == ASGE::KEYS::KEY_ENTER &&
+				key->action == ASGE::KEYS::KEY_RELEASED)
 			{
-				gamestate.current_gamestate = Gamestate::IS_PLAYING; //DEBUG: Quickly get into game and skip menu
+				gamestate.menu_screen = MenuScreens::LEVEL_SELECT;
+				//gamestate.current_gamestate = Gamestate::IS_PLAYING;
 			}
+
+			//User has selected to exit game
+			else if (gamestate.main_menu_index == 1 &&
+				key->key == ASGE::KEYS::KEY_ENTER &&
+				key->action == ASGE::KEYS::KEY_RELEASED)
+			{
+				gamestate.current_gamestate = Gamestate::REQUESTED_QUIT;
+			}
+
+			//Handle up/down on main menu
+			else if (gamestate.main_menu_index != 0 && 
+				key->key == ASGE::KEYS::KEY_UP && 
+				key->action == ASGE::KEYS::KEY_RELEASED)
+			{
+				gamestate.main_menu_index -= 1;
+			}
+			else if (gamestate.main_menu_index != ((int)GameVars::MAIN_MENU_OPTION_COUNT - 1) &&
+				key->key == ASGE::KEYS::KEY_DOWN &&
+				key->action == ASGE::KEYS::KEY_RELEASED)
+			{
+				gamestate.main_menu_index += 1;
+			}
+
+			break;
+		}
+		//Level Select
+		case MenuScreens::LEVEL_SELECT: {
+			//User has selected a level
+			if (key->key == ASGE::KEYS::KEY_ENTER &&
+				key->action == ASGE::KEYS::KEY_RELEASED)
+			{
+				gamestate.current_level = gamestate.level_select_menu_index + 1;
+				gamestate.current_gamestate = Gamestate::IS_PLAYING;
+			}
+
+			//Handle up/down
+			else if (gamestate.level_select_menu_index != 0 &&
+				key->key == ASGE::KEYS::KEY_UP &&
+				key->action == ASGE::KEYS::KEY_RELEASED)
+			{
+				gamestate.level_select_menu_index -= 1;
+			}
+			else if (gamestate.level_select_menu_index != (LevelSetups::count - 1) &&
+				key->key == ASGE::KEYS::KEY_DOWN &&
+				key->action == ASGE::KEYS::KEY_RELEASED)
+			{
+				gamestate.level_select_menu_index += 1;
+			}
+
 			break;
 		}
 	}
@@ -38,7 +91,7 @@ void AngryInput::gstateInMenu(ASGE::SharedEventData data) {
 /*
 	GAMESTATE_IS_PLAYING
 */
-void AngryInput::gstatePlaying(ASGE::SharedEventData data) {
+void InputStates::gstatePlaying(ASGE::SharedEventData data) {
 	//Get key
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 

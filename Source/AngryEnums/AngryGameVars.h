@@ -32,5 +32,9 @@ enum class GameVars : int
 	//Block counts
 	MAX_NUMBER_OF_THIS_BLOCK_TYPE = 5,
 	BLOCK_VARIATIONS = 3, //This is hard-coded
-	BLOCK_DESTRUCTION_COUNT = (int)DestructionStates::DESTRUCTION_COUNT
+	BLOCK_DESTRUCTION_COUNT = (int)DestructionStates::DESTRUCTION_COUNT,
+
+	//Menu Options
+	MAIN_MENU_OPTION_COUNT = 2,
+	LEVEL_SELECT_MENU_OPTION_COUNT = 2,
 };
