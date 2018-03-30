@@ -60,7 +60,7 @@ bool AngryBirdsGame::init()
 	assignTextures();
 
 	//Load font
-	Fonts::fonts[0] = new Fonts(renderer->loadFont("Resources\\UI\\FONTS\\0.ttf", 45), "default", 45);
+	Fonts::fonts[0] = new Fonts(renderer->loadFont("Resources\\UI\\FONTS\\0.ttf", 55), "default", 55);
 
 	return true;
 }
@@ -274,6 +274,11 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 		case Gamestate::IS_PLAYING: {
 			game_input.gstatePlaying(data);
 			break;
+		}		
+		//HAS WON or LOST
+		case Gamestate::GAME_OVER: {
+			game_input.gstateGameOver(data);
+			break;
 		}
 	}
 	
@@ -364,6 +369,11 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 		//IN GAME
 		case Gamestate::IS_PLAYING: {
 			game_update.gstatePlaying(us);
+			break;
+		}
+		//HAS_WON or HAS_LOST
+		case Gamestate::GAME_OVER: {
+			game_update.gstateGameOver(us);
 			break;
 		}
 		//REQUESTED QUIT

@@ -35,6 +35,5 @@ enum class GameVars : int
 	BLOCK_DESTRUCTION_COUNT = (int)DestructionStates::DESTRUCTION_COUNT,
 
 	//Menu Options
-	MAIN_MENU_OPTION_COUNT = 2,
-	LEVEL_SELECT_MENU_OPTION_COUNT = 2,
+	MAIN_MENU_OPTION_COUNT = 2
 };

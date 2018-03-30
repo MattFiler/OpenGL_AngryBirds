@@ -15,26 +15,28 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 {
 	switch (gamestate.menu_screen) {
 		//Splashscreen
-		case MenuScreens::SPLASHSCREEN: {
+		case MenuScreen::SPLASHSCREEN: {
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::SPLASHSCREEN_BACKGROUND].spriteComponent()->getSprite());
 
-			renderer->renderText("PRESS SPACE TO BEGIN", ((int)GameVars::GAME_WIDTH / 2) - 180, ((int)GameVars::GAME_HEIGHT / 2) + ((int)GameVars::GAME_HEIGHT / 2.7), 1, ASGE::COLOURS::WHITE);
+			renderer->renderText("PRESS SPACE TO BEGIN", ((int)GameVars::GAME_WIDTH / 2) - 240, ((int)GameVars::GAME_HEIGHT / 2) + ((int)GameVars::GAME_HEIGHT / 2.7), 1, ASGE::COLOURS::WHITE);
 
 			break;
 		}
 		//Main menu
-		case MenuScreens::MAIN_MENU: {
+		case MenuScreen::MAIN_MENU: {
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::MAIN_MENU_BACKGROUND].spriteComponent()->getSprite());
 
+			//Play/Quit Options
 			renderer->renderText(gamestate.main_menu_index == 0 ? "> PLAY" : "  PLAY", (int)GameVars::GAME_WIDTH - 350, 150, 1, ASGE::COLOURS::WHITE);
 			renderer->renderText(gamestate.main_menu_index == 1 ? "> QUIT" : "  QUIT", (int)GameVars::GAME_WIDTH - 350, 250, 1, ASGE::COLOURS::WHITE);
 
 			break;
 		}
 		//Level select
-		case MenuScreens::LEVEL_SELECT: {
+		case MenuScreen::LEVEL_SELECT: {
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::LEVEL_SELECT_MENU_BACKGROUND].spriteComponent()->getSprite());
 
+			//All Level Options (dynamically generated and handled from the number of level configs)
 			for (int i = 0; i < LevelSetups::count; i++)
 			{
 				int current_level = i + 1;
@@ -44,8 +46,13 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 			break;
 		}
 		//Pause menu
-		case MenuScreens::PAUSE_MENU: {
+		case MenuScreen::PAUSE_MENU: {
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::PAUSE_MENU_BACKGROUND].spriteComponent()->getSprite());
+
+			//Exit/Resume Options
+			renderer->renderText(gamestate.pause_menu_index == 0 ? "> CONTINUE" : "  CONTINUE", ((int)GameVars::GAME_WIDTH / 2) - 125, ((int)GameVars::GAME_HEIGHT / 2) + 170, 1, ASGE::COLOURS::WHITE);
+			renderer->renderText(gamestate.pause_menu_index == 1 ? "> QUIT" : "  QUIT", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 250, 1, ASGE::COLOURS::WHITE);
+
 			break;
 		}
 	}
@@ -120,12 +127,19 @@ HAS_WON, HAS_LOST
 */
 void RenderStates::gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* renderer) 
 {
-	if (gamestate.win_state == Gamestate::HAS_LOST) 
-	{
-		renderer->renderText("YOU LOST", ((int)GameVars::GAME_WIDTH / 2) - 180, ((int)GameVars::GAME_HEIGHT / 2), 1, ASGE::COLOURS::WHITE);
+	//Win/loss specific backgrounds
+	switch (gamestate.win_state) {
+		case Gamestate::HAS_LOST: {
+			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::LOSS_SCREEN_BACKGROUND].spriteComponent()->getSprite());
+			break;
+		}
+		case Gamestate::HAS_WON: {
+			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::WIN_SCREEN_BACKGROUND].spriteComponent()->getSprite());
+			break;
+		}
 	}
-	if (gamestate.win_state == Gamestate::HAS_WON)
-	{
-		renderer->renderText("YOU WON", ((int)GameVars::GAME_WIDTH / 2) - 180, ((int)GameVars::GAME_HEIGHT / 2), 1, ASGE::COLOURS::WHITE);
-	}
+
+	//Exit/Quit Options
+	renderer->renderText(gamestate.game_over_menu_index == 0 ? "> BACK" : "  BACK", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 170, 1, ASGE::COLOURS::WHITE);
+	renderer->renderText(gamestate.game_over_menu_index == 1 ? "> QUIT" : "  QUIT", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 250, 1, ASGE::COLOURS::WHITE);
 }

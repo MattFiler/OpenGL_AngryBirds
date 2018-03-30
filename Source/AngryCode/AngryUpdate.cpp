@@ -1,10 +1,10 @@
 #include "AngryUpdate.h"
 
 //Create and destroy the sound engine when the class is called
-UpdateStates::UpdateStates() {
+UpdateState::UpdateState() {
 	sound_engine = irrklang::createIrrKlangDevice();
 }
-UpdateStates::~UpdateStates() {
+UpdateState::~UpdateState() {
 	sound_engine->drop();
 }
 
@@ -12,7 +12,38 @@ UpdateStates::~UpdateStates() {
 /*
 GAMESTATE_IN_MENU
 */
-void UpdateStates::gstateInMenu(const ASGE::GameTime & us) {
+void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
+	//Game has just been won or lost - reset everything here
+	if (gamestate.win_state != Gamestate::NO_STATE) 
+	{
+		//Reset music
+		menu_music = NOT_PLAYING;
+		game_music = NOT_PLAYING;
+		game_over_music = NOT_PLAYING;
+		bird_sfx = NOT_PLAYING;
+		sound_engine->stopAllSounds();
+
+		//Reset gamestate & score
+		gamestate.win_state = Gamestate::NO_STATE;
+		gamestate.lives = (int)GameVars::NUMBER_OF_STARTING_BIRDS;
+
+		//Reset level build
+		level_spawn = NEEDS_TO_SPAWN;
+		level.ResetLevel();
+
+		//Reset menu marker positions
+		gamestate.main_menu_index = 0;
+		gamestate.level_select_menu_index = 0;
+		gamestate.game_over_menu_index = 0;
+		gamestate.pause_menu_index = 0;
+
+		//Reset flight marker dots
+		for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
+		{
+			sprites.flight_marker[i].despawn();
+		}
+	}
+
 	//If not already playing, play background music
 	if (menu_music == NOT_PLAYING)
 	{
@@ -24,10 +55,14 @@ void UpdateStates::gstateInMenu(const ASGE::GameTime & us) {
 /*
 GAMESTATE_IS_PLAYING
 */
-void UpdateStates::gstatePlaying(const ASGE::GameTime & us) {
+void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 	//Calculate frame time in seconds
 	auto dt_sec = us.delta_time.count() / 1000.0;
 	game_time += dt_sec; //update gametime
+
+	//Ensure we get the victory/defeat track!
+	game_over_music = NOT_PLAYING;
+	gamestate.pause_menu_index = 0; //Also keep pause menu index reset.
 
 	//Generate level if it hasn't already been
 	if (level_spawn == NEEDS_TO_SPAWN) 
@@ -84,9 +119,23 @@ void UpdateStates::gstatePlaying(const ASGE::GameTime & us) {
 	}
 }
 
+/*
+HAS_WON HAS_LOST
+*/
+void UpdateState::gstateGameOver(const ASGE::GameTime & us)
+{
+	//If not already playing, play background music
+	if (game_over_music == NOT_PLAYING)
+	{
+		sound_engine->stopAllSounds();
+		sound_engine->play2D("Resources\\UI\\MUSIC\\1.mp3", false);
+		game_over_music = PLAYING;
+	}
+}
+
 
 //Detect collision on spawned items
-void UpdateStates::detectCollision(EnvironmentBlock& block)
+void UpdateState::detectCollision(EnvironmentBlock& block)
 {
 	if (block.hasSpawned())
 	{
@@ -110,7 +159,7 @@ void UpdateStates::detectCollision(EnvironmentBlock& block)
 /*
 Handle movement of the currently active bird
 */
-void UpdateStates::handleBirdMovement(double dt_sec, Character &bird)
+void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 {
 	switch (bird.getState())
 	{

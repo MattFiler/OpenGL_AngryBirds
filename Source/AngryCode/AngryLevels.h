@@ -4,9 +4,12 @@
 
 #include "../AngryStructs/AngrySprites.h"
 
+#include "../AngryEnums/AngryGameVars.h"
+
 class LevelSetups {
 public:
 	void GenerateLevel(int level);
+	void ResetLevel();
 	static int count;
 
 private:

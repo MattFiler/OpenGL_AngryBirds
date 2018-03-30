@@ -15,14 +15,15 @@
 #include "../AngryEnums/AngryCharacterStates.h"
 #include "../AngryEnums/AngryGameVars.h"
 
-class UpdateStates {
+class UpdateState {
 	public:
-		UpdateStates();
-		~UpdateStates();
+		UpdateState();
+		~UpdateState();
 
 		//Update Handlers
 		void gstateInMenu(const ASGE::GameTime & us);
 		void gstatePlaying(const ASGE::GameTime & us);
+		void gstateGameOver(const ASGE::GameTime & us);
 
 		//Collision handler
 		void detectCollision(EnvironmentBlock& block);
@@ -36,6 +37,7 @@ class UpdateStates {
 		int menu_music = NOT_PLAYING;
 		int game_music = NOT_PLAYING;
 		int bird_sfx = NOT_PLAYING;
+		int game_over_music = NOT_PLAYING;
 
 		//Our class' sound engine
 		irrklang::ISoundEngine* sound_engine;

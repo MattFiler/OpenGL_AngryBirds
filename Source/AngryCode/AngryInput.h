@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <Engine/OGLGame.h>
+#include <irrklang.h>
 
 #include "../AngryStructs/AngryGamestateData.h"
 #include "../AngryEnums/AngryMenuScreens.h"
@@ -16,8 +17,12 @@ class InputStates {
 		//Input Handlers
 		void gstateInMenu(ASGE::SharedEventData data);
 		void gstatePlaying(ASGE::SharedEventData data);
+		void gstateGameOver(ASGE::SharedEventData data);
 
 	private:
+		//Our class' sound engine
+		irrklang::ISoundEngine* sound_engine;
+
 		/* AngryStructs */
 		GamestateData gamestate;
 };
