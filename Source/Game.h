@@ -2,15 +2,18 @@
 #include <string>
 #include <Engine/OGLGame.h>
 
-#include "GameObject.h"
-#include "GameFont.h"
 #include "Rect.h"
+
+#include "AngrySpriteClasses/Character.h"
+#include "AngrySpriteClasses/EnvironmentBlock.h"
+#include "AngrySpriteClasses/UI.h"
 
 #include "AngryCode/AngryRender.h"
 #include "AngryCode/AngryUpdate.h"
 #include "AngryCode/AngryInput.h"
 
 #include "AngryStructs/AngryGamestateData.h"
+#include "AngryStructs/AngryFonts.h"
 
 #include "AngryEnums/AngryGameVars.h"
 
@@ -24,13 +27,14 @@ public:
 	AngryBirdsGame();
 	~AngryBirdsGame();
 	virtual bool init() override;
+
+	bool assignTextures(bool &retflag);
 	
 
 private:
 	void keyHandler(const ASGE::SharedEventData data);
 	void clickHandler(const ASGE::SharedEventData data);
 	void setupResolution();
-	bool loadBackgrounds();
 
 	virtual void update(const ASGE::GameTime &) override;
 	virtual void render(const ASGE::GameTime &) override;

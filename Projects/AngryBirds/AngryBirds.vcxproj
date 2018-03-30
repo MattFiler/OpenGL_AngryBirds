@@ -104,12 +104,14 @@
     <ClCompile Include="..\..\Source\AngryCode\AngryInput.cpp" />
     <ClCompile Include="..\..\Source\AngryCode\AngryRender.cpp" />
     <ClCompile Include="..\..\Source\AngryCode\AngryUpdate.cpp" />
+    <ClCompile Include="..\..\Source\AngrySpriteClasses\Character.cpp" />
+    <ClCompile Include="..\..\Source\AngrySpriteClasses\EnvironmentBlock.cpp" />
+    <ClCompile Include="..\..\Source\AngrySpriteClasses\UI.cpp" />
+    <ClCompile Include="..\..\Source\AngryStructs\AngryFonts.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngryGamestateData.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngryMouseData.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngrySprites.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngryFlightVars.cpp" />
-    <ClCompile Include="..\..\Source\GameFont.cpp" />
-    <ClCompile Include="..\..\Source\GameObject.cpp" />
     <ClCompile Include="..\..\Source\main.cpp" />
     <ClCompile Include="..\..\Source\Game.cpp" />
     <ClCompile Include="..\..\Source\Rect.cpp" />
@@ -121,20 +123,33 @@
     <ClInclude Include="..\..\Source\AngryCode\AngryRender.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryUpdate.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryBackgrounds.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryDestructionStates.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryGamestate.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryGameVars.h" />
-    <ClInclude Include="..\..\Source\AngryEnums\AngryBirdStates.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryCharacterStates.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryMenuScreens.h" />
+    <ClInclude Include="..\..\Source\AngrySpriteClasses\Character.h" />
+    <ClInclude Include="..\..\Source\AngrySpriteClasses\EnvironmentBlock.h" />
+    <ClInclude Include="..\..\Source\AngrySpriteClasses\UI.h" />
+    <ClInclude Include="..\..\Source\AngryStructs\AngryFonts.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryGamestateData.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryMouseData.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngrySprites.h" />
     <ClInclude Include="..\..\Source\AngryStructs\AngryFlightVars.h" />
     <ClInclude Include="..\..\Source\Game.h" />
-    <ClInclude Include="..\..\Source\GameFont.h" />
-    <ClInclude Include="..\..\Source\GameObject.h" />
     <ClInclude Include="..\..\Source\Rect.h" />
     <ClInclude Include="..\..\Source\SpriteComponent.h" />
     <ClInclude Include="..\..\Source\Vector2.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AngryBirds.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xsd Include="..\..\Source\LevelData.xsd">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Xsd>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

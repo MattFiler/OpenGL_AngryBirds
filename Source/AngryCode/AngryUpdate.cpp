@@ -16,7 +16,7 @@ void AngryUpdate::gstateInMenu(const ASGE::GameTime & us) {
 	//If not already playing, play background music
 	if (menu_music == NOT_PLAYING)
 	{
-		sound_engine->play2D("Resources\\Music\\550_music_main_MusicMain.mp3", true);
+		sound_engine->play2D("Resources\\UI\\MUSIC\\0.mp3", true);
 		menu_music = PLAYING;
 	}
 }
@@ -32,8 +32,8 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 	if (game_music == NOT_PLAYING)
 	{
 		sound_engine->stopAllSounds();
-		sound_engine->play2D("Resources\\Music\\551_sound_start_SoundStart.mp3", false);
-		sound_engine->play2D("Resources\\Music\\563_music_back_MusicBack.mp3", true);
+		sound_engine->play2D("Resources\\ENVIRONMENT\\MUSIC\\0.mp3", false);
+		sound_engine->play2D("Resources\\ENVIRONMENT\\SOUNDSCAPES\\0.mp3", true);
 		game_music = PLAYING;
 	}
 
@@ -41,12 +41,12 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 	handleBirdMovement(dt_sec, angrybirds_sprites.active_bird);
 
 	//Reload bird?
-	if (angrybirds_sprites.active_bird.getBirdState() == AngryBirdStates::DESPAWNED)
+	if (angrybirds_sprites.active_bird.getState() == AngryCharacterStates::DESPAWNED)
 	{
 		if (angrybirds_gamestate.lives != 0) 
 		{
 			//If bird has despawned, put it back in cannon
-			angrybirds_sprites.active_bird.setBirdState(AngryBirdStates::IN_CANNON);
+			angrybirds_sprites.active_bird.setState(AngryCharacterStates::IN_CANNON);
 		}
 		else
 		{
@@ -61,12 +61,12 @@ void AngryUpdate::gstatePlaying(const ASGE::GameTime & us) {
 /*
 Handle movement of the currently active bird
 */
-void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
+void AngryUpdate::handleBirdMovement(double dt_sec, Character &bird)
 {
-	switch (bird.getBirdState())
+	switch (bird.getState())
 	{
 		/* Bird is loaded in cannon and should spawn... */
-		case (AngryBirdStates::IN_CANNON):
+		case (AngryCharacterStates::IN_CANNON):
 		{
 			//Spawn
 			bird.spawn();
@@ -83,7 +83,7 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 			//Play SFX
 			if (bird_sfx == NOT_PLAYING)
 			{
-				sound_engine->play2D("Resources\\Music\\552_sound_red_SoundRed.mp3", false);
+				sound_engine->play2D("Resources\\CHARACTERS\\BIRDS\\RED\\SFX\\0.mp3", false);
 				bird_sfx = PLAYING;
 			}
 
@@ -91,7 +91,7 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 		}
 
 		/* Bird is in cannon and about to be fired... */
-		case (AngryBirdStates::ABOUT_TO_BE_FIRED):
+		case (AngryCharacterStates::ABOUT_TO_BE_FIRED):
 		{
 			//Set position of bird to mouse position
 			bird.setY(angrybirds_mousedata.mouse_y - (bird.spriteComponent()->getSprite()->height() / 2));
@@ -101,7 +101,7 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 		}
 
 		/* Bird has been fired from cannon... */
-		case (AngryBirdStates::HAS_BEEN_FIRED):
+		case (AngryCharacterStates::HAS_BEEN_FIRED):
 		{
 			//Calculate the time our bird has been in flight - this will act as our gravity
 			AngryFlightVars::bird_flight_time += dt_sec;
@@ -118,14 +118,26 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 				bird.getX() > (int)AngryGameVars::GAME_WIDTH ||
 				bird.getX() < -bird.spriteComponent()->getSprite()->width())
 			{
-				bird.setBirdState(AngryBirdStates::SHOULD_DESPAWN);
+				bird.setState(AngryCharacterStates::SHOULD_DESPAWN);
+			}
+
+			//Place down a flight marker if enough time has elapsed
+			AngryFlightVars::time_between_markers += dt_sec;
+			if (AngryFlightVars::time_between_markers > 0.1)
+			{
+				angrybirds_sprites.flight_marker[AngryFlightVars::number_of_markers].spawn();
+				angrybirds_sprites.flight_marker[AngryFlightVars::number_of_markers].setX(bird.getX() + (bird.getWidth() / 2));
+				angrybirds_sprites.flight_marker[AngryFlightVars::number_of_markers].setY(bird.getY() + (bird.getHeight() / 2));
+
+				AngryFlightVars::number_of_markers += 1;
+				AngryFlightVars::time_between_markers = 0;
 			}
 
 			break;
 		}
 
 		/* Bird is off window and should despawn... */
-		case (AngryBirdStates::SHOULD_DESPAWN):
+		case (AngryCharacterStates::SHOULD_DESPAWN):
 		{
 			//Reset position
 			bird.setX((int)AngryGameVars::DESPAWN_X_POS);
@@ -133,7 +145,7 @@ void AngryUpdate::handleBirdMovement(double dt_sec, GameObject &bird)
 
 			//Despawn
 			bird.despawn();
-			bird.setBirdState(AngryBirdStates::DESPAWNED);
+			bird.setState(AngryCharacterStates::DESPAWNED);
 
 			//Reset music trigger
 			bird_sfx = NOT_PLAYING;

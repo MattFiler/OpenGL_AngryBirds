@@ -10,7 +10,7 @@
 #include "../AngryStructs/AngryFlightVars.h"
 #include "../AngryStructs/AngryMouseData.h"
 
-#include "../AngryEnums/AngryBirdStates.h"
+#include "../AngryEnums/AngryCharacterStates.h"
 #include "../AngryEnums/AngryGameVars.h"
 
 class AngryUpdate {
@@ -23,7 +23,7 @@ class AngryUpdate {
 		void gstatePlaying(const ASGE::GameTime & us);
 
 		//Handle Bird Movement
-		void handleBirdMovement(double dt_sec, GameObject &bird);
+		void handleBirdMovement(double dt_sec, Character &bird);
 
 	private:
 		//Define music states (to avoid multiple tracks playing)
@@ -34,6 +34,10 @@ class AngryUpdate {
 
 		//Our class' sound engine
 		irrklang::ISoundEngine* sound_engine;
+
+		//Flight marker counters
+		int flight_marker_counter = 0;
+		float flight_marker_timer = 0;
 
 		/* AngryStructs */
 		AngryGamestateData angrybirds_gamestate;

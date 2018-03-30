@@ -13,9 +13,6 @@
     <ClCompile Include="..\..\Source\Rect.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\GameObject.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\SpriteComponent.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -40,8 +37,17 @@
     <ClCompile Include="..\..\Source\AngryStructs\AngryMouseData.cpp">
       <Filter>Source\AngryStructs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\GameFont.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="..\..\Source\AngrySpriteClasses\Character.cpp">
+      <Filter>Source\AngrySpriteClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngrySpriteClasses\EnvironmentBlock.cpp">
+      <Filter>Source\AngrySpriteClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngrySpriteClasses\UI.cpp">
+      <Filter>Source\AngrySpriteClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryStructs\AngryFonts.cpp">
+      <Filter>Source\AngryStructs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +72,12 @@
     <Filter Include="Source\AngryStructs">
       <UniqueIdentifier>{267554c0-492f-4a2a-8ce5-849698223054}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headers\AngrySpriteClasses">
+      <UniqueIdentifier>{a300b61d-e4fe-46f1-9c1d-2495495fdc99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\AngrySpriteClasses">
+      <UniqueIdentifier>{f8d8171a-318e-478b-9cd8-ddc05653fe21}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\Game.h">
@@ -75,9 +87,6 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Vector2.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GameObject.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SpriteComponent.h">
@@ -110,17 +119,38 @@
     <ClInclude Include="..\..\Source\AngryStructs\AngryMouseData.h">
       <Filter>Headers\AngryStructs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\AngryEnums\AngryBirdStates.h">
-      <Filter>Headers\AngryEnums</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GameFont.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\AngryEnums\AngryMenuScreens.h">
       <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\AngryEnums\AngryBackgrounds.h">
       <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\AngrySpriteClasses\EnvironmentBlock.h">
+      <Filter>Headers\AngrySpriteClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngrySpriteClasses\Character.h">
+      <Filter>Headers\AngrySpriteClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngrySpriteClasses\UI.h">
+      <Filter>Headers\AngrySpriteClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryEnums\AngryCharacterStates.h">
+      <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryEnums\AngryDestructionStates.h">
+      <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryStructs\AngryFonts.h">
+      <Filter>Headers\AngryStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AngryBirds.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xsd Include="..\..\Source\LevelData.xsd">
+      <Filter>Source</Filter>
+    </Xsd>
   </ItemGroup>
 </Project>

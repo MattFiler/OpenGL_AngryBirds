@@ -37,8 +37,45 @@ void AngryRender::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rende
 	//In-game background
 	renderer->renderSprite(*angrybirds_sprites.backgrounds[(int)AngryBackgrounds::INGAME_BACKGROUND].spriteComponent()->getSprite());
 
+	//Render Spawned Flight Marker Dots 
+	for (int i = 0; i < (int)AngryGameVars::MAX_FLIGHT_MARKER_DOTS; i++)
+	{
+		if (angrybirds_sprites.flight_marker[i].hasSpawned())
+		{
+			renderer->renderSprite(*angrybirds_sprites.flight_marker[i].spriteComponent()->getSprite());
+		}
+	}
+
 	//Slingshot background
-	renderer->renderSprite(*angrybirds_sprites.slingshot[1].spriteComponent()->getSprite());
+	renderer->renderSprite(*angrybirds_sprites.slingshot[0].spriteComponent()->getSprite());
+
+	//Blocks
+	for (int i = 0; i < (int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; i++)
+	{
+		//Wood
+		if (angrybirds_sprites.wood_rectangle_long[i].hasSpawned())
+			angrybirds_sprites.wood_rectangle_long[i].spriteComponent()->getSprite();
+		if (angrybirds_sprites.wood_rectangle_tall[i].hasSpawned())
+			angrybirds_sprites.wood_rectangle_tall[i].spriteComponent()->getSprite();
+		if (angrybirds_sprites.wood_square[i].hasSpawned())
+			angrybirds_sprites.wood_square[i].spriteComponent()->getSprite();
+
+		//Ice
+		if (angrybirds_sprites.ice_rectangle_long[i].hasSpawned())
+			angrybirds_sprites.ice_rectangle_long[i].spriteComponent()->getSprite();
+		if (angrybirds_sprites.ice_rectangle_tall[i].hasSpawned())
+			angrybirds_sprites.ice_rectangle_tall[i].spriteComponent()->getSprite();
+		if (angrybirds_sprites.ice_square[i].hasSpawned())
+			angrybirds_sprites.ice_square[i].spriteComponent()->getSprite();
+
+		//Rock
+		if (angrybirds_sprites.rock_rectangle_long[i].hasSpawned())
+			angrybirds_sprites.rock_rectangle_long[i].spriteComponent()->getSprite();
+		if (angrybirds_sprites.rock_rectangle_tall[i].hasSpawned())
+			angrybirds_sprites.rock_rectangle_tall[i].spriteComponent()->getSprite();
+		if (angrybirds_sprites.rock_square[i].hasSpawned())
+			angrybirds_sprites.rock_square[i].spriteComponent()->getSprite();
+	}
 
 	//Active player controlled bird
 	if (angrybirds_sprites.active_bird.hasSpawned()) 
@@ -47,7 +84,7 @@ void AngryRender::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rende
 	}
 
 	//Slingshot foreground
-	renderer->renderSprite(*angrybirds_sprites.slingshot[0].spriteComponent()->getSprite());
+	renderer->renderSprite(*angrybirds_sprites.slingshot[1].spriteComponent()->getSprite());
 
 	//Inactive birds (only render number of lives - 1)
 	for (int i = 0; i < angrybirds_gamestate.lives - 1; i++)
