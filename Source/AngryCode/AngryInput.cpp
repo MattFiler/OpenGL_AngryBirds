@@ -15,20 +15,20 @@ void AngryInput::gstateInMenu(ASGE::SharedEventData data) {
 	//Get key
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 
-	switch (angrybirds_gamestate.menu_screen) {
+	switch (gamestate.menu_screen) {
 		//Splashscreen
-		case AngryMenuScreens::SPLASHSCREEN: {
+		case MenuScreens::SPLASHSCREEN: {
 			if (key->key == ASGE::KEYS::KEY_ENTER)
 			{
-				angrybirds_gamestate.menu_screen = AngryMenuScreens::MAIN_MENU;
+				gamestate.menu_screen = MenuScreens::MAIN_MENU;
 			}
 			break;
 		}
 		//Main Menu
-		case AngryMenuScreens::MAIN_MENU: {
+		case MenuScreens::MAIN_MENU: {
 			if (key->key == ASGE::KEYS::KEY_SPACE)
 			{
-				angrybirds_gamestate.current_gamestate = AngryGamestate::IS_PLAYING; //DEBUG: Quickly get into game and skip menu
+				gamestate.current_gamestate = Gamestate::IS_PLAYING; //DEBUG: Quickly get into game and skip menu
 			}
 			break;
 		}
@@ -45,7 +45,7 @@ void AngryInput::gstatePlaying(ASGE::SharedEventData data) {
 	//Pause the game when ESC is pressed
 	if (key->key == ASGE::KEYS::KEY_ESCAPE)
 	{
-		angrybirds_gamestate.current_gamestate = AngryGamestate::IN_MENU;
-		angrybirds_gamestate.menu_screen = AngryMenuScreens::PAUSE_MENU;
+		gamestate.current_gamestate = Gamestate::IN_MENU;
+		gamestate.menu_screen = MenuScreens::PAUSE_MENU;
 	}
 }

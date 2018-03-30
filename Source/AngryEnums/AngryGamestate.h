@@ -3,7 +3,7 @@
 /*
 	Define all gamestates.
 */
-enum class AngryGamestate : int
+enum class Gamestate : int
 {
 	IN_MENU, //In main menu
 	IS_PLAYING, //In-game

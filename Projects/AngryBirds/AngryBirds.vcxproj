@@ -102,6 +102,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\AngryCode\AngryInput.cpp" />
+    <ClCompile Include="..\..\Source\AngryCode\AngryLevels.cpp" />
     <ClCompile Include="..\..\Source\AngryCode\AngryRender.cpp" />
     <ClCompile Include="..\..\Source\AngryCode\AngryUpdate.cpp" />
     <ClCompile Include="..\..\Source\AngrySpriteClasses\Character.cpp" />
@@ -120,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\AngryCode\AngryInput.h" />
+    <ClInclude Include="..\..\Source\AngryCode\AngryLevels.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryRender.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryUpdate.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryBackgrounds.h" />

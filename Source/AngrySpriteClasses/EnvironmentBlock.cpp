@@ -3,7 +3,7 @@
 
 EnvironmentBlock::EnvironmentBlock()
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i] = nullptr;
 	}
@@ -12,7 +12,7 @@ EnvironmentBlock::EnvironmentBlock()
 }
 EnvironmentBlock::~EnvironmentBlock()
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		freeSpriteComponent(i);
 	}
@@ -50,14 +50,14 @@ SpriteComponent* EnvironmentBlock::spriteComponent()
 
 void EnvironmentBlock::addToX(float addX)
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i]->getSprite()->xPos(sprite[i]->getSprite()->xPos() + addX);
 	}
 }
 void EnvironmentBlock::addToY(float addY)
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i]->getSprite()->yPos(sprite[i]->getSprite()->xPos() + addY);
 	}
@@ -65,14 +65,14 @@ void EnvironmentBlock::addToY(float addY)
 
 void EnvironmentBlock::subtractFromX(float minusX)
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i]->getSprite()->xPos(sprite[i]->getSprite()->xPos() - minusX);
 	}
 }
 void EnvironmentBlock::subtractFromY(float minusY)
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i]->getSprite()->yPos(sprite[i]->getSprite()->yPos() - minusY);
 	}
@@ -89,14 +89,14 @@ float EnvironmentBlock::getY()
 
 void EnvironmentBlock::setX(float x)
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i]->getSprite()->xPos(x);
 	}
 }
 void EnvironmentBlock::setY(float y)
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i]->getSprite()->yPos(y);
 	}
@@ -104,7 +104,7 @@ void EnvironmentBlock::setY(float y)
 
 void EnvironmentBlock::setRotation(float degrees)
 {
-	for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i]->getSprite()->rotationInRadians(degrees * (3.14159 / 180));
 	}
@@ -132,29 +132,29 @@ bool EnvironmentBlock::hasSpawned()
 	return has_spawned;
 }
 
-AngryDestructionStates EnvironmentBlock::getDestruction()
+DestructionStates EnvironmentBlock::getDestruction()
 {
 	return destruction_state;
 }
-void EnvironmentBlock::setDestruction(AngryDestructionStates state)
+void EnvironmentBlock::setDestruction(DestructionStates state)
 {
 	destruction_state = state;
 }
 bool EnvironmentBlock::doDamage()
 {
-	AngryDestructionStates new_destruction_state = (AngryDestructionStates)((int)destruction_state + 1);
+	DestructionStates new_destruction_state = (DestructionStates)((int)destruction_state + 1);
 
-	if ((int)new_destruction_state > (int)AngryDestructionStates::DESTRUCTION_COUNT - 1) {
+	if ((int)new_destruction_state > (int)DestructionStates::DESTRUCTION_COUNT - 1) {
 		switch (block_type) {
-		case AngryBlockTypes::ICE: {
+		case BlockTypes::ICE: {
 			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SFX\\1.mp3", false);
 			break;
 		}
-		case AngryBlockTypes::ROCK: {
+		case BlockTypes::ROCK: {
 			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SFX\\1.mp3", false);
 			break;
 		}
-		case AngryBlockTypes::WOOD: {
+		case BlockTypes::WOOD: {
 			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SFX\\1.mp3", false);
 			break;
 		}
@@ -165,15 +165,15 @@ bool EnvironmentBlock::doDamage()
 	else
 	{
 		switch (block_type) {
-		case AngryBlockTypes::ICE: {
+		case BlockTypes::ICE: {
 			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SFX\\0.mp3", false);
 			break;
 		}
-		case AngryBlockTypes::ROCK: {
+		case BlockTypes::ROCK: {
 			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SFX\\0.mp3", false);
 			break;
 		}
-		case AngryBlockTypes::WOOD: {
+		case BlockTypes::WOOD: {
 			sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SFX\\0.mp3", false);
 			break;
 		}
@@ -183,11 +183,11 @@ bool EnvironmentBlock::doDamage()
 	}
 }
 
-AngryBlockTypes EnvironmentBlock::getBlockType()
+BlockTypes EnvironmentBlock::getBlockType()
 {
 	return block_type;
 }
-void EnvironmentBlock::setBlockType(AngryBlockTypes blocktype)
+void EnvironmentBlock::setBlockType(BlockTypes blocktype)
 {
 	block_type = blocktype;
 }

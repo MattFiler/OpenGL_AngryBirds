@@ -10,12 +10,12 @@
 *   @param   ptm is the size of the loaded font
 *   @return  void
 */
-AngryFonts::AngryFonts(int idx, char* n, int ptm)
+Fonts::Fonts(int idx, char* n, int ptm)
 	: id(idx), name(n), size(ptm)
 {
 
 }
 
 // static variables for fonts
-AngryFonts* AngryFonts::fonts[5] = { nullptr };
+Fonts* Fonts::fonts[5] = { nullptr };
 

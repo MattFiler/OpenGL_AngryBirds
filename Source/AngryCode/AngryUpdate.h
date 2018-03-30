@@ -5,6 +5,8 @@
 #include <Engine/OGLGame.h>
 #include <irrklang.h>
 
+#include "../AngryCode/AngryLevels.h"
+
 #include "../AngryStructs/AngryGamestateData.h"
 #include "../AngryStructs/AngrySprites.h"
 #include "../AngryStructs/AngryFlightVars.h"
@@ -22,6 +24,9 @@ class AngryUpdate {
 		void gstateInMenu(const ASGE::GameTime & us);
 		void gstatePlaying(const ASGE::GameTime & us);
 
+		//Collision handler
+		void detectCollision(EnvironmentBlock& block);
+
 		//Handle Bird Movement
 		void handleBirdMovement(double dt_sec, Character &bird);
 
@@ -38,12 +43,13 @@ class AngryUpdate {
 		//Level generation
 		enum level_state { NEEDS_TO_SPAWN, HAS_SPAWNED };
 		int level_spawn = NEEDS_TO_SPAWN;
+		AngryLevels level;
 
 		//Game time
 		float game_time = 0;
 
 		/* AngryStructs */
-		AngryGamestateData angrybirds_gamestate;
-		AngryMouseData angrybirds_mousedata;
-		AngrySprites angrybirds_sprites;
+		GamestateData gamestate;
+		MouseData mousedata;
+		Sprites sprites;
 };

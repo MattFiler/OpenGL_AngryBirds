@@ -3,7 +3,7 @@
 /*
 Define all backgrounds within AngrySprites.backgrounds
 */
-enum class AngryBackgrounds : int
+enum class BackgroundSprites : int
 {
 	SPLASHSCREEN_BACKGROUND,
 	MAIN_MENU_BACKGROUND,

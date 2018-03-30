@@ -36,12 +36,12 @@ public:
 	void spawn();
 	bool hasSpawned();
 
-	AngryDestructionStates getDestruction();
-	void setDestruction(AngryDestructionStates state);
+	DestructionStates getDestruction();
+	void setDestruction(DestructionStates state);
 	bool doDamage();
 
-	AngryBlockTypes getBlockType();
-	void setBlockType(AngryBlockTypes blocktype);
+	BlockTypes getBlockType();
+	void setBlockType(BlockTypes blocktype);
 
 	SpriteComponent* spriteComponent();
 
@@ -49,9 +49,9 @@ private:
 	irrklang::ISoundEngine* sound_engine;
 
 	bool has_spawned = false;
-	AngryDestructionStates destruction_state = AngryDestructionStates::DEFAULT;
-	AngryBlockTypes block_type;
+	DestructionStates destruction_state = DestructionStates::DEFAULT;
+	BlockTypes block_type;
 
 	void freeSpriteComponent(int state);
-	SpriteComponent* sprite[(int)AngryDestructionStates::DESTRUCTION_COUNT];
+	SpriteComponent* sprite[(int)DestructionStates::DESTRUCTION_COUNT];
 };

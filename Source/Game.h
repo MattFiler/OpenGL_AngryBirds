@@ -48,12 +48,12 @@ private:
 	int cursor_type = STANDARD;
 
 	/* AngryCode */
-	AngryUpdate angrybirds_update;
-	AngryRender angrybirds_render;
-	AngryInput angrybirds_input;
+	AngryUpdate game_update;
+	AngryRender game_render;
+	AngryInput game_input;
 	
 	/* AngryStructs */
-	AngryGamestateData angrybirds_gamestate;
-	AngryMouseData angrybirds_mousedata;
-	AngrySprites angrybirds_sprites;
+	GamestateData gamestate;
+	MouseData mousedata;
+	Sprites sprites;
 };

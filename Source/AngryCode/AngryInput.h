@@ -16,5 +16,5 @@ class AngryInput {
 
 	private:
 		/* AngryStructs */
-		AngryGamestateData angrybirds_gamestate;
+		GamestateData gamestate;
 };

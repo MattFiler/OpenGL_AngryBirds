@@ -1,6 +1,6 @@
 #pragma once
 
-struct AngryMouseData
+struct MouseData
 {
 	//Mouse Data
 	static double mouse_x; //Current X position of mouse

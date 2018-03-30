@@ -3,7 +3,7 @@
 /*
 Define all menu screens.
 */
-enum class AngryMenuScreens : int
+enum class MenuScreens : int
 {
 	SPLASHSCREEN, //Landing - the splashscreen
 	MAIN_MENU, //Main menu - after the splashscreen

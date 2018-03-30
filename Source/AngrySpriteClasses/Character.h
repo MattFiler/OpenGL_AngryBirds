@@ -32,8 +32,8 @@ public:
 	void spawn();
 	bool hasSpawned();
 
-	AngryCharacterStates getState();
-	void setState(AngryCharacterStates newBirdState);
+	CharacterStates getState();
+	void setState(CharacterStates newBirdState);
 
 	SpriteComponent* spriteComponent();
 
@@ -43,5 +43,5 @@ private:
 	void freeSpriteComponent();
 	SpriteComponent* sprite_component = nullptr;
 
-	AngryCharacterStates character_state;
+	CharacterStates character_state;
 };

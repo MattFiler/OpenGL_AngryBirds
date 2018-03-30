@@ -3,7 +3,7 @@
 /*
 	Define all character states.
 */
-enum class AngryCharacterStates : int
+enum class CharacterStates : int
 {
 	//Spawning in
 	SHOULD_SPAWN, //Character should be spawned

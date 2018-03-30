@@ -4,7 +4,7 @@
 /*
 	Define some game vars.
 */
-enum class AngryGameVars : int
+enum class GameVars : int
 {
 	//Game window sizes
 	GAME_WIDTH = 1920,
@@ -32,5 +32,5 @@ enum class AngryGameVars : int
 	//Block counts
 	MAX_NUMBER_OF_THIS_BLOCK_TYPE = 5,
 	BLOCK_VARIATIONS = 3, //This is hard-coded
-	BLOCK_DESTRUCTION_COUNT = (int)AngryDestructionStates::DESTRUCTION_COUNT
+	BLOCK_DESTRUCTION_COUNT = (int)DestructionStates::DESTRUCTION_COUNT
 };

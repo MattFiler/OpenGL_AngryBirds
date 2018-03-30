@@ -1,28 +1,28 @@
 #include "../AngryStructs/AngrySprites.h"
 
 //UI Elements
-UI AngrySprites::backgrounds[(int)AngryBackgrounds::NUMBER_OF_BACKGROUNDS];
-UI AngrySprites::flight_marker[(int)AngryGameVars::MAX_FLIGHT_MARKER_DOTS];
-UI AngrySprites::cursor[2];
+UI Sprites::backgrounds[(int)BackgroundSprites::NUMBER_OF_BACKGROUNDS];
+UI Sprites::flight_marker[(int)GameVars::MAX_FLIGHT_MARKER_DOTS];
+UI Sprites::cursor[2];
 
 //Slingshot
-UI AngrySprites::slingshot[2];
+UI Sprites::slingshot[2];
 
 //Birds
-Character AngrySprites::active_bird;
-Character AngrySprites::waiting_birds[(int)AngryGameVars::NUMBER_OF_STARTING_BIRDS - 1];
+Character Sprites::active_bird;
+Character Sprites::waiting_birds[(int)GameVars::NUMBER_OF_STARTING_BIRDS - 1];
 
 //Wood Blocks
-EnvironmentBlock AngrySprites::wood_rectangle_long[(int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
-EnvironmentBlock AngrySprites::wood_rectangle_tall[(int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
-EnvironmentBlock AngrySprites::wood_square[(int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+EnvironmentBlock Sprites::wood_rectangle_long[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+EnvironmentBlock Sprites::wood_rectangle_tall[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+EnvironmentBlock Sprites::wood_square[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
 
 //Ice Blocks
-EnvironmentBlock AngrySprites::ice_rectangle_long[(int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
-EnvironmentBlock AngrySprites::ice_rectangle_tall[(int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
-EnvironmentBlock AngrySprites::ice_square[(int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+EnvironmentBlock Sprites::ice_rectangle_long[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+EnvironmentBlock Sprites::ice_rectangle_tall[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+EnvironmentBlock Sprites::ice_square[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
 
 //Rock Blocks
-EnvironmentBlock AngrySprites::rock_rectangle_long[(int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
-EnvironmentBlock AngrySprites::rock_rectangle_tall[(int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
-EnvironmentBlock AngrySprites::rock_square[(int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+EnvironmentBlock Sprites::rock_rectangle_long[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+EnvironmentBlock Sprites::rock_rectangle_tall[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+EnvironmentBlock Sprites::rock_square[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];

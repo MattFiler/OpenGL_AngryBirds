@@ -3,7 +3,7 @@
 /*
 Define all destruction states for blocks
 */
-enum class AngryDestructionStates : int
+enum class DestructionStates : int
 {
 	DEFAULT,
 	DAMAGE_LOW,

@@ -60,7 +60,7 @@ bool AngryBirdsGame::init()
 	assignTextures();
 
 	//Load font
-	AngryFonts::fonts[0] = new AngryFonts(renderer->loadFont("Resources\\UI\\FONTS\\0.ttf", 45), "default", 45);
+	Fonts::fonts[0] = new Fonts(renderer->loadFont("Resources\\UI\\FONTS\\0.ttf", 45), "default", 45);
 
 	return true;
 }
@@ -69,159 +69,159 @@ bool AngryBirdsGame::init()
 bool AngryBirdsGame::assignTextures()
 {
 	/* Menu Background */
-	for (int i = 0; i < (int)AngryBackgrounds::NUMBER_OF_BACKGROUNDS; i++) {
-		if (!angrybirds_sprites.backgrounds[i].addSpriteComponent(renderer.get(), "Resources\\UI\\BACKGROUNDS\\" + std::to_string(i) + ".jpg"))
+	for (int i = 0; i < (int)BackgroundSprites::NUMBER_OF_BACKGROUNDS; i++) {
+		if (!sprites.backgrounds[i].addSpriteComponent(renderer.get(), "Resources\\UI\\BACKGROUNDS\\" + std::to_string(i) + ".jpg"))
 		{
 			return false;
 		}
 	}
 
 	/* Cursors */
-	if (!angrybirds_sprites.cursor[0].addSpriteComponent(renderer.get(), "Resources\\UI\\CURSOR\\0.png"))
+	if (!sprites.cursor[0].addSpriteComponent(renderer.get(), "Resources\\UI\\CURSOR\\0.png"))
 	{
 		return false;
 	}
-	if (!angrybirds_sprites.cursor[1].addSpriteComponent(renderer.get(), "Resources\\UI\\CURSOR\\1.png"))
+	if (!sprites.cursor[1].addSpriteComponent(renderer.get(), "Resources\\UI\\CURSOR\\1.png"))
 	{
 		return false;
 	}
 
 	/* Active Bird */
-	if (!angrybirds_sprites.active_bird.addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\BIRDS\\RED\\0.png"))
+	if (!sprites.active_bird.addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\BIRDS\\RED\\0.png"))
 	{
 		return false;
 	}
-	angrybirds_sprites.active_bird.spawn();
-	angrybirds_sprites.active_bird.setState(AngryCharacterStates::IN_CANNON);
+	sprites.active_bird.spawn();
+	sprites.active_bird.setState(CharacterStates::IN_CANNON);
 
 	/* Inactive Birds */
-	for (int i = 0; i < (int)AngryGameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
 	{
-		if (!angrybirds_sprites.waiting_birds[i].addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\BIRDS\\RED\\0.png"))
+		if (!sprites.waiting_birds[i].addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\BIRDS\\RED\\0.png"))
 		{
 			return false;
 		}
-		angrybirds_sprites.waiting_birds[i].setX((int)AngryGameVars::SLINGSHOT_X_ORIGIN - (45 * i) - 40);
-		angrybirds_sprites.waiting_birds[i].setY((int)AngryGameVars::SLINGSHOT_Y_ORIGIN + 250);
+		sprites.waiting_birds[i].setX((int)GameVars::SLINGSHOT_X_ORIGIN - (45 * i) - 40);
+		sprites.waiting_birds[i].setY((int)GameVars::SLINGSHOT_Y_ORIGIN + 250);
 	}
 
 	/* Slingshot Components */
-	if (!angrybirds_sprites.slingshot[0].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\SLINGSHOT\\0.png"))
+	if (!sprites.slingshot[0].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\SLINGSHOT\\0.png"))
 	{
 		return false;
 	}
-	angrybirds_sprites.slingshot[0].setX((int)AngryGameVars::SLINGSHOT_X_ORIGIN - 25);
-	angrybirds_sprites.slingshot[0].setY((int)AngryGameVars::SLINGSHOT_Y_ORIGIN);
-	if (!angrybirds_sprites.slingshot[1].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\SLINGSHOT\\1.png"))
+	sprites.slingshot[0].setX((int)GameVars::SLINGSHOT_X_ORIGIN - 25);
+	sprites.slingshot[0].setY((int)GameVars::SLINGSHOT_Y_ORIGIN);
+	if (!sprites.slingshot[1].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\SLINGSHOT\\1.png"))
 	{
 		return false;
 	}
-	angrybirds_sprites.slingshot[1].setX((int)AngryGameVars::SLINGSHOT_X_ORIGIN - 25);
-	angrybirds_sprites.slingshot[1].setY((int)AngryGameVars::SLINGSHOT_Y_ORIGIN);
+	sprites.slingshot[1].setX((int)GameVars::SLINGSHOT_X_ORIGIN - 25);
+	sprites.slingshot[1].setY((int)GameVars::SLINGSHOT_Y_ORIGIN);
 
 	/* Flight Marker Dots */
-	for (int i = 0; i < (int)AngryGameVars::MAX_FLIGHT_MARKER_DOTS; i++)
+	for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
 	{
-		if (!angrybirds_sprites.flight_marker[i].addSpriteComponent(renderer.get(), "Resources\\UI\\POSITION_MARKER\\0.png"))
+		if (!sprites.flight_marker[i].addSpriteComponent(renderer.get(), "Resources\\UI\\POSITION_MARKER\\0.png"))
 		{
 			return false;
 		}
-		angrybirds_sprites.flight_marker[i].despawn();
+		sprites.flight_marker[i].despawn();
 	}
 
-	for (int x = 0; x < (int)AngryGameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; x++)
+	for (int x = 0; x < (int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; x++)
 	{
 		/* Wood Blocks */
-		angrybirds_sprites.wood_rectangle_long[x].setDestruction(AngryDestructionStates::DEFAULT);
-		angrybirds_sprites.wood_rectangle_long[x].setBlockType(AngryBlockTypes::WOOD);
-		angrybirds_sprites.wood_rectangle_long[x].despawn();
-		for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+		sprites.wood_rectangle_long[x].setDestruction(DestructionStates::DEFAULT);
+		sprites.wood_rectangle_long[x].setBlockType(BlockTypes::WOOD);
+		sprites.wood_rectangle_long[x].despawn();
+		for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 		{
-			if (!angrybirds_sprites.wood_rectangle_long[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\LONG_RECTANGLE\\" + std::to_string(i) + ".png", i))
+			if (!sprites.wood_rectangle_long[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\LONG_RECTANGLE\\" + std::to_string(i) + ".png", i))
 			{
 				return false;
 			}
 		}
-		angrybirds_sprites.wood_rectangle_tall[x].setDestruction(AngryDestructionStates::DEFAULT);
-		angrybirds_sprites.wood_rectangle_tall[x].setBlockType(AngryBlockTypes::WOOD);
-		angrybirds_sprites.wood_rectangle_tall[x].despawn();
-		for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+		sprites.wood_rectangle_tall[x].setDestruction(DestructionStates::DEFAULT);
+		sprites.wood_rectangle_tall[x].setBlockType(BlockTypes::WOOD);
+		sprites.wood_rectangle_tall[x].despawn();
+		for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 		{
-			if (!angrybirds_sprites.wood_rectangle_tall[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\TALL_RECTANGLE\\" + std::to_string(i) + ".png", i))
+			if (!sprites.wood_rectangle_tall[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\TALL_RECTANGLE\\" + std::to_string(i) + ".png", i))
 			{
 				return false;
 			}
 		}
-		angrybirds_sprites.wood_square[x].setDestruction(AngryDestructionStates::DEFAULT);
-		angrybirds_sprites.wood_square[x].setBlockType(AngryBlockTypes::WOOD);
-		angrybirds_sprites.wood_square[x].despawn();
-		for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+		sprites.wood_square[x].setDestruction(DestructionStates::DEFAULT);
+		sprites.wood_square[x].setBlockType(BlockTypes::WOOD);
+		sprites.wood_square[x].despawn();
+		for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 		{
-			if (!angrybirds_sprites.wood_square[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SQUARE\\" + std::to_string(i) + ".png", i))
+			if (!sprites.wood_square[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SQUARE\\" + std::to_string(i) + ".png", i))
 			{
 				return false;
 			}
 		}
 
 		/* Ice Blocks */
-		angrybirds_sprites.ice_rectangle_long[x].setDestruction(AngryDestructionStates::DEFAULT);
-		angrybirds_sprites.ice_rectangle_long[x].setBlockType(AngryBlockTypes::ICE);
-		angrybirds_sprites.ice_rectangle_long[x].despawn();
-		for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+		sprites.ice_rectangle_long[x].setDestruction(DestructionStates::DEFAULT);
+		sprites.ice_rectangle_long[x].setBlockType(BlockTypes::ICE);
+		sprites.ice_rectangle_long[x].despawn();
+		for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 		{
-			if (!angrybirds_sprites.ice_rectangle_long[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ICE\\LONG_RECTANGLE\\" + std::to_string(i) + ".png", i))
+			if (!sprites.ice_rectangle_long[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ICE\\LONG_RECTANGLE\\" + std::to_string(i) + ".png", i))
 			{
 				return false;
 			}
 		}
-		angrybirds_sprites.ice_rectangle_tall[x].setDestruction(AngryDestructionStates::DEFAULT);
-		angrybirds_sprites.ice_rectangle_tall[x].setBlockType(AngryBlockTypes::ICE);
-		angrybirds_sprites.ice_rectangle_tall[x].despawn();
-		for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+		sprites.ice_rectangle_tall[x].setDestruction(DestructionStates::DEFAULT);
+		sprites.ice_rectangle_tall[x].setBlockType(BlockTypes::ICE);
+		sprites.ice_rectangle_tall[x].despawn();
+		for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 		{
-			if (!angrybirds_sprites.ice_rectangle_tall[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ICE\\TALL_RECTANGLE\\" + std::to_string(i) + ".png", i))
+			if (!sprites.ice_rectangle_tall[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ICE\\TALL_RECTANGLE\\" + std::to_string(i) + ".png", i))
 			{
 				return false;
 			}
 		}
-		angrybirds_sprites.ice_square[x].setDestruction(AngryDestructionStates::DEFAULT);
-		angrybirds_sprites.ice_square[x].setBlockType(AngryBlockTypes::ICE);
-		angrybirds_sprites.ice_square[x].despawn();
-		for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+		sprites.ice_square[x].setDestruction(DestructionStates::DEFAULT);
+		sprites.ice_square[x].setBlockType(BlockTypes::ICE);
+		sprites.ice_square[x].despawn();
+		for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 		{
-			if (!angrybirds_sprites.ice_square[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SQUARE\\" + std::to_string(i) + ".png", i))
+			if (!sprites.ice_square[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SQUARE\\" + std::to_string(i) + ".png", i))
 			{
 				return false;
 			}
 		}
 
 		/* Rock Blocks */
-		angrybirds_sprites.rock_rectangle_long[x].setDestruction(AngryDestructionStates::DEFAULT);
-		angrybirds_sprites.rock_rectangle_long[x].setBlockType(AngryBlockTypes::ROCK);
-		angrybirds_sprites.rock_rectangle_long[x].despawn();
-		for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+		sprites.rock_rectangle_long[x].setDestruction(DestructionStates::DEFAULT);
+		sprites.rock_rectangle_long[x].setBlockType(BlockTypes::ROCK);
+		sprites.rock_rectangle_long[x].despawn();
+		for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 		{
-			if (!angrybirds_sprites.rock_rectangle_long[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\LONG_RECTANGLE\\" + std::to_string(i) + ".png", i))
+			if (!sprites.rock_rectangle_long[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\LONG_RECTANGLE\\" + std::to_string(i) + ".png", i))
 			{
 				return false;
 			}
 		}
-		angrybirds_sprites.rock_rectangle_tall[x].setDestruction(AngryDestructionStates::DEFAULT);
-		angrybirds_sprites.rock_rectangle_tall[x].setBlockType(AngryBlockTypes::ROCK);
-		angrybirds_sprites.rock_rectangle_tall[x].despawn();
-		for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+		sprites.rock_rectangle_tall[x].setDestruction(DestructionStates::DEFAULT);
+		sprites.rock_rectangle_tall[x].setBlockType(BlockTypes::ROCK);
+		sprites.rock_rectangle_tall[x].despawn();
+		for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 		{
-			if (!angrybirds_sprites.rock_rectangle_tall[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\TALL_RECTANGLE\\" + std::to_string(i) + ".png", i))
+			if (!sprites.rock_rectangle_tall[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\TALL_RECTANGLE\\" + std::to_string(i) + ".png", i))
 			{
 				return false;
 			}
 		}
-		angrybirds_sprites.rock_square[x].setDestruction(AngryDestructionStates::DEFAULT);
-		angrybirds_sprites.rock_square[x].setBlockType(AngryBlockTypes::ROCK);
-		angrybirds_sprites.rock_square[x].despawn();
-		for (int i = 0; i < (int)AngryDestructionStates::DESTRUCTION_COUNT; i++)
+		sprites.rock_square[x].setDestruction(DestructionStates::DEFAULT);
+		sprites.rock_square[x].setBlockType(BlockTypes::ROCK);
+		sprites.rock_square[x].despawn();
+		for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 		{
-			if (!angrybirds_sprites.rock_square[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SQUARE\\" + std::to_string(i) + ".png", i))
+			if (!sprites.rock_square[x].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SQUARE\\" + std::to_string(i) + ".png", i))
 			{
 				return false;
 			}
@@ -245,8 +245,8 @@ void AngryBirdsGame::setupResolution()
 	// how will the game be framed in native 16:9 resolutions?
 	// here are some abritrary values for you to adjust as you see fit
 	// https://www.gamasutra.com/blogs/KenanBolukbasi/20171002/306822/Scaling_and_MultiResolution_in_2D_Games.php
-	game_width = (int)AngryGameVars::GAME_WIDTH;
-	game_height = (int)AngryGameVars::GAME_HEIGHT;
+	game_width = (int)GameVars::GAME_WIDTH;
+	game_height = (int)GameVars::GAME_HEIGHT;
 }
 
 /**
@@ -264,15 +264,15 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 
 	//Handle keypresses by gamestate
-	switch (angrybirds_gamestate.current_gamestate) {
+	switch (gamestate.current_gamestate) {
 		//IN MENU
-		case AngryGamestate::IN_MENU: {
-			angrybirds_input.gstateInMenu(data);
+		case Gamestate::IN_MENU: {
+			game_input.gstateInMenu(data);
 			break;
 		}
 		//IN GAME
-		case AngryGamestate::IS_PLAYING: {
-			angrybirds_input.gstatePlaying(data);
+		case Gamestate::IS_PLAYING: {
+			game_input.gstatePlaying(data);
 			break;
 		}
 	}
@@ -309,33 +309,33 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 {
 	auto click = static_cast<const ASGE::ClickEvent*>(data.get());
 
-	if (click->button == 0 && angrybirds_sprites.active_bird.getState() == AngryCharacterStates::IN_CANNON)
+	if (click->button == 0 && sprites.active_bird.getState() == CharacterStates::IN_CANNON)
 	{
 		//Let the game world know we're pulling the bird back
-		angrybirds_sprites.active_bird.setState(AngryCharacterStates::ABOUT_TO_BE_FIRED);
+		sprites.active_bird.setState(CharacterStates::ABOUT_TO_BE_FIRED);
 
 		//Let the cursor know we're interacting
 		cursor_type = INTERACTION;
 	}
 
-	if (click->action == ASGE::KEYS::KEY_RELEASED && angrybirds_sprites.active_bird.getState() == AngryCharacterStates::ABOUT_TO_BE_FIRED)
+	if (click->action == ASGE::KEYS::KEY_RELEASED && sprites.active_bird.getState() == CharacterStates::ABOUT_TO_BE_FIRED)
 	{
 		//Set physics values of bird
-		AngryFlightVars::pullback_force = ((int)AngryGameVars::SLINGSHOT_X_ORIGIN - angrybirds_mousedata.mouse_x);
-		AngryFlightVars::pullback_angle = ((int)AngryGameVars::SLINGSHOT_Y_ORIGIN - angrybirds_mousedata.mouse_y) * -1;
+		FlightVars::pullback_force = ((int)GameVars::SLINGSHOT_X_ORIGIN - mousedata.mouse_x);
+		FlightVars::pullback_angle = ((int)GameVars::SLINGSHOT_Y_ORIGIN - mousedata.mouse_y) * -1;
 
 		//Let the game world know we've released the bird
-		angrybirds_sprites.active_bird.setState(AngryCharacterStates::HAS_BEEN_FIRED);
+		sprites.active_bird.setState(CharacterStates::HAS_BEEN_FIRED);
 
 		//Let the cursor know we've finished
 		cursor_type = STANDARD;
 
 		//Reset flight marker dots ready to track the movement
-		for (int i = 0; i < (int)AngryGameVars::MAX_FLIGHT_MARKER_DOTS; i++)
+		for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
 		{
-			angrybirds_sprites.flight_marker[i].despawn();
+			sprites.flight_marker[i].despawn();
 		}
-		AngryFlightVars::number_of_markers = 0;
+		FlightVars::number_of_markers = 0;
 	}
 }
 
@@ -350,27 +350,27 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 void AngryBirdsGame::update(const ASGE::GameTime& us)
 {
 	//Get current cursor pos
-	inputs->getCursorPos(angrybirds_mousedata.mouse_x, angrybirds_mousedata.mouse_y);
+	inputs->getCursorPos(mousedata.mouse_x, mousedata.mouse_y);
 
 	//Hide the cursor within the window (we use our own)
 	inputs->setCursorMode(ASGE::CursorMode::HIDDEN);
 
-	switch (angrybirds_gamestate.current_gamestate) {
+	switch (gamestate.current_gamestate) {
 		//IN MENU
-		case AngryGamestate::IN_MENU: {
-			angrybirds_update.gstateInMenu(us);
+		case Gamestate::IN_MENU: {
+			game_update.gstateInMenu(us);
 			break;
 		}
 		//IN GAME
-		case AngryGamestate::IS_PLAYING: {
-			angrybirds_update.gstatePlaying(us);
+		case Gamestate::IS_PLAYING: {
+			game_update.gstatePlaying(us);
 			break;
 		}
 	}
 
 	//Always update cursor position
-	angrybirds_sprites.cursor[cursor_type].setX(angrybirds_mousedata.mouse_x);
-	angrybirds_sprites.cursor[cursor_type].setY(angrybirds_mousedata.mouse_y - 10);
+	sprites.cursor[cursor_type].setX(mousedata.mouse_x);
+	sprites.cursor[cursor_type].setY(mousedata.mouse_y - 10);
 }
 
 /**
@@ -382,30 +382,30 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 */
 void AngryBirdsGame::render(const ASGE::GameTime& us)
 {
-	renderer->setFont(AngryFonts::fonts[0]->id);
+	renderer->setFont(Fonts::fonts[0]->id);
 
 	//Render gamestate-specific sprites
-	switch (angrybirds_gamestate.current_gamestate) {
+	switch (gamestate.current_gamestate) {
 		//IN MENU
-		case AngryGamestate::IN_MENU: {
+		case Gamestate::IN_MENU: {
 			//Menu screen
-			angrybirds_render.gstateInMenu(us, renderer.get());
+			game_render.gstateInMenu(us, renderer.get());
 			break;
 		}
 		//IN GAME
-		case AngryGamestate::IS_PLAYING: {
+		case Gamestate::IS_PLAYING: {
 			//Render game
-			angrybirds_render.gstatePlaying(us, renderer.get());
+			game_render.gstatePlaying(us, renderer.get());
 			break;
 		}
 		//HAS WON or HAS LOST
-		case AngryGamestate::GAME_OVER: {
+		case Gamestate::GAME_OVER: {
 			//Render win/loss screen
-			angrybirds_render.gstateGameOver(us, renderer.get());
+			game_render.gstateGameOver(us, renderer.get());
 			break;
 		}
 	}
 
 	//Always render cursor
-	renderer->renderSprite(*angrybirds_sprites.cursor[cursor_type].spriteComponent()->getSprite());
+	renderer->renderSprite(*sprites.cursor[cursor_type].spriteComponent()->getSprite());
 }

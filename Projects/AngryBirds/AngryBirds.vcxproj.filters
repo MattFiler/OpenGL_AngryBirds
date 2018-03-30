@@ -49,6 +49,9 @@
     <ClCompile Include="..\..\Source\AngryStructs\AngryFonts.cpp">
       <Filter>Source\AngryStructs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\AngryCode\AngryLevels.cpp">
+      <Filter>Source\AngryCode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -146,6 +149,9 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryBlockTypes.h">
       <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryCode\AngryLevels.h">
+      <Filter>Headers\AngryCode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -21,6 +21,6 @@ class AngryRender {
 
 	private:
 		/* AngryStructs */
-		AngryGamestateData angrybirds_gamestate;
-		AngrySprites angrybirds_sprites;
+		GamestateData gamestate;
+		Sprites sprites;
 };

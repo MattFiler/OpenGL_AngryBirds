@@ -3,7 +3,7 @@
 /*
 All block types
 */
-enum class AngryBlockTypes : int
+enum class BlockTypes : int
 {
 	WOOD,
 	ICE,

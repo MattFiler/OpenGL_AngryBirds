@@ -3,7 +3,7 @@
 
 Character::Character()
 {
-	character_state = AngryCharacterStates::SHOULD_SPAWN;
+	character_state = CharacterStates::SHOULD_SPAWN;
 }
 Character::~Character()
 {
@@ -95,11 +95,11 @@ bool Character::hasSpawned()
 	return has_spawned;
 }
 
-AngryCharacterStates Character::getState()
+CharacterStates Character::getState()
 {
 	return character_state;
 }
-void Character::setState(AngryCharacterStates newState)
+void Character::setState(CharacterStates newState)
 {
 	character_state = newState;
 }
