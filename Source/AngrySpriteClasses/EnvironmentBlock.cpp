@@ -3,27 +3,37 @@
 
 EnvironmentBlock::EnvironmentBlock()
 {
+	//Assign nullptr to every destruction state on initialisation
 	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		sprite[i] = nullptr;
 	}
 
+	//Initialise the sound engine
 	sound_engine = irrklang::createIrrKlangDevice();
 }
 EnvironmentBlock::~EnvironmentBlock()
 {
+	//De-assign the sprite from every destruction state on destruction
 	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
 	{
 		freeSpriteComponent(i);
 	}
 
+	//Destruct the sound engine
 	sound_engine->drop();
 }
 
-//State is passed to here as an int - which is representative of the enum index for AngryDestructionState
-bool EnvironmentBlock::addSpriteComponent(
-	ASGE::Renderer* renderer, const std::string& texture_file_name, int state)
+
+/*
+	-- SPRITES --
+*/
+
+/* Add Sprite To Each Destruction State */
+bool EnvironmentBlock::addSpriteComponent(ASGE::Renderer* renderer, const std::string& texture_file_name, int state)
 {
+	//State is passed here as an integer which is representative of the enum index in AngryDestructionState.h
+
 	freeSpriteComponent(state);
 
 	sprite[state] = new SpriteComponent();
@@ -36,57 +46,25 @@ bool EnvironmentBlock::addSpriteComponent(
 	return false;
 }
 
+/* Deallocate Memory For Sprite In Each State */
 void  EnvironmentBlock::freeSpriteComponent(int state)
 {
 	delete sprite[state];
 	sprite[state] = nullptr;
 }
 
-
+/* Return Sprite For Current Destruction State */
 SpriteComponent* EnvironmentBlock::spriteComponent()
 {
 	return sprite[(int)destruction_state];
 }
 
-void EnvironmentBlock::addToX(float addX)
-{
-	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
-	{
-		sprite[i]->getSprite()->xPos(sprite[i]->getSprite()->xPos() + addX);
-	}
-}
-void EnvironmentBlock::addToY(float addY)
-{
-	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
-	{
-		sprite[i]->getSprite()->yPos(sprite[i]->getSprite()->xPos() + addY);
-	}
-}
 
-void EnvironmentBlock::subtractFromX(float minusX)
-{
-	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
-	{
-		sprite[i]->getSprite()->xPos(sprite[i]->getSprite()->xPos() - minusX);
-	}
-}
-void EnvironmentBlock::subtractFromY(float minusY)
-{
-	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
-	{
-		sprite[i]->getSprite()->yPos(sprite[i]->getSprite()->yPos() - minusY);
-	}
-}
+/*
+	-- POSITIONING --
+*/
 
-float EnvironmentBlock::getX()
-{
-	return sprite[(int)destruction_state]->getSprite()->xPos();
-}
-float EnvironmentBlock::getY()
-{
-	return sprite[(int)destruction_state]->getSprite()->yPos();
-}
-
+/* Set X/Y To Pre-Defined Value */
 void EnvironmentBlock::setX(float x)
 {
 	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
@@ -102,6 +80,49 @@ void EnvironmentBlock::setY(float y)
 	}
 }
 
+/* Add To Existing X/Y Value */
+void EnvironmentBlock::addToX(float addX)
+{
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->xPos(sprite[i]->getSprite()->xPos() + addX);
+	}
+}
+void EnvironmentBlock::addToY(float addY)
+{
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->yPos(sprite[i]->getSprite()->xPos() + addY);
+	}
+}
+
+/* Subtract From Existing X/Y Value */
+void EnvironmentBlock::subtractFromX(float minusX)
+{
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->xPos(sprite[i]->getSprite()->xPos() - minusX);
+	}
+}
+void EnvironmentBlock::subtractFromY(float minusY)
+{
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->yPos(sprite[i]->getSprite()->yPos() - minusY);
+	}
+}
+
+/* Return X/Y Value */
+float EnvironmentBlock::getX()
+{
+	return sprite[(int)destruction_state]->getSprite()->xPos();
+}
+float EnvironmentBlock::getY()
+{
+	return sprite[(int)destruction_state]->getSprite()->yPos();
+}
+
+/* Set Rotation Value (In Degrees) */
 void EnvironmentBlock::setRotation(float degrees)
 {
 	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
@@ -110,6 +131,7 @@ void EnvironmentBlock::setRotation(float degrees)
 	}
 }
 
+/* Return Sprite Height/Width Respectively */
 float EnvironmentBlock::getHeight()
 {
 	return sprite[(int)destruction_state]->getSprite()->height();
@@ -119,19 +141,35 @@ float EnvironmentBlock::getWidth()
 	return sprite[(int)destruction_state]->getSprite()->width();
 }
 
+
+/*
+	-- SPAWNING --
+*/
+
+/* Despawn Entity */
 void EnvironmentBlock::despawn()
 {
 	has_spawned = false;
 }
+
+/* Spawn Entity */
 void EnvironmentBlock::spawn()
 {
 	has_spawned = true;
 }
+
+/* Return If Entity Has Spawned */
 bool EnvironmentBlock::hasSpawned()
 {
 	return has_spawned;
 }
 
+
+/*
+	-- DESTRUCTION --
+*/
+
+/* Get/Set Destruction State */
 DestructionStates EnvironmentBlock::getDestruction()
 {
 	return destruction_state;
@@ -140,6 +178,8 @@ void EnvironmentBlock::setDestruction(DestructionStates state)
 {
 	destruction_state = state;
 }
+
+/* Deal Damage To Block */
 bool EnvironmentBlock::doDamage()
 {
 	DestructionStates new_destruction_state = (DestructionStates)((int)destruction_state + 1);
@@ -183,6 +223,12 @@ bool EnvironmentBlock::doDamage()
 	}
 }
 
+
+/*
+	-- BLOCK TYPE --
+*/
+
+/* Get/Set Block Type */
 BlockTypes EnvironmentBlock::getBlockType()
 {
 	return block_type;
