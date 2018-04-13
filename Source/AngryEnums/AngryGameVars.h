@@ -24,16 +24,25 @@ enum class GameVars : int
 	DESPAWN_Y_POS = 0,
 
 	//Number of flight path dots
-	MAX_FLIGHT_MARKER_DOTS = 100,
+	MAX_FLIGHT_MARKER_DOTS = 100, //The "engine limit" - actual rendered dots are based on bird speed, path and distance.
 
 	//Bird count (lives)
 	NUMBER_OF_STARTING_BIRDS = 6,
 
 	//Block counts
-	MAX_NUMBER_OF_THIS_BLOCK_TYPE = 5,
-	BLOCK_VARIATIONS = 3, //This is hard-coded
+	MAX_NUMBER_OF_THIS_BLOCK_TYPE = 5, //The "engine limit" - actual block count is level specific.
+	BLOCK_VARIATIONS = 3, //This is hard-coded. Do not modify!
 	BLOCK_DESTRUCTION_COUNT = (int)DestructionStates::DESTRUCTION_COUNT,
 
+	//Pig counts
+	MAX_NUMBER_OF_PIGS = 10, //Again, this is the "engine limit" - actual pig count is level specific.
+
+	//Total character counts
+	TOTAL_MAX_CHARACTERS = NUMBER_OF_STARTING_BIRDS + MAX_NUMBER_OF_PIGS,
+
 	//Menu Options
-	MAIN_MENU_OPTION_COUNT = 2
+	MAIN_MENU_OPTION_COUNT = 2,
+
+	//Number of cursors
+	MAX_CURSOR_STATES = 2 //Only change this if more cursors are added to the resource directory.
 };

@@ -21,6 +21,9 @@ struct Sprites
 	static Character active_bird;
 	static Character waiting_birds[(int)GameVars::NUMBER_OF_STARTING_BIRDS - 1]; 
 
+	//Pigs
+	static Character pigs[(int)GameVars::MAX_NUMBER_OF_PIGS];
+
 	//Wood Blocks
 	static EnvironmentBlock wood_rectangle_long[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
 	static EnvironmentBlock wood_rectangle_tall[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];

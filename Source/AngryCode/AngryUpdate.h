@@ -14,6 +14,7 @@
 
 #include "../AngryEnums/AngryCharacterStates.h"
 #include "../AngryEnums/AngryGameVars.h"
+#include "../AngryEnums/AngryCharacterInjury.h"
 
 class UpdateState {
 	public:
@@ -24,12 +25,6 @@ class UpdateState {
 		void gstateInMenu(const ASGE::GameTime & us);
 		void gstatePlaying(const ASGE::GameTime & us);
 		void gstateGameOver(const ASGE::GameTime & us);
-
-		//Collision handler
-		void detectCollision(EnvironmentBlock& block);
-
-		//Handle Bird Movement
-		void handleBirdMovement(double dt_sec, Character &bird);
 
 	private:
 		//Define music states (to avoid multiple tracks playing)
@@ -47,7 +42,18 @@ class UpdateState {
 		int level_spawn = NEEDS_TO_SPAWN;
 		LevelSetups level;
 
-		//Game time
+		//Collision handlers
+		void detectBlockCollision(EnvironmentBlock& block);
+		void detectPigCollision(Character& pig);
+
+		//Handle Bird Movement
+		void handleBirdMovement(double dt_sec, Character &bird);
+
+		//Character Animations
+		void AnimateBird(Character& bird);
+		void AnimatePig(Character& pig);
+
+		//Game timer
 		float game_time = 0;
 
 		/* AngryStructs */

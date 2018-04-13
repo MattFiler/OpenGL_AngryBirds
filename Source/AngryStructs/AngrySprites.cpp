@@ -12,6 +12,9 @@ UI Sprites::slingshot[2];
 Character Sprites::active_bird;
 Character Sprites::waiting_birds[(int)GameVars::NUMBER_OF_STARTING_BIRDS - 1];
 
+//Pigs
+Character Sprites::pigs[(int)GameVars::MAX_NUMBER_OF_PIGS];
+
 //Wood Blocks
 EnvironmentBlock Sprites::wood_rectangle_long[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
 EnvironmentBlock Sprites::wood_rectangle_tall[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];

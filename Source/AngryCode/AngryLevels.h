@@ -10,9 +10,14 @@ class LevelSetups {
 public:
 	void GenerateLevel(int level);
 	void ResetLevel();
-	static int count;
+
+	int getLevelCount();
 
 private:
 	Sprites sprites;
-	void placeItem(EnvironmentBlock& item, float x_pos, float y_pos, int rotation, DestructionStates destruction);
+
+	void placeBlock(EnvironmentBlock& item, float x_pos, float y_pos, int rotation, DestructionStates destruction);
+	void placePig(Character& item, float x_pos, float y_pos);
+
+	static int count;
 };

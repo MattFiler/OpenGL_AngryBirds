@@ -56,6 +56,9 @@ void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
 GAMESTATE_IS_PLAYING
 */
 void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
+	//Initialise rand() every frame
+	srand(time(NULL));
+
 	//Calculate frame time in seconds
 	auto dt_sec = us.delta_time.count() / 1000.0;
 	game_time += dt_sec; //update gametime
@@ -87,19 +90,25 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; i++)
 	{
 		//Wood
-		detectCollision(sprites.wood_rectangle_long[i]);
-		detectCollision(sprites.wood_rectangle_tall[i]);
-		detectCollision(sprites.wood_square[i]);
+		detectBlockCollision(sprites.wood_rectangle_long[i]);
+		detectBlockCollision(sprites.wood_rectangle_tall[i]);
+		detectBlockCollision(sprites.wood_square[i]);
 
 		//Ice
-		detectCollision(sprites.ice_rectangle_long[i]);
-		detectCollision(sprites.ice_rectangle_tall[i]);
-		detectCollision(sprites.ice_square[i]);
+		detectBlockCollision(sprites.ice_rectangle_long[i]);
+		detectBlockCollision(sprites.ice_rectangle_tall[i]);
+		detectBlockCollision(sprites.ice_square[i]);
 
 		//Rock
-		detectCollision(sprites.rock_rectangle_long[i]);
-		detectCollision(sprites.rock_rectangle_tall[i]);
-		detectCollision(sprites.rock_square[i]);
+		detectBlockCollision(sprites.rock_rectangle_long[i]);
+		detectBlockCollision(sprites.rock_rectangle_tall[i]);
+		detectBlockCollision(sprites.rock_square[i]);
+	}
+
+	//Handle Pig Collision
+	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_PIGS; i++) 
+	{
+		detectPigCollision(sprites.pigs[i]);
 	}
 
 	//Reload bird?
@@ -116,6 +125,19 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 			gamestate.current_gamestate = Gamestate::GAME_OVER;
 			gamestate.win_state = Gamestate::HAS_LOST;
 		}
+	}
+
+	//Animate Birds
+	AnimateBird(sprites.active_bird);
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
+	{
+		AnimateBird(sprites.waiting_birds[i]);
+	}
+
+	//Animate pigs
+	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_PIGS; i++)
+	{
+		AnimatePig(sprites.pigs[i]);
 	}
 }
 
@@ -134,8 +156,8 @@ void UpdateState::gstateGameOver(const ASGE::GameTime & us)
 }
 
 
-//Detect collision on spawned items
-void UpdateState::detectCollision(EnvironmentBlock& block)
+//Detect collision on spawned blocks
+void UpdateState::detectBlockCollision(EnvironmentBlock& block)
 {
 	if (block.hasSpawned())
 	{
@@ -149,6 +171,31 @@ void UpdateState::detectCollision(EnvironmentBlock& block)
 			{
 				//Block has been damaged but not destroyed
 				//SCORE += 50
+			}
+			sprites.active_bird.setState(CharacterStates::DESPAWNED);
+		}
+	}
+}
+
+
+//Detect collision on spawned pigs
+void UpdateState::detectPigCollision(Character& pig)
+{
+	if (pig.hasSpawned())
+	{
+		if (pig.spriteComponent()->getBoundingBox().isInside(sprites.active_bird.spriteComponent()->getBoundingBox()))
+		{
+			pig.setInjuryLevel((CharacterInjuries)((int)pig.getInjuryLevel() + 1));
+			if (pig.getInjuryLevel() == CharacterInjuries::DEAD)
+			{
+				//Pig has been killed
+				pig.despawn();
+				//SCORE += 200
+			}
+			else
+			{
+				//Pig has been damaged but not killed
+				//SCORE += 100
 			}
 			sprites.active_bird.setState(CharacterStates::DESPAWNED);
 		}
@@ -183,6 +230,12 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 			{
 				sound_engine->play2D("Resources\\CHARACTERS\\BIRDS\\RED\\SFX\\0.mp3", false);
 				bird_sfx = PLAYING;
+			}
+
+			//Make sure animation has reset
+			if (bird.getCurrentFrame() == 4) 
+			{
+				bird.setCurrentFrame(0, game_time);
 			}
 
 			break;
@@ -252,6 +305,78 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 			gamestate.lives -= 1;
 
 			break;
+		}
+	}
+}
+
+
+/*
+Handle animations of birds
+*/
+void UpdateState::AnimateBird(Character& bird)
+{
+	if (bird.getState() != CharacterStates::HAS_BEEN_FIRED)
+	{
+		/* In canon or lineup, alternate between beak open and closed. */
+		if (((game_time - bird.getLastFrameUpdateTime()) > (rand() % 3 + 1)) && bird.hasSpawned())
+		{
+			if (bird.getCurrentFrame() == 0)
+			{
+				bird.setCurrentFrame(2, game_time);
+			}
+			else if (bird.getCurrentFrame() == 2)
+			{
+				bird.setCurrentFrame(0, game_time);
+			}
+			else
+			{
+				bird.setCurrentFrame(2, game_time);
+			}
+		}
+	}
+	else
+	{
+		/* Fired, show dazed expression. */
+		bird.setCurrentFrame(4, game_time);
+	}
+}
+
+/*
+Handle animations of pigs
+*/
+void UpdateState::AnimatePig(Character& pig)
+{
+	if (((game_time - pig.getLastFrameUpdateTime()) >(rand() % 2 + 1)) && pig.hasSpawned())
+	{
+		if (pig.getCurrentFrame() == 0)
+		{
+			/* BLINKING - NORMAL*/
+			pig.setCurrentFrame(1, game_time);
+		}
+		else if (pig.getCurrentFrame() == 1)
+		{
+			/* NORMAL */
+			pig.setCurrentFrame(0, game_time);
+		}
+		else if (pig.getCurrentFrame() == 2)
+		{
+			/* BLINKING - DAMAGED */
+			pig.setCurrentFrame(3, game_time);
+		}
+		else if (pig.getCurrentFrame() == 3)
+		{
+			/* DAMAGED */
+			pig.setCurrentFrame(2, game_time);
+		}
+		else if (pig.getCurrentFrame() == 4)
+		{
+			/* BLINKING - HIGHLY DAMAGED */
+			pig.setCurrentFrame(5, game_time);
+		}
+		else if (pig.getCurrentFrame() == 5)
+		{
+			/* HIGHLY DAMAGED */
+			pig.setCurrentFrame(4, game_time);
 		}
 	}
 }

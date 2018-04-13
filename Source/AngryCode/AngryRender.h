@@ -25,4 +25,7 @@ class RenderStates {
 		/* AngryStructs */
 		GamestateData gamestate;
 		Sprites sprites;
+
+		//Level data
+		LevelSetups levels;
 };

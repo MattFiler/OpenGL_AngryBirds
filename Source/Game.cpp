@@ -77,19 +77,22 @@ bool AngryBirdsGame::assignTextures()
 	}
 
 	/* Cursors */
-	if (!sprites.cursor[0].addSpriteComponent(renderer.get(), "Resources\\UI\\CURSOR\\0.png"))
+	for (int i = 0; i < (int)GameVars::MAX_CURSOR_STATES; i++)
 	{
-		return false;
-	}
-	if (!sprites.cursor[1].addSpriteComponent(renderer.get(), "Resources\\UI\\CURSOR\\1.png"))
-	{
-		return false;
+		if (!sprites.cursor[i].addSpriteComponent(renderer.get(), "Resources\\UI\\CURSOR\\" + std::to_string(i) + ".png"))
+		{
+			return false;
+		}
 	}
 
 	/* Active Bird */
-	if (!sprites.active_bird.addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\BIRDS\\RED\\0.png"))
+	sprites.active_bird.setFrameCount(6);
+	for (int i = 0; i < sprites.active_bird.getFrameCount(); i++)
 	{
-		return false;
+		if (!sprites.active_bird.addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\BIRDS\\RED\\" + std::to_string(i) + ".png", i))
+		{
+			return false;
+		}
 	}
 	sprites.active_bird.spawn();
 	sprites.active_bird.setState(CharacterStates::IN_CANNON);
@@ -97,27 +100,43 @@ bool AngryBirdsGame::assignTextures()
 	/* Inactive Birds */
 	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
 	{
-		if (!sprites.waiting_birds[i].addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\BIRDS\\RED\\0.png"))
+		sprites.waiting_birds[i].setFrameCount(6);
+		for (int x = 0; x < sprites.waiting_birds[i].getFrameCount(); x++)
 		{
-			return false;
+			if (!sprites.waiting_birds[i].addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\BIRDS\\RED\\" + std::to_string(x) + ".png", x))
+			{
+				return false;
+			}
 		}
+		sprites.waiting_birds[i].spawn();
 		sprites.waiting_birds[i].setX((int)GameVars::SLINGSHOT_X_ORIGIN - (45 * i) - 40);
 		sprites.waiting_birds[i].setY((int)GameVars::SLINGSHOT_Y_ORIGIN + 250);
 	}
 
+	/* All Possible Pigs */
+	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_PIGS; i++)
+	{
+		sprites.pigs[i].setFrameCount(6);
+		for (int x = 0; x < sprites.pigs[i].getFrameCount(); x++)
+		{
+			if (!sprites.pigs[i].addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\PIGS\\MERGED\\" + std::to_string(x) + ".png", x))
+			{
+				return false;
+			}
+		}
+		sprites.pigs[i].despawn();
+	}
+
 	/* Slingshot Components */
-	if (!sprites.slingshot[0].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\SLINGSHOT\\0.png"))
+	for (int i = 0; i < 2; i++) 
 	{
-		return false;
+		if (!sprites.slingshot[i].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\SLINGSHOT\\" + std::to_string(i) + ".png"))
+		{
+			return false;
+		}
+		sprites.slingshot[i].setX((int)GameVars::SLINGSHOT_X_ORIGIN - 25);
+		sprites.slingshot[i].setY((int)GameVars::SLINGSHOT_Y_ORIGIN);
 	}
-	sprites.slingshot[0].setX((int)GameVars::SLINGSHOT_X_ORIGIN - 25);
-	sprites.slingshot[0].setY((int)GameVars::SLINGSHOT_Y_ORIGIN);
-	if (!sprites.slingshot[1].addSpriteComponent(renderer.get(), "Resources\\ENVIRONMENT\\SLINGSHOT\\1.png"))
-	{
-		return false;
-	}
-	sprites.slingshot[1].setX((int)GameVars::SLINGSHOT_X_ORIGIN - 25);
-	sprites.slingshot[1].setY((int)GameVars::SLINGSHOT_Y_ORIGIN);
 
 	/* Flight Marker Dots */
 	for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
@@ -129,6 +148,7 @@ bool AngryBirdsGame::assignTextures()
 		sprites.flight_marker[i].despawn();
 	}
 
+	/* All Environment Blocks */
 	for (int x = 0; x < (int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; x++)
 	{
 		/* Wood Blocks */

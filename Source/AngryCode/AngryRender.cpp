@@ -37,7 +37,7 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::LEVEL_SELECT_MENU_BACKGROUND].spriteComponent()->getSprite());
 
 			//All Level Options (dynamically generated and handled from the number of level configs)
-			for (int i = 0; i < LevelSetups::count; i++)
+			for (int i = 0; i < levels.getLevelCount(); i++)
 			{
 				int current_level = i + 1;
 				renderer->renderText(gamestate.level_select_menu_index == i ? ("> LEVEL " + std::to_string(current_level)) : ("  LEVEL " + std::to_string(current_level)), (int)GameVars::GAME_WIDTH - 350, (current_level * 100) + 50, 1, ASGE::COLOURS::WHITE);
@@ -104,6 +104,15 @@ void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rend
 			renderer->renderSprite(*sprites.rock_rectangle_tall[i].spriteComponent()->getSprite());
 		if (sprites.rock_square[i].hasSpawned())
 			renderer->renderSprite(*sprites.rock_square[i].spriteComponent()->getSprite());
+	}
+
+	//Pigs
+	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_PIGS; i++)
+	{
+		if (sprites.pigs[i].hasSpawned())
+		{
+			renderer->renderSprite(*sprites.pigs[i].spriteComponent()->getSprite());
+		}
 	}
 
 	//Active player controlled bird

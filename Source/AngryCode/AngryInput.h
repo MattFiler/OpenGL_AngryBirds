@@ -25,4 +25,7 @@ class InputStates {
 
 		/* AngryStructs */
 		GamestateData gamestate;
+
+		//Level data
+		LevelSetups levels;
 };

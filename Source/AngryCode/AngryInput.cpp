@@ -82,7 +82,7 @@ void InputStates::gstateInMenu(ASGE::SharedEventData data) {
 				gamestate.level_select_menu_index -= 1;
 				sound_engine->play2D("Resources\\UI\\SFX\\1.mp3", false);
 			}
-			else if (gamestate.level_select_menu_index != (LevelSetups::count - 1) &&
+			else if (gamestate.level_select_menu_index != (levels.getLevelCount() - 1) &&
 					key->key == ASGE::KEYS::KEY_DOWN &&
 					key->action == ASGE::KEYS::KEY_RELEASED)
 			{
