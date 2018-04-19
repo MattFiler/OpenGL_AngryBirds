@@ -5,24 +5,41 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AngryBirds", "AngryBirds\AngryBirds.vcxproj", "{7F5C3AA2-D205-44FE-B63C-F411DEE5C8F7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AngryBirds", "AngryBirds", "{B232A176-1F87-44C3-B3F3-5448390519AF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{B232A176-1F87-44C3-B3F3-5448390519AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{EDB1B32C-65F2-49A8-B737-7D4FB09979E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LevelBuilder", "LevelBuilder\LevelBuilder.csproj", "{E63BD77D-33C3-4502-8D54-64BA300F9846}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F5C3AA2-D205-44FE-B63C-F411DEE5C8F7}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{7F5C3AA2-D205-44FE-B63C-F411DEE5C8F7}.Debug|x86.ActiveCfg = Debug|Win32
 		{7F5C3AA2-D205-44FE-B63C-F411DEE5C8F7}.Debug|x86.Build.0 = Debug|Win32
+		{7F5C3AA2-D205-44FE-B63C-F411DEE5C8F7}.Release|Any CPU.ActiveCfg = Release|Win32
 		{7F5C3AA2-D205-44FE-B63C-F411DEE5C8F7}.Release|x86.ActiveCfg = Release|Win32
 		{7F5C3AA2-D205-44FE-B63C-F411DEE5C8F7}.Release|x86.Build.0 = Release|Win32
+		{E63BD77D-33C3-4502-8D54-64BA300F9846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63BD77D-33C3-4502-8D54-64BA300F9846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63BD77D-33C3-4502-8D54-64BA300F9846}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E63BD77D-33C3-4502-8D54-64BA300F9846}.Debug|x86.Build.0 = Debug|Any CPU
+		{E63BD77D-33C3-4502-8D54-64BA300F9846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63BD77D-33C3-4502-8D54-64BA300F9846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E63BD77D-33C3-4502-8D54-64BA300F9846}.Release|x86.ActiveCfg = Release|Any CPU
+		{E63BD77D-33C3-4502-8D54-64BA300F9846}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7F5C3AA2-D205-44FE-B63C-F411DEE5C8F7} = {B232A176-1F87-44C3-B3F3-5448390519AF}
+		{E63BD77D-33C3-4502-8D54-64BA300F9846} = {EDB1B32C-65F2-49A8-B737-7D4FB09979E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D49DEA14-C53B-416A-A996-E17EF7114AD0}

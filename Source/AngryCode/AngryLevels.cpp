@@ -43,7 +43,7 @@ std::string LevelSetups::getLevelName(int level)
 void LevelSetups::GenerateLevel(int level) {
 	for (int i = 1; i <= (int)GameVars::MAX_LEVEL_COMPONENTS; i++)
 	{
-		if (level_build[level][i][0] != "")
+		if (level_build[level][i][0] != "--") //"--" is level editor default for no entity.
 		{
 			placeComponent(level_build[level][i][0], level_build[level][i][1], level_build[level][i][2], level_build[level][i][3]);
 		}
