@@ -10,3 +10,4 @@ int GamestateData::main_menu_index = 0; //Set as 0 for default
 int GamestateData::level_select_menu_index = 0; //Set as 0 for default
 int GamestateData::pause_menu_index = 0; //Set as 0 for default
 int GamestateData::game_over_menu_index = 0; //Set as 0 for default
+bool GamestateData::debug_place_block = false; //True = should place

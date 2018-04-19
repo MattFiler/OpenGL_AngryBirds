@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace LevelBuilder
 {
@@ -23,14 +24,19 @@ namespace LevelBuilder
             //Work out level ID
             string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
             int levelID = 0;
+            int count = 0;
             foreach (string file in files)
             {
                 if (Path.GetExtension(file) == ".level")
                 {
                     levelID = Convert.ToInt32(Path.GetFileNameWithoutExtension(file));
+                    count++;
                 }
             }
-            levelID++;
+            if (count != 0)
+            {
+                levelID++;
+            }
 
             //Compile level data
             string[] levelData = { "", "", "", "", "", "", "", "", "", "", ""};
@@ -51,6 +57,21 @@ namespace LevelBuilder
 
             //Alert about code change
             MessageBox.Show("Level saved.\nGameVar::LEVELS needs to be updated to reflect new level count.", "Saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void EditorMode_Click(object sender, EventArgs e)
+        {
+            File.Create("../../level.editor");
+        }
+
+        private void UndoEditorMode_Click(object sender, EventArgs e)
+        {
+            File.Delete("../../level.editor");
+        }
+
+        private void StartGame_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

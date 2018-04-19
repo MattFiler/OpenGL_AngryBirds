@@ -156,6 +156,25 @@ void UpdateState::gstateGameOver(const ASGE::GameTime & us)
 	}
 }
 
+/*
+Level Builder
+*/
+void UpdateState::gstateLevelBuilder(const ASGE::GameTime & us)
+{
+	//Editor mode doesn't need the player bird.
+	if (sprites.active_bird.hasSpawned())
+	{
+		sprites.active_bird.despawn();
+	}
+
+	//Place block if requested.
+	if (gamestate.debug_place_block) {
+		gamestate.debug_place_block = false;
+		sprites.placeholder_marker[(int)mousedata.cursor - 2].setX(mousedata.mouse_x);
+		sprites.placeholder_marker[(int)mousedata.cursor - 2].setY(mousedata.mouse_y - 10);
+	}
+}
+
 
 //Detect collision on spawned blocks
 void UpdateState::detectBlockCollision(EnvironmentBlock& block)

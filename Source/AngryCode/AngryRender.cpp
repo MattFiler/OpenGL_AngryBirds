@@ -152,3 +152,30 @@ void RenderStates::gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* ren
 	renderer->renderText(gamestate.game_over_menu_index == 0 ? "> BACK" : "  BACK", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 170, 1, ASGE::COLOURS::WHITE);
 	renderer->renderText(gamestate.game_over_menu_index == 1 ? "> QUIT" : "  QUIT", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 250, 1, ASGE::COLOURS::WHITE);
 }
+
+/*
+Level Builder
+*/
+void RenderStates::gstateLevelBuilder(const ASGE::GameTime & us, ASGE::Renderer* renderer)
+{
+	//Render normal game
+	gstatePlaying(us, renderer);
+
+	//Set default font
+	renderer->setFont(0);
+
+	//Render builder overlay
+	renderer->renderText("LEVEL BUILDER MODE ACTIVE", 350, 150, 2, ASGE::COLOURS::RED);
+	renderer->renderText("CURRENT X: " + std::to_string(mousedata.mouse_x), 500, 200, 1, ASGE::COLOURS::RED);
+	renderer->renderText("CURRENT Y: " + std::to_string(mousedata.mouse_y - 10), 500, 250, 1, ASGE::COLOURS::RED);
+	renderer->renderText("CURRENT ROTATION: 0", 425, 300, 1, ASGE::COLOURS::RED);
+
+	//Render placeholders
+	if (gamestate.current_gamestate == Gamestate::LEVEL_BUILDER_MODE)
+	{
+		for (int i = 0; i < ((int)GameVars::BLOCK_VARIATIONS + 1); i++)
+		{
+			renderer->renderSprite(*sprites.placeholder_marker[i].spriteComponent()->getSprite());
+		}
+	}
+}

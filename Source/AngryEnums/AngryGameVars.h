@@ -48,5 +48,5 @@ enum class GameVars : int
 	MAX_LEVEL_COMPONENTS = 10,
 
 	//Number of cursors
-	MAX_CURSOR_STATES = 2 //Only change this if more cursors are added to the resource directory.
+	MAX_CURSOR_STATES = 6 //2 cursors, 4 level editor blocks.
 };

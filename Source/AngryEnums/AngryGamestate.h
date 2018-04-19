@@ -12,5 +12,7 @@ enum class Gamestate : int
 	HAS_LOST, //Game over - lost
 
 	NO_STATE, //No state - for first load
-	REQUESTED_QUIT //User wants to quit
+	REQUESTED_QUIT, //User wants to quit
+
+	LEVEL_BUILDER_MODE //Intended for developer use
 };

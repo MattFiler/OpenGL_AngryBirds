@@ -25,6 +25,7 @@ class UpdateState {
 		void gstateInMenu(const ASGE::GameTime & us);
 		void gstatePlaying(const ASGE::GameTime & us);
 		void gstateGameOver(const ASGE::GameTime & us);
+		void gstateLevelBuilder(const ASGE::GameTime & us);
 
 	private:
 		//Define music states (to avoid multiple tracks playing)

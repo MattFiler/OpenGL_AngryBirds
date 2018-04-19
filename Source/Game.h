@@ -16,6 +16,7 @@
 #include "AngryStructs/AngryFonts.h"
 
 #include "AngryEnums/AngryGameVars.h"
+#include "AngryEnums/AngryCursors.h"
 
 /**
 *  An OpenGL Game based on ASGE.
@@ -29,7 +30,6 @@ public:
 	virtual bool init() override;
 
 	bool assignTextures();
-	
 
 private:
 	void keyHandler(const ASGE::SharedEventData data);
@@ -44,8 +44,7 @@ private:
 
 	bool in_menu = true;
 
-	enum cursor_types { STANDARD, INTERACTION };
-	int cursor_type = STANDARD;
+	int cursor_type = (int)Cursors::STANDARD;
 
 	/* AngryCode */
 	UpdateState game_update;

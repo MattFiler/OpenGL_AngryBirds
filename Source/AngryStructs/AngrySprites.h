@@ -12,7 +12,7 @@ struct Sprites
 	//UI Elements
 	static UI backgrounds[(int)BackgroundSprites::NUMBER_OF_BACKGROUNDS]; 
 	static UI flight_marker[(int)GameVars::MAX_FLIGHT_MARKER_DOTS]; 
-	static UI cursor[2]; 
+	static UI cursor[6]; 
 
 	//Slingshot
 	static UI slingshot[2]; 
@@ -38,4 +38,7 @@ struct Sprites
 	static EnvironmentBlock rock_rectangle_long[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
 	static EnvironmentBlock rock_rectangle_tall[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
 	static EnvironmentBlock rock_square[(int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE];
+
+	//Level Editor Resources
+	static EnvironmentBlock placeholder_marker[(int)GameVars::BLOCK_VARIATIONS + 1]; //+1 for pigs!
 };

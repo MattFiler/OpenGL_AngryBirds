@@ -55,6 +55,14 @@ bool AngryBirdsGame::init()
 	
 	mouse_callback_id =inputs->addCallbackFnc(
 		ASGE::E_MOUSE_CLICK, &AngryBirdsGame::clickHandler, this);
+
+	//If editor file exists, we must be in level editor mode.
+	std::ifstream file("level.editor");
+	if (file)
+	{
+		gamestate.current_gamestate = Gamestate::LEVEL_BUILDER_MODE;
+		mousedata.cursor = Cursors::LONG_BLOCK;
+	}
 	
 	//Load textures
 	assignTextures();
@@ -248,6 +256,24 @@ bool AngryBirdsGame::assignTextures()
 		}
 	}
 
+	/* Placeholders for Level Editor */
+	if (gamestate.current_gamestate == Gamestate::LEVEL_BUILDER_MODE)
+	{
+		for (int i = 0; i < (int)GameVars::BLOCK_VARIATIONS + 1; i++)
+		{
+			for (int x = 0; x < (int)DestructionStates::DESTRUCTION_COUNT; x++)
+			{
+				if (!sprites.placeholder_marker[i].addSpriteComponent(renderer.get(), "Resources\\UI\\CURSOR\\" + std::to_string(i + 2) + ".png", x))
+				{
+					return false;
+				}
+			}
+			sprites.placeholder_marker[i].setX((int)GameVars::DESPAWN_X_POS - sprites.placeholder_marker[i].getHeight());
+			sprites.placeholder_marker[i].setY((int)GameVars::DESPAWN_Y_POS - sprites.placeholder_marker[i].getWidth());
+			//These are never "despawned" - just hidden offscreen when not used.
+		}
+	}
+
 	return true;
 }
 
@@ -300,6 +326,11 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 			game_input.gstateGameOver(data);
 			break;
 		}
+		//Level Builder Mode (intended for developers only)
+		case Gamestate::LEVEL_BUILDER_MODE: {
+			game_input.gstateLevelBuilder(data);
+			break;
+		}
 	}
 	
 	/*
@@ -334,33 +365,53 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 {
 	auto click = static_cast<const ASGE::ClickEvent*>(data.get());
 
-	if (click->button == 0 && sprites.active_bird.getState() == CharacterStates::IN_CANNON)
+	if (gamestate.current_gamestate == Gamestate::LEVEL_BUILDER_MODE)
 	{
-		//Let the game world know we're pulling the bird back
-		sprites.active_bird.setState(CharacterStates::ABOUT_TO_BE_FIRED);
-
-		//Let the cursor know we're interacting
-		cursor_type = INTERACTION;
-	}
-
-	if (click->action == ASGE::KEYS::KEY_RELEASED && sprites.active_bird.getState() == CharacterStates::ABOUT_TO_BE_FIRED)
-	{
-		//Set physics values of bird
-		FlightVars::pullback_force = ((int)GameVars::SLINGSHOT_X_ORIGIN - mousedata.mouse_x);
-		FlightVars::pullback_angle = ((int)GameVars::SLINGSHOT_Y_ORIGIN - mousedata.mouse_y) * -1;
-
-		//Let the game world know we've released the bird
-		sprites.active_bird.setState(CharacterStates::HAS_BEEN_FIRED);
-
-		//Let the cursor know we've finished
-		cursor_type = STANDARD;
-
-		//Reset flight marker dots ready to track the movement
-		for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
-		{
-			sprites.flight_marker[i].despawn();
+		//Level Editor mode active - place blocks on left click
+		if (click->button == 0 && click->action == ASGE::KEYS::KEY_RELEASED) {
+			gamestate.debug_place_block = true;
 		}
-		FlightVars::number_of_markers = 0;
+		//Cycle block type on right click
+		if (click->button == 1 && click->action == ASGE::KEYS::KEY_RELEASED) {
+			if ((int)mousedata.cursor + 1 > (int)Cursors::PIG) {
+				mousedata.cursor = Cursors::LONG_BLOCK;
+			}
+			else
+			{
+				mousedata.cursor = (Cursors)((int)mousedata.cursor + 1);
+			}
+		}
+	}
+	else
+	{
+		if (click->button == 0 && sprites.active_bird.getState() == CharacterStates::IN_CANNON)
+		{
+			//Let the game world know we're pulling the bird back
+			sprites.active_bird.setState(CharacterStates::ABOUT_TO_BE_FIRED);
+
+			//Let the cursor know we're interacting
+			mousedata.cursor = Cursors::INTERACTION;
+		}
+
+		if (click->action == ASGE::KEYS::KEY_RELEASED && sprites.active_bird.getState() == CharacterStates::ABOUT_TO_BE_FIRED)
+		{
+			//Set physics values of bird
+			FlightVars::pullback_force = ((int)GameVars::SLINGSHOT_X_ORIGIN - mousedata.mouse_x);
+			FlightVars::pullback_angle = ((int)GameVars::SLINGSHOT_Y_ORIGIN - mousedata.mouse_y) * -1;
+
+			//Let the game world know we've released the bird
+			sprites.active_bird.setState(CharacterStates::HAS_BEEN_FIRED);
+
+			//Let the cursor know we've finished
+			mousedata.cursor = Cursors::STANDARD;
+
+			//Reset flight marker dots ready to track the movement
+			for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
+			{
+				sprites.flight_marker[i].despawn();
+			}
+			FlightVars::number_of_markers = 0;
+		}
 	}
 }
 
@@ -401,11 +452,16 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 			signalExit();
 			break;
 		}
+		//Level Builder Mode (intended for developers only)
+		case Gamestate::LEVEL_BUILDER_MODE: {
+			game_update.gstateLevelBuilder(us);
+			break;
+		}
 	}
 
 	//Always update cursor position
-	sprites.cursor[cursor_type].setX(mousedata.mouse_x);
-	sprites.cursor[cursor_type].setY(mousedata.mouse_y - 10);
+	sprites.cursor[(int)mousedata.cursor].setX(mousedata.mouse_x);
+	sprites.cursor[(int)mousedata.cursor].setY(mousedata.mouse_y - 10);
 }
 
 /**
@@ -439,8 +495,13 @@ void AngryBirdsGame::render(const ASGE::GameTime& us)
 			game_render.gstateGameOver(us, renderer.get());
 			break;
 		}
+		//Level Builder Mode (intended for developers only)
+		case Gamestate::LEVEL_BUILDER_MODE: {
+			game_render.gstateLevelBuilder(us, renderer.get());
+			break;
+		}
 	}
 
 	//Always render cursor
-	renderer->renderSprite(*sprites.cursor[cursor_type].spriteComponent()->getSprite());
+	renderer->renderSprite(*sprites.cursor[(int)mousedata.cursor].spriteComponent()->getSprite());
 }

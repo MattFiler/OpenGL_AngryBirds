@@ -32,7 +32,7 @@
 *.dylib
 
 # Executables
-*.exe
+#*.exe -- I want to share LevelBuilder.exe, AngryBirds.exe should still be ignored.
 *.out
 *.app
 *.i*86

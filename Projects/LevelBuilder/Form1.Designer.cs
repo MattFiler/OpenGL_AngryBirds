@@ -121,6 +121,8 @@
             this.Label1 = new System.Windows.Forms.Label();
             this.LevelName = new System.Windows.Forms.TextBox();
             this.Save = new System.Windows.Forms.Button();
+            this.EditorMode = new System.Windows.Forms.Button();
+            this.UndoEditorMode = new System.Windows.Forms.Button();
             this.Panel7.SuspendLayout();
             this.Panel12.SuspendLayout();
             this.Panel4.SuspendLayout();
@@ -1131,19 +1133,41 @@
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(559, 708);
+            this.Save.Location = new System.Drawing.Point(506, 708);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(75, 23);
+            this.Save.Size = new System.Drawing.Size(128, 23);
             this.Save.TabIndex = 42;
-            this.Save.Text = "Save";
+            this.Save.Text = "Save Level";
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // EditorMode
+            // 
+            this.EditorMode.Location = new System.Drawing.Point(12, 708);
+            this.EditorMode.Name = "EditorMode";
+            this.EditorMode.Size = new System.Drawing.Size(126, 23);
+            this.EditorMode.TabIndex = 43;
+            this.EditorMode.Text = "Enable Editor Mode";
+            this.EditorMode.UseVisualStyleBackColor = true;
+            this.EditorMode.Click += new System.EventHandler(this.EditorMode_Click);
+            // 
+            // UndoEditorMode
+            // 
+            this.UndoEditorMode.Location = new System.Drawing.Point(144, 708);
+            this.UndoEditorMode.Name = "UndoEditorMode";
+            this.UndoEditorMode.Size = new System.Drawing.Size(126, 23);
+            this.UndoEditorMode.TabIndex = 44;
+            this.UndoEditorMode.Text = "Disable Editor Mode";
+            this.UndoEditorMode.UseVisualStyleBackColor = true;
+            this.UndoEditorMode.Click += new System.EventHandler(this.UndoEditorMode_Click);
             // 
             // LevelBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 737);
+            this.Controls.Add(this.UndoEditorMode);
+            this.Controls.Add(this.EditorMode);
             this.Controls.Add(this.Panel7);
             this.Controls.Add(this.Panel12);
             this.Controls.Add(this.Panel4);
@@ -1280,6 +1304,8 @@
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.TextBox LevelName;
         internal System.Windows.Forms.Button Save;
+        internal System.Windows.Forms.Button EditorMode;
+        internal System.Windows.Forms.Button UndoEditorMode;
     }
 }
 
