@@ -3,6 +3,7 @@
 //Create and destroy the sound engine when the class is called
 UpdateState::UpdateState() {
 	sound_engine = irrklang::createIrrKlangDevice();
+	level.loadLevels();
 }
 UpdateState::~UpdateState() {
 	sound_engine->drop();
@@ -317,20 +318,36 @@ void UpdateState::AnimateBird(Character& bird)
 {
 	if (bird.getState() != CharacterStates::HAS_BEEN_FIRED)
 	{
-		/* In canon or lineup, alternate between beak open and closed. */
-		if (((game_time - bird.getLastFrameUpdateTime()) > (rand() % 3 + 1)) && bird.hasSpawned())
+		/* In canon or lineup, alternate between expressions. */
+		if (bird.hasSpawned())
 		{
-			if (bird.getCurrentFrame() == 0)
+			eyes_open_time = rand() % 3 + 1;
+			switch (bird.getCurrentFrame())
 			{
-				bird.setCurrentFrame(2, game_time);
-			}
-			else if (bird.getCurrentFrame() == 2)
-			{
-				bird.setCurrentFrame(0, game_time);
-			}
-			else
-			{
-				bird.setCurrentFrame(2, game_time);
+				case 0: 
+				{
+					/* ANGRY */
+					if ((game_time - bird.getLastFrameUpdateTime()) > eyes_open_time)
+					{
+						bird.setCurrentFrame(2, game_time);
+					}
+					break;
+				}
+				case 2:
+				{
+					/* NORMAL*/
+					if ((game_time - bird.getLastFrameUpdateTime()) > eyes_closed_time)
+					{
+						bird.setCurrentFrame(0, game_time);
+					}
+					break;
+				}
+				default:
+				{
+					//Reset to normal if we get here.
+					bird.setCurrentFrame(2, game_time);
+					break;
+				}
 			}
 		}
 	}
@@ -346,37 +363,65 @@ Handle animations of pigs
 */
 void UpdateState::AnimatePig(Character& pig)
 {
-	if (((game_time - pig.getLastFrameUpdateTime()) >(rand() % 2 + 1)) && pig.hasSpawned())
+	if (pig.hasSpawned())
 	{
-		if (pig.getCurrentFrame() == 0)
+		eyes_open_time = rand() % 3 + 1;
+		switch (pig.getCurrentFrame())
 		{
-			/* BLINKING - NORMAL*/
-			pig.setCurrentFrame(1, game_time);
-		}
-		else if (pig.getCurrentFrame() == 1)
-		{
-			/* NORMAL */
-			pig.setCurrentFrame(0, game_time);
-		}
-		else if (pig.getCurrentFrame() == 2)
-		{
-			/* BLINKING - DAMAGED */
-			pig.setCurrentFrame(3, game_time);
-		}
-		else if (pig.getCurrentFrame() == 3)
-		{
-			/* DAMAGED */
-			pig.setCurrentFrame(2, game_time);
-		}
-		else if (pig.getCurrentFrame() == 4)
-		{
-			/* BLINKING - HIGHLY DAMAGED */
-			pig.setCurrentFrame(5, game_time);
-		}
-		else if (pig.getCurrentFrame() == 5)
-		{
-			/* HIGHLY DAMAGED */
-			pig.setCurrentFrame(4, game_time);
+			case 0:
+			{
+				/* BLINKING - NORMAL*/
+				if ((game_time - pig.getLastFrameUpdateTime()) > eyes_open_time)
+				{
+					pig.setCurrentFrame(1, game_time);
+				}
+				break;
+			}
+			case 1:
+			{
+				/* NORMAL */
+				if ((game_time - pig.getLastFrameUpdateTime()) > eyes_closed_time)
+				{
+					pig.setCurrentFrame(0, game_time);
+				}
+				break;
+			}
+			case 2:
+			{
+				/* BLINKING - DAMAGED */
+				if ((game_time - pig.getLastFrameUpdateTime()) > eyes_open_time)
+				{
+					pig.setCurrentFrame(3, game_time);
+				}
+				break;
+			}
+			case 3:
+			{
+				/* DAMAGED */
+				if ((game_time - pig.getLastFrameUpdateTime()) > eyes_closed_time)
+				{
+					pig.setCurrentFrame(2, game_time);
+				}
+				break;
+			}
+			case 4:
+			{
+				/* BLINKING - HIGHLY DAMAGED */
+				if ((game_time - pig.getLastFrameUpdateTime()) > eyes_open_time)
+				{
+					pig.setCurrentFrame(5, game_time);
+				}
+				break;
+			}
+			case 5:
+			{
+				/* HIGHLY DAMAGED */
+				if ((game_time - pig.getLastFrameUpdateTime()) > eyes_closed_time)
+				{
+					pig.setCurrentFrame(4, game_time);
+				}
+				break;
+			}
 		}
 	}
 }

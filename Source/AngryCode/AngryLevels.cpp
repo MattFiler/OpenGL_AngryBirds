@@ -1,24 +1,55 @@
 #include "AngryLevels.h"
 
-int LevelSetups::count = 2; //This is used throughout the game to define the max number of levels
+/* Load levels for class declaration. */
+void LevelSetups::loadLevels()
+{
+	for (int i = 0; i < (int)GameVars::LEVELS; i++)
+	{
+		//Load level file
+		std::string line;
+		std::ifstream level_read(".\\Resources\\LEVELS\\" + std::to_string(i) + ".level");
 
-/* Generate levels. */
-void LevelSetups::GenerateLevel(int level) {
-	switch (level) {
-		case 1: {
-			/* LEVEL ONE */
-			placeBlock(sprites.wood_rectangle_long[0], 500, 500, 0, DestructionStates::DEFAULT);
-			placeBlock(sprites.wood_square[0], 200, 200, 90, DestructionStates::DEFAULT);
-			placeBlock(sprites.rock_rectangle_long[0], 400, 400, 90, DestructionStates::DEFAULT);
-			placeBlock(sprites.rock_rectangle_tall[0], 800, 800, 0, DestructionStates::DEFAULT);
-			placeBlock(sprites.ice_rectangle_long[0], 300, 800, 0, DestructionStates::DEFAULT);
-			placePig(sprites.pigs[0], 700, 700);
+		//Split data into level array
+		int x = 0;
+		while (getline(level_read, line))
+		{
+			int v = 0;
+			for (int p = 0; p < line.size(); p++)
+			{
+				if (line.at(p) != ',')
+				{
+					level_build[i][x][v] += line.at(p);
+				}
+				else
+				{
+					v++;
+				}
+			}
+			x++;
 		}
-		case 2: {
-			/* LEVEL TWO */
-			placeBlock(sprites.ice_square[0], 800, 300, 0, DestructionStates::DEFAULT);
-			placeBlock(sprites.ice_rectangle_long[0], 300, 800, 0, DestructionStates::DEFAULT);
-			placePig(sprites.pigs[0], 700, 700);
+
+		//Close level file
+		level_read.close();
+	}
+}
+
+/* Return the name of a specific level. */
+std::string LevelSetups::getLevelName(int level)
+{
+	return level_build[level][0][0];
+}
+
+/* Generate levels when selected. */
+void LevelSetups::GenerateLevel(int level) {
+	for (int i = 1; i <= (int)GameVars::MAX_LEVEL_COMPONENTS; i++)
+	{
+		if (level_build[level][i][0] != "")
+		{
+			placeComponent(level_build[level][i][0], level_build[level][i][1], level_build[level][i][2], level_build[level][i][3]);
+		}
+		else
+		{
+			break;
 		}
 	}
 }
@@ -51,14 +82,80 @@ void LevelSetups::ResetLevel()
 	}
 }
 
-/* Return the number of levels in the game. */
-int LevelSetups::getLevelCount()
+/* Get sprite for requested level component. */
+void LevelSetups::placeComponent(std::string requested_sprite, std::string x_position, std::string y_position, std::string rotation)
 {
-	return count;
+	if (requested_sprite == "PIG") 
+	{
+		placePig(getSpriteForCharacter(requested_sprite), std::stof(x_position), std::stof(y_position));
+	}
+	else
+	{
+		placeBlock(getSpriteForBlock(requested_sprite), std::stof(x_position), std::stof(y_position), std::stof(rotation), DestructionStates::DEFAULT);
+	}
+}
+EnvironmentBlock& LevelSetups::getSpriteForBlock(std::string requested_sprite) 
+{
+	/* Wood Blocks */
+	if (requested_sprite == "WOOD_RECTANGLE_LONG")
+	{
+		entity_count[0]++;
+		return sprites.wood_rectangle_long[entity_count[0]];
+	}
+	else if (requested_sprite == "WOOD_RECTANGLE_TALL")
+	{
+		entity_count[1]++;
+		return sprites.wood_rectangle_tall[entity_count[1]];
+	}
+	else if (requested_sprite == "WOOD_SQUARE")
+	{
+		entity_count[2]++;
+		return sprites.wood_square[entity_count[2]];
+	}
+
+	/* Ice Blocks */
+	else if (requested_sprite == "ICE_RECTANGLE_LONG")
+	{
+		entity_count[3]++;
+		return sprites.ice_rectangle_long[entity_count[3]];
+	}
+	else if (requested_sprite == "ICE_RECTANGLE_TALL")
+	{
+		entity_count[4]++;
+		return sprites.ice_rectangle_tall[entity_count[4]];
+	}
+	else if (requested_sprite == "ICE_SQUARE")
+	{
+		entity_count[5]++;
+		return sprites.ice_square[entity_count[5]];
+	}
+
+	/* Rock Blocks */
+	else if (requested_sprite == "ROCK_RECTANGLE_LONG")
+	{
+		entity_count[6]++;
+		return sprites.rock_rectangle_long[entity_count[6]];
+	}
+	else if (requested_sprite == "ROCK_RECTANGLE_TALL")
+	{
+		entity_count[7]++;
+		return sprites.rock_rectangle_tall[entity_count[7]];
+	}
+	else // Must be ROCK_SQUARE
+	{
+		entity_count[8]++;
+		return sprites.rock_square[entity_count[8]];
+	}
+}
+Character& LevelSetups::getSpriteForCharacter(std::string requested_sprite)
+{
+	/* Pig */
+	entity_count[9]++;
+	return sprites.pigs[entity_count[9]];
 }
 
 /* Place objects in the level. */
-void LevelSetups::placeBlock(EnvironmentBlock& item, float x_pos, float y_pos, int rotation, DestructionStates destruction)
+void LevelSetups::placeBlock(EnvironmentBlock& item, float x_pos, float y_pos, float rotation, DestructionStates destruction)
 {
 	item.setX(x_pos);
 	item.setY(y_pos);

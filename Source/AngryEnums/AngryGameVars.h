@@ -43,6 +43,10 @@ enum class GameVars : int
 	//Menu Options
 	MAIN_MENU_OPTION_COUNT = 2,
 
+	//Number of levels and components
+	LEVELS = 3,
+	MAX_LEVEL_COMPONENTS = 10,
+
 	//Number of cursors
 	MAX_CURSOR_STATES = 2 //Only change this if more cursors are added to the resource directory.
 };

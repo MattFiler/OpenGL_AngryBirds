@@ -52,6 +52,8 @@ class UpdateState {
 		//Character Animations
 		void AnimateBird(Character& bird);
 		void AnimatePig(Character& pig);
+		float eyes_open_time = 0; //This time randomly generated every frame when playing.
+		float eyes_closed_time = 0.5;
 
 		//Game timer
 		float game_time = 0;

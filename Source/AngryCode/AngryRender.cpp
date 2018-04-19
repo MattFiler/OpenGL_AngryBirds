@@ -1,7 +1,7 @@
 #include "AngryRender.h"
 
 RenderStates::RenderStates() {
-
+	levels.loadLevels();
 }
 RenderStates::~RenderStates() {
 
@@ -37,10 +37,10 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::LEVEL_SELECT_MENU_BACKGROUND].spriteComponent()->getSprite());
 
 			//All Level Options (dynamically generated and handled from the number of level configs)
-			for (int i = 0; i < levels.getLevelCount(); i++)
+			for (int i = 0; i < (int)GameVars::LEVELS; i++)
 			{
-				int current_level = i + 1;
-				renderer->renderText(gamestate.level_select_menu_index == i ? ("> LEVEL " + std::to_string(current_level)) : ("  LEVEL " + std::to_string(current_level)), (int)GameVars::GAME_WIDTH - 350, (current_level * 100) + 50, 1, ASGE::COLOURS::WHITE);
+				std::string level_name = levels.getLevelName(i);
+				renderer->renderText(gamestate.level_select_menu_index == i ? ("> " + level_name) : ("  " + level_name), (int)GameVars::GAME_WIDTH - 350, ((i + 1) * 100) + 50, 1, ASGE::COLOURS::WHITE);
 			}
 
 			break;
