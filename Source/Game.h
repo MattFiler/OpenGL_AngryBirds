@@ -44,8 +44,6 @@ private:
 
 	bool in_menu = true;
 
-	int cursor_type = (int)Cursors::STANDARD;
-
 	/* AngryCode */
 	UpdateState game_update;
 	RenderStates game_render;

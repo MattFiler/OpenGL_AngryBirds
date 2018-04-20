@@ -326,11 +326,6 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 			game_input.gstateGameOver(data);
 			break;
 		}
-		//Level Builder Mode (intended for developers only)
-		case Gamestate::LEVEL_BUILDER_MODE: {
-			game_input.gstateLevelBuilder(data);
-			break;
-		}
 	}
 	
 	/*

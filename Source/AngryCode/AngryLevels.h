@@ -18,7 +18,7 @@ public:
 private:
 	Sprites sprites;
 
-	std::string level_build[(int)GameVars::LEVELS][(int)GameVars::MAX_LEVEL_COMPONENTS][4];
+	std::string level_build[(int)GameVars::LEVELS][(int)GameVars::MAX_LEVEL_COMPONENTS + 1][4]; //+1 for level title
 	int entity_count[((int)GameVars::BLOCK_VARIATIONS * 3) + 1]; //3 = Rock, Ice, Wood, +1 = Pig
 
 	void placeComponent(std::string requested_sprite, std::string x_position, std::string y_position, std::string rotation);

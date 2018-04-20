@@ -192,11 +192,3 @@ void InputStates::gstateGameOver(ASGE::SharedEventData data)
 		sound_engine->play2D("Resources\\UI\\SFX\\1.mp3", false);
 	}
 }
-
-/*
-Level Builder
-*/
-void InputStates::gstateLevelBuilder(ASGE::SharedEventData data)
-{
-
-}

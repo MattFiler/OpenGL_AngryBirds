@@ -9,8 +9,6 @@ void LevelSetups::loadLevels()
 		std::string line;
 		std::ifstream level_read(".\\Resources\\LEVELS\\" + std::to_string(i) + ".level");
 
-		//TODO: Fix this script - it loops the final level file line into the next array entry.
-
 		//Split data into level array
 		int x = 0;
 		while (getline(level_read, line))
