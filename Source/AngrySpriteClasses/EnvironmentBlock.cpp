@@ -141,6 +141,18 @@ float EnvironmentBlock::getWidth()
 	return sprite[(int)destruction_state]->getSprite()->width();
 }
 
+/* Set Scale */
+void EnvironmentBlock::setScale(float scale)
+{
+	sprite[(int)destruction_state]->getSprite()->scale(scale);
+}
+
+/* Return Scale */
+float EnvironmentBlock::getScale()
+{
+	return sprite[(int)destruction_state]->getSprite()->scale();
+}
+
 
 /*
 	-- SPAWNING --

@@ -155,9 +155,9 @@
             this.Label26.AutoSize = true;
             this.Label26.Location = new System.Drawing.Point(20, 96);
             this.Label26.Name = "Label26";
-            this.Label26.Size = new System.Drawing.Size(50, 13);
+            this.Label26.Size = new System.Drawing.Size(37, 13);
             this.Label26.TabIndex = 9;
-            this.Label26.Text = "Rotation:";
+            this.Label26.Text = "Scale:";
             // 
             // Label27
             // 
@@ -183,7 +183,7 @@
             this.Rotation10.Name = "Rotation10";
             this.Rotation10.Size = new System.Drawing.Size(225, 20);
             this.Rotation10.TabIndex = 41;
-            this.Rotation10.Text = "0";
+            this.Rotation10.Text = "1";
             // 
             // YPos10
             // 
@@ -253,9 +253,9 @@
             this.Label46.AutoSize = true;
             this.Label46.Location = new System.Drawing.Point(20, 96);
             this.Label46.Name = "Label46";
-            this.Label46.Size = new System.Drawing.Size(50, 13);
+            this.Label46.Size = new System.Drawing.Size(37, 13);
             this.Label46.TabIndex = 9;
-            this.Label46.Text = "Rotation:";
+            this.Label46.Text = "Scale:";
             // 
             // Label47
             // 
@@ -281,7 +281,7 @@
             this.Rotation7.Name = "Rotation7";
             this.Rotation7.Size = new System.Drawing.Size(225, 20);
             this.Rotation7.TabIndex = 28;
-            this.Rotation7.Text = "0";
+            this.Rotation7.Text = "1";
             // 
             // YPos7
             // 
@@ -351,9 +351,9 @@
             this.Label14.AutoSize = true;
             this.Label14.Location = new System.Drawing.Point(20, 96);
             this.Label14.Name = "Label14";
-            this.Label14.Size = new System.Drawing.Size(50, 13);
+            this.Label14.Size = new System.Drawing.Size(37, 13);
             this.Label14.TabIndex = 9;
-            this.Label14.Text = "Rotation:";
+            this.Label14.Text = "Scale:";
             // 
             // Label15
             // 
@@ -379,7 +379,7 @@
             this.Rotation9.Name = "Rotation9";
             this.Rotation9.Size = new System.Drawing.Size(225, 20);
             this.Rotation9.TabIndex = 36;
-            this.Rotation9.Text = "0";
+            this.Rotation9.Text = "1";
             // 
             // YPos9
             // 
@@ -449,9 +449,9 @@
             this.Label30.AutoSize = true;
             this.Label30.Location = new System.Drawing.Point(20, 96);
             this.Label30.Name = "Label30";
-            this.Label30.Size = new System.Drawing.Size(50, 13);
+            this.Label30.Size = new System.Drawing.Size(37, 13);
             this.Label30.TabIndex = 9;
-            this.Label30.Text = "Rotation:";
+            this.Label30.Text = "Scale:";
             // 
             // Label31
             // 
@@ -477,7 +477,7 @@
             this.Rotation6.Name = "Rotation6";
             this.Rotation6.Size = new System.Drawing.Size(225, 20);
             this.Rotation6.TabIndex = 24;
-            this.Rotation6.Text = "0";
+            this.Rotation6.Text = "1";
             // 
             // YPos6
             // 
@@ -547,9 +547,9 @@
             this.Label34.AutoSize = true;
             this.Label34.Location = new System.Drawing.Point(20, 96);
             this.Label34.Name = "Label34";
-            this.Label34.Size = new System.Drawing.Size(50, 13);
+            this.Label34.Size = new System.Drawing.Size(37, 13);
             this.Label34.TabIndex = 9;
-            this.Label34.Text = "Rotation:";
+            this.Label34.Text = "Scale:";
             // 
             // Label35
             // 
@@ -575,7 +575,7 @@
             this.Rotation5.Name = "Rotation5";
             this.Rotation5.Size = new System.Drawing.Size(225, 20);
             this.Rotation5.TabIndex = 20;
-            this.Rotation5.Text = "0";
+            this.Rotation5.Text = "1";
             // 
             // YPos5
             // 
@@ -645,9 +645,9 @@
             this.Label10.AutoSize = true;
             this.Label10.Location = new System.Drawing.Point(20, 96);
             this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(50, 13);
+            this.Label10.Size = new System.Drawing.Size(37, 13);
             this.Label10.TabIndex = 9;
-            this.Label10.Text = "Rotation:";
+            this.Label10.Text = "Scale:";
             // 
             // Label11
             // 
@@ -673,7 +673,7 @@
             this.Rotation8.Name = "Rotation8";
             this.Rotation8.Size = new System.Drawing.Size(225, 20);
             this.Rotation8.TabIndex = 32;
-            this.Rotation8.Text = "0";
+            this.Rotation8.Text = "1";
             // 
             // YPos8
             // 
@@ -743,9 +743,9 @@
             this.Label18.AutoSize = true;
             this.Label18.Location = new System.Drawing.Point(20, 96);
             this.Label18.Name = "Label18";
-            this.Label18.Size = new System.Drawing.Size(50, 13);
+            this.Label18.Size = new System.Drawing.Size(37, 13);
             this.Label18.TabIndex = 9;
-            this.Label18.Text = "Rotation:";
+            this.Label18.Text = "Scale:";
             // 
             // Label19
             // 
@@ -771,7 +771,7 @@
             this.Rotation4.Name = "Rotation4";
             this.Rotation4.Size = new System.Drawing.Size(225, 20);
             this.Rotation4.TabIndex = 16;
-            this.Rotation4.Text = "0";
+            this.Rotation4.Text = "1";
             // 
             // YPos4
             // 
@@ -841,9 +841,9 @@
             this.Label22.AutoSize = true;
             this.Label22.Location = new System.Drawing.Point(20, 96);
             this.Label22.Name = "Label22";
-            this.Label22.Size = new System.Drawing.Size(50, 13);
+            this.Label22.Size = new System.Drawing.Size(37, 13);
             this.Label22.TabIndex = 9;
-            this.Label22.Text = "Rotation:";
+            this.Label22.Text = "Scale:";
             // 
             // Label23
             // 
@@ -869,7 +869,7 @@
             this.Rotation3.Name = "Rotation3";
             this.Rotation3.Size = new System.Drawing.Size(225, 20);
             this.Rotation3.TabIndex = 12;
-            this.Rotation3.Text = "0";
+            this.Rotation3.Text = "1";
             // 
             // YPos3
             // 
@@ -939,9 +939,9 @@
             this.Label6.AutoSize = true;
             this.Label6.Location = new System.Drawing.Point(20, 96);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(50, 13);
+            this.Label6.Size = new System.Drawing.Size(37, 13);
             this.Label6.TabIndex = 9;
-            this.Label6.Text = "Rotation:";
+            this.Label6.Text = "Scale:";
             // 
             // Label7
             // 
@@ -967,7 +967,7 @@
             this.Rotation2.Name = "Rotation2";
             this.Rotation2.Size = new System.Drawing.Size(225, 20);
             this.Rotation2.TabIndex = 8;
-            this.Rotation2.Text = "0";
+            this.Rotation2.Text = "1";
             // 
             // YPos2
             // 
@@ -1037,9 +1037,9 @@
             this.Label5.AutoSize = true;
             this.Label5.Location = new System.Drawing.Point(20, 96);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(50, 13);
+            this.Label5.Size = new System.Drawing.Size(37, 13);
             this.Label5.TabIndex = 9;
-            this.Label5.Text = "Rotation:";
+            this.Label5.Text = "Scale:";
             // 
             // Label4
             // 
@@ -1065,7 +1065,7 @@
             this.Rotation1.Name = "Rotation1";
             this.Rotation1.Size = new System.Drawing.Size(225, 20);
             this.Rotation1.TabIndex = 4;
-            this.Rotation1.Text = "0";
+            this.Rotation1.Text = "1";
             // 
             // YPos1
             // 

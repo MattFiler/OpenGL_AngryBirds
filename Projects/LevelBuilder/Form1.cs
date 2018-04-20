@@ -61,12 +61,16 @@ namespace LevelBuilder
 
         private void EditorMode_Click(object sender, EventArgs e)
         {
-            File.Create("../../level.editor");
+            MessageBox.Show("In-game editor mode enabled.", "Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (!File.Exists("../../level.editor"))
+                File.Create("../../level.editor");
         }
 
         private void UndoEditorMode_Click(object sender, EventArgs e)
         {
-            File.Delete("../../level.editor");
+            MessageBox.Show("In-game editor mode disabled.", "Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (File.Exists("../../level.editor"))
+                File.Delete("../../level.editor");
         }
 
         private void StartGame_Click(object sender, EventArgs e)

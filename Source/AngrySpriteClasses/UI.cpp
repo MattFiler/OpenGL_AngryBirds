@@ -99,6 +99,18 @@ float UI::getWidth()
 	return sprite_component->getSprite()->width();
 }
 
+/* Set Scale */
+void UI::setScale(float scale)
+{
+	sprite_component->getSprite()->scale(scale);
+}
+
+/* Return Scale */
+float UI::getScale()
+{
+	return sprite_component->getSprite()->scale();
+}
+
 
 /*
 	-- SPAWNING --

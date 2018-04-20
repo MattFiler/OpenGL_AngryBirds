@@ -26,6 +26,9 @@ public:
 	float getHeight();
 	float getWidth();
 
+	void setScale(float scale);
+	float getScale();
+
 	void despawn();
 	void spawn();
 	bool hasSpawned();

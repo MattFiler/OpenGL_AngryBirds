@@ -18,6 +18,7 @@ class InputStates {
 		void gstateInMenu(ASGE::SharedEventData data);
 		void gstatePlaying(ASGE::SharedEventData data);
 		void gstateGameOver(ASGE::SharedEventData data);
+		void gstateLevelBuilder(ASGE::SharedEventData data);
 
 	private:
 		//Our class' sound engine

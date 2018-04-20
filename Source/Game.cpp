@@ -326,6 +326,11 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 			game_input.gstateGameOver(data);
 			break;
 		}
+		//In Level Editor
+		case Gamestate::LEVEL_BUILDER_MODE: {
+			game_input.gstateLevelBuilder(data);
+			break;
+		}
 	}
 	
 	/*
@@ -457,6 +462,13 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 	//Always update cursor position
 	sprites.cursor[(int)mousedata.cursor].setX(mousedata.mouse_x);
 	sprites.cursor[(int)mousedata.cursor].setY(mousedata.mouse_y - 10);
+
+	//Update cursor scale if in editor
+	if (gamestate.current_gamestate == Gamestate::LEVEL_BUILDER_MODE &&
+		mousedata.cursor != Cursors::PIG) 
+	{
+		sprites.cursor[(int)mousedata.cursor].setScale(gamestate.debug_block_scale);
+	}
 }
 
 /**

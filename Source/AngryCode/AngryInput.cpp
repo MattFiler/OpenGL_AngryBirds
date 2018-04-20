@@ -192,3 +192,21 @@ void InputStates::gstateGameOver(ASGE::SharedEventData data)
 		sound_engine->play2D("Resources\\UI\\SFX\\1.mp3", false);
 	}
 }
+
+/*
+Level Builder
+*/
+void InputStates::gstateLevelBuilder(ASGE::SharedEventData data) {
+	//Get key
+	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
+
+	//Modify placeholder block scale up/down
+	if (key->key == ASGE::KEYS::KEY_UP && key->action == ASGE::KEYS::KEY_RELEASED)
+	{
+		gamestate.debug_block_scale += 0.1;
+	}
+	else if (key->key == ASGE::KEYS::KEY_DOWN && key->action == ASGE::KEYS::KEY_RELEASED)
+	{
+		gamestate.debug_block_scale -= 0.1;
+	}
+}

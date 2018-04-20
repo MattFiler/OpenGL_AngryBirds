@@ -172,6 +172,10 @@ void UpdateState::gstateLevelBuilder(const ASGE::GameTime & us)
 		gamestate.debug_place_block = false;
 		sprites.placeholder_marker[(int)mousedata.cursor - 2].setX(mousedata.mouse_x);
 		sprites.placeholder_marker[(int)mousedata.cursor - 2].setY(mousedata.mouse_y - 10);
+		if (mousedata.cursor != Cursors::PIG)
+		{
+			sprites.placeholder_marker[(int)mousedata.cursor - 2].setScale(gamestate.debug_block_scale);
+		}
 	}
 }
 

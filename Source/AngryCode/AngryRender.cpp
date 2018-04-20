@@ -158,17 +158,25 @@ Level Builder
 */
 void RenderStates::gstateLevelBuilder(const ASGE::GameTime & us, ASGE::Renderer* renderer)
 {
-	//Render normal game
-	gstatePlaying(us, renderer);
+	//Background
+	renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::LEVEL_BUILDER_BACKGROUND].spriteComponent()->getSprite());
+
+	//Slingshot
+	renderer->renderSprite(*sprites.slingshot[0].spriteComponent()->getSprite());
+	renderer->renderSprite(*sprites.slingshot[1].spriteComponent()->getSprite());
 
 	//Set default font
 	renderer->setFont(0);
 
 	//Render builder overlay
-	renderer->renderText("LEVEL BUILDER MODE ACTIVE", 350, 150, 2, ASGE::COLOURS::RED);
-	renderer->renderText("CURRENT X: " + std::to_string(mousedata.mouse_x), 500, 200, 1, ASGE::COLOURS::RED);
-	renderer->renderText("CURRENT Y: " + std::to_string(mousedata.mouse_y - 10), 500, 250, 1, ASGE::COLOURS::RED);
-	renderer->renderText("CURRENT ROTATION: 0", 425, 300, 1, ASGE::COLOURS::RED);
+	renderer->renderText("LEVEL BUILDER MODE ACTIVE", 50, 75, 2, ASGE::COLOURS::RED);
+	renderer->renderText("CURRENT X: " + std::to_string(mousedata.mouse_x), 50, 100, 1, ASGE::COLOURS::RED);
+	renderer->renderText("CURRENT Y: " + std::to_string(mousedata.mouse_y - 10), 50, 125, 1, ASGE::COLOURS::RED);
+	renderer->renderText("CURRENT SCALE: " + std::to_string(gamestate.debug_block_scale), 50, 150, 1, ASGE::COLOURS::RED);
+	renderer->renderText("SCALE DOES NOT APPLY TO CHARACTERS!", 50, 175, 1, ASGE::COLOURS::RED);
+	renderer->renderText("LMB: PLACE ENTITY", 50, 265, 1, ASGE::COLOURS::RED);
+	renderer->renderText("RMB: SWAP ENTITY TYPE", 50, 290, 1, ASGE::COLOURS::RED);
+	renderer->renderText("UP/DOWN ARROW: SCALE BLOCK", 50, 315, 1, ASGE::COLOURS::RED);
 
 	//Render placeholders
 	if (gamestate.current_gamestate == Gamestate::LEVEL_BUILDER_MODE)

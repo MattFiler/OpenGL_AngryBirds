@@ -83,7 +83,7 @@ void LevelSetups::ResetLevel()
 }
 
 /* Get sprite for requested level component. */
-void LevelSetups::placeComponent(std::string requested_sprite, std::string x_position, std::string y_position, std::string rotation)
+void LevelSetups::placeComponent(std::string requested_sprite, std::string x_position, std::string y_position, std::string scale)
 {
 	if (requested_sprite == "PIG") 
 	{
@@ -91,7 +91,7 @@ void LevelSetups::placeComponent(std::string requested_sprite, std::string x_pos
 	}
 	else
 	{
-		placeBlock(getSpriteForBlock(requested_sprite), std::stof(x_position), std::stof(y_position), std::stof(rotation), DestructionStates::DEFAULT);
+		placeBlock(getSpriteForBlock(requested_sprite), std::stof(x_position), std::stof(y_position), std::stof(scale), DestructionStates::DEFAULT);
 	}
 }
 EnvironmentBlock& LevelSetups::getSpriteForBlock(std::string requested_sprite) 
@@ -155,11 +155,11 @@ Character& LevelSetups::getSpriteForCharacter(std::string requested_sprite)
 }
 
 /* Place objects in the level. */
-void LevelSetups::placeBlock(EnvironmentBlock& item, float x_pos, float y_pos, float rotation, DestructionStates destruction)
+void LevelSetups::placeBlock(EnvironmentBlock& item, float x_pos, float y_pos, float scale, DestructionStates destruction)
 {
 	item.setX(x_pos);
 	item.setY(y_pos);
-	item.setRotation(rotation);
+	item.setScale(scale);
 	item.setDestruction(destruction);
 	item.spawn();
 }
