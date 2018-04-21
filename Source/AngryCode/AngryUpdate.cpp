@@ -27,6 +27,10 @@ void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
 		//Reset gamestate & score
 		gamestate.win_state = Gamestate::NO_STATE;
 		gamestate.lives = (int)GameVars::NUMBER_OF_STARTING_BIRDS;
+		for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
+		{
+			sprites.waiting_birds[i].spawn();
+		}
 
 		//Reset level build
 		level_spawn = NEEDS_TO_SPAWN;
@@ -37,6 +41,23 @@ void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
 		gamestate.level_select_menu_index = 0;
 		gamestate.game_over_menu_index = 0;
 		gamestate.pause_menu_index = 0;
+
+		//Reset score & animations
+		gamestate.current_score = 0;
+		pig_count = 0;
+		has_set_stars = false;
+		time_started_score_wrapup = 0;
+		time_since_last_score_animation = 0;
+		for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
+		{
+			animate_bird_scores[i] = false;
+			sprites.score_bonus_10000[i].despawn();
+		}
+		for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+		{
+			animate_pig_scores[i] = false;
+			sprites.score_bonus_5000[i].despawn();
+		}
 
 		//Reset flight marker dots
 		for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
@@ -112,7 +133,19 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 		detectPigCollision(sprites.pigs[i]);
 	}
 
-	//Reload bird?
+	//Work out the number of active pigs
+	if (pig_count == 0)
+	{
+		for (int i = 0; i < (int)GameVars::NUMBER_OF_PIGS; i++)
+		{
+			if (sprites.pigs[i].hasSpawned())
+			{
+				pig_count += 1;
+			}
+		}
+	}
+
+	//Reload bird if we can
 	if (sprites.active_bird.getState() == CharacterStates::DESPAWNED)
 	{
 		if (gamestate.lives != 0) 
@@ -123,8 +156,50 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 		else
 		{
 			//We're out of lives, can't put a bird in the cannon.
+			gamestate.win_state = Gamestate::ON_HOLD;
+			time_started_score_wrapup += dt_sec;
+			if (time_started_score_wrapup > 2)
+			{
+				gamestate.current_gamestate = Gamestate::GAME_OVER;
+				gamestate.win_state = Gamestate::HAS_LOST;
+			}
+		}
+	}
+
+	//If we're out of pigs, we've won - count birds
+	if (pig_count == 0 && gamestate.lives != 0)
+	{
+		gamestate.win_state = Gamestate::ON_HOLD;
+		time_started_score_wrapup += dt_sec;
+		time_since_last_score_animation += dt_sec;
+
+		//Animate score popup for every remaining bird
+		if (time_since_last_score_animation > 1)
+		{
+			for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
+			{
+				if (sprites.waiting_birds[i].hasSpawned() && !animate_bird_scores[i])
+				{
+					animateScore((int)Score::HAS_BIRD_LEFT, sprites.waiting_birds[i].getX(), sprites.waiting_birds[i].getY());
+					break;
+				}
+			}
+		}
+
+		//Animate score popup for active bird
+		if (time_since_last_score_animation > 1) 
+		{
+			if (!animate_bird_scores[gamestate.lives-1])
+			{
+				animateScore((int)Score::HAS_BIRD_LEFT, sprites.active_bird.getX(), sprites.active_bird.getY());
+			}
+		}
+
+		//Out of birds, and time has passed - flip to game over screen
+		if (time_since_last_score_animation > 3)
+		{
 			gamestate.current_gamestate = Gamestate::GAME_OVER;
-			gamestate.win_state = Gamestate::HAS_LOST;
+			gamestate.win_state = Gamestate::HAS_WON;
 		}
 	}
 
@@ -147,12 +222,41 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 		if (performing_explosion_fx[i]) 
 		{
 			//Perform animation if requested
-			bool animation = sprites.explosion[i].animate(dt_sec);
-			if (animation) {
+			if (sprites.explosion[i].animate(dt_sec))
+			{
 				//Animation is done.
 				performing_explosion_fx[i] = false;
 				sprites.explosion[i].despawn();
 				sprites.explosion[i].setFrame(0);
+			}
+		}
+	}
+
+	//Animate pig score
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		if (animate_pig_scores[i])
+		{
+			//Perform animation if requested
+			if (sprites.score_bonus_5000[i].animateFadeOutUp(dt_sec)) 
+			{
+				//Animation is done.
+				animate_pig_scores[i] = false;
+				sprites.score_bonus_5000[i].despawn();
+			}
+		}
+	}
+
+	//Animate bird score
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
+	{
+		if (animate_bird_scores[i])
+		{
+			//Perform animation if requested
+			if (sprites.score_bonus_10000[i].animateFadeOutUp(dt_sec))
+			{
+				//Animation is done.
+				sprites.score_bonus_10000[i].despawn();
 			}
 		}
 	}
@@ -169,6 +273,32 @@ void UpdateState::gstateGameOver(const ASGE::GameTime & us)
 		sound_engine->stopAllSounds();
 		sound_engine->play2D("Resources\\UI\\MUSIC\\1.mp3", false);
 		game_over_music = PLAYING;
+	}
+
+	//Set player star count if it hasn't already been done
+	if (!has_set_stars) {
+		if (gamestate.current_score < level.getScoreThreshold(gamestate.current_level, 1))
+		{
+			//0 Stars
+			gamestate.awarded_stars = 0;
+		}
+		else if (gamestate.current_score >= level.getScoreThreshold(gamestate.current_level, 1) &&
+				 gamestate.current_score < level.getScoreThreshold(gamestate.current_level, 2))
+		{
+			//1 Star
+			gamestate.awarded_stars = 1;
+		}
+		else if (gamestate.current_score >= level.getScoreThreshold(gamestate.current_level, 2) &&
+				 gamestate.current_score < level.getScoreThreshold(gamestate.current_level, 3))
+		{
+			//2 Stars
+			gamestate.awarded_stars = 2;
+		}
+		else if (gamestate.current_score >= level.getScoreThreshold(gamestate.current_level, 3))
+		{
+			//3 Stars
+			gamestate.awarded_stars = 3;
+		}
 	}
 }
 
@@ -193,6 +323,59 @@ void UpdateState::gstateLevelBuilder(const ASGE::GameTime & us)
 			sprites.placeholder_marker[(int)mousedata.cursor - 2].setScale(gamestate.debug_block_scale);
 		}
 	}
+}
+
+
+//Find a free score animation slot
+void UpdateState::animateScore(int value, float x, float y)
+{
+	int slot_id = 10;
+	if (value == (int)Score::HAS_DESTROYED_PIG)
+	{
+		//Pig Score
+		for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+		{
+			if (!animate_pig_scores[i]) {
+				slot_id = i;
+				break;
+			}
+		}
+		if (slot_id != 10) {
+			animate_pig_scores[slot_id] = true;
+			sprites.score_bonus_5000[slot_id].spawn();
+			sprites.score_bonus_5000[slot_id].setX(x);
+			sprites.score_bonus_5000[slot_id].setY(y);
+			sound_engine->play2D("Resources\\UI\\SCORE\\SCORE_BONUS\\SFX\\1.wav", false);
+		}
+		else
+		{
+			//Couldn't animate...
+		}
+	}
+	else
+	{
+		//Bird Score
+		for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
+		{
+			if (!animate_bird_scores[i]) {
+				slot_id = i;
+				break;
+			}
+		}
+		if (slot_id != 10) {
+			animate_bird_scores[slot_id] = true;
+			sprites.score_bonus_10000[slot_id].spawn();
+			sprites.score_bonus_10000[slot_id].setX(x);
+			sprites.score_bonus_10000[slot_id].setY(y);
+			sound_engine->play2D("Resources\\UI\\SCORE\\SCORE_BONUS\\SFX\\0.wav", false);
+		}
+		else
+		{
+			//Couldn't animate (should never get here)
+		}
+	}
+	gamestate.current_score += value;
+	time_since_last_score_animation = 0;
 }
 
 
@@ -229,12 +412,13 @@ void UpdateState::detectBlockCollision(EnvironmentBlock& block)
 		{
 			if (!block.doDamage()) {
 				//Block has been destroyed
-				//SCORE += 100
+				gamestate.current_score += (int)Score::HAS_DESTROYED_BLOCK;
+				animateExplosion(block.getX(), block.getY());
 			}
 			else
 			{
 				//Block has been damaged but not destroyed
-				//SCORE += 50
+				gamestate.current_score += (int)Score::HAS_HIT_BLOCK;
 			}
 			animateExplosion(sprites.active_bird.getX(), sprites.active_bird.getY());
 			sprites.active_bird.setState(CharacterStates::DESPAWNED);
@@ -254,13 +438,16 @@ void UpdateState::detectPigCollision(Character& pig)
 			if (pig.getInjuryLevel() == CharacterInjuries::DEAD)
 			{
 				//Pig has been killed
+				sound_engine->play2D("Resources\\CHARACTERS\\PIGS\\SFX\\4.mp3", false);
 				pig.despawn();
-				//SCORE += 200
+				pig_count -= 1;
+				animateScore((int)Score::HAS_DESTROYED_PIG, pig.getX(), pig.getY());
+				animateExplosion(pig.getX(), pig.getY());
 			}
 			else
 			{
 				//Pig has been damaged but not killed
-				//SCORE += 100
+				gamestate.current_score += (int)Score::HAS_HIT_PIG;
 			}
 			animateExplosion(sprites.active_bird.getX(), sprites.active_bird.getY());
 			sprites.active_bird.setState(CharacterStates::DESPAWNED);
@@ -367,8 +554,9 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 			//Reset music trigger
 			bird_sfx = NOT_PLAYING;
 
-			//Update lives accordingly
+			//Update lives & bird spawns accordingly
 			gamestate.lives -= 1;
+			sprites.waiting_birds[gamestate.lives-1].despawn();
 
 			break;
 		}

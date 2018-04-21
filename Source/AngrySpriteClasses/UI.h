@@ -33,6 +33,8 @@ public:
 	void spawn();
 	bool hasSpawned();
 
+	bool animateFadeOutUp(float frame_time);
+
 	SpriteComponent* spriteComponent();
 
 private:

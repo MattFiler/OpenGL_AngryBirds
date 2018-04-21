@@ -123,6 +123,12 @@
             this.Save = new System.Windows.Forms.Button();
             this.EditorMode = new System.Windows.Forms.Button();
             this.UndoEditorMode = new System.Windows.Forms.Button();
+            this.ScoreMk1 = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.ScoreMk2 = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.ScoreMk3 = new System.Windows.Forms.TextBox();
             this.Panel7.SuspendLayout();
             this.Panel12.SuspendLayout();
             this.Panel4.SuspendLayout();
@@ -145,7 +151,7 @@
             this.Panel7.Controls.Add(this.XPos10);
             this.Panel7.Controls.Add(this.Entity10);
             this.Panel7.Controls.Add(this.Label29);
-            this.Panel7.Location = new System.Drawing.Point(326, 574);
+            this.Panel7.Location = new System.Drawing.Point(326, 600);
             this.Panel7.Name = "Panel7";
             this.Panel7.Size = new System.Drawing.Size(308, 128);
             this.Panel7.TabIndex = 26;
@@ -243,7 +249,7 @@
             this.Panel12.Controls.Add(this.XPos7);
             this.Panel12.Controls.Add(this.Entity7);
             this.Panel12.Controls.Add(this.Label49);
-            this.Panel12.Location = new System.Drawing.Point(12, 440);
+            this.Panel12.Location = new System.Drawing.Point(12, 466);
             this.Panel12.Name = "Panel12";
             this.Panel12.Size = new System.Drawing.Size(308, 128);
             this.Panel12.TabIndex = 21;
@@ -341,7 +347,7 @@
             this.Panel4.Controls.Add(this.XPos9);
             this.Panel4.Controls.Add(this.Entity9);
             this.Panel4.Controls.Add(this.Label17);
-            this.Panel4.Location = new System.Drawing.Point(12, 574);
+            this.Panel4.Location = new System.Drawing.Point(12, 600);
             this.Panel4.Name = "Panel4";
             this.Panel4.Size = new System.Drawing.Size(308, 128);
             this.Panel4.TabIndex = 27;
@@ -439,7 +445,7 @@
             this.Panel8.Controls.Add(this.XPos6);
             this.Panel8.Controls.Add(this.Entity6);
             this.Panel8.Controls.Add(this.Label33);
-            this.Panel8.Location = new System.Drawing.Point(326, 306);
+            this.Panel8.Location = new System.Drawing.Point(326, 332);
             this.Panel8.Name = "Panel8";
             this.Panel8.Size = new System.Drawing.Size(308, 128);
             this.Panel8.TabIndex = 24;
@@ -537,7 +543,7 @@
             this.Panel9.Controls.Add(this.XPos5);
             this.Panel9.Controls.Add(this.Entity5);
             this.Panel9.Controls.Add(this.Label37);
-            this.Panel9.Location = new System.Drawing.Point(12, 306);
+            this.Panel9.Location = new System.Drawing.Point(12, 332);
             this.Panel9.Name = "Panel9";
             this.Panel9.Size = new System.Drawing.Size(308, 128);
             this.Panel9.TabIndex = 22;
@@ -635,7 +641,7 @@
             this.Panel3.Controls.Add(this.XPos8);
             this.Panel3.Controls.Add(this.Entity8);
             this.Panel3.Controls.Add(this.Label13);
-            this.Panel3.Location = new System.Drawing.Point(326, 440);
+            this.Panel3.Location = new System.Drawing.Point(326, 466);
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(308, 128);
             this.Panel3.TabIndex = 20;
@@ -733,7 +739,7 @@
             this.Panel5.Controls.Add(this.XPos4);
             this.Panel5.Controls.Add(this.Entity4);
             this.Panel5.Controls.Add(this.Label21);
-            this.Panel5.Location = new System.Drawing.Point(326, 172);
+            this.Panel5.Location = new System.Drawing.Point(326, 198);
             this.Panel5.Name = "Panel5";
             this.Panel5.Size = new System.Drawing.Size(308, 128);
             this.Panel5.TabIndex = 25;
@@ -831,7 +837,7 @@
             this.Panel6.Controls.Add(this.XPos3);
             this.Panel6.Controls.Add(this.Entity3);
             this.Panel6.Controls.Add(this.Label25);
-            this.Panel6.Location = new System.Drawing.Point(12, 172);
+            this.Panel6.Location = new System.Drawing.Point(12, 198);
             this.Panel6.Name = "Panel6";
             this.Panel6.Size = new System.Drawing.Size(308, 128);
             this.Panel6.TabIndex = 23;
@@ -929,7 +935,7 @@
             this.Panel2.Controls.Add(this.XPos2);
             this.Panel2.Controls.Add(this.Entity2);
             this.Panel2.Controls.Add(this.Label9);
-            this.Panel2.Location = new System.Drawing.Point(326, 38);
+            this.Panel2.Location = new System.Drawing.Point(326, 64);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(308, 128);
             this.Panel2.TabIndex = 19;
@@ -1027,7 +1033,7 @@
             this.Panel1.Controls.Add(this.XPos1);
             this.Panel1.Controls.Add(this.Entity1);
             this.Panel1.Controls.Add(this.Label2);
-            this.Panel1.Location = new System.Drawing.Point(12, 38);
+            this.Panel1.Location = new System.Drawing.Point(12, 64);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(308, 128);
             this.Panel1.TabIndex = 18;
@@ -1133,7 +1139,7 @@
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(506, 708);
+            this.Save.Location = new System.Drawing.Point(506, 734);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(128, 23);
             this.Save.TabIndex = 42;
@@ -1143,7 +1149,7 @@
             // 
             // EditorMode
             // 
-            this.EditorMode.Location = new System.Drawing.Point(12, 708);
+            this.EditorMode.Location = new System.Drawing.Point(12, 734);
             this.EditorMode.Name = "EditorMode";
             this.EditorMode.Size = new System.Drawing.Size(126, 23);
             this.EditorMode.TabIndex = 43;
@@ -1153,7 +1159,7 @@
             // 
             // UndoEditorMode
             // 
-            this.UndoEditorMode.Location = new System.Drawing.Point(144, 708);
+            this.UndoEditorMode.Location = new System.Drawing.Point(144, 734);
             this.UndoEditorMode.Name = "UndoEditorMode";
             this.UndoEditorMode.Size = new System.Drawing.Size(126, 23);
             this.UndoEditorMode.TabIndex = 44;
@@ -1161,11 +1167,65 @@
             this.UndoEditorMode.UseVisualStyleBackColor = true;
             this.UndoEditorMode.Click += new System.EventHandler(this.UndoEditorMode_Click);
             // 
+            // ScoreMk1
+            // 
+            this.ScoreMk1.Location = new System.Drawing.Point(257, 38);
+            this.ScoreMk1.Name = "ScoreMk1";
+            this.ScoreMk1.Size = new System.Drawing.Size(50, 20);
+            this.ScoreMk1.TabIndex = 45;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(169, 41);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(82, 13);
+            this.label38.TabIndex = 46;
+            this.label38.Text = "Score for 1 star:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(327, 41);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(87, 13);
+            this.label39.TabIndex = 48;
+            this.label39.Text = "Score for 2 stars:";
+            // 
+            // ScoreMk2
+            // 
+            this.ScoreMk2.Location = new System.Drawing.Point(419, 38);
+            this.ScoreMk2.Name = "ScoreMk2";
+            this.ScoreMk2.Size = new System.Drawing.Size(50, 20);
+            this.ScoreMk2.TabIndex = 47;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(492, 41);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(87, 13);
+            this.label40.TabIndex = 50;
+            this.label40.Text = "Score for 3 stars:";
+            // 
+            // ScoreMk3
+            // 
+            this.ScoreMk3.Location = new System.Drawing.Point(584, 38);
+            this.ScoreMk3.Name = "ScoreMk3";
+            this.ScoreMk3.Size = new System.Drawing.Size(50, 20);
+            this.ScoreMk3.TabIndex = 49;
+            // 
             // LevelBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 737);
+            this.ClientSize = new System.Drawing.Size(642, 765);
+            this.Controls.Add(this.label40);
+            this.Controls.Add(this.ScoreMk3);
+            this.Controls.Add(this.label39);
+            this.Controls.Add(this.ScoreMk2);
+            this.Controls.Add(this.label38);
+            this.Controls.Add(this.ScoreMk1);
             this.Controls.Add(this.UndoEditorMode);
             this.Controls.Add(this.EditorMode);
             this.Controls.Add(this.Panel7);
@@ -1307,6 +1367,12 @@
         internal System.Windows.Forms.Button Save;
         internal System.Windows.Forms.Button EditorMode;
         internal System.Windows.Forms.Button UndoEditorMode;
+        internal System.Windows.Forms.TextBox ScoreMk1;
+        internal System.Windows.Forms.Label label38;
+        internal System.Windows.Forms.Label label39;
+        internal System.Windows.Forms.TextBox ScoreMk2;
+        internal System.Windows.Forms.Label label40;
+        internal System.Windows.Forms.TextBox ScoreMk3;
     }
 }
 

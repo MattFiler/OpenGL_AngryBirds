@@ -45,7 +45,7 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 
 			break;
 		}
-									   //Pause menu
+		//Pause menu
 		case MenuScreen::PAUSE_MENU: {
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::PAUSE_MENU_BACKGROUND].spriteComponent()->getSprite());
 
@@ -124,10 +124,13 @@ void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rend
 	//Slingshot foreground
 	renderer->renderSprite(*sprites.slingshot[1].spriteComponent()->getSprite());
 
-	//Inactive birds (only render number of lives - 1)
-	for (int i = 0; i < gamestate.lives - 1; i++)
+	//Inactive birds 
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
 	{
-		renderer->renderSprite(*sprites.waiting_birds[i].spriteComponent()->getSprite());
+		if (sprites.waiting_birds[i].hasSpawned())
+		{
+			renderer->renderSprite(*sprites.waiting_birds[i].spriteComponent()->getSprite());
+		}
 	}
 
 	//Explosion FX
@@ -136,6 +139,22 @@ void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rend
 		if (sprites.explosion[i].hasSpawned()) 
 		{
 			renderer->renderSprite(*sprites.explosion[i].spriteComponent()->getSprite());
+		}
+	}
+
+	//Score Bonuses
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
+	{
+		if (sprites.score_bonus_10000[i].hasSpawned())
+		{
+			renderer->renderSprite(*sprites.score_bonus_10000[i].spriteComponent()->getSprite());
+		}
+	}
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		if (sprites.score_bonus_5000[i].hasSpawned())
+		{
+			renderer->renderSprite(*sprites.score_bonus_5000[i].spriteComponent()->getSprite());
 		}
 	}
 }
@@ -156,6 +175,9 @@ void RenderStates::gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* ren
 			break;
 		}
 	}
+
+	//Render stars
+	renderer->renderSprite(*sprites.score_stars[gamestate.awarded_stars].spriteComponent()->getSprite());
 
 	//Exit/Quit Options
 	renderer->renderText(gamestate.game_over_menu_index == 0 ? "> BACK" : "  BACK", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 170, 1, ASGE::COLOURS::WHITE);

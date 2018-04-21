@@ -11,6 +11,7 @@ class LevelSetups {
 public:
 	void loadLevels();
 	std::string getLevelName(int level);
+	float getScoreThreshold(int level, int boundary);
 
 	void GenerateLevel(int level);
 	void ResetLevel();

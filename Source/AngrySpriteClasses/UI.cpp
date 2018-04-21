@@ -120,16 +120,38 @@ float UI::getScale()
 void UI::despawn()
 {
 	has_spawned = false;
+	sprite_component->getSprite()->opacity(1);
 }
 
 /* Spawn UI Element */
 void UI::spawn()
 {
 	has_spawned = true;
+	sprite_component->getSprite()->opacity(1);
 }
 
 /* Return If UI Element Has Spawned */
 bool UI::hasSpawned()
 {
 	return has_spawned;
+}
+
+
+/*
+	-- ANIMATION --
+*/
+
+/* Fade Out Up */
+bool UI::animateFadeOutUp(float frame_time)
+{
+	//Move up, lower opacity
+	subtractFromY(frame_time * 10);
+	sprite_component->getSprite()->opacity(sprite_component->getSprite()->opacity() - (frame_time/2));
+
+	//If opacity is 0, we've finished
+	if (sprite_component->getSprite()->opacity() <= 0)
+	{
+		return true;
+	}
+	return false;
 }

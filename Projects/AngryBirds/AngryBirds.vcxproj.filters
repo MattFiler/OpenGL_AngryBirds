@@ -165,6 +165,9 @@
     <ClInclude Include="..\..\Source\AngrySpriteClasses\FX.h">
       <Filter>Headers\AngrySpriteClasses</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\AngryEnums\AngryScore.h">
+      <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AngryBirds.rc" />

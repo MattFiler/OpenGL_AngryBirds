@@ -146,6 +146,35 @@ bool AngryBirdsGame::assignTextures()
 		sprites.slingshot[i].setY((int)GameVars::SLINGSHOT_Y_ORIGIN);
 	}
 
+	/* Victory Stars */
+	for (int i = 0; i < 4; i++)
+	{
+		if (!sprites.score_stars[i].addSpriteComponent(renderer.get(), "Resources\\UI\\SCORE\\STARS\\" + std::to_string(i) + ".png"))
+		{
+			return false;
+		}
+		sprites.score_stars[i].setX(((int)GameVars::GAME_WIDTH/2) - (sprites.score_stars[i].getWidth()/2));
+		sprites.score_stars[i].setY(((int)GameVars::GAME_HEIGHT/2) - (sprites.score_stars[i].getHeight()/2));
+	}
+
+	/* Score Bonuses */
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
+	{
+		if (!sprites.score_bonus_10000[i].addSpriteComponent(renderer.get(), "Resources\\UI\\SCORE\\SCORE_BONUS\\10000\\" + std::to_string(i) + ".png"))
+		{
+			return false;
+		}
+		sprites.score_bonus_10000[i].despawn();
+	}
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		if (!sprites.score_bonus_5000[i].addSpriteComponent(renderer.get(), "Resources\\UI\\SCORE\\SCORE_BONUS\\5000\\0.png"))
+		{
+			return false;
+		}
+		sprites.score_bonus_5000[i].despawn();
+	}
+
 	/* Flight Marker Dots */
 	for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
 	{
@@ -381,33 +410,36 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 	}
 	else
 	{
-		if (click->button == 0 && sprites.active_bird.getState() == CharacterStates::IN_CANNON)
+		if (gamestate.win_state != Gamestate::ON_HOLD) //Controls are frozen when ON_HOLD
 		{
-			//Let the game world know we're pulling the bird back
-			sprites.active_bird.setState(CharacterStates::ABOUT_TO_BE_FIRED);
-
-			//Let the cursor know we're interacting
-			mousedata.cursor = Cursors::INTERACTION;
-		}
-
-		if (click->action == ASGE::KEYS::KEY_RELEASED && sprites.active_bird.getState() == CharacterStates::ABOUT_TO_BE_FIRED)
-		{
-			//Set physics values of bird
-			FlightVars::pullback_force = ((int)GameVars::SLINGSHOT_X_ORIGIN - mousedata.mouse_x);
-			FlightVars::pullback_angle = ((int)GameVars::SLINGSHOT_Y_ORIGIN - mousedata.mouse_y) * -1;
-
-			//Let the game world know we've released the bird
-			sprites.active_bird.setState(CharacterStates::HAS_BEEN_FIRED);
-
-			//Let the cursor know we've finished
-			mousedata.cursor = Cursors::STANDARD;
-
-			//Reset flight marker dots ready to track the movement
-			for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
+			if (click->button == 0 && sprites.active_bird.getState() == CharacterStates::IN_CANNON)
 			{
-				sprites.flight_marker[i].despawn();
+				//Let the game world know we're pulling the bird back
+				sprites.active_bird.setState(CharacterStates::ABOUT_TO_BE_FIRED);
+
+				//Let the cursor know we're interacting
+				mousedata.cursor = Cursors::INTERACTION;
 			}
-			FlightVars::number_of_markers = 0;
+
+			if (click->action == ASGE::KEYS::KEY_RELEASED && sprites.active_bird.getState() == CharacterStates::ABOUT_TO_BE_FIRED)
+			{
+				//Set physics values of bird
+				FlightVars::pullback_force = ((int)GameVars::SLINGSHOT_X_ORIGIN - mousedata.mouse_x);
+				FlightVars::pullback_angle = ((int)GameVars::SLINGSHOT_Y_ORIGIN - mousedata.mouse_y) * -1;
+
+				//Let the game world know we've released the bird
+				sprites.active_bird.setState(CharacterStates::HAS_BEEN_FIRED);
+
+				//Let the cursor know we've finished
+				mousedata.cursor = Cursors::STANDARD;
+
+				//Reset flight marker dots ready to track the movement
+				for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
+				{
+					sprites.flight_marker[i].despawn();
+				}
+				FlightVars::number_of_markers = 0;
+			}
 		}
 	}
 }

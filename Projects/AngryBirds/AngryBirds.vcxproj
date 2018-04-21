@@ -134,6 +134,7 @@
     <ClInclude Include="..\..\Source\AngryEnums\AngryGameVars.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryCharacterStates.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryMenuScreens.h" />
+    <ClInclude Include="..\..\Source\AngryEnums\AngryScore.h" />
     <ClInclude Include="..\..\Source\AngrySpriteClasses\Character.h" />
     <ClInclude Include="..\..\Source\AngrySpriteClasses\EnvironmentBlock.h" />
     <ClInclude Include="..\..\Source\AngrySpriteClasses\FX.h" />

@@ -15,6 +15,7 @@
 #include "../AngryEnums/AngryCharacterStates.h"
 #include "../AngryEnums/AngryGameVars.h"
 #include "../AngryEnums/AngryCharacterInjury.h"
+#include "../AngryEnums/AngryScore.h"
 
 class UpdateState {
 	public:
@@ -55,6 +56,17 @@ class UpdateState {
 		void AnimatePig(Character& pig);
 		float eyes_open_time = 0; //This time randomly generated every frame when playing.
 		float eyes_closed_time = 0.5;
+
+		//Score sanity check
+		int pig_count = 0;
+		bool has_set_stars = false;
+
+		//Post-game score "wrap-up"
+		float time_started_score_wrapup = 0;
+		float time_since_last_score_animation = 0;
+		bool animate_bird_scores[(int)GameVars::NUMBER_OF_STARTING_BIRDS];
+		bool animate_pig_scores[(int)GameVars::NUMBER_OF_FX_AVAILABLE];
+		void animateScore(int value, float x, float y);
 
 		//Game timer
 		float game_time = 0;

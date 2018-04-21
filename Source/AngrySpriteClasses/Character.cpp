@@ -12,6 +12,9 @@ Character::Character()
 	//Character defaults
 	character_state = CharacterStates::SHOULD_SPAWN;
 	character_injuries = CharacterInjuries::FEELIN_FINE;
+
+	//Initialise the sound engine
+	sound_engine = irrklang::createIrrKlangDevice();
 }
 Character::~Character()
 {
@@ -20,6 +23,9 @@ Character::~Character()
 	{
 		freeSpriteComponent(i);
 	}
+
+	//Destruct the sound engine
+	sound_engine->drop();
 }
 
 
@@ -203,13 +209,14 @@ void Character::setInjuryLevel(CharacterInjuries injuryLevel)
 	}
 	else if (character_injuries == CharacterInjuries::SLIGHTLY_INJURED)
 	{
-		setCurrentFrame(2, 0);
+		setCurrentFrame(2, 0); 
+		sound_engine->play2D("Resources\\CHARACTERS\\PIGS\\SFX\\2.mp3", false);
 	}
 	else if (character_injuries == CharacterInjuries::HIGHLY_INJURED)
 	{
 		setCurrentFrame(4, 0);
+		sound_engine->play2D("Resources\\CHARACTERS\\PIGS\\SFX\\3.mp3", false);
 	}
-		//Handle SFX here
 }
 
 /* Get/Set Character Entity State */

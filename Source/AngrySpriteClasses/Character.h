@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <irrklang.h>
 #include "SpriteComponent.h"
 #include "Vector2.h"
 
@@ -50,6 +51,8 @@ public:
 	SpriteComponent* spriteComponent();
 
 private:
+	irrklang::ISoundEngine* sound_engine;
+
 	bool has_spawned = false;
 
 	int sprite_frames = 6; //By default, we have 6 frames - but this can vary by character.

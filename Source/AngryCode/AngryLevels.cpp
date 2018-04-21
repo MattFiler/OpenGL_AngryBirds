@@ -39,6 +39,12 @@ std::string LevelSetups::getLevelName(int level)
 	return level_build[level][0][0];
 }
 
+/* Return the score threshold (1,2,3) for a level. */
+float LevelSetups::getScoreThreshold(int level, int boundary)
+{
+	return std::stof(level_build[level][0][boundary]);
+}
+
 /* Generate levels when selected. */
 void LevelSetups::GenerateLevel(int level) {
 	for (int i = 1; i <= (int)GameVars::FORCED_NUMBER_OF_LEVEL_ENTITIES; i++)
@@ -79,6 +85,12 @@ void LevelSetups::ResetLevel()
 	{
 		/* Pigs */
 		sprites.pigs[i].despawn();
+	}
+
+	for (int i = 0; i < (((int)GameVars::NUMBER_OF_BLOCK_VARIATIONS * 3) + 1); i++)
+	{
+		/* Entity Count */
+		entity_count[i] = 0;
 	}
 }
 

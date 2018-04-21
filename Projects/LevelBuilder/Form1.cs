@@ -40,7 +40,7 @@ namespace LevelBuilder
 
             //Compile level data
             string[] levelData = { "", "", "", "", "", "", "", "", "", "", ""};
-            levelData[0] = LevelName.Text + ",0,0,0";
+            levelData[0] = LevelName.Text + "," + ScoreMk1.Text + "," + ScoreMk2.Text + "," + ScoreMk3.Text;
             levelData[1] = Entity1.Text + "," + XPos1.Text + "," + YPos1.Text + "," + Rotation1.Text;
             levelData[2] = Entity2.Text + "," + XPos2.Text + "," + YPos2.Text + "," + Rotation2.Text;
             levelData[3] = Entity3.Text + "," + XPos3.Text + "," + YPos3.Text + "," + Rotation3.Text;
