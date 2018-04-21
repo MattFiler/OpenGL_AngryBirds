@@ -3,7 +3,7 @@
 /* Load levels for class declaration. */
 void LevelSetups::loadLevels()
 {
-	for (int i = 0; i < (int)GameVars::LEVELS; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_LEVELS; i++)
 	{
 		//Load level file
 		std::string line;
@@ -41,7 +41,7 @@ std::string LevelSetups::getLevelName(int level)
 
 /* Generate levels when selected. */
 void LevelSetups::GenerateLevel(int level) {
-	for (int i = 1; i <= (int)GameVars::MAX_LEVEL_COMPONENTS; i++)
+	for (int i = 1; i <= (int)GameVars::FORCED_NUMBER_OF_LEVEL_ENTITIES; i++)
 	{
 		if (level_build[level][i][0] != "--") //"--" is level editor default for no entity.
 		{
@@ -57,7 +57,7 @@ void LevelSetups::GenerateLevel(int level) {
 /* Reset all objects in the level. */
 void LevelSetups::ResetLevel() 
 {
-	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_BLOCKS_PER_VARIATION; i++)
 	{
 		/* Wood Blocks */
 		sprites.wood_rectangle_long[i].despawn();
@@ -75,7 +75,7 @@ void LevelSetups::ResetLevel()
 		sprites.rock_square[i].despawn();
 	}
 
-	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_PIGS; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_PIGS; i++)
 	{
 		/* Pigs */
 		sprites.pigs[i].despawn();

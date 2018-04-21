@@ -59,6 +59,10 @@ class UpdateState {
 		//Game timer
 		float game_time = 0;
 
+		//Explosion FX slot register
+		void animateExplosion(float x, float y);
+		bool performing_explosion_fx[(int)GameVars::NUMBER_OF_FX_AVAILABLE];
+
 		/* AngryStructs */
 		GamestateData gamestate;
 		MouseData mousedata;

@@ -85,7 +85,7 @@ bool AngryBirdsGame::assignTextures()
 	}
 
 	/* Cursors */
-	for (int i = 0; i < (int)GameVars::MAX_CURSOR_STATES; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_CURSOR_STATES; i++)
 	{
 		if (!sprites.cursor[i].addSpriteComponent(renderer.get(), "Resources\\UI\\CURSOR\\" + std::to_string(i) + ".png"))
 		{
@@ -122,12 +122,12 @@ bool AngryBirdsGame::assignTextures()
 	}
 
 	/* All Possible Pigs */
-	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_PIGS; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_PIGS; i++)
 	{
 		sprites.pigs[i].setFrameCount(6);
 		for (int x = 0; x < sprites.pigs[i].getFrameCount(); x++)
 		{
-			if (!sprites.pigs[i].addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\PIGS\\MERGED\\" + std::to_string(x) + ".png", x))
+			if (!sprites.pigs[i].addSpriteComponent(renderer.get(), "Resources\\CHARACTERS\\PIGS\\MEDIUM\\MERGED\\" + std::to_string(x) + ".png", x))
 			{
 				return false;
 			}
@@ -147,7 +147,7 @@ bool AngryBirdsGame::assignTextures()
 	}
 
 	/* Flight Marker Dots */
-	for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
 	{
 		if (!sprites.flight_marker[i].addSpriteComponent(renderer.get(), "Resources\\UI\\POSITION_MARKER\\0.png"))
 		{
@@ -156,8 +156,22 @@ bool AngryBirdsGame::assignTextures()
 		sprites.flight_marker[i].despawn();
 	}
 
+	/* Explosion FX */
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		for (int x = 0; x < (int)GameVars::NUMBER_OF_FRAMES_IN_FX; x++)
+		{
+			if (!sprites.explosion[i].addSpriteComponent(renderer.get(), "Resources\\UI\\FX\\EXPLOSION\\" + std::to_string(x) + ".png",x))
+			{
+				return false;
+			}
+		}
+		sprites.explosion[i].despawn();
+		sprites.explosion[i].setFrame(0);
+	}
+
 	/* All Environment Blocks */
-	for (int x = 0; x < (int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; x++)
+	for (int x = 0; x < (int)GameVars::NUMBER_OF_BLOCKS_PER_VARIATION; x++)
 	{
 		/* Wood Blocks */
 		sprites.wood_rectangle_long[x].setDestruction(DestructionStates::DEFAULT);
@@ -259,7 +273,7 @@ bool AngryBirdsGame::assignTextures()
 	/* Placeholders for Level Editor */
 	if (gamestate.current_gamestate == Gamestate::LEVEL_BUILDER_MODE)
 	{
-		for (int i = 0; i < (int)GameVars::BLOCK_VARIATIONS + 1; i++)
+		for (int i = 0; i < (int)GameVars::NUMBER_OF_BLOCK_VARIATIONS + 1; i++)
 		{
 			for (int x = 0; x < (int)DestructionStates::DESTRUCTION_COUNT; x++)
 			{
@@ -326,29 +340,12 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 			game_input.gstateGameOver(data);
 			break;
 		}
-		//In Level Editor
+		//Level Builder Mode (intended for developers only)
 		case Gamestate::LEVEL_BUILDER_MODE: {
 			game_input.gstateLevelBuilder(data);
 			break;
 		}
 	}
-	
-	/*
-	//Go fullscreen if ALT+ENTER is pressed
-	else if (key->key == ASGE::KEYS::KEY_ENTER && 
-		     key->action == ASGE::KEYS::KEY_PRESSED &&
-		     key->mods == 0x0004)
-	{
-		if (renderer->getWindowMode() == ASGE::Renderer::WindowMode::WINDOWED)
-		{
-			renderer->setWindowedMode(ASGE::Renderer::WindowMode::FULLSCREEN);
-		}
-		else
-		{
-			renderer->setWindowedMode(ASGE::Renderer::WindowMode::WINDOWED);
-		}
-	}
-	*/
 }
 
 /**
@@ -406,7 +403,7 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 			mousedata.cursor = Cursors::STANDARD;
 
 			//Reset flight marker dots ready to track the movement
-			for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
+			for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
 			{
 				sprites.flight_marker[i].despawn();
 			}

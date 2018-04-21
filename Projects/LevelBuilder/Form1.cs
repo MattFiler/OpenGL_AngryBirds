@@ -63,7 +63,7 @@ namespace LevelBuilder
         {
             MessageBox.Show("In-game editor mode enabled.", "Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (!File.Exists("../../level.editor"))
-                File.Create("../../level.editor");
+                File.WriteAllText("../../level.editor", "EDITING ENABLED");
         }
 
         private void UndoEditorMode_Click(object sender, EventArgs e)
@@ -76,6 +76,15 @@ namespace LevelBuilder
         private void StartGame_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LevelBuilder_Load(object sender, EventArgs e)
+        {
+            if (!File.Exists("../../AngryBirds.exe"))
+            {
+                MessageBox.Show("Please run LevelBuilder from the LEVELS folder.", "Incorrect directory.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
         }
     }
 }

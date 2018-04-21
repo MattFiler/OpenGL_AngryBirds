@@ -39,7 +39,7 @@ void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
 		gamestate.pause_menu_index = 0;
 
 		//Reset flight marker dots
-		for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
+		for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
 		{
 			sprites.flight_marker[i].despawn();
 		}
@@ -88,7 +88,7 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 	handleBirdMovement(dt_sec, sprites.active_bird);
 
 	//Handle block collision
-	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_BLOCKS_PER_VARIATION; i++)
 	{
 		//Wood
 		detectBlockCollision(sprites.wood_rectangle_long[i]);
@@ -107,7 +107,7 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 	}
 
 	//Handle Pig Collision
-	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_PIGS; i++) 
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_PIGS; i++) 
 	{
 		detectPigCollision(sprites.pigs[i]);
 	}
@@ -136,9 +136,25 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 	}
 
 	//Animate pigs
-	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_PIGS; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_PIGS; i++)
 	{
 		AnimatePig(sprites.pigs[i]);
+	}
+
+	//Animate explosion FX
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		if (performing_explosion_fx[i]) 
+		{
+			//Perform animation if requested
+			bool animation = sprites.explosion[i].animate(dt_sec);
+			if (animation) {
+				//Animation is done.
+				performing_explosion_fx[i] = false;
+				sprites.explosion[i].despawn();
+				sprites.explosion[i].setFrame(0);
+			}
+		}
 	}
 }
 
@@ -180,6 +196,30 @@ void UpdateState::gstateLevelBuilder(const ASGE::GameTime & us)
 }
 
 
+//Find a free explosion FX slot
+void UpdateState::animateExplosion(float x, float y)
+{
+	int slot_id = 10;
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		//Find a "slot" to request an explosion
+		if (!performing_explosion_fx[i]) {
+			slot_id = i;
+			break;
+		}
+	}
+	if (slot_id != 10) {
+		performing_explosion_fx[slot_id] = true;
+		sprites.explosion[slot_id].spawn();
+		sprites.explosion[slot_id].setX(x);
+		sprites.explosion[slot_id].setY(y);
+	}
+	else
+	{
+		//Couldn't animate...
+	}
+}
+
 //Detect collision on spawned blocks
 void UpdateState::detectBlockCollision(EnvironmentBlock& block)
 {
@@ -196,6 +236,7 @@ void UpdateState::detectBlockCollision(EnvironmentBlock& block)
 				//Block has been damaged but not destroyed
 				//SCORE += 50
 			}
+			animateExplosion(sprites.active_bird.getX(), sprites.active_bird.getY());
 			sprites.active_bird.setState(CharacterStates::DESPAWNED);
 		}
 	}
@@ -221,6 +262,7 @@ void UpdateState::detectPigCollision(Character& pig)
 				//Pig has been damaged but not killed
 				//SCORE += 100
 			}
+			animateExplosion(sprites.active_bird.getX(), sprites.active_bird.getY());
 			sprites.active_bird.setState(CharacterStates::DESPAWNED);
 		}
 	}

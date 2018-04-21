@@ -37,7 +37,7 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::LEVEL_SELECT_MENU_BACKGROUND].spriteComponent()->getSprite());
 
 			//All Level Options (dynamically generated and handled from the number of level configs)
-			for (int i = 0; i < (int)GameVars::LEVELS; i++)
+			for (int i = 0; i < (int)GameVars::NUMBER_OF_LEVELS; i++)
 			{
 				std::string level_name = levels.getLevelName(i);
 				renderer->renderText(gamestate.level_select_menu_index == i ? ("> " + level_name) : ("  " + level_name), (int)GameVars::GAME_WIDTH - 350, ((i + 1) * 100) + 50, 1, ASGE::COLOURS::WHITE);
@@ -45,7 +45,7 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 
 			break;
 		}
-		//Pause menu
+									   //Pause menu
 		case MenuScreen::PAUSE_MENU: {
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::PAUSE_MENU_BACKGROUND].spriteComponent()->getSprite());
 
@@ -61,13 +61,13 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 /*
 GAMESTATE_IS_PLAYING
 */
-void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* renderer) 
+void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* renderer)
 {
 	//In-game background
 	renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::INGAME_BACKGROUND].spriteComponent()->getSprite());
 
 	//Render Spawned Flight Marker Dots 
-	for (int i = 0; i < (int)GameVars::MAX_FLIGHT_MARKER_DOTS; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
 	{
 		if (sprites.flight_marker[i].hasSpawned())
 		{
@@ -79,7 +79,7 @@ void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rend
 	renderer->renderSprite(*sprites.slingshot[0].spriteComponent()->getSprite());
 
 	//Blocks
-	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_THIS_BLOCK_TYPE; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_BLOCKS_PER_VARIATION; i++)
 	{
 		//Wood
 		if (sprites.wood_rectangle_long[i].hasSpawned())
@@ -107,7 +107,7 @@ void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rend
 	}
 
 	//Pigs
-	for (int i = 0; i < (int)GameVars::MAX_NUMBER_OF_PIGS; i++)
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_PIGS; i++)
 	{
 		if (sprites.pigs[i].hasSpawned())
 		{
@@ -116,7 +116,7 @@ void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rend
 	}
 
 	//Active player controlled bird
-	if (sprites.active_bird.hasSpawned()) 
+	if (sprites.active_bird.hasSpawned())
 	{
 		renderer->renderSprite(*sprites.active_bird.spriteComponent()->getSprite());
 	}
@@ -128,6 +128,15 @@ void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rend
 	for (int i = 0; i < gamestate.lives - 1; i++)
 	{
 		renderer->renderSprite(*sprites.waiting_birds[i].spriteComponent()->getSprite());
+	}
+
+	//Explosion FX
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		if (sprites.explosion[i].hasSpawned()) 
+		{
+			renderer->renderSprite(*sprites.explosion[i].spriteComponent()->getSprite());
+		}
 	}
 }
 
@@ -169,7 +178,7 @@ void RenderStates::gstateLevelBuilder(const ASGE::GameTime & us, ASGE::Renderer*
 	renderer->setFont(0);
 
 	//Render builder overlay
-	renderer->renderText("LEVEL BUILDER MODE ACTIVE", 50, 75, 2, ASGE::COLOURS::RED);
+	renderer->renderText("LEVEL EDITOR MODE ACTIVE", 50, 75, 2, ASGE::COLOURS::RED);
 	renderer->renderText("CURRENT X: " + std::to_string(mousedata.mouse_x), 50, 100, 1, ASGE::COLOURS::RED);
 	renderer->renderText("CURRENT Y: " + std::to_string(mousedata.mouse_y - 10), 50, 125, 1, ASGE::COLOURS::RED);
 	renderer->renderText("CURRENT SCALE: " + std::to_string(gamestate.debug_block_scale), 50, 150, 1, ASGE::COLOURS::RED);
@@ -181,7 +190,7 @@ void RenderStates::gstateLevelBuilder(const ASGE::GameTime & us, ASGE::Renderer*
 	//Render placeholders
 	if (gamestate.current_gamestate == Gamestate::LEVEL_BUILDER_MODE)
 	{
-		for (int i = 0; i < ((int)GameVars::BLOCK_VARIATIONS + 1); i++)
+		for (int i = 0; i < ((int)GameVars::NUMBER_OF_BLOCK_VARIATIONS + 1); i++)
 		{
 			renderer->renderSprite(*sprites.placeholder_marker[i].spriteComponent()->getSprite());
 		}

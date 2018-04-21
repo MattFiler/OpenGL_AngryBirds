@@ -23,30 +23,39 @@ enum class GameVars : int
 	DESPAWN_X_POS = 0,
 	DESPAWN_Y_POS = 0,
 
-	//Number of flight path dots
-	MAX_FLIGHT_MARKER_DOTS = 100, //The "engine limit" - actual rendered dots are based on bird speed, path and distance.
-
-	//Bird count (lives)
+	//Bird count (player lives)
 	NUMBER_OF_STARTING_BIRDS = 6,
 
-	//Block counts
-	MAX_NUMBER_OF_THIS_BLOCK_TYPE = 5, //The "engine limit" - actual block count is level specific.
-	BLOCK_VARIATIONS = 3, //This is hard-coded. Do not modify!
-	BLOCK_DESTRUCTION_COUNT = (int)DestructionStates::DESTRUCTION_COUNT,
+	//Number of flight path tracking dots available to use.
+	NUMBER_OF_FLIGHT_MARKER_DOTS = 100,
 
-	//Pig counts
-	MAX_NUMBER_OF_PIGS = 10, //Again, this is the "engine limit" - actual pig count is level specific.
+	//Number of blocks, variations and details
+	NUMBER_OF_BLOCKS_PER_VARIATION = 5,
+	NUMBER_OF_BLOCK_VARIATIONS = 3, //This is hard-coded. Do not modify!
+	NUMBER_OF_BLOCK_DESTRUCTION_LEVELS = (int)DestructionStates::DESTRUCTION_COUNT,
 
-	//Total character counts
-	TOTAL_MAX_CHARACTERS = NUMBER_OF_STARTING_BIRDS + MAX_NUMBER_OF_PIGS,
+	//Number of pigs available to use
+	NUMBER_OF_PIGS = 10,
 
-	//Menu Options
-	MAIN_MENU_OPTION_COUNT = 2,
+	//Total characters available to use
+	NUMBER_OF_CHARACTERS = NUMBER_OF_STARTING_BIRDS + NUMBER_OF_PIGS,
 
-	//Number of levels and components
-	LEVELS = 3,
-	MAX_LEVEL_COMPONENTS = 10,
+	//Main menu option count
+	NUMBER_OF_MAIN_MENU_OPTIONS = 2,
+
+	//Number of levels (adjust this if more levels are created in \\Resources\\LEVELS\\)
+	NUMBER_OF_LEVELS = 3,
+
+	//Number of level entities available
+	NUMBER_OF_LEVEL_ENTITIES = NUMBER_OF_PIGS + (NUMBER_OF_BLOCKS_PER_VARIATION * NUMBER_OF_BLOCK_VARIATIONS),
+
+	//Forced limit of level entities (if adjusted, the editor must also be changed - cannot be higher than NUMBER_OF_LEVEL_ENTITIES).
+	FORCED_NUMBER_OF_LEVEL_ENTITIES = 10,
 
 	//Number of cursors
-	MAX_CURSOR_STATES = 6 //2 cursors, 4 level editor blocks.
+	NUMBER_OF_CURSOR_STATES = 6, //2 cursors, 4 level editor blocks.
+
+	//Number of frames for FX & number of each FX available per frame
+	NUMBER_OF_FRAMES_IN_FX = 4,
+	NUMBER_OF_FX_AVAILABLE = 3
 };

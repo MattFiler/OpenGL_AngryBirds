@@ -1184,6 +1184,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LevelBuilder";
             this.Text = "Angry Birds Level Builder";
+            this.Load += new System.EventHandler(this.LevelBuilder_Load);
             this.Panel7.ResumeLayout(false);
             this.Panel7.PerformLayout();
             this.Panel12.ResumeLayout(false);

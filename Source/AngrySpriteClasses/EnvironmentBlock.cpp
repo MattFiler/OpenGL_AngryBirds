@@ -144,7 +144,10 @@ float EnvironmentBlock::getWidth()
 /* Set Scale */
 void EnvironmentBlock::setScale(float scale)
 {
-	sprite[(int)destruction_state]->getSprite()->scale(scale);
+	for (int i = 0; i < (int)DestructionStates::DESTRUCTION_COUNT; i++)
+	{
+		sprite[i]->getSprite()->scale(scale);
+	}
 }
 
 /* Return Scale */

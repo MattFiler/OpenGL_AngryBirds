@@ -53,7 +53,7 @@ void InputStates::gstateInMenu(ASGE::SharedEventData data) {
 				gamestate.main_menu_index -= 1;
 				sound_engine->play2D("Resources\\UI\\SFX\\1.mp3", false);
 			}
-			else if (gamestate.main_menu_index != ((int)GameVars::MAIN_MENU_OPTION_COUNT - 1) &&
+			else if (gamestate.main_menu_index != ((int)GameVars::NUMBER_OF_MAIN_MENU_OPTIONS - 1) &&
 					key->key == ASGE::KEYS::KEY_DOWN &&
 					key->action == ASGE::KEYS::KEY_RELEASED)
 			{
@@ -82,7 +82,7 @@ void InputStates::gstateInMenu(ASGE::SharedEventData data) {
 				gamestate.level_select_menu_index -= 1;
 				sound_engine->play2D("Resources\\UI\\SFX\\1.mp3", false);
 			}
-			else if (gamestate.level_select_menu_index != ((int)GameVars::LEVELS - 1) &&
+			else if (gamestate.level_select_menu_index != ((int)GameVars::NUMBER_OF_LEVELS - 1) &&
 					key->key == ASGE::KEYS::KEY_DOWN &&
 					key->action == ASGE::KEYS::KEY_RELEASED)
 			{
