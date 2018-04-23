@@ -20,6 +20,7 @@ struct GamestateData
 	static int level_select_menu_index; //Level select menu index
 	static int pause_menu_index; //Pause menu selection index
 	static int game_over_menu_index; //Game over option select index
+	static bool should_show_gameover_options; //Should show gameover options yet?
 
 	/* LEVEL EDITOR DATA */
 	static bool debug_place_block; //Used for level editor mode

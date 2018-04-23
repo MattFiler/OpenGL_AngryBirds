@@ -157,39 +157,43 @@ void InputStates::gstateGameOver(ASGE::SharedEventData data)
 	//Get key
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 
-	//User has chosen to return to menu
-	if (gamestate.game_over_menu_index == 0 &&
-		key->key == ASGE::KEYS::KEY_ENTER &&
-		key->action == ASGE::KEYS::KEY_RELEASED)
+	//Only allow input if options are shown
+	if (gamestate.should_show_gameover_options)
 	{
-		gamestate.menu_screen = MenuScreen::MAIN_MENU;
-		gamestate.current_gamestate = Gamestate::IN_MENU;
-		sound_engine->play2D("Resources\\UI\\SFX\\0.mp3", false);
-	}
+		//User has chosen to return to menu
+		if (gamestate.game_over_menu_index == 0 &&
+			key->key == ASGE::KEYS::KEY_ENTER &&
+			key->action == ASGE::KEYS::KEY_RELEASED)
+		{
+			gamestate.menu_screen = MenuScreen::MAIN_MENU;
+			gamestate.current_gamestate = Gamestate::IN_MENU;
+			sound_engine->play2D("Resources\\UI\\SFX\\0.mp3", false);
+		}
 
-	//User has chosen to exit
-	else if (gamestate.game_over_menu_index == 1 &&
-		key->key == ASGE::KEYS::KEY_ENTER &&
-		key->action == ASGE::KEYS::KEY_RELEASED)
-	{
-		gamestate.current_gamestate = Gamestate::REQUESTED_QUIT;
-		sound_engine->play2D("Resources\\UI\\SFX\\0.mp3", false);
-	}
+		//User has chosen to exit
+		else if (gamestate.game_over_menu_index == 1 &&
+			key->key == ASGE::KEYS::KEY_ENTER &&
+			key->action == ASGE::KEYS::KEY_RELEASED)
+		{
+			gamestate.current_gamestate = Gamestate::REQUESTED_QUIT;
+			sound_engine->play2D("Resources\\UI\\SFX\\0.mp3", false);
+		}
 
-	//Handle up/down
-	else if (gamestate.game_over_menu_index != 0 &&
-		key->key == ASGE::KEYS::KEY_UP &&
-		key->action == ASGE::KEYS::KEY_RELEASED)
-	{
-		gamestate.game_over_menu_index -= 1;
-		sound_engine->play2D("Resources\\UI\\SFX\\1.mp3", false);
-	}
-	else if (gamestate.game_over_menu_index != 1 &&
-		key->key == ASGE::KEYS::KEY_DOWN &&
-		key->action == ASGE::KEYS::KEY_RELEASED)
-	{
-		gamestate.game_over_menu_index += 1;
-		sound_engine->play2D("Resources\\UI\\SFX\\1.mp3", false);
+		//Handle up/down
+		else if (gamestate.game_over_menu_index != 0 &&
+			key->key == ASGE::KEYS::KEY_UP &&
+			key->action == ASGE::KEYS::KEY_RELEASED)
+		{
+			gamestate.game_over_menu_index -= 1;
+			sound_engine->play2D("Resources\\UI\\SFX\\1.mp3", false);
+		}
+		else if (gamestate.game_over_menu_index != 1 &&
+			key->key == ASGE::KEYS::KEY_DOWN &&
+			key->action == ASGE::KEYS::KEY_RELEASED)
+		{
+			gamestate.game_over_menu_index += 1;
+			sound_engine->play2D("Resources\\UI\\SFX\\1.mp3", false);
+		}
 	}
 }
 

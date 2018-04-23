@@ -48,6 +48,8 @@ void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
 		has_set_stars = false;
 		time_started_score_wrapup = 0;
 		time_since_last_score_animation = 0;
+		time_since_star_animation_start = 0;
+		gamestate.should_show_gameover_options = false;
 		for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
 		{
 			animate_bird_scores[i] = false;
@@ -57,6 +59,10 @@ void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
 		{
 			animate_pig_scores[i] = false;
 			sprites.score_bonus_5000[i].despawn();
+		}
+		for (int i = 0; i < 3; i++)
+		{
+			has_played_star_sfx[i] = false;
 		}
 
 		//Reset flight marker dots
@@ -300,6 +306,10 @@ void UpdateState::gstateGameOver(const ASGE::GameTime & us)
 			gamestate.awarded_stars = 3;
 		}
 	}
+
+	//Animate stars
+	auto dt_sec = us.delta_time.count() / 1000.0;
+	animateStars(dt_sec);
 }
 
 /*
@@ -326,7 +336,9 @@ void UpdateState::gstateLevelBuilder(const ASGE::GameTime & us)
 }
 
 
-//Find a free score animation slot
+/*
+Find a free score popup animation slot
+*/
 void UpdateState::animateScore(int value, float x, float y)
 {
 	int slot_id = 10;
@@ -344,7 +356,7 @@ void UpdateState::animateScore(int value, float x, float y)
 			animate_pig_scores[slot_id] = true;
 			sprites.score_bonus_5000[slot_id].spawn();
 			sprites.score_bonus_5000[slot_id].setX(x);
-			sprites.score_bonus_5000[slot_id].setY(y);
+			sprites.score_bonus_5000[slot_id].setY(y - sprites.score_stars[slot_id].getHeight());
 			sound_engine->play2D("Resources\\UI\\SCORE\\SCORE_BONUS\\SFX\\1.wav", false);
 		}
 		else
@@ -379,7 +391,9 @@ void UpdateState::animateScore(int value, float x, float y)
 }
 
 
-//Find a free explosion FX slot
+/*
+Find a free explosion FX slot
+*/
 void UpdateState::animateExplosion(float x, float y)
 {
 	int slot_id = 10;
@@ -403,7 +417,87 @@ void UpdateState::animateExplosion(float x, float y)
 	}
 }
 
-//Detect collision on spawned blocks
+
+/*
+Animate stars on the game over screen
+*/
+void UpdateState::animateStars(float frame_time)
+{
+	time_since_star_animation_start += frame_time;
+
+	if (time_since_star_animation_start < 2) 
+	{
+		sprites.score_stars[3].despawn();
+		sprites.score_stars[0].spawn();
+		if (gamestate.awarded_stars == 0)
+		{
+			gamestate.should_show_gameover_options = true;
+		}
+	}
+	else if (time_since_star_animation_start >= 2 &&
+			 time_since_star_animation_start < 2.5)
+	{
+		if (gamestate.awarded_stars >= 1)
+		{
+			sprites.score_stars[0].despawn();
+			sprites.score_stars[1].spawn();
+			if (!has_played_star_sfx[0])
+			{
+				sound_engine->play2D("Resources\\UI\\SCORE\\STARS\\SFX\\0.mp3", false);
+				has_played_star_sfx[0] = true;
+			}
+		}
+	}
+	else if (time_since_star_animation_start >= 2.5 &&
+			 time_since_star_animation_start < 3)
+	{
+		if (gamestate.awarded_stars >= 2)
+		{
+			sprites.score_stars[1].despawn();
+			sprites.score_stars[2].spawn();
+			if (!has_played_star_sfx[1])
+			{
+				sound_engine->play2D("Resources\\UI\\SCORE\\STARS\\SFX\\1.mp3", false);
+				has_played_star_sfx[1] = true;
+			}
+		}
+		if (gamestate.awarded_stars == 1)
+		{
+			gamestate.should_show_gameover_options = true;
+		}
+	}
+	else if (time_since_star_animation_start >= 3 &&
+			 time_since_star_animation_start < 3.5)
+	{
+		if (gamestate.awarded_stars == 3)
+		{
+			sprites.score_stars[2].despawn();
+			sprites.score_stars[3].spawn();
+			if (!has_played_star_sfx[2])
+			{
+				sound_engine->play2D("Resources\\UI\\SCORE\\STARS\\SFX\\2.mp3", false);
+				has_played_star_sfx[2] = true;
+			}
+		}
+		if (gamestate.awarded_stars == 2)
+		{
+			gamestate.should_show_gameover_options = true;
+		}
+	}
+	else if (time_since_star_animation_start >= 3.5 &&
+			 time_since_star_animation_start < 4)
+	{
+		if (gamestate.awarded_stars == 3)
+		{
+			gamestate.should_show_gameover_options = true;
+		}
+	}
+}
+
+
+/*
+Detect collision on spawned blocks
+*/
 void UpdateState::detectBlockCollision(EnvironmentBlock& block)
 {
 	if (block.hasSpawned())
@@ -427,7 +521,9 @@ void UpdateState::detectBlockCollision(EnvironmentBlock& block)
 }
 
 
-//Detect collision on spawned pigs
+/*
+Detect collision on spawned pigs
+*/
 void UpdateState::detectPigCollision(Character& pig)
 {
 	if (pig.hasSpawned())
@@ -473,6 +569,10 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 			bird.setX((float)GameVars::SLINGSHOT_X_ORIGIN);
 			bird.setY((float)GameVars::SLINGSHOT_Y_ORIGIN);
 
+			//Reset Slingshot SFX
+			bird_pulled_back_sfx = NOT_PLAYING;
+			bird_fired_sfx = NOT_PLAYING;
+
 			//Reset vars
 			FlightVars::bird_flight_time = 0;
 			FlightVars::pullback_angle = 0;
@@ -497,6 +597,13 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 		/* Bird is in cannon and about to be fired... */
 		case (CharacterStates::ABOUT_TO_BE_FIRED):
 		{
+			//SFX
+			if (bird_pulled_back_sfx == NOT_PLAYING)
+			{
+				sound_engine->play2D("Resources\\ENVIRONMENT\\SLINGSHOT\\SFX\\3.mp3", false);
+				bird_pulled_back_sfx = PLAYING;
+			}
+
 			//Set position of bird to mouse position
 			bird.setY(mousedata.mouse_y - (bird.spriteComponent()->getSprite()->height() / 2));
 			bird.setX(mousedata.mouse_x - (bird.spriteComponent()->getSprite()->width() / 2));
@@ -507,6 +614,25 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 		/* Bird has been fired from cannon... */
 		case (CharacterStates::HAS_BEEN_FIRED):
 		{
+			//SFX
+			if (bird_fired_sfx == NOT_PLAYING)
+			{
+				random_slingshot_sfx = rand() % 3;
+				if (random_slingshot_sfx == 0)
+				{
+					sound_engine->play2D("Resources\\ENVIRONMENT\\SLINGSHOT\\SFX\\0.mp3", false);
+				}
+				else if (random_slingshot_sfx == 1)
+				{
+					sound_engine->play2D("Resources\\ENVIRONMENT\\SLINGSHOT\\SFX\\1.mp3", false);
+				}
+				else if (random_slingshot_sfx == 2)
+				{
+					sound_engine->play2D("Resources\\ENVIRONMENT\\SLINGSHOT\\SFX\\2.mp3", false);
+				}
+				bird_fired_sfx = PLAYING;
+			}
+
 			//Calculate the time our bird has been in flight - this will act as our gravity
 			FlightVars::bird_flight_time += dt_sec;
 

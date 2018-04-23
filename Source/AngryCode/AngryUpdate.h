@@ -34,7 +34,10 @@ class UpdateState {
 		int menu_music = NOT_PLAYING;
 		int game_music = NOT_PLAYING;
 		int bird_sfx = NOT_PLAYING;
+		int bird_pulled_back_sfx = NOT_PLAYING;
+		int bird_fired_sfx = NOT_PLAYING;
 		int game_over_music = NOT_PLAYING;
+		float random_slingshot_sfx = 0;
 
 		//Our class' sound engine
 		irrklang::ISoundEngine* sound_engine;
@@ -61,12 +64,15 @@ class UpdateState {
 		int pig_count = 0;
 		bool has_set_stars = false;
 
-		//Post-game score "wrap-up"
+		//Post-game score "wrap-up" & stars
 		float time_started_score_wrapup = 0;
 		float time_since_last_score_animation = 0;
+		float time_since_star_animation_start = 0;
 		bool animate_bird_scores[(int)GameVars::NUMBER_OF_STARTING_BIRDS];
 		bool animate_pig_scores[(int)GameVars::NUMBER_OF_FX_AVAILABLE];
+		bool has_played_star_sfx[3];
 		void animateScore(int value, float x, float y);
+		void animateStars(float frame_time);
 
 		//Game timer
 		float game_time = 0;

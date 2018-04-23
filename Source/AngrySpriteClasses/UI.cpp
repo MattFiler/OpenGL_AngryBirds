@@ -111,6 +111,18 @@ float UI::getScale()
 	return sprite_component->getSprite()->scale();
 }
 
+/* Set Opacity */
+void UI::setOpacity(float opacity)
+{
+	sprite_component->getSprite()->scale(opacity);
+}
+
+/* Return Opacity */
+float UI::getOpacity()
+{
+	return sprite_component->getSprite()->opacity();
+}
+
 
 /*
 	-- SPAWNING --
@@ -146,10 +158,32 @@ bool UI::animateFadeOutUp(float frame_time)
 {
 	//Move up, lower opacity
 	subtractFromY(frame_time * 10);
-	sprite_component->getSprite()->opacity(sprite_component->getSprite()->opacity() - (frame_time/2));
+	sprite_component->getSprite()->opacity(sprite_component->getSprite()->opacity() - (frame_time / 2));
 
 	//If opacity is 0, we've finished
 	if (sprite_component->getSprite()->opacity() <= 0)
+	{
+		return true;
+	}
+	return false;
+}
+
+/* Fade In Up */
+bool UI::animateFadeInUp(float frame_time)
+{
+	//This function should be called when the element hasn't spawned (basically a spawn() replacement)
+	if (!has_spawned)
+	{
+		sprite_component->getSprite()->opacity(0);
+		has_spawned = true;
+	}
+
+	//Move up, raise opacity
+	subtractFromY(frame_time * 10);
+	sprite_component->getSprite()->opacity(sprite_component->getSprite()->opacity() + (frame_time / 2));
+
+	//If opacity is 1, we've finished
+	if (sprite_component->getSprite()->opacity() <= 1)
 	{
 		return true;
 	}

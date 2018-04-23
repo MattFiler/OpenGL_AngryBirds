@@ -29,11 +29,15 @@ public:
 	void setScale(float scale);
 	float getScale();
 
+	void setOpacity(float opacity);
+	float getOpacity();
+
 	void despawn();
 	void spawn();
 	bool hasSpawned();
 
 	bool animateFadeOutUp(float frame_time);
+	bool animateFadeInUp(float frame_time);
 
 	SpriteComponent* spriteComponent();
 

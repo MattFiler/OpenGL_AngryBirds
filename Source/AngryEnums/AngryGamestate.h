@@ -11,7 +11,7 @@ enum class Gamestate : int
 
 	HAS_WON, //Game over - won
 	HAS_LOST, //Game over - lost
-	ON_HOLD, //Game over - won, but in animation
+	ON_HOLD, //Game over, but in animation
 
 	NO_STATE, //No state - for first load
 	REQUESTED_QUIT, //User wants to quit

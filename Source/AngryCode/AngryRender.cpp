@@ -177,11 +177,20 @@ void RenderStates::gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* ren
 	}
 
 	//Render stars
-	renderer->renderSprite(*sprites.score_stars[gamestate.awarded_stars].spriteComponent()->getSprite());
+	for (int i = 0; i < 4; i++)
+	{
+		if (sprites.score_stars[i].hasSpawned())
+		{
+			renderer->renderSprite(*sprites.score_stars[i].spriteComponent()->getSprite());
+		}
+	}
 
 	//Exit/Quit Options
-	renderer->renderText(gamestate.game_over_menu_index == 0 ? "> BACK" : "  BACK", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 170, 1, ASGE::COLOURS::WHITE);
-	renderer->renderText(gamestate.game_over_menu_index == 1 ? "> QUIT" : "  QUIT", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 250, 1, ASGE::COLOURS::WHITE);
+	if (gamestate.should_show_gameover_options)
+	{
+		renderer->renderText(gamestate.game_over_menu_index == 0 ? "> MENU" : "  MENU", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 170, 1, ASGE::COLOURS::WHITE);
+		renderer->renderText(gamestate.game_over_menu_index == 1 ? "> QUIT" : "  QUIT", ((int)GameVars::GAME_WIDTH / 2) - 70, ((int)GameVars::GAME_HEIGHT / 2) + 250, 1, ASGE::COLOURS::WHITE);
+	}
 }
 
 /*
