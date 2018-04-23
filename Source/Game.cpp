@@ -432,7 +432,8 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 	}
 	else
 	{
-		if (gamestate.win_state != Gamestate::ON_HOLD) //Controls are frozen when ON_HOLD
+		if (gamestate.win_state != Gamestate::ON_HOLD && 
+			gamestate.current_gamestate == Gamestate::IS_PLAYING) 
 		{
 			if (click->button == 0 && sprites.active_bird.getState() == CharacterStates::IN_CANNON)
 			{

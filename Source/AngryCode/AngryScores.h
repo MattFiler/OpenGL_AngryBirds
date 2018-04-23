@@ -9,9 +9,6 @@
 
 class Scores {
 public:
-	Scores();
-	~Scores();
-	
 	void saveScores();
 	void loadScores();
 

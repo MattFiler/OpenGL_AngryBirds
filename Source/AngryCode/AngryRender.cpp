@@ -169,6 +169,10 @@ void RenderStates::gstatePlaying(const ASGE::GameTime & us, ASGE::Renderer* rend
 
 	//Cursor
 	renderer->renderSprite(*sprites.cursor[(int)mousedata.cursor].spriteComponent()->getSprite());
+
+	//Show Score
+	renderer->renderText("Highscore: " + std::to_string((int)gamestate.highscores[gamestate.current_level]), (int)GameVars::GAME_WIDTH - 350, 70, 0.7, ASGE::COLOURS::WHITE);
+	renderer->renderText("Score: " + std::to_string((int)gamestate.current_score), (int)GameVars::GAME_WIDTH - 280, 120, 0.7, ASGE::COLOURS::WHITE);
 }
 
 /*
