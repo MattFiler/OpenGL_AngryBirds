@@ -47,7 +47,7 @@ float LevelSetups::getScoreThreshold(int level, int boundary)
 
 /* Generate levels when selected. */
 void LevelSetups::GenerateLevel(int level) {
-	for (int i = 1; i <= (int)GameVars::FORCED_NUMBER_OF_LEVEL_ENTITIES; i++)
+	for (int i = 1; i <= (int)GameVars::NUMBER_OF_LEVEL_ENTITIES; i++)
 	{
 		if (level_build[level][i][0] != "--") //"--" is level editor default for no entity.
 		{

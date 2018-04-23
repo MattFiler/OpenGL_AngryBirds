@@ -39,7 +39,7 @@ namespace LevelBuilder
             }
 
             //Compile level data
-            string[] levelData = { "", "", "", "", "", "", "", "", "", "", ""};
+            string[] levelData = { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             levelData[0] = LevelName.Text + "," + ScoreMk1.Text + "," + ScoreMk2.Text + "," + ScoreMk3.Text;
             levelData[1] = Entity1.Text + "," + XPos1.Text + "," + YPos1.Text + "," + Rotation1.Text;
             levelData[2] = Entity2.Text + "," + XPos2.Text + "," + YPos2.Text + "," + Rotation2.Text;
@@ -51,6 +51,21 @@ namespace LevelBuilder
             levelData[8] = Entity8.Text + "," + XPos8.Text + "," + YPos8.Text + "," + Rotation8.Text;
             levelData[9] = Entity9.Text + "," + XPos9.Text + "," + YPos9.Text + "," + Rotation9.Text;
             levelData[10] = Entity10.Text + "," + XPos10.Text + "," + YPos10.Text + "," + Rotation10.Text;
+            levelData[11] = Entity11.Text + "," + XPos11.Text + "," + YPos11.Text + "," + Rotation11.Text;
+            levelData[12] = Entity12.Text + "," + XPos12.Text + "," + YPos12.Text + "," + Rotation12.Text;
+            levelData[13] = Entity13.Text + "," + XPos13.Text + "," + YPos13.Text + "," + Rotation13.Text;
+            levelData[14] = Entity14.Text + "," + XPos14.Text + "," + YPos14.Text + "," + Rotation14.Text;
+            levelData[15] = Entity15.Text + "," + XPos15.Text + "," + YPos15.Text + "," + Rotation15.Text;
+            levelData[16] = Entity16.Text + "," + XPos16.Text + "," + YPos16.Text + "," + Rotation16.Text;
+            levelData[17] = Entity17.Text + "," + XPos17.Text + "," + YPos17.Text + "," + Rotation17.Text;
+            levelData[18] = Entity18.Text + "," + XPos18.Text + "," + YPos18.Text + "," + Rotation18.Text;
+            levelData[19] = Entity19.Text + "," + XPos19.Text + "," + YPos19.Text + "," + Rotation19.Text;
+            levelData[20] = Entity20.Text + "," + XPos20.Text + "," + YPos20.Text + "," + Rotation20.Text;
+            levelData[21] = Entity21.Text + "," + XPos21.Text + "," + YPos21.Text + "," + Rotation21.Text;
+            levelData[22] = Entity22.Text + "," + XPos22.Text + "," + YPos22.Text + "," + Rotation22.Text;
+            levelData[23] = Entity23.Text + "," + XPos23.Text + "," + YPos23.Text + "," + Rotation23.Text;
+            levelData[24] = Entity24.Text + "," + XPos24.Text + "," + YPos24.Text + "," + Rotation24.Text;
+            levelData[25] = Entity25.Text + "," + XPos25.Text + "," + YPos25.Text + "," + Rotation25.Text;
 
             //Write level file
             File.WriteAllLines(levelID.ToString() + ".level", levelData);

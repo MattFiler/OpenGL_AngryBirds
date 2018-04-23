@@ -129,6 +129,141 @@
             this.ScoreMk2 = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.ScoreMk3 = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.Rotation20 = new System.Windows.Forms.TextBox();
+            this.YPos20 = new System.Windows.Forms.TextBox();
+            this.XPos20 = new System.Windows.Forms.TextBox();
+            this.Entity20 = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.Rotation14 = new System.Windows.Forms.TextBox();
+            this.YPos14 = new System.Windows.Forms.TextBox();
+            this.XPos14 = new System.Windows.Forms.TextBox();
+            this.Entity14 = new System.Windows.Forms.ComboBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.Rotation15 = new System.Windows.Forms.TextBox();
+            this.YPos15 = new System.Windows.Forms.TextBox();
+            this.XPos15 = new System.Windows.Forms.TextBox();
+            this.Entity15 = new System.Windows.Forms.ComboBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.Rotation18 = new System.Windows.Forms.TextBox();
+            this.YPos18 = new System.Windows.Forms.TextBox();
+            this.XPos18 = new System.Windows.Forms.TextBox();
+            this.Entity18 = new System.Windows.Forms.ComboBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.Rotation13 = new System.Windows.Forms.TextBox();
+            this.YPos13 = new System.Windows.Forms.TextBox();
+            this.XPos13 = new System.Windows.Forms.TextBox();
+            this.Entity13 = new System.Windows.Forms.ComboBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.Rotation19 = new System.Windows.Forms.TextBox();
+            this.YPos19 = new System.Windows.Forms.TextBox();
+            this.XPos19 = new System.Windows.Forms.TextBox();
+            this.Entity19 = new System.Windows.Forms.ComboBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.Rotation17 = new System.Windows.Forms.TextBox();
+            this.YPos17 = new System.Windows.Forms.TextBox();
+            this.XPos17 = new System.Windows.Forms.TextBox();
+            this.Entity17 = new System.Windows.Forms.ComboBox();
+            this.label72 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.Rotation12 = new System.Windows.Forms.TextBox();
+            this.YPos12 = new System.Windows.Forms.TextBox();
+            this.XPos12 = new System.Windows.Forms.TextBox();
+            this.Entity12 = new System.Windows.Forms.ComboBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.Rotation16 = new System.Windows.Forms.TextBox();
+            this.YPos16 = new System.Windows.Forms.TextBox();
+            this.XPos16 = new System.Windows.Forms.TextBox();
+            this.Entity16 = new System.Windows.Forms.ComboBox();
+            this.label80 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.Rotation11 = new System.Windows.Forms.TextBox();
+            this.YPos11 = new System.Windows.Forms.TextBox();
+            this.XPos11 = new System.Windows.Forms.TextBox();
+            this.Entity11 = new System.Windows.Forms.ComboBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.label85 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.Rotation25 = new System.Windows.Forms.TextBox();
+            this.YPos25 = new System.Windows.Forms.TextBox();
+            this.XPos25 = new System.Windows.Forms.TextBox();
+            this.Entity25 = new System.Windows.Forms.ComboBox();
+            this.label88 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label91 = new System.Windows.Forms.Label();
+            this.Rotation23 = new System.Windows.Forms.TextBox();
+            this.YPos23 = new System.Windows.Forms.TextBox();
+            this.XPos23 = new System.Windows.Forms.TextBox();
+            this.Entity23 = new System.Windows.Forms.ComboBox();
+            this.label92 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.label93 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.label95 = new System.Windows.Forms.Label();
+            this.Rotation24 = new System.Windows.Forms.TextBox();
+            this.YPos24 = new System.Windows.Forms.TextBox();
+            this.XPos24 = new System.Windows.Forms.TextBox();
+            this.Entity24 = new System.Windows.Forms.ComboBox();
+            this.label96 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
+            this.label99 = new System.Windows.Forms.Label();
+            this.Rotation22 = new System.Windows.Forms.TextBox();
+            this.YPos22 = new System.Windows.Forms.TextBox();
+            this.XPos22 = new System.Windows.Forms.TextBox();
+            this.Entity22 = new System.Windows.Forms.ComboBox();
+            this.label100 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.label101 = new System.Windows.Forms.Label();
+            this.label102 = new System.Windows.Forms.Label();
+            this.label103 = new System.Windows.Forms.Label();
+            this.Rotation21 = new System.Windows.Forms.TextBox();
+            this.YPos21 = new System.Windows.Forms.TextBox();
+            this.XPos21 = new System.Windows.Forms.TextBox();
+            this.Entity21 = new System.Windows.Forms.ComboBox();
+            this.label104 = new System.Windows.Forms.Label();
             this.Panel7.SuspendLayout();
             this.Panel12.SuspendLayout();
             this.Panel4.SuspendLayout();
@@ -139,6 +274,21 @@
             this.Panel6.SuspendLayout();
             this.Panel2.SuspendLayout();
             this.Panel1.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel25.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel7
@@ -151,7 +301,7 @@
             this.Panel7.Controls.Add(this.XPos10);
             this.Panel7.Controls.Add(this.Entity10);
             this.Panel7.Controls.Add(this.Label29);
-            this.Panel7.Location = new System.Drawing.Point(326, 600);
+            this.Panel7.Location = new System.Drawing.Point(326, 578);
             this.Panel7.Name = "Panel7";
             this.Panel7.Size = new System.Drawing.Size(308, 128);
             this.Panel7.TabIndex = 26;
@@ -249,7 +399,7 @@
             this.Panel12.Controls.Add(this.XPos7);
             this.Panel12.Controls.Add(this.Entity7);
             this.Panel12.Controls.Add(this.Label49);
-            this.Panel12.Location = new System.Drawing.Point(12, 466);
+            this.Panel12.Location = new System.Drawing.Point(12, 444);
             this.Panel12.Name = "Panel12";
             this.Panel12.Size = new System.Drawing.Size(308, 128);
             this.Panel12.TabIndex = 21;
@@ -347,7 +497,7 @@
             this.Panel4.Controls.Add(this.XPos9);
             this.Panel4.Controls.Add(this.Entity9);
             this.Panel4.Controls.Add(this.Label17);
-            this.Panel4.Location = new System.Drawing.Point(12, 600);
+            this.Panel4.Location = new System.Drawing.Point(12, 578);
             this.Panel4.Name = "Panel4";
             this.Panel4.Size = new System.Drawing.Size(308, 128);
             this.Panel4.TabIndex = 27;
@@ -445,7 +595,7 @@
             this.Panel8.Controls.Add(this.XPos6);
             this.Panel8.Controls.Add(this.Entity6);
             this.Panel8.Controls.Add(this.Label33);
-            this.Panel8.Location = new System.Drawing.Point(326, 332);
+            this.Panel8.Location = new System.Drawing.Point(326, 310);
             this.Panel8.Name = "Panel8";
             this.Panel8.Size = new System.Drawing.Size(308, 128);
             this.Panel8.TabIndex = 24;
@@ -543,7 +693,7 @@
             this.Panel9.Controls.Add(this.XPos5);
             this.Panel9.Controls.Add(this.Entity5);
             this.Panel9.Controls.Add(this.Label37);
-            this.Panel9.Location = new System.Drawing.Point(12, 332);
+            this.Panel9.Location = new System.Drawing.Point(12, 310);
             this.Panel9.Name = "Panel9";
             this.Panel9.Size = new System.Drawing.Size(308, 128);
             this.Panel9.TabIndex = 22;
@@ -641,7 +791,7 @@
             this.Panel3.Controls.Add(this.XPos8);
             this.Panel3.Controls.Add(this.Entity8);
             this.Panel3.Controls.Add(this.Label13);
-            this.Panel3.Location = new System.Drawing.Point(326, 466);
+            this.Panel3.Location = new System.Drawing.Point(326, 444);
             this.Panel3.Name = "Panel3";
             this.Panel3.Size = new System.Drawing.Size(308, 128);
             this.Panel3.TabIndex = 20;
@@ -739,7 +889,7 @@
             this.Panel5.Controls.Add(this.XPos4);
             this.Panel5.Controls.Add(this.Entity4);
             this.Panel5.Controls.Add(this.Label21);
-            this.Panel5.Location = new System.Drawing.Point(326, 198);
+            this.Panel5.Location = new System.Drawing.Point(326, 176);
             this.Panel5.Name = "Panel5";
             this.Panel5.Size = new System.Drawing.Size(308, 128);
             this.Panel5.TabIndex = 25;
@@ -837,7 +987,7 @@
             this.Panel6.Controls.Add(this.XPos3);
             this.Panel6.Controls.Add(this.Entity3);
             this.Panel6.Controls.Add(this.Label25);
-            this.Panel6.Location = new System.Drawing.Point(12, 198);
+            this.Panel6.Location = new System.Drawing.Point(12, 176);
             this.Panel6.Name = "Panel6";
             this.Panel6.Size = new System.Drawing.Size(308, 128);
             this.Panel6.TabIndex = 23;
@@ -935,7 +1085,7 @@
             this.Panel2.Controls.Add(this.XPos2);
             this.Panel2.Controls.Add(this.Entity2);
             this.Panel2.Controls.Add(this.Label9);
-            this.Panel2.Location = new System.Drawing.Point(326, 64);
+            this.Panel2.Location = new System.Drawing.Point(326, 42);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(308, 128);
             this.Panel2.TabIndex = 19;
@@ -1033,7 +1183,7 @@
             this.Panel1.Controls.Add(this.XPos1);
             this.Panel1.Controls.Add(this.Entity1);
             this.Panel1.Controls.Add(this.Label2);
-            this.Panel1.Location = new System.Drawing.Point(12, 64);
+            this.Panel1.Location = new System.Drawing.Point(12, 42);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(308, 128);
             this.Panel1.TabIndex = 18;
@@ -1134,12 +1284,12 @@
             // 
             this.LevelName.Location = new System.Drawing.Point(88, 12);
             this.LevelName.Name = "LevelName";
-            this.LevelName.Size = new System.Drawing.Size(546, 20);
+            this.LevelName.Size = new System.Drawing.Size(196, 20);
             this.LevelName.TabIndex = 0;
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(506, 734);
+            this.Save.Location = new System.Drawing.Point(1449, 712);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(128, 23);
             this.Save.TabIndex = 42;
@@ -1149,7 +1299,7 @@
             // 
             // EditorMode
             // 
-            this.EditorMode.Location = new System.Drawing.Point(12, 734);
+            this.EditorMode.Location = new System.Drawing.Point(12, 712);
             this.EditorMode.Name = "EditorMode";
             this.EditorMode.Size = new System.Drawing.Size(126, 23);
             this.EditorMode.TabIndex = 43;
@@ -1159,7 +1309,7 @@
             // 
             // UndoEditorMode
             // 
-            this.UndoEditorMode.Location = new System.Drawing.Point(144, 734);
+            this.UndoEditorMode.Location = new System.Drawing.Point(144, 712);
             this.UndoEditorMode.Name = "UndoEditorMode";
             this.UndoEditorMode.Size = new System.Drawing.Size(126, 23);
             this.UndoEditorMode.TabIndex = 44;
@@ -1169,15 +1319,16 @@
             // 
             // ScoreMk1
             // 
-            this.ScoreMk1.Location = new System.Drawing.Point(257, 38);
+            this.ScoreMk1.Location = new System.Drawing.Point(1200, 12);
             this.ScoreMk1.Name = "ScoreMk1";
             this.ScoreMk1.Size = new System.Drawing.Size(50, 20);
             this.ScoreMk1.TabIndex = 45;
+            this.ScoreMk1.Text = "10000";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(169, 41);
+            this.label38.Location = new System.Drawing.Point(1112, 15);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(82, 13);
             this.label38.TabIndex = 46;
@@ -1186,7 +1337,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(327, 41);
+            this.label39.Location = new System.Drawing.Point(1270, 15);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(87, 13);
             this.label39.TabIndex = 48;
@@ -1194,15 +1345,16 @@
             // 
             // ScoreMk2
             // 
-            this.ScoreMk2.Location = new System.Drawing.Point(419, 38);
+            this.ScoreMk2.Location = new System.Drawing.Point(1362, 12);
             this.ScoreMk2.Name = "ScoreMk2";
             this.ScoreMk2.Size = new System.Drawing.Size(50, 20);
             this.ScoreMk2.TabIndex = 47;
+            this.ScoreMk2.Text = "40000";
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(492, 41);
+            this.label40.Location = new System.Drawing.Point(1435, 15);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(87, 13);
             this.label40.TabIndex = 50;
@@ -1210,25 +1362,1511 @@
             // 
             // ScoreMk3
             // 
-            this.ScoreMk3.Location = new System.Drawing.Point(584, 38);
+            this.ScoreMk3.Location = new System.Drawing.Point(1527, 12);
             this.ScoreMk3.Name = "ScoreMk3";
             this.ScoreMk3.Size = new System.Drawing.Size(50, 20);
             this.ScoreMk3.TabIndex = 49;
+            this.ScoreMk3.Text = "70000";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label41);
+            this.panel10.Controls.Add(this.label42);
+            this.panel10.Controls.Add(this.label43);
+            this.panel10.Controls.Add(this.Rotation20);
+            this.panel10.Controls.Add(this.YPos20);
+            this.panel10.Controls.Add(this.XPos20);
+            this.panel10.Controls.Add(this.Entity20);
+            this.panel10.Controls.Add(this.label44);
+            this.panel10.Location = new System.Drawing.Point(954, 578);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(308, 128);
+            this.panel10.TabIndex = 50;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(20, 96);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(37, 13);
+            this.label41.TabIndex = 9;
+            this.label41.Text = "Scale:";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(32, 70);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(38, 13);
+            this.label42.TabIndex = 8;
+            this.label42.Text = "Y Pos:";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(32, 44);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(38, 13);
+            this.label43.TabIndex = 7;
+            this.label43.Text = "X Pos:";
+            // 
+            // Rotation20
+            // 
+            this.Rotation20.Location = new System.Drawing.Point(76, 93);
+            this.Rotation20.Name = "Rotation20";
+            this.Rotation20.Size = new System.Drawing.Size(225, 20);
+            this.Rotation20.TabIndex = 41;
+            this.Rotation20.Text = "1";
+            // 
+            // YPos20
+            // 
+            this.YPos20.Location = new System.Drawing.Point(76, 67);
+            this.YPos20.Name = "YPos20";
+            this.YPos20.Size = new System.Drawing.Size(225, 20);
+            this.YPos20.TabIndex = 40;
+            this.YPos20.Text = "0";
+            // 
+            // XPos20
+            // 
+            this.XPos20.Location = new System.Drawing.Point(76, 41);
+            this.XPos20.Name = "XPos20";
+            this.XPos20.Size = new System.Drawing.Size(225, 20);
+            this.XPos20.TabIndex = 39;
+            this.XPos20.Text = "0";
+            // 
+            // Entity20
+            // 
+            this.Entity20.FormattingEnabled = true;
+            this.Entity20.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity20.Location = new System.Drawing.Point(76, 14);
+            this.Entity20.Name = "Entity20";
+            this.Entity20.Size = new System.Drawing.Size(225, 21);
+            this.Entity20.TabIndex = 38;
+            this.Entity20.Text = "--";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(34, 17);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(36, 13);
+            this.label44.TabIndex = 4;
+            this.label44.Text = "Entity:";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.label45);
+            this.panel11.Controls.Add(this.label50);
+            this.panel11.Controls.Add(this.label51);
+            this.panel11.Controls.Add(this.Rotation14);
+            this.panel11.Controls.Add(this.YPos14);
+            this.panel11.Controls.Add(this.XPos14);
+            this.panel11.Controls.Add(this.Entity14);
+            this.panel11.Controls.Add(this.label52);
+            this.panel11.Location = new System.Drawing.Point(640, 444);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(308, 128);
+            this.panel11.TabIndex = 45;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(20, 96);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(37, 13);
+            this.label45.TabIndex = 9;
+            this.label45.Text = "Scale:";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(32, 70);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(38, 13);
+            this.label50.TabIndex = 8;
+            this.label50.Text = "Y Pos:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(32, 44);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(38, 13);
+            this.label51.TabIndex = 7;
+            this.label51.Text = "X Pos:";
+            // 
+            // Rotation14
+            // 
+            this.Rotation14.Location = new System.Drawing.Point(76, 93);
+            this.Rotation14.Name = "Rotation14";
+            this.Rotation14.Size = new System.Drawing.Size(225, 20);
+            this.Rotation14.TabIndex = 28;
+            this.Rotation14.Text = "1";
+            // 
+            // YPos14
+            // 
+            this.YPos14.Location = new System.Drawing.Point(76, 67);
+            this.YPos14.Name = "YPos14";
+            this.YPos14.Size = new System.Drawing.Size(225, 20);
+            this.YPos14.TabIndex = 27;
+            this.YPos14.Text = "0";
+            // 
+            // XPos14
+            // 
+            this.XPos14.Location = new System.Drawing.Point(76, 41);
+            this.XPos14.Name = "XPos14";
+            this.XPos14.Size = new System.Drawing.Size(225, 20);
+            this.XPos14.TabIndex = 26;
+            this.XPos14.Text = "0";
+            // 
+            // Entity14
+            // 
+            this.Entity14.FormattingEnabled = true;
+            this.Entity14.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity14.Location = new System.Drawing.Point(76, 14);
+            this.Entity14.Name = "Entity14";
+            this.Entity14.Size = new System.Drawing.Size(225, 21);
+            this.Entity14.TabIndex = 25;
+            this.Entity14.Text = "--";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(34, 17);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(36, 13);
+            this.label52.TabIndex = 4;
+            this.label52.Text = "Entity:";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.label53);
+            this.panel13.Controls.Add(this.label54);
+            this.panel13.Controls.Add(this.label55);
+            this.panel13.Controls.Add(this.Rotation15);
+            this.panel13.Controls.Add(this.YPos15);
+            this.panel13.Controls.Add(this.XPos15);
+            this.panel13.Controls.Add(this.Entity15);
+            this.panel13.Controls.Add(this.label56);
+            this.panel13.Location = new System.Drawing.Point(640, 578);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(308, 128);
+            this.panel13.TabIndex = 51;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(20, 96);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(37, 13);
+            this.label53.TabIndex = 9;
+            this.label53.Text = "Scale:";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(32, 70);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(38, 13);
+            this.label54.TabIndex = 8;
+            this.label54.Text = "Y Pos:";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(32, 44);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(38, 13);
+            this.label55.TabIndex = 7;
+            this.label55.Text = "X Pos:";
+            // 
+            // Rotation15
+            // 
+            this.Rotation15.Location = new System.Drawing.Point(76, 93);
+            this.Rotation15.Name = "Rotation15";
+            this.Rotation15.Size = new System.Drawing.Size(225, 20);
+            this.Rotation15.TabIndex = 36;
+            this.Rotation15.Text = "1";
+            // 
+            // YPos15
+            // 
+            this.YPos15.Location = new System.Drawing.Point(76, 67);
+            this.YPos15.Name = "YPos15";
+            this.YPos15.Size = new System.Drawing.Size(225, 20);
+            this.YPos15.TabIndex = 35;
+            this.YPos15.Text = "0";
+            // 
+            // XPos15
+            // 
+            this.XPos15.Location = new System.Drawing.Point(76, 41);
+            this.XPos15.Name = "XPos15";
+            this.XPos15.Size = new System.Drawing.Size(225, 20);
+            this.XPos15.TabIndex = 34;
+            this.XPos15.Text = "0";
+            // 
+            // Entity15
+            // 
+            this.Entity15.FormattingEnabled = true;
+            this.Entity15.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity15.Location = new System.Drawing.Point(76, 14);
+            this.Entity15.Name = "Entity15";
+            this.Entity15.Size = new System.Drawing.Size(225, 21);
+            this.Entity15.TabIndex = 33;
+            this.Entity15.Text = "--";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(34, 17);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(36, 13);
+            this.label56.TabIndex = 4;
+            this.label56.Text = "Entity:";
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.label57);
+            this.panel14.Controls.Add(this.label58);
+            this.panel14.Controls.Add(this.label59);
+            this.panel14.Controls.Add(this.Rotation18);
+            this.panel14.Controls.Add(this.YPos18);
+            this.panel14.Controls.Add(this.XPos18);
+            this.panel14.Controls.Add(this.Entity18);
+            this.panel14.Controls.Add(this.label60);
+            this.panel14.Location = new System.Drawing.Point(954, 310);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(308, 128);
+            this.panel14.TabIndex = 48;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(20, 96);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(37, 13);
+            this.label57.TabIndex = 9;
+            this.label57.Text = "Scale:";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(32, 70);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(38, 13);
+            this.label58.TabIndex = 8;
+            this.label58.Text = "Y Pos:";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(32, 44);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(38, 13);
+            this.label59.TabIndex = 7;
+            this.label59.Text = "X Pos:";
+            // 
+            // Rotation18
+            // 
+            this.Rotation18.Location = new System.Drawing.Point(76, 93);
+            this.Rotation18.Name = "Rotation18";
+            this.Rotation18.Size = new System.Drawing.Size(225, 20);
+            this.Rotation18.TabIndex = 24;
+            this.Rotation18.Text = "1";
+            // 
+            // YPos18
+            // 
+            this.YPos18.Location = new System.Drawing.Point(76, 67);
+            this.YPos18.Name = "YPos18";
+            this.YPos18.Size = new System.Drawing.Size(225, 20);
+            this.YPos18.TabIndex = 23;
+            this.YPos18.Text = "0";
+            // 
+            // XPos18
+            // 
+            this.XPos18.Location = new System.Drawing.Point(76, 41);
+            this.XPos18.Name = "XPos18";
+            this.XPos18.Size = new System.Drawing.Size(225, 20);
+            this.XPos18.TabIndex = 22;
+            this.XPos18.Text = "0";
+            // 
+            // Entity18
+            // 
+            this.Entity18.FormattingEnabled = true;
+            this.Entity18.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity18.Location = new System.Drawing.Point(76, 14);
+            this.Entity18.Name = "Entity18";
+            this.Entity18.Size = new System.Drawing.Size(225, 21);
+            this.Entity18.TabIndex = 21;
+            this.Entity18.Text = "--";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(34, 17);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(36, 13);
+            this.label60.TabIndex = 4;
+            this.label60.Text = "Entity:";
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.label61);
+            this.panel15.Controls.Add(this.label62);
+            this.panel15.Controls.Add(this.label63);
+            this.panel15.Controls.Add(this.Rotation13);
+            this.panel15.Controls.Add(this.YPos13);
+            this.panel15.Controls.Add(this.XPos13);
+            this.panel15.Controls.Add(this.Entity13);
+            this.panel15.Controls.Add(this.label64);
+            this.panel15.Location = new System.Drawing.Point(640, 310);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(308, 128);
+            this.panel15.TabIndex = 46;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(20, 96);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(37, 13);
+            this.label61.TabIndex = 9;
+            this.label61.Text = "Scale:";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(32, 70);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(38, 13);
+            this.label62.TabIndex = 8;
+            this.label62.Text = "Y Pos:";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(32, 44);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(38, 13);
+            this.label63.TabIndex = 7;
+            this.label63.Text = "X Pos:";
+            // 
+            // Rotation13
+            // 
+            this.Rotation13.Location = new System.Drawing.Point(76, 93);
+            this.Rotation13.Name = "Rotation13";
+            this.Rotation13.Size = new System.Drawing.Size(225, 20);
+            this.Rotation13.TabIndex = 20;
+            this.Rotation13.Text = "1";
+            // 
+            // YPos13
+            // 
+            this.YPos13.Location = new System.Drawing.Point(76, 67);
+            this.YPos13.Name = "YPos13";
+            this.YPos13.Size = new System.Drawing.Size(225, 20);
+            this.YPos13.TabIndex = 19;
+            this.YPos13.Text = "0";
+            // 
+            // XPos13
+            // 
+            this.XPos13.Location = new System.Drawing.Point(76, 41);
+            this.XPos13.Name = "XPos13";
+            this.XPos13.Size = new System.Drawing.Size(225, 20);
+            this.XPos13.TabIndex = 18;
+            this.XPos13.Text = "0";
+            // 
+            // Entity13
+            // 
+            this.Entity13.FormattingEnabled = true;
+            this.Entity13.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity13.Location = new System.Drawing.Point(76, 14);
+            this.Entity13.Name = "Entity13";
+            this.Entity13.Size = new System.Drawing.Size(225, 21);
+            this.Entity13.TabIndex = 17;
+            this.Entity13.Text = "--";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(34, 17);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(36, 13);
+            this.label64.TabIndex = 4;
+            this.label64.Text = "Entity:";
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.label65);
+            this.panel16.Controls.Add(this.label66);
+            this.panel16.Controls.Add(this.label67);
+            this.panel16.Controls.Add(this.Rotation19);
+            this.panel16.Controls.Add(this.YPos19);
+            this.panel16.Controls.Add(this.XPos19);
+            this.panel16.Controls.Add(this.Entity19);
+            this.panel16.Controls.Add(this.label68);
+            this.panel16.Location = new System.Drawing.Point(954, 444);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(308, 128);
+            this.panel16.TabIndex = 44;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(20, 96);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(37, 13);
+            this.label65.TabIndex = 9;
+            this.label65.Text = "Scale:";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(32, 70);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(38, 13);
+            this.label66.TabIndex = 8;
+            this.label66.Text = "Y Pos:";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(32, 44);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(38, 13);
+            this.label67.TabIndex = 7;
+            this.label67.Text = "X Pos:";
+            // 
+            // Rotation19
+            // 
+            this.Rotation19.Location = new System.Drawing.Point(76, 93);
+            this.Rotation19.Name = "Rotation19";
+            this.Rotation19.Size = new System.Drawing.Size(225, 20);
+            this.Rotation19.TabIndex = 32;
+            this.Rotation19.Text = "1";
+            // 
+            // YPos19
+            // 
+            this.YPos19.Location = new System.Drawing.Point(76, 67);
+            this.YPos19.Name = "YPos19";
+            this.YPos19.Size = new System.Drawing.Size(225, 20);
+            this.YPos19.TabIndex = 31;
+            this.YPos19.Text = "0";
+            // 
+            // XPos19
+            // 
+            this.XPos19.Location = new System.Drawing.Point(76, 41);
+            this.XPos19.Name = "XPos19";
+            this.XPos19.Size = new System.Drawing.Size(225, 20);
+            this.XPos19.TabIndex = 30;
+            this.XPos19.Text = "0";
+            // 
+            // Entity19
+            // 
+            this.Entity19.FormattingEnabled = true;
+            this.Entity19.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity19.Location = new System.Drawing.Point(76, 14);
+            this.Entity19.Name = "Entity19";
+            this.Entity19.Size = new System.Drawing.Size(225, 21);
+            this.Entity19.TabIndex = 29;
+            this.Entity19.Text = "--";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(34, 17);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(36, 13);
+            this.label68.TabIndex = 4;
+            this.label68.Text = "Entity:";
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.label69);
+            this.panel17.Controls.Add(this.label70);
+            this.panel17.Controls.Add(this.label71);
+            this.panel17.Controls.Add(this.Rotation17);
+            this.panel17.Controls.Add(this.YPos17);
+            this.panel17.Controls.Add(this.XPos17);
+            this.panel17.Controls.Add(this.Entity17);
+            this.panel17.Controls.Add(this.label72);
+            this.panel17.Location = new System.Drawing.Point(954, 176);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(308, 128);
+            this.panel17.TabIndex = 49;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(20, 96);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(37, 13);
+            this.label69.TabIndex = 9;
+            this.label69.Text = "Scale:";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(32, 70);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(38, 13);
+            this.label70.TabIndex = 8;
+            this.label70.Text = "Y Pos:";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(32, 44);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(38, 13);
+            this.label71.TabIndex = 7;
+            this.label71.Text = "X Pos:";
+            // 
+            // Rotation17
+            // 
+            this.Rotation17.Location = new System.Drawing.Point(76, 93);
+            this.Rotation17.Name = "Rotation17";
+            this.Rotation17.Size = new System.Drawing.Size(225, 20);
+            this.Rotation17.TabIndex = 16;
+            this.Rotation17.Text = "1";
+            // 
+            // YPos17
+            // 
+            this.YPos17.Location = new System.Drawing.Point(76, 67);
+            this.YPos17.Name = "YPos17";
+            this.YPos17.Size = new System.Drawing.Size(225, 20);
+            this.YPos17.TabIndex = 15;
+            this.YPos17.Text = "0";
+            // 
+            // XPos17
+            // 
+            this.XPos17.Location = new System.Drawing.Point(76, 41);
+            this.XPos17.Name = "XPos17";
+            this.XPos17.Size = new System.Drawing.Size(225, 20);
+            this.XPos17.TabIndex = 14;
+            this.XPos17.Text = "0";
+            // 
+            // Entity17
+            // 
+            this.Entity17.FormattingEnabled = true;
+            this.Entity17.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity17.Location = new System.Drawing.Point(76, 14);
+            this.Entity17.Name = "Entity17";
+            this.Entity17.Size = new System.Drawing.Size(225, 21);
+            this.Entity17.TabIndex = 13;
+            this.Entity17.Text = "--";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(34, 17);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(36, 13);
+            this.label72.TabIndex = 4;
+            this.label72.Text = "Entity:";
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.label73);
+            this.panel18.Controls.Add(this.label74);
+            this.panel18.Controls.Add(this.label75);
+            this.panel18.Controls.Add(this.Rotation12);
+            this.panel18.Controls.Add(this.YPos12);
+            this.panel18.Controls.Add(this.XPos12);
+            this.panel18.Controls.Add(this.Entity12);
+            this.panel18.Controls.Add(this.label76);
+            this.panel18.Location = new System.Drawing.Point(640, 176);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(308, 128);
+            this.panel18.TabIndex = 47;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(20, 96);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(37, 13);
+            this.label73.TabIndex = 9;
+            this.label73.Text = "Scale:";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(32, 70);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(38, 13);
+            this.label74.TabIndex = 8;
+            this.label74.Text = "Y Pos:";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(32, 44);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(38, 13);
+            this.label75.TabIndex = 7;
+            this.label75.Text = "X Pos:";
+            // 
+            // Rotation12
+            // 
+            this.Rotation12.Location = new System.Drawing.Point(76, 93);
+            this.Rotation12.Name = "Rotation12";
+            this.Rotation12.Size = new System.Drawing.Size(225, 20);
+            this.Rotation12.TabIndex = 12;
+            this.Rotation12.Text = "1";
+            // 
+            // YPos12
+            // 
+            this.YPos12.Location = new System.Drawing.Point(76, 67);
+            this.YPos12.Name = "YPos12";
+            this.YPos12.Size = new System.Drawing.Size(225, 20);
+            this.YPos12.TabIndex = 11;
+            this.YPos12.Text = "0";
+            // 
+            // XPos12
+            // 
+            this.XPos12.Location = new System.Drawing.Point(76, 41);
+            this.XPos12.Name = "XPos12";
+            this.XPos12.Size = new System.Drawing.Size(225, 20);
+            this.XPos12.TabIndex = 10;
+            this.XPos12.Text = "0";
+            // 
+            // Entity12
+            // 
+            this.Entity12.FormattingEnabled = true;
+            this.Entity12.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity12.Location = new System.Drawing.Point(76, 14);
+            this.Entity12.Name = "Entity12";
+            this.Entity12.Size = new System.Drawing.Size(225, 21);
+            this.Entity12.TabIndex = 9;
+            this.Entity12.Text = "--";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(34, 17);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(36, 13);
+            this.label76.TabIndex = 4;
+            this.label76.Text = "Entity:";
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.label77);
+            this.panel19.Controls.Add(this.label78);
+            this.panel19.Controls.Add(this.label79);
+            this.panel19.Controls.Add(this.Rotation16);
+            this.panel19.Controls.Add(this.YPos16);
+            this.panel19.Controls.Add(this.XPos16);
+            this.panel19.Controls.Add(this.Entity16);
+            this.panel19.Controls.Add(this.label80);
+            this.panel19.Location = new System.Drawing.Point(954, 42);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(308, 128);
+            this.panel19.TabIndex = 43;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(20, 96);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(37, 13);
+            this.label77.TabIndex = 9;
+            this.label77.Text = "Scale:";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(32, 70);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(38, 13);
+            this.label78.TabIndex = 8;
+            this.label78.Text = "Y Pos:";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(32, 44);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(38, 13);
+            this.label79.TabIndex = 7;
+            this.label79.Text = "X Pos:";
+            // 
+            // Rotation16
+            // 
+            this.Rotation16.Location = new System.Drawing.Point(76, 93);
+            this.Rotation16.Name = "Rotation16";
+            this.Rotation16.Size = new System.Drawing.Size(225, 20);
+            this.Rotation16.TabIndex = 8;
+            this.Rotation16.Text = "1";
+            // 
+            // YPos16
+            // 
+            this.YPos16.Location = new System.Drawing.Point(76, 67);
+            this.YPos16.Name = "YPos16";
+            this.YPos16.Size = new System.Drawing.Size(225, 20);
+            this.YPos16.TabIndex = 7;
+            this.YPos16.Text = "0";
+            // 
+            // XPos16
+            // 
+            this.XPos16.Location = new System.Drawing.Point(76, 41);
+            this.XPos16.Name = "XPos16";
+            this.XPos16.Size = new System.Drawing.Size(225, 20);
+            this.XPos16.TabIndex = 6;
+            this.XPos16.Text = "0";
+            // 
+            // Entity16
+            // 
+            this.Entity16.FormattingEnabled = true;
+            this.Entity16.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity16.Location = new System.Drawing.Point(76, 14);
+            this.Entity16.Name = "Entity16";
+            this.Entity16.Size = new System.Drawing.Size(225, 21);
+            this.Entity16.TabIndex = 5;
+            this.Entity16.Text = "--";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(34, 17);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(36, 13);
+            this.label80.TabIndex = 4;
+            this.label80.Text = "Entity:";
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.label81);
+            this.panel20.Controls.Add(this.label82);
+            this.panel20.Controls.Add(this.label83);
+            this.panel20.Controls.Add(this.Rotation11);
+            this.panel20.Controls.Add(this.YPos11);
+            this.panel20.Controls.Add(this.XPos11);
+            this.panel20.Controls.Add(this.Entity11);
+            this.panel20.Controls.Add(this.label84);
+            this.panel20.Location = new System.Drawing.Point(640, 42);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(308, 128);
+            this.panel20.TabIndex = 42;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(20, 96);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(37, 13);
+            this.label81.TabIndex = 9;
+            this.label81.Text = "Scale:";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(32, 70);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(38, 13);
+            this.label82.TabIndex = 8;
+            this.label82.Text = "Y Pos:";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(32, 44);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(38, 13);
+            this.label83.TabIndex = 7;
+            this.label83.Text = "X Pos:";
+            // 
+            // Rotation11
+            // 
+            this.Rotation11.Location = new System.Drawing.Point(76, 93);
+            this.Rotation11.Name = "Rotation11";
+            this.Rotation11.Size = new System.Drawing.Size(225, 20);
+            this.Rotation11.TabIndex = 4;
+            this.Rotation11.Text = "1";
+            // 
+            // YPos11
+            // 
+            this.YPos11.Location = new System.Drawing.Point(76, 67);
+            this.YPos11.Name = "YPos11";
+            this.YPos11.Size = new System.Drawing.Size(225, 20);
+            this.YPos11.TabIndex = 3;
+            this.YPos11.Text = "0";
+            // 
+            // XPos11
+            // 
+            this.XPos11.Location = new System.Drawing.Point(76, 41);
+            this.XPos11.Name = "XPos11";
+            this.XPos11.Size = new System.Drawing.Size(225, 20);
+            this.XPos11.TabIndex = 2;
+            this.XPos11.Text = "0";
+            // 
+            // Entity11
+            // 
+            this.Entity11.FormattingEnabled = true;
+            this.Entity11.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity11.Location = new System.Drawing.Point(76, 14);
+            this.Entity11.Name = "Entity11";
+            this.Entity11.Size = new System.Drawing.Size(225, 21);
+            this.Entity11.TabIndex = 1;
+            this.Entity11.Text = "--";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(34, 17);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(36, 13);
+            this.label84.TabIndex = 4;
+            this.label84.Text = "Entity:";
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.label85);
+            this.panel21.Controls.Add(this.label86);
+            this.panel21.Controls.Add(this.label87);
+            this.panel21.Controls.Add(this.Rotation25);
+            this.panel21.Controls.Add(this.YPos25);
+            this.panel21.Controls.Add(this.XPos25);
+            this.panel21.Controls.Add(this.Entity25);
+            this.panel21.Controls.Add(this.label88);
+            this.panel21.Location = new System.Drawing.Point(1268, 578);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(308, 128);
+            this.panel21.TabIndex = 55;
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(20, 96);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(37, 13);
+            this.label85.TabIndex = 9;
+            this.label85.Text = "Scale:";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(32, 70);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(38, 13);
+            this.label86.TabIndex = 8;
+            this.label86.Text = "Y Pos:";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(32, 44);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(38, 13);
+            this.label87.TabIndex = 7;
+            this.label87.Text = "X Pos:";
+            // 
+            // Rotation25
+            // 
+            this.Rotation25.Location = new System.Drawing.Point(76, 93);
+            this.Rotation25.Name = "Rotation25";
+            this.Rotation25.Size = new System.Drawing.Size(225, 20);
+            this.Rotation25.TabIndex = 41;
+            this.Rotation25.Text = "1";
+            // 
+            // YPos25
+            // 
+            this.YPos25.Location = new System.Drawing.Point(76, 67);
+            this.YPos25.Name = "YPos25";
+            this.YPos25.Size = new System.Drawing.Size(225, 20);
+            this.YPos25.TabIndex = 40;
+            this.YPos25.Text = "0";
+            // 
+            // XPos25
+            // 
+            this.XPos25.Location = new System.Drawing.Point(76, 41);
+            this.XPos25.Name = "XPos25";
+            this.XPos25.Size = new System.Drawing.Size(225, 20);
+            this.XPos25.TabIndex = 39;
+            this.XPos25.Text = "0";
+            // 
+            // Entity25
+            // 
+            this.Entity25.FormattingEnabled = true;
+            this.Entity25.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity25.Location = new System.Drawing.Point(76, 14);
+            this.Entity25.Name = "Entity25";
+            this.Entity25.Size = new System.Drawing.Size(225, 21);
+            this.Entity25.TabIndex = 38;
+            this.Entity25.Text = "--";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(34, 17);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(36, 13);
+            this.label88.TabIndex = 4;
+            this.label88.Text = "Entity:";
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.label89);
+            this.panel22.Controls.Add(this.label90);
+            this.panel22.Controls.Add(this.label91);
+            this.panel22.Controls.Add(this.Rotation23);
+            this.panel22.Controls.Add(this.YPos23);
+            this.panel22.Controls.Add(this.XPos23);
+            this.panel22.Controls.Add(this.Entity23);
+            this.panel22.Controls.Add(this.label92);
+            this.panel22.Location = new System.Drawing.Point(1268, 310);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(308, 128);
+            this.panel22.TabIndex = 53;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(20, 96);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(37, 13);
+            this.label89.TabIndex = 9;
+            this.label89.Text = "Scale:";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(32, 70);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(38, 13);
+            this.label90.TabIndex = 8;
+            this.label90.Text = "Y Pos:";
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(32, 44);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(38, 13);
+            this.label91.TabIndex = 7;
+            this.label91.Text = "X Pos:";
+            // 
+            // Rotation23
+            // 
+            this.Rotation23.Location = new System.Drawing.Point(76, 93);
+            this.Rotation23.Name = "Rotation23";
+            this.Rotation23.Size = new System.Drawing.Size(225, 20);
+            this.Rotation23.TabIndex = 24;
+            this.Rotation23.Text = "1";
+            // 
+            // YPos23
+            // 
+            this.YPos23.Location = new System.Drawing.Point(76, 67);
+            this.YPos23.Name = "YPos23";
+            this.YPos23.Size = new System.Drawing.Size(225, 20);
+            this.YPos23.TabIndex = 23;
+            this.YPos23.Text = "0";
+            // 
+            // XPos23
+            // 
+            this.XPos23.Location = new System.Drawing.Point(76, 41);
+            this.XPos23.Name = "XPos23";
+            this.XPos23.Size = new System.Drawing.Size(225, 20);
+            this.XPos23.TabIndex = 22;
+            this.XPos23.Text = "0";
+            // 
+            // Entity23
+            // 
+            this.Entity23.FormattingEnabled = true;
+            this.Entity23.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity23.Location = new System.Drawing.Point(76, 14);
+            this.Entity23.Name = "Entity23";
+            this.Entity23.Size = new System.Drawing.Size(225, 21);
+            this.Entity23.TabIndex = 21;
+            this.Entity23.Text = "--";
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(34, 17);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(36, 13);
+            this.label92.TabIndex = 4;
+            this.label92.Text = "Entity:";
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.label93);
+            this.panel23.Controls.Add(this.label94);
+            this.panel23.Controls.Add(this.label95);
+            this.panel23.Controls.Add(this.Rotation24);
+            this.panel23.Controls.Add(this.YPos24);
+            this.panel23.Controls.Add(this.XPos24);
+            this.panel23.Controls.Add(this.Entity24);
+            this.panel23.Controls.Add(this.label96);
+            this.panel23.Location = new System.Drawing.Point(1268, 444);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(308, 128);
+            this.panel23.TabIndex = 52;
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(20, 96);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(37, 13);
+            this.label93.TabIndex = 9;
+            this.label93.Text = "Scale:";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(32, 70);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(38, 13);
+            this.label94.TabIndex = 8;
+            this.label94.Text = "Y Pos:";
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(32, 44);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(38, 13);
+            this.label95.TabIndex = 7;
+            this.label95.Text = "X Pos:";
+            // 
+            // Rotation24
+            // 
+            this.Rotation24.Location = new System.Drawing.Point(76, 93);
+            this.Rotation24.Name = "Rotation24";
+            this.Rotation24.Size = new System.Drawing.Size(225, 20);
+            this.Rotation24.TabIndex = 32;
+            this.Rotation24.Text = "1";
+            // 
+            // YPos24
+            // 
+            this.YPos24.Location = new System.Drawing.Point(76, 67);
+            this.YPos24.Name = "YPos24";
+            this.YPos24.Size = new System.Drawing.Size(225, 20);
+            this.YPos24.TabIndex = 31;
+            this.YPos24.Text = "0";
+            // 
+            // XPos24
+            // 
+            this.XPos24.Location = new System.Drawing.Point(76, 41);
+            this.XPos24.Name = "XPos24";
+            this.XPos24.Size = new System.Drawing.Size(225, 20);
+            this.XPos24.TabIndex = 30;
+            this.XPos24.Text = "0";
+            // 
+            // Entity24
+            // 
+            this.Entity24.FormattingEnabled = true;
+            this.Entity24.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity24.Location = new System.Drawing.Point(76, 14);
+            this.Entity24.Name = "Entity24";
+            this.Entity24.Size = new System.Drawing.Size(225, 21);
+            this.Entity24.TabIndex = 29;
+            this.Entity24.Text = "--";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(34, 17);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(36, 13);
+            this.label96.TabIndex = 4;
+            this.label96.Text = "Entity:";
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.label97);
+            this.panel24.Controls.Add(this.label98);
+            this.panel24.Controls.Add(this.label99);
+            this.panel24.Controls.Add(this.Rotation22);
+            this.panel24.Controls.Add(this.YPos22);
+            this.panel24.Controls.Add(this.XPos22);
+            this.panel24.Controls.Add(this.Entity22);
+            this.panel24.Controls.Add(this.label100);
+            this.panel24.Location = new System.Drawing.Point(1268, 176);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(308, 128);
+            this.panel24.TabIndex = 54;
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(20, 96);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(37, 13);
+            this.label97.TabIndex = 9;
+            this.label97.Text = "Scale:";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(32, 70);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(38, 13);
+            this.label98.TabIndex = 8;
+            this.label98.Text = "Y Pos:";
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(32, 44);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(38, 13);
+            this.label99.TabIndex = 7;
+            this.label99.Text = "X Pos:";
+            // 
+            // Rotation22
+            // 
+            this.Rotation22.Location = new System.Drawing.Point(76, 93);
+            this.Rotation22.Name = "Rotation22";
+            this.Rotation22.Size = new System.Drawing.Size(225, 20);
+            this.Rotation22.TabIndex = 16;
+            this.Rotation22.Text = "1";
+            // 
+            // YPos22
+            // 
+            this.YPos22.Location = new System.Drawing.Point(76, 67);
+            this.YPos22.Name = "YPos22";
+            this.YPos22.Size = new System.Drawing.Size(225, 20);
+            this.YPos22.TabIndex = 15;
+            this.YPos22.Text = "0";
+            // 
+            // XPos22
+            // 
+            this.XPos22.Location = new System.Drawing.Point(76, 41);
+            this.XPos22.Name = "XPos22";
+            this.XPos22.Size = new System.Drawing.Size(225, 20);
+            this.XPos22.TabIndex = 14;
+            this.XPos22.Text = "0";
+            // 
+            // Entity22
+            // 
+            this.Entity22.FormattingEnabled = true;
+            this.Entity22.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity22.Location = new System.Drawing.Point(76, 14);
+            this.Entity22.Name = "Entity22";
+            this.Entity22.Size = new System.Drawing.Size(225, 21);
+            this.Entity22.TabIndex = 13;
+            this.Entity22.Text = "--";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(34, 17);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(36, 13);
+            this.label100.TabIndex = 4;
+            this.label100.Text = "Entity:";
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.label101);
+            this.panel25.Controls.Add(this.label102);
+            this.panel25.Controls.Add(this.label103);
+            this.panel25.Controls.Add(this.Rotation21);
+            this.panel25.Controls.Add(this.YPos21);
+            this.panel25.Controls.Add(this.XPos21);
+            this.panel25.Controls.Add(this.Entity21);
+            this.panel25.Controls.Add(this.label104);
+            this.panel25.Location = new System.Drawing.Point(1268, 42);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(308, 128);
+            this.panel25.TabIndex = 51;
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(20, 96);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(37, 13);
+            this.label101.TabIndex = 9;
+            this.label101.Text = "Scale:";
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(32, 70);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(38, 13);
+            this.label102.TabIndex = 8;
+            this.label102.Text = "Y Pos:";
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(32, 44);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(38, 13);
+            this.label103.TabIndex = 7;
+            this.label103.Text = "X Pos:";
+            // 
+            // Rotation21
+            // 
+            this.Rotation21.Location = new System.Drawing.Point(76, 93);
+            this.Rotation21.Name = "Rotation21";
+            this.Rotation21.Size = new System.Drawing.Size(225, 20);
+            this.Rotation21.TabIndex = 8;
+            this.Rotation21.Text = "1";
+            // 
+            // YPos21
+            // 
+            this.YPos21.Location = new System.Drawing.Point(76, 67);
+            this.YPos21.Name = "YPos21";
+            this.YPos21.Size = new System.Drawing.Size(225, 20);
+            this.YPos21.TabIndex = 7;
+            this.YPos21.Text = "0";
+            // 
+            // XPos21
+            // 
+            this.XPos21.Location = new System.Drawing.Point(76, 41);
+            this.XPos21.Name = "XPos21";
+            this.XPos21.Size = new System.Drawing.Size(225, 20);
+            this.XPos21.TabIndex = 6;
+            this.XPos21.Text = "0";
+            // 
+            // Entity21
+            // 
+            this.Entity21.FormattingEnabled = true;
+            this.Entity21.Items.AddRange(new object[] {
+            "PIG",
+            "--",
+            "WOOD_RECTANGLE_LONG",
+            "WOOD_RECTANGLE_TALL",
+            "WOOD_SQUARE",
+            "--",
+            "ICE_RECTANGLE_LONG",
+            "ICE_RECTANGLE_TALL",
+            "ICE_SQUARE",
+            "--",
+            "ROCK_RECTANGLE_LONG",
+            "ROCK_RECTANGLE_TALL",
+            "ROCK_SQUARE"});
+            this.Entity21.Location = new System.Drawing.Point(76, 14);
+            this.Entity21.Name = "Entity21";
+            this.Entity21.Size = new System.Drawing.Size(225, 21);
+            this.Entity21.TabIndex = 5;
+            this.Entity21.Text = "--";
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Location = new System.Drawing.Point(34, 17);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(36, 13);
+            this.label104.TabIndex = 4;
+            this.label104.Text = "Entity:";
             // 
             // LevelBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 765);
+            this.ClientSize = new System.Drawing.Size(1589, 741);
+            this.Controls.Add(this.panel21);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.panel22);
             this.Controls.Add(this.label40);
+            this.Controls.Add(this.panel23);
+            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.panel24);
             this.Controls.Add(this.ScoreMk3);
+            this.Controls.Add(this.panel25);
+            this.Controls.Add(this.panel13);
             this.Controls.Add(this.label39);
+            this.Controls.Add(this.panel14);
             this.Controls.Add(this.ScoreMk2);
+            this.Controls.Add(this.panel15);
             this.Controls.Add(this.label38);
+            this.Controls.Add(this.panel16);
             this.Controls.Add(this.ScoreMk1);
+            this.Controls.Add(this.panel17);
             this.Controls.Add(this.UndoEditorMode);
+            this.Controls.Add(this.panel18);
             this.Controls.Add(this.EditorMode);
+            this.Controls.Add(this.panel19);
             this.Controls.Add(this.Panel7);
+            this.Controls.Add(this.panel20);
             this.Controls.Add(this.Panel12);
             this.Controls.Add(this.Panel4);
             this.Controls.Add(this.Panel8);
@@ -1265,6 +2903,36 @@
             this.Panel2.PerformLayout();
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1373,6 +3041,141 @@
         internal System.Windows.Forms.TextBox ScoreMk2;
         internal System.Windows.Forms.Label label40;
         internal System.Windows.Forms.TextBox ScoreMk3;
+        internal System.Windows.Forms.Panel panel10;
+        internal System.Windows.Forms.Label label41;
+        internal System.Windows.Forms.Label label42;
+        internal System.Windows.Forms.Label label43;
+        internal System.Windows.Forms.TextBox Rotation20;
+        internal System.Windows.Forms.TextBox YPos20;
+        internal System.Windows.Forms.TextBox XPos20;
+        internal System.Windows.Forms.ComboBox Entity20;
+        internal System.Windows.Forms.Label label44;
+        internal System.Windows.Forms.Panel panel11;
+        internal System.Windows.Forms.Label label45;
+        internal System.Windows.Forms.Label label50;
+        internal System.Windows.Forms.Label label51;
+        internal System.Windows.Forms.TextBox Rotation14;
+        internal System.Windows.Forms.TextBox YPos14;
+        internal System.Windows.Forms.TextBox XPos14;
+        internal System.Windows.Forms.ComboBox Entity14;
+        internal System.Windows.Forms.Label label52;
+        internal System.Windows.Forms.Panel panel13;
+        internal System.Windows.Forms.Label label53;
+        internal System.Windows.Forms.Label label54;
+        internal System.Windows.Forms.Label label55;
+        internal System.Windows.Forms.TextBox Rotation15;
+        internal System.Windows.Forms.TextBox YPos15;
+        internal System.Windows.Forms.TextBox XPos15;
+        internal System.Windows.Forms.ComboBox Entity15;
+        internal System.Windows.Forms.Label label56;
+        internal System.Windows.Forms.Panel panel14;
+        internal System.Windows.Forms.Label label57;
+        internal System.Windows.Forms.Label label58;
+        internal System.Windows.Forms.Label label59;
+        internal System.Windows.Forms.TextBox Rotation18;
+        internal System.Windows.Forms.TextBox YPos18;
+        internal System.Windows.Forms.TextBox XPos18;
+        internal System.Windows.Forms.ComboBox Entity18;
+        internal System.Windows.Forms.Label label60;
+        internal System.Windows.Forms.Panel panel15;
+        internal System.Windows.Forms.Label label61;
+        internal System.Windows.Forms.Label label62;
+        internal System.Windows.Forms.Label label63;
+        internal System.Windows.Forms.TextBox Rotation13;
+        internal System.Windows.Forms.TextBox YPos13;
+        internal System.Windows.Forms.TextBox XPos13;
+        internal System.Windows.Forms.ComboBox Entity13;
+        internal System.Windows.Forms.Label label64;
+        internal System.Windows.Forms.Panel panel16;
+        internal System.Windows.Forms.Label label65;
+        internal System.Windows.Forms.Label label66;
+        internal System.Windows.Forms.Label label67;
+        internal System.Windows.Forms.TextBox Rotation19;
+        internal System.Windows.Forms.TextBox YPos19;
+        internal System.Windows.Forms.TextBox XPos19;
+        internal System.Windows.Forms.ComboBox Entity19;
+        internal System.Windows.Forms.Label label68;
+        internal System.Windows.Forms.Panel panel17;
+        internal System.Windows.Forms.Label label69;
+        internal System.Windows.Forms.Label label70;
+        internal System.Windows.Forms.Label label71;
+        internal System.Windows.Forms.TextBox Rotation17;
+        internal System.Windows.Forms.TextBox YPos17;
+        internal System.Windows.Forms.TextBox XPos17;
+        internal System.Windows.Forms.ComboBox Entity17;
+        internal System.Windows.Forms.Label label72;
+        internal System.Windows.Forms.Panel panel18;
+        internal System.Windows.Forms.Label label73;
+        internal System.Windows.Forms.Label label74;
+        internal System.Windows.Forms.Label label75;
+        internal System.Windows.Forms.TextBox Rotation12;
+        internal System.Windows.Forms.TextBox YPos12;
+        internal System.Windows.Forms.TextBox XPos12;
+        internal System.Windows.Forms.ComboBox Entity12;
+        internal System.Windows.Forms.Label label76;
+        internal System.Windows.Forms.Panel panel19;
+        internal System.Windows.Forms.Label label77;
+        internal System.Windows.Forms.Label label78;
+        internal System.Windows.Forms.Label label79;
+        internal System.Windows.Forms.TextBox Rotation16;
+        internal System.Windows.Forms.TextBox YPos16;
+        internal System.Windows.Forms.TextBox XPos16;
+        internal System.Windows.Forms.ComboBox Entity16;
+        internal System.Windows.Forms.Label label80;
+        internal System.Windows.Forms.Panel panel20;
+        internal System.Windows.Forms.Label label81;
+        internal System.Windows.Forms.Label label82;
+        internal System.Windows.Forms.Label label83;
+        internal System.Windows.Forms.TextBox Rotation11;
+        internal System.Windows.Forms.TextBox YPos11;
+        internal System.Windows.Forms.TextBox XPos11;
+        internal System.Windows.Forms.ComboBox Entity11;
+        internal System.Windows.Forms.Label label84;
+        internal System.Windows.Forms.Panel panel21;
+        internal System.Windows.Forms.Label label85;
+        internal System.Windows.Forms.Label label86;
+        internal System.Windows.Forms.Label label87;
+        internal System.Windows.Forms.TextBox Rotation25;
+        internal System.Windows.Forms.TextBox YPos25;
+        internal System.Windows.Forms.TextBox XPos25;
+        internal System.Windows.Forms.ComboBox Entity25;
+        internal System.Windows.Forms.Label label88;
+        internal System.Windows.Forms.Panel panel22;
+        internal System.Windows.Forms.Label label89;
+        internal System.Windows.Forms.Label label90;
+        internal System.Windows.Forms.Label label91;
+        internal System.Windows.Forms.TextBox Rotation23;
+        internal System.Windows.Forms.TextBox YPos23;
+        internal System.Windows.Forms.TextBox XPos23;
+        internal System.Windows.Forms.ComboBox Entity23;
+        internal System.Windows.Forms.Label label92;
+        internal System.Windows.Forms.Panel panel23;
+        internal System.Windows.Forms.Label label93;
+        internal System.Windows.Forms.Label label94;
+        internal System.Windows.Forms.Label label95;
+        internal System.Windows.Forms.TextBox Rotation24;
+        internal System.Windows.Forms.TextBox YPos24;
+        internal System.Windows.Forms.TextBox XPos24;
+        internal System.Windows.Forms.ComboBox Entity24;
+        internal System.Windows.Forms.Label label96;
+        internal System.Windows.Forms.Panel panel24;
+        internal System.Windows.Forms.Label label97;
+        internal System.Windows.Forms.Label label98;
+        internal System.Windows.Forms.Label label99;
+        internal System.Windows.Forms.TextBox Rotation22;
+        internal System.Windows.Forms.TextBox YPos22;
+        internal System.Windows.Forms.TextBox XPos22;
+        internal System.Windows.Forms.ComboBox Entity22;
+        internal System.Windows.Forms.Label label100;
+        internal System.Windows.Forms.Panel panel25;
+        internal System.Windows.Forms.Label label101;
+        internal System.Windows.Forms.Label label102;
+        internal System.Windows.Forms.Label label103;
+        internal System.Windows.Forms.TextBox Rotation21;
+        internal System.Windows.Forms.TextBox YPos21;
+        internal System.Windows.Forms.TextBox XPos21;
+        internal System.Windows.Forms.ComboBox Entity21;
+        internal System.Windows.Forms.Label label104;
     }
 }
 

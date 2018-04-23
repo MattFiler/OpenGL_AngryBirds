@@ -25,6 +25,7 @@ class UpdateState {
 		//Update Handlers
 		void gstateInMenu(const ASGE::GameTime & us);
 		void gstatePlaying(const ASGE::GameTime & us);
+		void performAnimations(double dt_sec);
 		void gstateGameOver(const ASGE::GameTime & us);
 		void gstateLevelBuilder(const ASGE::GameTime & us);
 
@@ -80,6 +81,9 @@ class UpdateState {
 		//Explosion FX slot register
 		void animateExplosion(float x, float y);
 		bool performing_explosion_fx[(int)GameVars::NUMBER_OF_FX_AVAILABLE];
+
+		//Reset
+		void resetGame();
 
 		/* AngryStructs */
 		GamestateData gamestate;

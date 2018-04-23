@@ -17,6 +17,7 @@
 
 #include "AngryEnums/AngryGameVars.h"
 #include "AngryEnums/AngryCursors.h"
+#include "AngryEnums/AngryMenuElements.h"
 
 /**
 *  An OpenGL Game based on ASGE.

@@ -1,0 +1,23 @@
+#pragma once
+
+/*
+Define menu elements.
+*/
+enum class MenuElement : int
+{
+	MAIN_LOGO,
+	PRESS_SPACE_TO_START,
+	LEVEL_ONE,
+	LEVEL_TWO,
+	LEVEL_THREE,
+	LEVEL_FOUR,
+	LEVEL_SELECT_BACKGROUND,
+	TITLE_PAUSE,
+	TITLE_VICTORY,
+	TITLE_LEVEL_OVER,
+	MENUOPT_CONTINUE,
+	MENUOPT_MENU,
+	MENUOPT_QUIT,
+
+	MENU_ELEMENT_COUNT //This must always be last!
+};

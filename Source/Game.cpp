@@ -43,7 +43,7 @@ bool AngryBirdsGame::init()
 	}
 
 	//toggleFPS();
-	renderer->setWindowTitle("Angry Birds!");
+	renderer->setWindowTitle("Angry Birds");
 	renderer->setWindowedMode(ASGE::Renderer::WindowMode::WINDOWED);
 	renderer->setClearColour(ASGE::COLOURS::BLACK);
 
@@ -76,13 +76,22 @@ bool AngryBirdsGame::init()
 /* Assign textures to sprites */
 bool AngryBirdsGame::assignTextures()
 {
-	/* Menu Background */
+	/* Backgrounds */
 	for (int i = 0; i < (int)BackgroundSprites::NUMBER_OF_BACKGROUNDS; i++) {
 		if (!sprites.backgrounds[i].addSpriteComponent(renderer.get(), "Resources\\UI\\BACKGROUNDS\\" + std::to_string(i) + ".jpg"))
 		{
 			return false;
 		}
 	}
+
+	/* Menu Elements */
+	for (int i = 0; i < (int)MenuElement::MENU_ELEMENT_COUNT; i++) {
+		if (!sprites.menu_elements[i].addSpriteComponent(renderer.get(), "Resources\\UI\\MENU_ELEMENTS\\" + std::to_string(i) + ".png"))
+		{
+			return false;
+		}
+	}
+	sprites.menu_elements[(int)MenuElement::PRESS_SPACE_TO_START].setOpacity(0);
 
 	/* Cursors */
 	for (int i = 0; i < (int)GameVars::NUMBER_OF_CURSOR_STATES; i++)
@@ -118,7 +127,7 @@ bool AngryBirdsGame::assignTextures()
 		}
 		sprites.waiting_birds[i].spawn();
 		sprites.waiting_birds[i].setX((int)GameVars::SLINGSHOT_X_ORIGIN - (45 * i) - 40);
-		sprites.waiting_birds[i].setY((int)GameVars::SLINGSHOT_Y_ORIGIN + 250);
+		sprites.waiting_birds[i].setY((int)GameVars::SLINGSHOT_Y_ORIGIN + 240 - (5 * i));
 	}
 
 	/* All Possible Pigs */
@@ -153,8 +162,6 @@ bool AngryBirdsGame::assignTextures()
 		{
 			return false;
 		}
-		sprites.score_stars[i].setX(((int)GameVars::GAME_WIDTH/2) - (sprites.score_stars[i].getWidth()/2));
-		sprites.score_stars[i].setY(((int)GameVars::GAME_HEIGHT/2) - (sprites.score_stars[i].getHeight()/2));
 	}
 
 	/* Score Bonuses */
@@ -537,7 +544,4 @@ void AngryBirdsGame::render(const ASGE::GameTime& us)
 			break;
 		}
 	}
-
-	//Always render cursor
-	renderer->renderSprite(*sprites.cursor[(int)mousedata.cursor].spriteComponent()->getSprite());
 }

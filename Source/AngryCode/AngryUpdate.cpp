@@ -14,61 +14,84 @@ UpdateState::~UpdateState() {
 GAMESTATE_IN_MENU
 */
 void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
-	//Game has just been won or lost - reset everything here
-	if (gamestate.win_state != Gamestate::NO_STATE) 
+	auto dt_sec = us.delta_time.count() / 1000.0;
+
+	switch (gamestate.menu_screen)
 	{
-		//Reset music
-		menu_music = NOT_PLAYING;
-		game_music = NOT_PLAYING;
-		game_over_music = NOT_PLAYING;
-		bird_sfx = NOT_PLAYING;
-		sound_engine->stopAllSounds();
+		//Splashscreen
+		case MenuScreen::SPLASHSCREEN: {
+			//Fade in
+			if (sprites.menu_elements[(int)MenuElement::MAIN_LOGO].animateFadeInUp(dt_sec))
+			{
+				if (sprites.menu_elements[(int)MenuElement::PRESS_SPACE_TO_START].animateFadeInUp(dt_sec))
+				{
+					gamestate.should_allow_splashscreen_inputs = true;
+				}
+			}
 
-		//Reset gamestate & score
-		gamestate.win_state = Gamestate::NO_STATE;
-		gamestate.lives = (int)GameVars::NUMBER_OF_STARTING_BIRDS;
-		for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
-		{
-			sprites.waiting_birds[i].spawn();
+			break;
 		}
+		//Main Menu (level select)
+		case MenuScreen::MAIN_MENU: {
+			//Cycle level selection opacity
+			switch (gamestate.level_select_menu_index)
+			{
+				case 0: {
+					sprites.menu_elements[(int)MenuElement::LEVEL_ONE].setOpacity(1);
+					sprites.menu_elements[(int)MenuElement::LEVEL_TWO].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::LEVEL_THREE].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::LEVEL_FOUR].setOpacity(0.5);
+					break;
+				}
+				case 1: {
+					sprites.menu_elements[(int)MenuElement::LEVEL_ONE].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::LEVEL_TWO].setOpacity(1);
+					sprites.menu_elements[(int)MenuElement::LEVEL_THREE].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::LEVEL_FOUR].setOpacity(0.5);
+					break;
+				}
+				case 2: {
+					sprites.menu_elements[(int)MenuElement::LEVEL_ONE].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::LEVEL_TWO].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::LEVEL_THREE].setOpacity(1);
+					sprites.menu_elements[(int)MenuElement::LEVEL_FOUR].setOpacity(0.5);
+					break;
+				}
+				case 3: {
+					sprites.menu_elements[(int)MenuElement::LEVEL_ONE].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::LEVEL_TWO].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::LEVEL_THREE].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::LEVEL_FOUR].setOpacity(1);
+					break;
+				}
+			}
 
-		//Reset level build
-		level_spawn = NEEDS_TO_SPAWN;
-		level.ResetLevel();
+			//Game has just been won or lost - reset everything here
+			if (gamestate.win_state != Gamestate::NO_STATE) 
+			{
+				resetGame();
+			}
 
-		//Reset menu marker positions
-		gamestate.main_menu_index = 0;
-		gamestate.level_select_menu_index = 0;
-		gamestate.game_over_menu_index = 0;
-		gamestate.pause_menu_index = 0;
-
-		//Reset score & animations
-		gamestate.current_score = 0;
-		pig_count = 0;
-		has_set_stars = false;
-		time_started_score_wrapup = 0;
-		time_since_last_score_animation = 0;
-		time_since_star_animation_start = 0;
-		gamestate.should_show_gameover_options = false;
-		for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
-		{
-			animate_bird_scores[i] = false;
-			sprites.score_bonus_10000[i].despawn();
+			break;
 		}
-		for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
-		{
-			animate_pig_scores[i] = false;
-			sprites.score_bonus_5000[i].despawn();
-		}
-		for (int i = 0; i < 3; i++)
-		{
-			has_played_star_sfx[i] = false;
-		}
+		//Pause Menu
+		case MenuScreen::PAUSE_MENU: {
+			//Cycle pause menu selection opacity
+			switch (gamestate.pause_menu_index)
+			{
+				case 0: {
+					sprites.menu_elements[(int)MenuElement::MENUOPT_CONTINUE].setOpacity(1);
+					sprites.menu_elements[(int)MenuElement::MENUOPT_QUIT].setOpacity(0.5);
+					break;
+				}
+				case 1: {
+					sprites.menu_elements[(int)MenuElement::MENUOPT_CONTINUE].setOpacity(0.5);
+					sprites.menu_elements[(int)MenuElement::MENUOPT_QUIT].setOpacity(1);
+					break;
+				}
+			}
 
-		//Reset flight marker dots
-		for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
-		{
-			sprites.flight_marker[i].despawn();
+			break;
 		}
 	}
 
@@ -209,63 +232,8 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 		}
 	}
 
-	//Animate Birds
-	AnimateBird(sprites.active_bird);
-	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
-	{
-		AnimateBird(sprites.waiting_birds[i]);
-	}
-
-	//Animate pigs
-	for (int i = 0; i < (int)GameVars::NUMBER_OF_PIGS; i++)
-	{
-		AnimatePig(sprites.pigs[i]);
-	}
-
-	//Animate explosion FX
-	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
-	{
-		if (performing_explosion_fx[i]) 
-		{
-			//Perform animation if requested
-			if (sprites.explosion[i].animate(dt_sec))
-			{
-				//Animation is done.
-				performing_explosion_fx[i] = false;
-				sprites.explosion[i].despawn();
-				sprites.explosion[i].setFrame(0);
-			}
-		}
-	}
-
-	//Animate pig score
-	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
-	{
-		if (animate_pig_scores[i])
-		{
-			//Perform animation if requested
-			if (sprites.score_bonus_5000[i].animateFadeOutUp(dt_sec)) 
-			{
-				//Animation is done.
-				animate_pig_scores[i] = false;
-				sprites.score_bonus_5000[i].despawn();
-			}
-		}
-	}
-
-	//Animate bird score
-	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
-	{
-		if (animate_bird_scores[i])
-		{
-			//Perform animation if requested
-			if (sprites.score_bonus_10000[i].animateFadeOutUp(dt_sec))
-			{
-				//Animation is done.
-				sprites.score_bonus_10000[i].despawn();
-			}
-		}
-	}
+	//Animations
+	performAnimations(dt_sec);
 }
 
 /*
@@ -279,6 +247,21 @@ void UpdateState::gstateGameOver(const ASGE::GameTime & us)
 		sound_engine->stopAllSounds();
 		sound_engine->play2D("Resources\\UI\\MUSIC\\1.mp3", false);
 		game_over_music = PLAYING;
+	}
+
+	//Cycle selection opacity
+	switch (gamestate.game_over_menu_index)
+	{
+		case 0: {
+			sprites.menu_elements[(int)MenuElement::MENUOPT_MENU].setOpacity(1);
+			sprites.menu_elements[(int)MenuElement::MENUOPT_QUIT].setOpacity(0.5);
+			break;
+		}
+		case 1: {
+			sprites.menu_elements[(int)MenuElement::MENUOPT_MENU].setOpacity(0.5);
+			sprites.menu_elements[(int)MenuElement::MENUOPT_QUIT].setOpacity(1);
+			break;
+		}
 	}
 
 	//Set player star count if it hasn't already been done
@@ -335,6 +318,70 @@ void UpdateState::gstateLevelBuilder(const ASGE::GameTime & us)
 	}
 }
 
+
+/*
+Perform any requested animations
+*/
+void UpdateState::performAnimations(double dt_sec)
+{
+	//Animate Birds
+	AnimateBird(sprites.active_bird);
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
+	{
+		AnimateBird(sprites.waiting_birds[i]);
+	}
+
+	//Animate pigs
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_PIGS; i++)
+	{
+		AnimatePig(sprites.pigs[i]);
+	}
+
+	//Animate explosion FX
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		if (performing_explosion_fx[i])
+		{
+			//Perform animation if requested
+			if (sprites.explosion[i].animate(dt_sec))
+			{
+				//Animation is done.
+				performing_explosion_fx[i] = false;
+				sprites.explosion[i].despawn();
+				sprites.explosion[i].setFrame(0);
+			}
+		}
+	}
+
+	//Animate pig score
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		if (animate_pig_scores[i])
+		{
+			//Perform animation if requested
+			if (sprites.score_bonus_5000[i].animateFadeOutUp(dt_sec))
+			{
+				//Animation is done.
+				animate_pig_scores[i] = false;
+				sprites.score_bonus_5000[i].despawn();
+			}
+		}
+	}
+
+	//Animate bird score
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
+	{
+		if (animate_bird_scores[i])
+		{
+			//Perform animation if requested
+			if (sprites.score_bonus_10000[i].animateFadeOutUp(dt_sec))
+			{
+				//Animation is done.
+				sprites.score_bonus_10000[i].despawn();
+			}
+		}
+	}
+}
 
 /*
 Find a free score popup animation slot
@@ -410,6 +457,7 @@ void UpdateState::animateExplosion(float x, float y)
 		sprites.explosion[slot_id].spawn();
 		sprites.explosion[slot_id].setX(x);
 		sprites.explosion[slot_id].setY(y);
+		sound_engine->play2D("Resources\\UI\\FX\\EXPLOSION\\SFX\\0.mp3", false);
 	}
 	else
 	{
@@ -427,6 +475,8 @@ void UpdateState::animateStars(float frame_time)
 
 	if (time_since_star_animation_start < 2) 
 	{
+		sprites.score_stars[1].despawn();
+		sprites.score_stars[2].despawn();
 		sprites.score_stars[3].despawn();
 		sprites.score_stars[0].spawn();
 		if (gamestate.awarded_stars == 0)
@@ -802,5 +852,65 @@ void UpdateState::AnimatePig(Character& pig)
 				break;
 			}
 		}
+	}
+}
+
+
+/* 
+Reset Game
+*/
+void UpdateState::resetGame()
+{
+	//Reset music
+	menu_music = NOT_PLAYING;
+	game_music = NOT_PLAYING;
+	game_over_music = NOT_PLAYING;
+	bird_sfx = NOT_PLAYING;
+	sound_engine->stopAllSounds();
+
+	//Reset gamestate & score
+	gamestate.win_state = Gamestate::NO_STATE;
+	gamestate.lives = (int)GameVars::NUMBER_OF_STARTING_BIRDS;
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS - 1; i++)
+	{
+		sprites.waiting_birds[i].spawn();
+	}
+
+	//Reset level build
+	level_spawn = NEEDS_TO_SPAWN;
+	level.ResetLevel();
+
+	//Reset menu marker positions
+	gamestate.level_select_menu_index = 0;
+	gamestate.game_over_menu_index = 0;
+	gamestate.pause_menu_index = 0;
+
+	//Reset score & animations
+	gamestate.current_score = 0;
+	pig_count = 0;
+	has_set_stars = false;
+	time_started_score_wrapup = 0;
+	time_since_last_score_animation = 0;
+	time_since_star_animation_start = 0;
+	gamestate.should_show_gameover_options = false;
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
+	{
+		animate_bird_scores[i] = false;
+		sprites.score_bonus_10000[i].despawn();
+	}
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
+	{
+		animate_pig_scores[i] = false;
+		sprites.score_bonus_5000[i].despawn();
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		has_played_star_sfx[i] = false;
+	}
+
+	//Reset flight marker dots
+	for (int i = 0; i < (int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS; i++)
+	{
+		sprites.flight_marker[i].despawn();
 	}
 }

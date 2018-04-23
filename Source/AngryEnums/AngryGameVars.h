@@ -12,7 +12,7 @@ enum class GameVars : int
 
 	//Slingshot position
 	SLINGSHOT_X_ORIGIN = 250,
-	SLINGSHOT_Y_ORIGIN = 750,
+	SLINGSHOT_Y_ORIGIN = 625,
 
 	//Flight curvature modifiers
 	FLIGHT_ANGLE_MODIFIER = 10,
@@ -43,14 +43,11 @@ enum class GameVars : int
 	//Main menu option count
 	NUMBER_OF_MAIN_MENU_OPTIONS = 2,
 
-	//Number of levels (adjust this if more levels are created in \\Resources\\LEVELS\\)
-	NUMBER_OF_LEVELS = 3,
+	//Number of levels
+	NUMBER_OF_LEVELS = 4,
 
 	//Number of level entities available
 	NUMBER_OF_LEVEL_ENTITIES = NUMBER_OF_PIGS + (NUMBER_OF_BLOCKS_PER_VARIATION * NUMBER_OF_BLOCK_VARIATIONS),
-
-	//Forced limit of level entities (if adjusted, the editor must also be changed - cannot be higher than NUMBER_OF_LEVEL_ENTITIES).
-	FORCED_NUMBER_OF_LEVEL_ENTITIES = 10,
 
 	//Number of cursors
 	NUMBER_OF_CURSOR_STATES = 6, //2 cursors, 4 level editor blocks.

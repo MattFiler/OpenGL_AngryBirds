@@ -16,11 +16,11 @@ struct GamestateData
 
 	/* MENU DATA */
 	static MenuScreen menu_screen; //The current menu screen
-	static int main_menu_index; //Menu selected index
 	static int level_select_menu_index; //Level select menu index
 	static int pause_menu_index; //Pause menu selection index
 	static int game_over_menu_index; //Game over option select index
 	static bool should_show_gameover_options; //Should show gameover options yet?
+	static bool should_allow_splashscreen_inputs; //Should allow splashscreen inputs yet?
 
 	/* LEVEL EDITOR DATA */
 	static bool debug_place_block; //Used for level editor mode

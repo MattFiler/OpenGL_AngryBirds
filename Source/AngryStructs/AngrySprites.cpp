@@ -4,6 +4,7 @@
 UI Sprites::backgrounds[(int)BackgroundSprites::NUMBER_OF_BACKGROUNDS];
 UI Sprites::flight_marker[(int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS];
 UI Sprites::cursor[(int)GameVars::NUMBER_OF_CURSOR_STATES];
+UI Sprites::menu_elements[(int)MenuElement::MENU_ELEMENT_COUNT];
 UI Sprites::score_stars[4];
 UI Sprites::score_bonus_10000[(int)GameVars::NUMBER_OF_STARTING_BIRDS];
 UI Sprites::score_bonus_5000[(int)GameVars::NUMBER_OF_FX_AVAILABLE];
