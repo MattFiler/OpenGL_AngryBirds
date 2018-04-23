@@ -435,7 +435,12 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 		if (gamestate.win_state != Gamestate::ON_HOLD && 
 			gamestate.current_gamestate == Gamestate::IS_PLAYING) 
 		{
-			if (click->button == 0 && sprites.active_bird.getState() == CharacterStates::IN_CANNON)
+			if (click->button == 0 && 
+				sprites.active_bird.getState() == CharacterStates::IN_CANNON &&
+				(mousedata.mouse_x >= sprites.active_bird.getX() - (int)GameVars::BIRD_DRAG_LEEWAY &&
+				mousedata.mouse_x <= sprites.active_bird.getX() + (int)GameVars::BIRD_DRAG_LEEWAY + sprites.active_bird.getWidth()) &&
+				(mousedata.mouse_y >= sprites.active_bird.getY() - (int)GameVars::BIRD_DRAG_LEEWAY &&
+				mousedata.mouse_y <= sprites.active_bird.getY() + (int)GameVars::BIRD_DRAG_LEEWAY + sprites.active_bird.getHeight()))
 			{
 				//Let the game world know we're pulling the bird back
 				sprites.active_bird.setState(CharacterStates::ABOUT_TO_BE_FIRED);
