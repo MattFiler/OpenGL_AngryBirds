@@ -45,7 +45,7 @@ bool AngryBirdsGame::init()
 	//toggleFPS();
 	renderer->setWindowTitle("Angry Birds");
 	renderer->setWindowedMode(ASGE::Renderer::WindowMode::WINDOWED);
-	renderer->setClearColour(ASGE::COLOURS::BLACK);
+	renderer->setClearColour(ASGE::COLOURS::WHITE);
 
 	// input handling functions
 	inputs->use_threads = false;
@@ -91,6 +91,7 @@ bool AngryBirdsGame::assignTextures()
 			return false;
 		}
 	}
+	sprites.menu_elements[(int)MenuElement::MAIN_LOGO].setOpacity(0);
 	sprites.menu_elements[(int)MenuElement::PRESS_SPACE_TO_START].setOpacity(0);
 
 	/* Cursors */
@@ -158,11 +159,25 @@ bool AngryBirdsGame::assignTextures()
 	/* Victory Stars */
 	for (int i = 0; i < 4; i++)
 	{
-		if (!sprites.score_stars[i].addSpriteComponent(renderer.get(), "Resources\\UI\\SCORE\\STARS\\" + std::to_string(i) + ".png"))
+		if (!sprites.gameover_score_stars.addSpriteComponent(renderer.get(), "Resources\\UI\\SCORE\\STARS\\" + std::to_string(i) + ".png", i))
 		{
 			return false;
 		}
+		for (int x = 0; x < (int)GameVars::NUMBER_OF_LEVELS; x++)
+		{
+			if (!sprites.menu_score_stars[i].addSpriteComponent(renderer.get(), "Resources\\UI\\SCORE\\SMALL_STARS\\" + std::to_string(x) + ".png", x))
+			{
+				return false;
+			}
+		}
+		sprites.menu_score_stars[i].setFrame(0);
+		sprites.menu_score_stars[i].setY(860);
 	}
+	sprites.menu_score_stars[0].setX(625);
+	sprites.menu_score_stars[1].setX(848);
+	sprites.menu_score_stars[2].setX(1074);
+	sprites.menu_score_stars[3].setX(1300);
+	sprites.gameover_score_stars.setFrame(0);
 
 	/* Score Bonuses */
 	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)

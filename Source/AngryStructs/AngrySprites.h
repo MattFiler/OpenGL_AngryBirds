@@ -16,9 +16,10 @@ struct Sprites
 	static UI flight_marker[(int)GameVars::NUMBER_OF_FLIGHT_MARKER_DOTS]; 
 	static UI cursor[(int)GameVars::NUMBER_OF_CURSOR_STATES]; 
 	static UI menu_elements[(int)MenuElement::MENU_ELEMENT_COUNT];
-	static UI score_stars[4]; 
+	static FX gameover_score_stars;
 	static UI score_bonus_10000[(int)GameVars::NUMBER_OF_STARTING_BIRDS];
 	static UI score_bonus_5000[(int)GameVars::NUMBER_OF_FX_AVAILABLE];
+	static FX menu_score_stars[(int)GameVars::NUMBER_OF_LEVELS];
 
 	//Slingshot
 	static UI slingshot[2]; 

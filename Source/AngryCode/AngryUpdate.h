@@ -6,6 +6,7 @@
 #include <irrklang.h>
 
 #include "../AngryCode/AngryLevels.h"
+#include "../AngryCode/AngryScores.h"
 
 #include "../AngryStructs/AngryGamestateData.h"
 #include "../AngryStructs/AngrySprites.h"
@@ -25,7 +26,6 @@ class UpdateState {
 		//Update Handlers
 		void gstateInMenu(const ASGE::GameTime & us);
 		void gstatePlaying(const ASGE::GameTime & us);
-		void performAnimations(double dt_sec);
 		void gstateGameOver(const ASGE::GameTime & us);
 		void gstateLevelBuilder(const ASGE::GameTime & us);
 
@@ -56,6 +56,7 @@ class UpdateState {
 		void handleBirdMovement(double dt_sec, Character &bird);
 
 		//Character Animations
+		void performAnimations(double dt_sec);
 		void AnimateBird(Character& bird);
 		void AnimatePig(Character& pig);
 		float eyes_open_time = 0; //This time randomly generated every frame when playing.
@@ -75,6 +76,11 @@ class UpdateState {
 		void animateScore(int value, float x, float y);
 		void animateStars(float frame_time);
 
+		//Update/load scores
+		Scores score;
+		bool has_checked_for_highscore = false;
+		bool has_updated_score = false;
+
 		//Game timer
 		float game_time = 0;
 
@@ -89,4 +95,5 @@ class UpdateState {
 		GamestateData gamestate;
 		MouseData mousedata;
 		Sprites sprites;
+		FlightVars flightdata;
 };

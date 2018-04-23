@@ -1,6 +1,7 @@
 #pragma once
 #include "../AngryEnums/AngryGamestate.h"
 #include "../AngryEnums/AngryMenuScreens.h"
+#include "../AngryEnums/AngryGameVars.h"
 
 struct GamestateData
 {
@@ -8,7 +9,7 @@ struct GamestateData
 	static Gamestate current_gamestate; //The current gamestate (in-game, in menu, etc)
 	static Gamestate win_state; //Won or lost?
 
-	/* GAME DATA */
+	/* IN-PROGRESS GAME DATA */
 	static int lives; //Number of lives the player has (number of birds on screen)
 	static int current_level; //This cannot be higher than GameVars::NUMBER_OF_LEVELS!
 	static float current_score; //The current score the player has for this level
@@ -25,4 +26,7 @@ struct GamestateData
 	/* LEVEL EDITOR DATA */
 	static bool debug_place_block; //Used for level editor mode
 	static float debug_block_scale; //Used for level editor mode
+
+	/* HIGHSCORE DATA */
+	static int highscores[(int)GameVars::NUMBER_OF_LEVELS]; //Level specific score history
 };

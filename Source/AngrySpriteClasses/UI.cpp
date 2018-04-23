@@ -168,6 +168,29 @@ bool UI::animateFadeOutUp(float frame_time)
 	return false;
 }
 
+/* Fade In */
+bool UI::animateFadeIn(float frame_time)
+{
+	//This function should be called when the element hasn't spawned (basically a spawn() replacement)
+	if (!has_spawned)
+	{
+		setOpacity(0);
+		has_spawned = true;
+	}
+
+	if (getOpacity() >= 1)
+	{
+		//If opacity is 1, we've finished
+		return true;
+	}
+	else
+	{
+		//Raise opacity
+		setOpacity(getOpacity() + frame_time);
+		return false;
+	}
+}
+
 /* Fade In Up */
 bool UI::animateFadeInUp(float frame_time)
 {

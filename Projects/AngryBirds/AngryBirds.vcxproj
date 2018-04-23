@@ -104,6 +104,7 @@
     <ClCompile Include="..\..\Source\AngryCode\AngryInput.cpp" />
     <ClCompile Include="..\..\Source\AngryCode\AngryLevels.cpp" />
     <ClCompile Include="..\..\Source\AngryCode\AngryRender.cpp" />
+    <ClCompile Include="..\..\Source\AngryCode\AngryScores.cpp" />
     <ClCompile Include="..\..\Source\AngryCode\AngryUpdate.cpp" />
     <ClCompile Include="..\..\Source\AngrySpriteClasses\Character.cpp" />
     <ClCompile Include="..\..\Source\AngrySpriteClasses\EnvironmentBlock.cpp" />
@@ -124,6 +125,7 @@
     <ClInclude Include="..\..\Source\AngryCode\AngryInput.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryLevels.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryRender.h" />
+    <ClInclude Include="..\..\Source\AngryCode\AngryScores.h" />
     <ClInclude Include="..\..\Source\AngryCode\AngryUpdate.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryBackgrounds.h" />
     <ClInclude Include="..\..\Source\AngryEnums\AngryBlockTypes.h" />

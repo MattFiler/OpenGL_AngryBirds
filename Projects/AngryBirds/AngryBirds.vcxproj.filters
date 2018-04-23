@@ -55,6 +55,9 @@
     <ClCompile Include="..\..\Source\AngrySpriteClasses\FX.cpp">
       <Filter>Source\AngrySpriteClasses</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\AngryCode\AngryScores.cpp">
+      <Filter>Source\AngryCode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -170,6 +173,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\AngryEnums\AngryMenuElements.h">
       <Filter>Headers\AngryEnums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryCode\AngryScores.h">
+      <Filter>Headers\AngryCode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

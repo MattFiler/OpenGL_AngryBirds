@@ -38,6 +38,18 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 			renderer->renderSprite(*sprites.menu_elements[(int)MenuElement::LEVEL_THREE].spriteComponent()->getSprite());
 			renderer->renderSprite(*sprites.menu_elements[(int)MenuElement::LEVEL_FOUR].spriteComponent()->getSprite());
 
+			//Level Highscores
+			renderer->renderText(std::to_string(gamestate.highscores[0]), 528, 891, 0.5, ASGE::COLOURS::WHITE);
+			renderer->renderText(std::to_string(gamestate.highscores[1]), 756, 891, 0.5, ASGE::COLOURS::WHITE);
+			renderer->renderText(std::to_string(gamestate.highscores[2]), 982, 891, 0.5, ASGE::COLOURS::WHITE);
+			renderer->renderText(std::to_string(gamestate.highscores[3]), 1208, 891, 0.5, ASGE::COLOURS::WHITE);
+
+			//Level Stars
+			for (int i = 0; i < (int)GameVars::NUMBER_OF_LEVELS; i++)
+			{
+				renderer->renderSprite(*sprites.menu_score_stars[i].spriteComponent()->getSprite());
+			}
+
 			break;
 		}
 		//Pause menu
@@ -187,13 +199,7 @@ void RenderStates::gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* ren
 	}
 
 	//Render stars
-	for (int i = 0; i < 4; i++)
-	{
-		if (sprites.score_stars[i].hasSpawned())
-		{
-			renderer->renderSprite(*sprites.score_stars[i].spriteComponent()->getSprite());
-		}
-	}
+	renderer->renderSprite(*sprites.gameover_score_stars.spriteComponent()->getSprite());
 }
 
 /*
@@ -229,4 +235,7 @@ void RenderStates::gstateLevelBuilder(const ASGE::GameTime & us, ASGE::Renderer*
 			renderer->renderSprite(*sprites.placeholder_marker[i].spriteComponent()->getSprite());
 		}
 	}
+
+	//Cursor
+	renderer->renderSprite(*sprites.cursor[(int)mousedata.cursor].spriteComponent()->getSprite());
 }

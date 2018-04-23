@@ -21,11 +21,14 @@ void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
 		//Splashscreen
 		case MenuScreen::SPLASHSCREEN: {
 			//Fade in
-			if (sprites.menu_elements[(int)MenuElement::MAIN_LOGO].animateFadeInUp(dt_sec))
+			if (sprites.backgrounds[(int)BackgroundSprites::CLOUDS_BACKGROUND].animateFadeIn(dt_sec))
 			{
-				if (sprites.menu_elements[(int)MenuElement::PRESS_SPACE_TO_START].animateFadeInUp(dt_sec))
+				if (sprites.menu_elements[(int)MenuElement::MAIN_LOGO].animateFadeInUp(dt_sec))
 				{
-					gamestate.should_allow_splashscreen_inputs = true;
+					if (sprites.menu_elements[(int)MenuElement::PRESS_SPACE_TO_START].animateFadeInUp(dt_sec))
+					{
+						gamestate.should_allow_splashscreen_inputs = true;
+					}
 				}
 			}
 
@@ -70,6 +73,42 @@ void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
 			if (gamestate.win_state != Gamestate::NO_STATE) 
 			{
 				resetGame();
+			}
+
+			//Update scores if required
+			if (!has_updated_score)
+			{
+				//Pull new scores
+				score.loadScores();
+
+				//Set stars for each level
+				for (int i = 0; i < (int)GameVars::NUMBER_OF_LEVELS; i++)
+				{
+					if (gamestate.highscores[i] < (int)level.getScoreThreshold(i, 1))
+					{
+						//0 Stars
+						sprites.menu_score_stars[i].setFrame(0);
+					}
+					else if (gamestate.highscores[i] >= (int)level.getScoreThreshold(i, 1) &&
+							 gamestate.highscores[i] < (int)level.getScoreThreshold(i, 2))
+					{
+						//1 Star
+						sprites.menu_score_stars[i].setFrame(1);
+					}
+					else if (gamestate.highscores[i] >= (int)level.getScoreThreshold(i, 2) &&
+							 gamestate.highscores[i] < (int)level.getScoreThreshold(i, 3))
+					{
+						//2 Stars
+						sprites.menu_score_stars[i].setFrame(2);
+					}
+					else if (gamestate.highscores[i] >= (int)level.getScoreThreshold(i, 3))
+					{
+						//3 Stars
+						sprites.menu_score_stars[i].setFrame(3);
+					}
+				}
+
+				has_updated_score = true;
 			}
 
 			break;
@@ -249,6 +288,18 @@ void UpdateState::gstateGameOver(const ASGE::GameTime & us)
 		game_over_music = PLAYING;
 	}
 
+	//Check to see if we got a highscore
+	if (!has_checked_for_highscore)
+	{
+		if (gamestate.current_score > gamestate.highscores[gamestate.current_level])
+		{
+			//We got a highscore, save it
+			gamestate.highscores[gamestate.current_level] = gamestate.current_score;
+			score.saveScores();
+		}
+		has_checked_for_highscore = true;
+	}
+
 	//Cycle selection opacity
 	switch (gamestate.game_over_menu_index)
 	{
@@ -403,7 +454,7 @@ void UpdateState::animateScore(int value, float x, float y)
 			animate_pig_scores[slot_id] = true;
 			sprites.score_bonus_5000[slot_id].spawn();
 			sprites.score_bonus_5000[slot_id].setX(x);
-			sprites.score_bonus_5000[slot_id].setY(y - sprites.score_stars[slot_id].getHeight());
+			sprites.score_bonus_5000[slot_id].setY(y);
 			sound_engine->play2D("Resources\\UI\\SCORE\\SCORE_BONUS\\SFX\\1.wav", false);
 		}
 		else
@@ -475,10 +526,7 @@ void UpdateState::animateStars(float frame_time)
 
 	if (time_since_star_animation_start < 2) 
 	{
-		sprites.score_stars[1].despawn();
-		sprites.score_stars[2].despawn();
-		sprites.score_stars[3].despawn();
-		sprites.score_stars[0].spawn();
+		sprites.gameover_score_stars.setFrame(0);
 		if (gamestate.awarded_stars == 0)
 		{
 			gamestate.should_show_gameover_options = true;
@@ -489,8 +537,7 @@ void UpdateState::animateStars(float frame_time)
 	{
 		if (gamestate.awarded_stars >= 1)
 		{
-			sprites.score_stars[0].despawn();
-			sprites.score_stars[1].spawn();
+			sprites.gameover_score_stars.setFrame(1);
 			if (!has_played_star_sfx[0])
 			{
 				sound_engine->play2D("Resources\\UI\\SCORE\\STARS\\SFX\\0.mp3", false);
@@ -503,8 +550,7 @@ void UpdateState::animateStars(float frame_time)
 	{
 		if (gamestate.awarded_stars >= 2)
 		{
-			sprites.score_stars[1].despawn();
-			sprites.score_stars[2].spawn();
+			sprites.gameover_score_stars.setFrame(2);
 			if (!has_played_star_sfx[1])
 			{
 				sound_engine->play2D("Resources\\UI\\SCORE\\STARS\\SFX\\1.mp3", false);
@@ -521,8 +567,7 @@ void UpdateState::animateStars(float frame_time)
 	{
 		if (gamestate.awarded_stars == 3)
 		{
-			sprites.score_stars[2].despawn();
-			sprites.score_stars[3].spawn();
+			sprites.gameover_score_stars.setFrame(3);
 			if (!has_played_star_sfx[2])
 			{
 				sound_engine->play2D("Resources\\UI\\SCORE\\STARS\\SFX\\2.mp3", false);
@@ -624,9 +669,9 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 			bird_fired_sfx = NOT_PLAYING;
 
 			//Reset vars
-			FlightVars::bird_flight_time = 0;
-			FlightVars::pullback_angle = 0;
-			FlightVars::pullback_force = 0;
+			flightdata.bird_flight_time = 0;
+			flightdata.pullback_angle = 0;
+			flightdata.pullback_force = 0;
 
 			//Play SFX
 			if (bird_sfx == NOT_PLAYING)
@@ -684,12 +729,12 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 			}
 
 			//Calculate the time our bird has been in flight - this will act as our gravity
-			FlightVars::bird_flight_time += dt_sec;
+			flightdata.bird_flight_time += dt_sec;
 
 			//Move bird dependant on user input
-			bird.subtractFromY((FlightVars::pullback_angle * (int)GameVars::FLIGHT_ANGLE_MODIFIER * dt_sec) - 
-							   (FlightVars::bird_flight_time / (int)GameVars::FLIGHT_TIME_MODIFIER));
-			bird.addToX(FlightVars::pullback_force * 
+			bird.subtractFromY(flightdata.pullback_angle * 10 * dt_sec);
+			bird.addToY(flightdata.bird_flight_time * 1000 * dt_sec);
+			bird.addToX(flightdata.pullback_force * 
 						(int)GameVars::FLIGHT_FORCE_MODIFIER * dt_sec);
 
 			//Off window
@@ -702,15 +747,15 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 			}
 
 			//Place down a flight marker if enough time has elapsed
-			FlightVars::time_between_markers += dt_sec;
-			if (FlightVars::time_between_markers > 0.1)
+			flightdata.time_between_markers += dt_sec;
+			if (flightdata.time_between_markers > 0.1)
 			{
-				sprites.flight_marker[FlightVars::number_of_markers].spawn();
-				sprites.flight_marker[FlightVars::number_of_markers].setX(bird.getX() + (bird.getWidth() / 2));
-				sprites.flight_marker[FlightVars::number_of_markers].setY(bird.getY() + (bird.getHeight() / 2));
+				sprites.flight_marker[flightdata.number_of_markers].spawn();
+				sprites.flight_marker[flightdata.number_of_markers].setX(bird.getX() + (bird.getWidth() / 2));
+				sprites.flight_marker[flightdata.number_of_markers].setY(bird.getY() + (bird.getHeight() / 2));
 
-				FlightVars::number_of_markers += 1;
-				FlightVars::time_between_markers = 0;
+				flightdata.number_of_markers += 1;
+				flightdata.time_between_markers = 0;
 			}
 
 			break;
@@ -893,6 +938,8 @@ void UpdateState::resetGame()
 	time_since_last_score_animation = 0;
 	time_since_star_animation_start = 0;
 	gamestate.should_show_gameover_options = false;
+	has_updated_score = false;
+	has_checked_for_highscore = false;
 	for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
 	{
 		animate_bird_scores[i] = false;

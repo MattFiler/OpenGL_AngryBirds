@@ -22,3 +22,6 @@ bool GamestateData::should_allow_splashscreen_inputs = false; //False = shouldn'
 /* LEVEL EDITOR DATA */
 bool GamestateData::debug_place_block = false; //True = should place
 float GamestateData::debug_block_scale = 1; //1 is default
+
+/* SCORE DATA */
+int GamestateData::highscores[(int)GameVars::NUMBER_OF_LEVELS]; //Set by Scores::loadScores()

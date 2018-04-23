@@ -37,6 +37,7 @@ public:
 	bool hasSpawned();
 
 	bool animateFadeOutUp(float frame_time);
+	bool animateFadeIn(float frame_time);
 	bool animateFadeInUp(float frame_time);
 
 	SpriteComponent* spriteComponent();
