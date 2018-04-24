@@ -40,13 +40,12 @@ private:
 	virtual void update(const ASGE::GameTime &) override;
 	virtual void render(const ASGE::GameTime &) override;
 
-	int  key_callback_id = -1;	        /**< Key Input Callback ID. */
-	int  mouse_callback_id = -1;        /**< Mouse Input Callback ID. */
-
-	bool in_menu = true;
+	//Input callbacks
+	int key_callback_id = -1;
+	int mouse_callback_id = -1;
 
 	/* AngryCode */
-	UpdateState game_update;
+	UpdateStates game_update;
 	RenderStates game_render;
 	InputStates game_input;
 	

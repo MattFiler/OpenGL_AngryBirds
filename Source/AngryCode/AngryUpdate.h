@@ -18,10 +18,10 @@
 #include "../AngryEnums/AngryCharacterInjury.h"
 #include "../AngryEnums/AngryScore.h"
 
-class UpdateState {
+class UpdateStates {
 	public:
-		UpdateState();
-		~UpdateState();
+		UpdateStates();
+		~UpdateStates();
 
 		//Update Handlers
 		void gstateInMenu(const ASGE::GameTime & us);

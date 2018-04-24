@@ -43,6 +43,7 @@ rect SpriteComponent::getBoundingBox() const
 	bounding_box.y = sprite->yPos();
 	bounding_box.length = sprite->width();
 	bounding_box.height = sprite->height();
+	bounding_box.scale = sprite->scale();
 
 	return bounding_box;
 }

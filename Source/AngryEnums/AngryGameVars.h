@@ -14,8 +14,10 @@ enum class GameVars : int
 	SLINGSHOT_X_ORIGIN = 250,
 	SLINGSHOT_Y_ORIGIN = 625,
 
-	//Flight curvature modifier
+	//Flight curvature modifiers
 	FLIGHT_FORCE_MODIFIER = 10,
+	FLIGHT_ANGLE_MODIFIER = 10,
+	FLIGHT_TIME_MODIFIER = 1000,
 
 	//Leeway for dragging the bird in the slingshot
 	BIRD_DRAG_LEEWAY = 25,

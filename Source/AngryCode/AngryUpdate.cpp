@@ -1,11 +1,11 @@
 #include "AngryUpdate.h"
 
 //Create and destroy the sound engine when the class is called
-UpdateState::UpdateState() {
+UpdateStates::UpdateStates() {
 	sound_engine = irrklang::createIrrKlangDevice();
 	level.loadLevels();
 }
-UpdateState::~UpdateState() {
+UpdateStates::~UpdateStates() {
 	sound_engine->drop();
 }
 
@@ -13,7 +13,7 @@ UpdateState::~UpdateState() {
 /*
 GAMESTATE_IN_MENU
 */
-void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
+void UpdateStates::gstateInMenu(const ASGE::GameTime & us) {
 	auto dt_sec = us.delta_time.count() / 1000.0;
 
 	switch (gamestate.menu_screen)
@@ -145,7 +145,7 @@ void UpdateState::gstateInMenu(const ASGE::GameTime & us) {
 /*
 GAMESTATE_IS_PLAYING
 */
-void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
+void UpdateStates::gstatePlaying(const ASGE::GameTime & us) {
 	//Initialise rand() every frame
 	srand(time(NULL));
 
@@ -278,7 +278,7 @@ void UpdateState::gstatePlaying(const ASGE::GameTime & us) {
 /*
 HAS_WON HAS_LOST
 */
-void UpdateState::gstateGameOver(const ASGE::GameTime & us)
+void UpdateStates::gstateGameOver(const ASGE::GameTime & us)
 {
 	//If not already playing, play background music
 	if (game_over_music == NOT_PLAYING)
@@ -349,7 +349,7 @@ void UpdateState::gstateGameOver(const ASGE::GameTime & us)
 /*
 Level Builder
 */
-void UpdateState::gstateLevelBuilder(const ASGE::GameTime & us)
+void UpdateStates::gstateLevelBuilder(const ASGE::GameTime & us)
 {
 	//Editor mode doesn't need the player bird.
 	if (sprites.active_bird.hasSpawned())
@@ -373,7 +373,7 @@ void UpdateState::gstateLevelBuilder(const ASGE::GameTime & us)
 /*
 Perform any requested animations
 */
-void UpdateState::performAnimations(double dt_sec)
+void UpdateStates::performAnimations(double dt_sec)
 {
 	//Animate Birds
 	AnimateBird(sprites.active_bird);
@@ -437,7 +437,7 @@ void UpdateState::performAnimations(double dt_sec)
 /*
 Find a free score popup animation slot
 */
-void UpdateState::animateScore(int value, float x, float y)
+void UpdateStates::animateScore(int value, float x, float y)
 {
 	int slot_id = 10;
 	if (value == (int)Score::HAS_DESTROYED_PIG)
@@ -492,7 +492,7 @@ void UpdateState::animateScore(int value, float x, float y)
 /*
 Find a free explosion FX slot
 */
-void UpdateState::animateExplosion(float x, float y)
+void UpdateStates::animateExplosion(float x, float y)
 {
 	int slot_id = 10;
 	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
@@ -520,7 +520,7 @@ void UpdateState::animateExplosion(float x, float y)
 /*
 Animate stars on the game over screen
 */
-void UpdateState::animateStars(float frame_time)
+void UpdateStates::animateStars(float frame_time)
 {
 	time_since_star_animation_start += frame_time;
 
@@ -593,7 +593,7 @@ void UpdateState::animateStars(float frame_time)
 /*
 Detect collision on spawned blocks
 */
-void UpdateState::detectBlockCollision(EnvironmentBlock& block)
+void UpdateStates::detectBlockCollision(EnvironmentBlock& block)
 {
 	if (block.hasSpawned())
 	{
@@ -619,7 +619,7 @@ void UpdateState::detectBlockCollision(EnvironmentBlock& block)
 /*
 Detect collision on spawned pigs
 */
-void UpdateState::detectPigCollision(Character& pig)
+void UpdateStates::detectPigCollision(Character& pig)
 {
 	if (pig.hasSpawned())
 	{
@@ -650,7 +650,7 @@ void UpdateState::detectPigCollision(Character& pig)
 /*
 Handle movement of the currently active bird
 */
-void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
+void UpdateStates::handleBirdMovement(double dt_sec, Character &bird)
 {
 	switch (bird.getState())
 	{
@@ -732,10 +732,9 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 			flightdata.bird_flight_time += dt_sec;
 
 			//Move bird dependant on user input
-			bird.subtractFromY(flightdata.pullback_angle * 10 * dt_sec);
-			bird.addToY(flightdata.bird_flight_time * 1000 * dt_sec);
-			bird.addToX(flightdata.pullback_force * 
-						(int)GameVars::FLIGHT_FORCE_MODIFIER * dt_sec);
+			bird.subtractFromY(flightdata.pullback_angle * (int)GameVars::FLIGHT_ANGLE_MODIFIER * dt_sec);
+			bird.addToY(flightdata.bird_flight_time * (int)GameVars::FLIGHT_TIME_MODIFIER * dt_sec);
+			bird.addToX(flightdata.pullback_force * (int)GameVars::FLIGHT_FORCE_MODIFIER * dt_sec);
 
 			//Off window
 			if (bird.getY() > (int)GameVars::GAME_HEIGHT ||
@@ -788,7 +787,7 @@ void UpdateState::handleBirdMovement(double dt_sec, Character &bird)
 /*
 Handle animations of birds
 */
-void UpdateState::AnimateBird(Character& bird)
+void UpdateStates::AnimateBird(Character& bird)
 {
 	if (bird.getState() != CharacterStates::HAS_BEEN_FIRED)
 	{
@@ -835,7 +834,7 @@ void UpdateState::AnimateBird(Character& bird)
 /*
 Handle animations of pigs
 */
-void UpdateState::AnimatePig(Character& pig)
+void UpdateStates::AnimatePig(Character& pig)
 {
 	if (pig.hasSpawned())
 	{
@@ -904,7 +903,7 @@ void UpdateState::AnimatePig(Character& pig)
 /* 
 Reset Game
 */
-void UpdateState::resetGame()
+void UpdateStates::resetGame()
 {
 	//Reset music
 	menu_music = NOT_PLAYING;

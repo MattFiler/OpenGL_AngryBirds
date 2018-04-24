@@ -9,10 +9,10 @@
 bool rect::isInside(float x, float y) const
 {
 	if (x >= this->x &&
-		x <= this->x + this->length)
+		x <= this->x + (this->length * this->scale))
 	{
 		if (y >= this->y &&
-			y <= this->y + this->height)
+			y <= this->y + (this->height * this->scale))
 		{
 			return true;
 		}
@@ -31,11 +31,11 @@ bool rect::isInside(const rect& rhs) const
 {
 	auto& lhs = *this;
 
-	bool xOverlap = isBetween(lhs.x, rhs.x, rhs.x + rhs.length) ||
-		isBetween(rhs.x, lhs.x, lhs.x + lhs.length);
+	bool xOverlap = isBetween(lhs.x, rhs.x, rhs.x + (rhs.length * rhs.scale)) ||
+		isBetween(rhs.x, lhs.x, lhs.x + (lhs.length * lhs.scale));
 
-	bool yOverlap = isBetween(lhs.y, rhs.y, rhs.y + rhs.height) ||
-		isBetween(rhs.y, lhs.y, lhs.y + lhs.height);
+	bool yOverlap = isBetween(lhs.y, rhs.y, rhs.y + (rhs.height * rhs.scale)) ||
+		isBetween(rhs.y, lhs.y, lhs.y + (lhs.height * lhs.scale));
 
 	return xOverlap && yOverlap;
 }
