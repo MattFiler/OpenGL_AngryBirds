@@ -1,12 +1,9 @@
 #pragma once
-#include <string>
-#include <irrklang.h>
-#include "SpriteComponent.h"
-
+#include "GameObject.h"
 #include "../AngryEnums/AngryDestructionStates.h"
 #include "../AngryEnums/AngryBlockTypes.h"
 
-class EnvironmentBlock
+class EnvironmentBlock : public GameObject
 {
 public:
 	EnvironmentBlock();
@@ -34,10 +31,6 @@ public:
 	void setScale(float scale);
 	float getScale();
 
-	void despawn();
-	void spawn();
-	bool hasSpawned();
-
 	DestructionStates getDestruction();
 	void setDestruction(DestructionStates state);
 	bool doDamage();
@@ -48,9 +41,6 @@ public:
 	SpriteComponent* spriteComponent();
 
 private:
-	irrklang::ISoundEngine* sound_engine;
-
-	bool has_spawned = false;
 	DestructionStates destruction_state = DestructionStates::DEFAULT;
 	BlockTypes block_type;
 

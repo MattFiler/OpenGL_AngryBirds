@@ -109,31 +109,6 @@ float FX::getScale()
 
 
 /*
-	-- SPAWNING --
-*/
-
-/* Despawn FX */
-void FX::despawn()
-{
-	has_spawned = false;
-	runtime_count = 0;
-}
-
-/* Spawn FX */
-void FX::spawn()
-{
-	has_spawned = true;
-	runtime_count = 0;
-}
-
-/* Return If FX Has Spawned */
-bool FX::hasSpawned()
-{
-	return has_spawned;
-}
-
-
-/*
 	-- FRAME --
 */
 

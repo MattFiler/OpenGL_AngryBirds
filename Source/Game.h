@@ -4,9 +4,9 @@
 
 #include "Rect.h"
 
-#include "AngrySpriteClasses/Character.h"
-#include "AngrySpriteClasses/EnvironmentBlock.h"
-#include "AngrySpriteClasses/UI.h"
+#include "AngryGameObjects/Character.h"
+#include "AngryGameObjects/EnvironmentBlock.h"
+#include "AngryGameObjects/UI.h"
 
 #include "AngryCode/AngryRender.h"
 #include "AngryCode/AngryUpdate.h"

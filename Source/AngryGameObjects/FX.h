@@ -1,9 +1,8 @@
 #pragma once
-#include <string>
-#include "SpriteComponent.h"
+#include "GameObject.h"
 #include "../AngryEnums/AngryGameVars.h"
 
-class FX
+class FX : public GameObject
 {
 public:
 	FX();
@@ -26,17 +25,11 @@ public:
 	void setFrame(int frame);
 	int getFrame();
 
-	void despawn();
-	void spawn();
-	bool hasSpawned();
-
 	bool animate(float frame_time);
 
 	SpriteComponent* spriteComponent();
 
 private:
-	bool has_spawned = false;
-
 	int current_frame = 0;
 	float runtime_count = 0;
 

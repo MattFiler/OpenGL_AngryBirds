@@ -1,8 +1,7 @@
 #pragma once
-#include <string>
-#include "SpriteComponent.h"
+#include "GameObject.h"
 
-class UI
+class UI : public GameObject
 {
 public:
 	UI();
@@ -31,10 +30,6 @@ public:
 	void setOpacity(float opacity);
 	float getOpacity();
 
-	void despawn();
-	void spawn();
-	bool hasSpawned();
-
 	bool animateFadeOutUp(float frame_time);
 	bool animateFadeIn(float frame_time);
 	bool animateFadeInUp(float frame_time);
@@ -42,8 +37,6 @@ public:
 	SpriteComponent* spriteComponent();
 
 private:
-	bool has_spawned = false;
-
 	void freeSpriteComponent();
 	SpriteComponent* sprite_component = nullptr;
 };

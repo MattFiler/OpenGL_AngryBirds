@@ -8,9 +8,6 @@ EnvironmentBlock::EnvironmentBlock()
 	{
 		sprite[i] = nullptr;
 	}
-
-	//Initialise the sound engine
-	sound_engine = irrklang::createIrrKlangDevice();
 }
 EnvironmentBlock::~EnvironmentBlock()
 {
@@ -19,9 +16,6 @@ EnvironmentBlock::~EnvironmentBlock()
 	{
 		freeSpriteComponent(i);
 	}
-
-	//Destruct the sound engine
-	sound_engine->drop();
 }
 
 
@@ -158,29 +152,6 @@ float EnvironmentBlock::getScale()
 
 
 /*
-	-- SPAWNING --
-*/
-
-/* Despawn Entity */
-void EnvironmentBlock::despawn()
-{
-	has_spawned = false;
-}
-
-/* Spawn Entity */
-void EnvironmentBlock::spawn()
-{
-	has_spawned = true;
-}
-
-/* Return If Entity Has Spawned */
-bool EnvironmentBlock::hasSpawned()
-{
-	return has_spawned;
-}
-
-
-/*
 	-- DESTRUCTION --
 */
 
@@ -214,7 +185,7 @@ bool EnvironmentBlock::doDamage()
 			break;
 		}
 		}
-		has_spawned = false; //Block is destroyed
+		despawn(); //Block is destroyed
 		return false;
 	}
 	else

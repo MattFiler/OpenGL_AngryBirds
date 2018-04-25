@@ -1,12 +1,9 @@
 #pragma once
-#include <string>
-#include <irrklang.h>
-#include "SpriteComponent.h"
-
+#include "GameObject.h"
 #include "AngryEnums\AngryCharacterStates.h"
 #include "AngryEnums\AngryCharacterInjury.h"
 
-class Character
+class Character : public GameObject
 {
 public:
 	Character();
@@ -29,10 +26,6 @@ public:
 	float getHeight();
 	float getWidth();
 
-	void despawn();
-	void spawn();
-	bool hasSpawned();
-
 	int getFrameCount();
 	void setFrameCount(int count);
 
@@ -50,10 +43,6 @@ public:
 	SpriteComponent* spriteComponent();
 
 private:
-	irrklang::ISoundEngine* sound_engine;
-
-	bool has_spawned = false;
-
 	int sprite_frames = 6; //By default, we have 6 frames - but this can vary by character.
 	int current_frame = 0; //The current animation frame.
 	float last_update_time = 0; //The last time a frame updated.

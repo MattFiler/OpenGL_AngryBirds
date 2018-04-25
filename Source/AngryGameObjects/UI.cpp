@@ -125,31 +125,6 @@ float UI::getOpacity()
 
 
 /*
-	-- SPAWNING --
-*/
-
-/* Despawn UI Element */
-void UI::despawn()
-{
-	has_spawned = false;
-	setOpacity(1);
-}
-
-/* Spawn UI Element */
-void UI::spawn()
-{
-	has_spawned = true;
-	setOpacity(1);
-}
-
-/* Return If UI Element Has Spawned */
-bool UI::hasSpawned()
-{
-	return has_spawned;
-}
-
-
-/*
 	-- ANIMATION --
 */
 
@@ -172,10 +147,10 @@ bool UI::animateFadeOutUp(float frame_time)
 bool UI::animateFadeIn(float frame_time)
 {
 	//This function should be called when the element hasn't spawned (basically a spawn() replacement)
-	if (!has_spawned)
+	if (!hasSpawned())
 	{
+		spawn();
 		setOpacity(0);
-		has_spawned = true;
 	}
 
 	if (getOpacity() >= 1)
@@ -195,10 +170,10 @@ bool UI::animateFadeIn(float frame_time)
 bool UI::animateFadeInUp(float frame_time)
 {
 	//This function should be called when the element hasn't spawned (basically a spawn() replacement)
-	if (!has_spawned)
+	if (!hasSpawned())
 	{
+		spawn();
 		setOpacity(0);
-		has_spawned = true;
 	}
 
 	if (getOpacity() >= 1)

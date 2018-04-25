@@ -34,26 +34,29 @@
     <ClCompile Include="..\..\Source\AngryStructs\AngryMouseData.cpp">
       <Filter>Source\AngryStructs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\AngrySpriteClasses\Character.cpp">
-      <Filter>Source\AngrySpriteClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\AngrySpriteClasses\EnvironmentBlock.cpp">
-      <Filter>Source\AngrySpriteClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\AngrySpriteClasses\UI.cpp">
-      <Filter>Source\AngrySpriteClasses</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\AngryStructs\AngryFonts.cpp">
       <Filter>Source\AngryStructs</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\AngryCode\AngryLevels.cpp">
       <Filter>Source\AngryCode</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\AngrySpriteClasses\FX.cpp">
-      <Filter>Source\AngrySpriteClasses</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\AngryCode\AngryScores.cpp">
       <Filter>Source\AngryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryGameObjects\UI.cpp">
+      <Filter>Source\AngryGameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryGameObjects\Character.cpp">
+      <Filter>Source\AngryGameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryGameObjects\EnvironmentBlock.cpp">
+      <Filter>Source\AngryGameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryGameObjects\FX.cpp">
+      <Filter>Source\AngryGameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AngryGameObjects\GameObject.cpp">
+      <Filter>Source\AngryGameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,10 +81,10 @@
     <Filter Include="Source\AngryStructs">
       <UniqueIdentifier>{267554c0-492f-4a2a-8ce5-849698223054}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers\AngrySpriteClasses">
+    <Filter Include="Headers\AngryGameObjects">
       <UniqueIdentifier>{a300b61d-e4fe-46f1-9c1d-2495495fdc99}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\AngrySpriteClasses">
+    <Filter Include="Source\AngryGameObjects">
       <UniqueIdentifier>{f8d8171a-318e-478b-9cd8-ddc05653fe21}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -128,15 +131,6 @@
     <ClInclude Include="..\..\Source\AngryEnums\AngryBackgrounds.h">
       <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\AngrySpriteClasses\EnvironmentBlock.h">
-      <Filter>Headers\AngrySpriteClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\AngrySpriteClasses\Character.h">
-      <Filter>Headers\AngrySpriteClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\AngrySpriteClasses\UI.h">
-      <Filter>Headers\AngrySpriteClasses</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\AngryEnums\AngryCharacterStates.h">
       <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
@@ -159,9 +153,6 @@
     <ClInclude Include="..\..\Source\AngryEnums\AngryCursors.h">
       <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\AngrySpriteClasses\FX.h">
-      <Filter>Headers\AngrySpriteClasses</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\AngryEnums\AngryScore.h">
       <Filter>Headers\AngryEnums</Filter>
     </ClInclude>
@@ -170,6 +161,21 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\AngryCode\AngryScores.h">
       <Filter>Headers\AngryCode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryGameObjects\Character.h">
+      <Filter>Headers\AngryGameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryGameObjects\EnvironmentBlock.h">
+      <Filter>Headers\AngryGameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryGameObjects\FX.h">
+      <Filter>Headers\AngryGameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryGameObjects\UI.h">
+      <Filter>Headers\AngryGameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AngryGameObjects\GameObject.h">
+      <Filter>Headers\AngryGameObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

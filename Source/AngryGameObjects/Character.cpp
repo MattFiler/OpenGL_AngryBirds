@@ -12,9 +12,6 @@ Character::Character()
 	//Character defaults
 	character_state = CharacterStates::SHOULD_SPAWN;
 	character_injuries = CharacterInjuries::FEELIN_FINE;
-
-	//Initialise the sound engine
-	sound_engine = irrklang::createIrrKlangDevice();
 }
 Character::~Character()
 {
@@ -23,9 +20,6 @@ Character::~Character()
 	{
 		freeSpriteComponent(i);
 	}
-
-	//Destruct the sound engine
-	sound_engine->drop();
 }
 
 
@@ -132,29 +126,6 @@ float Character::getHeight()
 float Character::getWidth()
 {
 	return sprite_component[current_frame]->getSprite()->width();
-}
-
-
-/*
-	-- SPAWNING --
-*/
-
-/* Despawn Entity */
-void Character::despawn()
-{
-	has_spawned = false;
-}
-
-/* Spawn Entity */
-void Character::spawn()
-{
-	has_spawned = true;
-}
-
-/* Return If Entity Has Spawned */
-bool Character::hasSpawned()
-{
-	return has_spawned;
 }
 
 

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../AngrySpriteClasses/Character.h"
-#include "../AngrySpriteClasses/EnvironmentBlock.h"
-#include "../AngrySpriteClasses/UI.h"
-#include "../AngrySpriteClasses/FX.h"
+#include "../AngryGameObjects/Character.h"
+#include "../AngryGameObjects/EnvironmentBlock.h"
+#include "../AngryGameObjects/UI.h"
+#include "../AngryGameObjects/FX.h"
 
 #include "../AngryEnums/AngryGameVars.h"
 #include "../AngryEnums/AngryBackgrounds.h"
