@@ -20,7 +20,8 @@ enum class GameVars : int
 	FLIGHT_TIME_MODIFIER = 1000,
 
 	//Leeway for dragging the bird in the slingshot
-	BIRD_DRAG_LEEWAY = 25,
+	BIRD_CLICK_HITBOX_LEEWAY = 25,
+	BIRD_DRAG_RADIUS = 170,
 
 	//Despawn sprite holding location
 	DESPAWN_X_POS = 0,

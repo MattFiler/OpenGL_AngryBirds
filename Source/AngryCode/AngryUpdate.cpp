@@ -730,9 +730,17 @@ void UpdateStates::handleBirdMovement(double dt_sec, Character &bird)
 				bird_pulled_back_sfx = PLAYING;
 			}
 
-			//Set position of bird to mouse position
-			bird.setY(mousedata.mouse_y - (bird.spriteComponent()->getSprite()->height() / 2));
-			bird.setX(mousedata.mouse_x - (bird.spriteComponent()->getSprite()->width() / 2));
+			//Set position of bird to mouse position (up to set constraints)
+			if (mousedata.mouse_x < (int)GameVars::SLINGSHOT_X_ORIGIN + (bird.getWidth() / 2) &&
+				mousedata.mouse_x > (int)GameVars::SLINGSHOT_X_ORIGIN + (bird.getWidth() / 2) - (int)GameVars::BIRD_DRAG_RADIUS)
+			{
+				bird.setX(mousedata.mouse_x - (bird.getWidth() / 2));
+			}
+			if (mousedata.mouse_y < (int)GameVars::SLINGSHOT_Y_ORIGIN + (bird.getHeight() / 2) + (int)GameVars::BIRD_DRAG_RADIUS &&
+				mousedata.mouse_y > (int)GameVars::SLINGSHOT_Y_ORIGIN + (bird.getHeight() / 2) - (int)GameVars::BIRD_DRAG_RADIUS)
+			{
+				bird.setY(mousedata.mouse_y - (bird.getHeight() / 2));
+			}
 
 			break;
 		}
@@ -771,7 +779,7 @@ void UpdateStates::handleBirdMovement(double dt_sec, Character &bird)
 			if (bird.getY() > (int)GameVars::GAME_HEIGHT ||
 				//bird.getY() < -bird.spriteComponent()->getSprite()->height() ||
 				bird.getX() > (int)GameVars::GAME_WIDTH ||
-				bird.getX() < -bird.spriteComponent()->getSprite()->width())
+				bird.getX() < -bird.getWidth())
 			{
 				bird.setState(CharacterStates::SHOULD_DESPAWN);
 			}
