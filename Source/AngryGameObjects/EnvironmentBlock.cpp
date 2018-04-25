@@ -20,52 +20,39 @@ void EnvironmentBlock::setDestruction(DestructionStates state)
 /* Deal Damage To Block */
 bool EnvironmentBlock::doDamage()
 {
-	DestructionStates new_destruction_state = (DestructionStates)((int)destruction_state + 1);
-
-	if ((int)new_destruction_state > (int)DestructionStates::DESTRUCTION_COUNT - 1) 
+	switch (block_type) 
 	{
-		switch (block_type) 
+		case BlockTypes::ICE: 
 		{
-			case BlockTypes::ICE: 
-			{
-				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SFX\\1.mp3", false);
-				break;
-			}
-			case BlockTypes::ROCK: 
-			{
-				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SFX\\1.mp3", false);
-				break;
-			}
-			case BlockTypes::WOOD: 
-			{
-				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SFX\\1.mp3", false);
-				break;
-			}
+			return blockDamage("ICE", DestructionStates::ICE_DAMAGE_PER_HIT);
+			break;
 		}
-		despawn(); //Block is destroyed
+		case BlockTypes::ROCK: 
+		{
+			return blockDamage("ROCK", DestructionStates::ROCK_DAMAGE_PER_HIT);
+			break;
+		}
+		case BlockTypes::WOOD: 
+		{
+			return blockDamage("WOOD", DestructionStates::WOOD_DAMAGE_PER_HIT);
+			break;
+		}
+	}
+}
+bool EnvironmentBlock::blockDamage(std::string block_name, DestructionStates add_damage)
+{
+	if (((int)destruction_state + (int)add_damage) > (int)DestructionStates::DESTRUCTION_COUNT - 1)
+	{
+		//Block is destroyed
+		sound_engine->play2D(("Resources\\ENVIRONMENT\\BLOCKS\\" + block_name + "\\SFX\\1.mp3").c_str(), false);
+		despawn();
 		return false;
 	}
 	else
 	{
-		switch (block_type)
-		{
-			case BlockTypes::ICE:
-			{
-				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SFX\\0.mp3", false);
-				break;
-			}
-			case BlockTypes::ROCK: 
-			{
-				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SFX\\0.mp3", false);
-				break;
-			}
-			case BlockTypes::WOOD: 
-			{
-				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SFX\\0.mp3", false);
-				break;
-			}
-		}
-		setDestruction(new_destruction_state);//Deal damage
+		//Deal damage
+		sound_engine->play2D(("Resources\\ENVIRONMENT\\BLOCKS\\" + block_name + "\\SFX\\0.mp3").c_str(), false);
+		setDestruction((DestructionStates)((int)destruction_state + (int)add_damage));
 		return true;
 	}
 }

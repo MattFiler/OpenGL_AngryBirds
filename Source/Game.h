@@ -53,4 +53,5 @@ private:
 	GamestateData gamestate;
 	MouseData mousedata;
 	Sprites sprites;
+	FlightVars flightdata;
 };

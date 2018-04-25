@@ -14,6 +14,8 @@ public:
 	void setBlockType(BlockTypes blocktype);
 
 private:
+	bool blockDamage(std::string block_name, DestructionStates add_damage);
+
 	DestructionStates destruction_state = DestructionStates::DEFAULT;
 	BlockTypes block_type;
 };

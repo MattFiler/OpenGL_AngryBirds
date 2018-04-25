@@ -732,15 +732,24 @@ void UpdateStates::handleBirdMovement(double dt_sec, Character &bird)
 
 			//Set position of bird to mouse position (up to set constraints)
 			if (mousedata.mouse_x < (int)GameVars::SLINGSHOT_X_ORIGIN + (bird.getWidth() / 2) &&
-				mousedata.mouse_x > (int)GameVars::SLINGSHOT_X_ORIGIN + (bird.getWidth() / 2) - (int)GameVars::BIRD_DRAG_RADIUS)
+				mousedata.mouse_x > (int)GameVars::SLINGSHOT_X_ORIGIN - (int)GameVars::BIRD_DRAG_RADIUS)
 			{
 				bird.setX(mousedata.mouse_x - (bird.getWidth() / 2));
 			}
-			if (mousedata.mouse_y < (int)GameVars::SLINGSHOT_Y_ORIGIN + (bird.getHeight() / 2) + (int)GameVars::BIRD_DRAG_RADIUS &&
-				mousedata.mouse_y > (int)GameVars::SLINGSHOT_Y_ORIGIN + (bird.getHeight() / 2) - (int)GameVars::BIRD_DRAG_RADIUS)
+			if (mousedata.mouse_y < (int)GameVars::SLINGSHOT_Y_ORIGIN + (int)GameVars::BIRD_DRAG_RADIUS &&
+				mousedata.mouse_y > (int)GameVars::SLINGSHOT_Y_ORIGIN + bird.getHeight() - (int)GameVars::BIRD_DRAG_RADIUS)
 			{
 				bird.setY(mousedata.mouse_y - (bird.getHeight() / 2));
 			}
+
+			//Stretch Slingshot String
+			/*
+			sprites.slingshot[2].spriteComponent()->getSprite()->width((int)GameVars::SLINGSHOT_X_ORIGIN - sprites.active_bird.getX());
+			sprites.slingshot[2].spriteComponent()->getSprite()->height(bird.getHeight());
+			sprites.slingshot[2].setRotation(((int)GameVars::SLINGSHOT_Y_ORIGIN - sprites.active_bird.getY()) / 4);
+			sprites.slingshot[2].setX(bird.getX());
+			sprites.slingshot[2].setY((int)GameVars::SLINGSHOT_Y_ORIGIN + (bird.getY() - (int)GameVars::SLINGSHOT_Y_ORIGIN));
+			*/
 
 			break;
 		}
@@ -770,7 +779,7 @@ void UpdateStates::handleBirdMovement(double dt_sec, Character &bird)
 			//Calculate the time our bird has been in flight - this will act as our gravity
 			flightdata.bird_flight_time += dt_sec;
 
-			//Move bird dependant on user input
+			//Move bird based on how the user fired it
 			bird.subtractFromY(flightdata.pullback_angle * (int)GameVars::FLIGHT_ANGLE_MODIFIER * dt_sec);
 			bird.addToY(flightdata.bird_flight_time * (int)GameVars::FLIGHT_TIME_MODIFIER * dt_sec);
 			bird.addToX(flightdata.pullback_force * (int)GameVars::FLIGHT_FORCE_MODIFIER * dt_sec);

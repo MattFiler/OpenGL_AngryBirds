@@ -461,8 +461,8 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 			if (click->action == ASGE::KEYS::KEY_RELEASED && sprites.active_bird.getState() == CharacterStates::ABOUT_TO_BE_FIRED)
 			{
 				//Set physics values of bird
-				FlightVars::pullback_force = ((int)GameVars::SLINGSHOT_X_ORIGIN - sprites.active_bird.getX());
-				FlightVars::pullback_angle = ((int)GameVars::SLINGSHOT_Y_ORIGIN - sprites.active_bird.getY()) * -1;
+				flightdata.pullback_force = ((int)GameVars::SLINGSHOT_X_ORIGIN - sprites.active_bird.getX());
+				flightdata.pullback_angle = ((int)GameVars::SLINGSHOT_Y_ORIGIN - sprites.active_bird.getY()) * -1;
 
 				//Let the game world know we've released the bird
 				sprites.active_bird.setState(CharacterStates::HAS_BEEN_FIRED);
@@ -475,7 +475,7 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 				{
 					sprites.flight_marker[i].despawn();
 				}
-				FlightVars::number_of_markers = 0;
+				flightdata.number_of_markers = 0;
 			}
 		}
 	}
