@@ -11,16 +11,41 @@ InputStates::~InputStates() {
 /*
 	GAMESTATE_IN_MENU
 */
-void InputStates::gstateInMenu(ASGE::SharedEventData data) {
+void InputStates::gstateInMenu(ASGE::SharedEventData data) 
+{
 	//Get key
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 
-	switch (gamestate.menu_screen) {
+	switch (gamestate.menu_screen) 
+	{
 		//Splashscreen
-		case MenuScreen::SPLASHSCREEN: {
+		case MenuScreen::SPLASHSCREEN: 
+		{
 			//Start game
 			if (key->key == ASGE::KEYS::KEY_SPACE &&
+				key->action == ASGE::KEYS::KEY_RELEASED &&
 				gamestate.should_allow_splashscreen_inputs)
+			{
+				gamestate.menu_screen = MenuScreen::CONTROL_PROMPT;
+				sound_engine->play2D("Resources\\UI\\SFX\\0.mp3", false);
+			}
+
+			//Quit
+			if (key->key == ASGE::KEYS::KEY_ESCAPE &&
+				key->action == ASGE::KEYS::KEY_RELEASED)
+			{
+				gamestate.current_gamestate = Gamestate::REQUESTED_QUIT;
+			}
+
+			break;
+		}
+		//Controls Screen
+		case MenuScreen::CONTROL_PROMPT:
+		{
+			//Continue
+			if (key->key == ASGE::KEYS::KEY_SPACE &&
+				key->action == ASGE::KEYS::KEY_RELEASED &&
+				gamestate.should_allow_controlscreen_inputs)
 			{
 				gamestate.menu_screen = MenuScreen::MAIN_MENU;
 				sound_engine->play2D("Resources\\UI\\SFX\\0.mp3", false);
@@ -36,7 +61,8 @@ void InputStates::gstateInMenu(ASGE::SharedEventData data) {
 			break;
 		}
 		//Main Menu (level select)
-		case MenuScreen::MAIN_MENU: {
+		case MenuScreen::MAIN_MENU: 
+		{
 			//User has selected a level
 			if (key->key == ASGE::KEYS::KEY_ENTER &&
 				key->action == ASGE::KEYS::KEY_RELEASED)
@@ -72,7 +98,8 @@ void InputStates::gstateInMenu(ASGE::SharedEventData data) {
 			break;
 		}
 		//Pause Menu
-		case MenuScreen::PAUSE_MENU: {
+		case MenuScreen::PAUSE_MENU: 
+		{
 			//User has chosen to continue game
 			if (gamestate.pause_menu_index == 0 &&
 				key->key == ASGE::KEYS::KEY_ENTER &&
@@ -115,7 +142,8 @@ void InputStates::gstateInMenu(ASGE::SharedEventData data) {
 /*
 	GAMESTATE_IS_PLAYING
 */
-void InputStates::gstatePlaying(ASGE::SharedEventData data) {
+void InputStates::gstatePlaying(ASGE::SharedEventData data) 
+{
 	//Get key
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 
@@ -179,7 +207,8 @@ void InputStates::gstateGameOver(ASGE::SharedEventData data)
 /*
 Level Builder
 */
-void InputStates::gstateLevelBuilder(ASGE::SharedEventData data) {
+void InputStates::gstateLevelBuilder(ASGE::SharedEventData data)
+{
 	//Get key
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 

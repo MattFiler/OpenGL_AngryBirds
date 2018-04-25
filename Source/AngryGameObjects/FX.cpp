@@ -13,7 +13,8 @@ bool FX::animate(float frame_time)
 	runtime_count += frame_time;
 
 	//Cycle frames
-	if (runtime_count < 0.1) {
+	if (runtime_count < 0.1) 
+	{
 		setCurrentFrame(0);
 		return false;
 	}

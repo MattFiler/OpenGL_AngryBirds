@@ -22,17 +22,22 @@ bool EnvironmentBlock::doDamage()
 {
 	DestructionStates new_destruction_state = (DestructionStates)((int)destruction_state + 1);
 
-	if ((int)new_destruction_state > (int)DestructionStates::DESTRUCTION_COUNT - 1) {
-		switch (block_type) {
-			case BlockTypes::ICE: {
+	if ((int)new_destruction_state > (int)DestructionStates::DESTRUCTION_COUNT - 1) 
+	{
+		switch (block_type) 
+		{
+			case BlockTypes::ICE: 
+			{
 				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SFX\\1.mp3", false);
 				break;
 			}
-			case BlockTypes::ROCK: {
+			case BlockTypes::ROCK: 
+			{
 				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SFX\\1.mp3", false);
 				break;
 			}
-			case BlockTypes::WOOD: {
+			case BlockTypes::WOOD: 
+			{
 				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SFX\\1.mp3", false);
 				break;
 			}
@@ -42,16 +47,20 @@ bool EnvironmentBlock::doDamage()
 	}
 	else
 	{
-		switch (block_type) {
-			case BlockTypes::ICE: {
+		switch (block_type)
+		{
+			case BlockTypes::ICE:
+			{
 				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ICE\\SFX\\0.mp3", false);
 				break;
 			}
-			case BlockTypes::ROCK: {
+			case BlockTypes::ROCK: 
+			{
 				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\ROCK\\SFX\\0.mp3", false);
 				break;
 			}
-			case BlockTypes::WOOD: {
+			case BlockTypes::WOOD: 
+			{
 				sound_engine->play2D("Resources\\ENVIRONMENT\\BLOCKS\\WOOD\\SFX\\0.mp3", false);
 				break;
 			}

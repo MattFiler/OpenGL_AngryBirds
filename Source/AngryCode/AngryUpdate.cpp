@@ -19,7 +19,8 @@ void UpdateStates::gstateInMenu(const ASGE::GameTime & us) {
 	switch (gamestate.menu_screen)
 	{
 		//Splashscreen
-		case MenuScreen::SPLASHSCREEN: {
+		case MenuScreen::SPLASHSCREEN:
+		{
 			//Fade in
 			if (sprites.backgrounds[(int)BackgroundSprites::CLOUDS_BACKGROUND].animateFadeIn(dt_sec))
 			{
@@ -34,8 +35,25 @@ void UpdateStates::gstateInMenu(const ASGE::GameTime & us) {
 
 			break;
 		}
+		//Controls Screen
+		case MenuScreen::CONTROL_PROMPT:
+		{
+			//Fade out
+			if (sprites.menu_elements[(int)MenuElement::PRESS_SPACE_TO_START].animateFadeOutUp(dt_sec))
+			{
+				if (sprites.menu_elements[(int)MenuElement::LEVEL_SELECT_BACKGROUND].animateFadeIn(dt_sec))
+				{
+					if (sprites.menu_elements[(int)MenuElement::CONTROLS_TEXT].animateFadeIn(dt_sec))
+					{
+						gamestate.should_allow_controlscreen_inputs = true;
+					}
+				}
+			}
+			break;
+		}
 		//Main Menu (level select)
-		case MenuScreen::MAIN_MENU: {
+		case MenuScreen::MAIN_MENU: 
+		{
 			//Cycle level selection opacity
 			switch (gamestate.level_select_menu_index)
 			{
@@ -114,16 +132,19 @@ void UpdateStates::gstateInMenu(const ASGE::GameTime & us) {
 			break;
 		}
 		//Pause Menu
-		case MenuScreen::PAUSE_MENU: {
+		case MenuScreen::PAUSE_MENU: 
+		{
 			//Cycle pause menu selection opacity
 			switch (gamestate.pause_menu_index)
 			{
-				case 0: {
+				case 0:
+				{
 					sprites.menu_elements[(int)MenuElement::MENUOPT_CONTINUE].setOpacity(1);
 					sprites.menu_elements[(int)MenuElement::MENUOPT_QUIT].setOpacity(0.5);
 					break;
 				}
-				case 1: {
+				case 1: 
+				{
 					sprites.menu_elements[(int)MenuElement::MENUOPT_CONTINUE].setOpacity(0.5);
 					sprites.menu_elements[(int)MenuElement::MENUOPT_QUIT].setOpacity(1);
 					break;
@@ -303,12 +324,14 @@ void UpdateStates::gstateGameOver(const ASGE::GameTime & us)
 	//Cycle selection opacity
 	switch (gamestate.game_over_menu_index)
 	{
-		case 0: {
+		case 0: 
+		{
 			sprites.menu_elements[(int)MenuElement::MENUOPT_MENU].setOpacity(1);
 			sprites.menu_elements[(int)MenuElement::MENUOPT_QUIT].setOpacity(0.5);
 			break;
 		}
-		case 1: {
+		case 1: 
+		{
 			sprites.menu_elements[(int)MenuElement::MENUOPT_MENU].setOpacity(0.5);
 			sprites.menu_elements[(int)MenuElement::MENUOPT_QUIT].setOpacity(1);
 			break;
@@ -358,7 +381,8 @@ void UpdateStates::gstateLevelBuilder(const ASGE::GameTime & us)
 	}
 
 	//Place block if requested.
-	if (gamestate.debug_place_block) {
+	if (gamestate.debug_place_block) 
+	{
 		gamestate.debug_place_block = false;
 		sprites.placeholder_marker[(int)mousedata.cursor - 2].setX(mousedata.mouse_x);
 		sprites.placeholder_marker[(int)mousedata.cursor - 2].setY(mousedata.mouse_y - 10);
@@ -445,12 +469,14 @@ void UpdateStates::animateScore(int value, float x, float y)
 		//Pig Score
 		for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
 		{
-			if (!animate_pig_scores[i]) {
+			if (!animate_pig_scores[i]) 
+			{
 				slot_id = i;
 				break;
 			}
 		}
-		if (slot_id != 10) {
+		if (slot_id != 10) 
+		{
 			animate_pig_scores[slot_id] = true;
 			sprites.score_bonus_5000[slot_id].spawn();
 			sprites.score_bonus_5000[slot_id].setX(x);
@@ -467,12 +493,14 @@ void UpdateStates::animateScore(int value, float x, float y)
 		//Bird Score
 		for (int i = 0; i < (int)GameVars::NUMBER_OF_STARTING_BIRDS; i++)
 		{
-			if (!animate_bird_scores[i]) {
+			if (!animate_bird_scores[i]) 
+			{
 				slot_id = i;
 				break;
 			}
 		}
-		if (slot_id != 10) {
+		if (slot_id != 10)
+		{
 			animate_bird_scores[slot_id] = true;
 			sprites.score_bonus_10000[slot_id].spawn();
 			sprites.score_bonus_10000[slot_id].setX(x);
@@ -498,12 +526,14 @@ void UpdateStates::animateExplosion(float x, float y)
 	for (int i = 0; i < (int)GameVars::NUMBER_OF_FX_AVAILABLE; i++)
 	{
 		//Find a "slot" to request an explosion
-		if (!performing_explosion_fx[i]) {
+		if (!performing_explosion_fx[i])
+		{
 			slot_id = i;
 			break;
 		}
 	}
-	if (slot_id != 10) {
+	if (slot_id != 10) 
+	{
 		performing_explosion_fx[slot_id] = true;
 		sprites.explosion[slot_id].spawn();
 		sprites.explosion[slot_id].setX(x);
@@ -599,7 +629,8 @@ void UpdateStates::detectBlockCollision(EnvironmentBlock& block)
 	{
 		if (block.spriteComponent()->getBoundingBox().isInside(sprites.active_bird.spriteComponent()->getBoundingBox()))
 		{
-			if (!block.doDamage()) {
+			if (!block.doDamage()) 
+			{
 				//Block has been destroyed
 				gamestate.current_score += (int)Score::HAS_DESTROYED_BLOCK;
 				animateExplosion(block.getX(), block.getY());

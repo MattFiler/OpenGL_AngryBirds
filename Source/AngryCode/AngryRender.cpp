@@ -13,9 +13,11 @@ GAMESTATE_IN_MENU
 */
 void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* renderer)
 {
-	switch (gamestate.menu_screen) {
+	switch (gamestate.menu_screen) 
+	{
 		//Splashscreen
-		case MenuScreen::SPLASHSCREEN: {
+		case MenuScreen::SPLASHSCREEN: 
+		{
 			//Background
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::CLOUDS_BACKGROUND].spriteComponent()->getSprite());
 
@@ -25,8 +27,25 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 
 			break;
 		}
+		//Controls Screen
+		case MenuScreen::CONTROL_PROMPT:
+		{
+			//Background
+			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::CLOUDS_BACKGROUND].spriteComponent()->getSprite());
+
+			//Logo & Input Prompt
+			renderer->renderSprite(*sprites.menu_elements[(int)MenuElement::MAIN_LOGO].spriteComponent()->getSprite());
+			renderer->renderSprite(*sprites.menu_elements[(int)MenuElement::PRESS_SPACE_TO_START].spriteComponent()->getSprite());
+
+			//Controls list & Background
+			renderer->renderSprite(*sprites.menu_elements[(int)MenuElement::LEVEL_SELECT_BACKGROUND].spriteComponent()->getSprite());
+			renderer->renderSprite(*sprites.menu_elements[(int)MenuElement::CONTROLS_TEXT].spriteComponent()->getSprite());
+
+			break;
+		}
 		//Main menu
-		case MenuScreen::MAIN_MENU: {
+		case MenuScreen::MAIN_MENU: 
+		{
 			//Background
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::CLOUDS_BACKGROUND].spriteComponent()->getSprite());
 
@@ -53,7 +72,8 @@ void RenderStates::gstateInMenu(const ASGE::GameTime & us, ASGE::Renderer* rende
 			break;
 		}
 		//Pause menu
-		case MenuScreen::PAUSE_MENU: {
+		case MenuScreen::PAUSE_MENU: 
+		{
 			//Background
 			renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::CLOUDS_BACKGROUND].spriteComponent()->getSprite());
 
@@ -184,12 +204,15 @@ void RenderStates::gstateGameOver(const ASGE::GameTime & us, ASGE::Renderer* ren
 	renderer->renderSprite(*sprites.backgrounds[(int)BackgroundSprites::CLOUDS_BACKGROUND].spriteComponent()->getSprite());
 
 	//Title
-	switch (gamestate.win_state) {
-		case Gamestate::HAS_LOST: {
+	switch (gamestate.win_state) 
+	{
+		case Gamestate::HAS_LOST: 
+		{
 			renderer->renderSprite(*sprites.menu_elements[(int)MenuElement::TITLE_LEVEL_OVER].spriteComponent()->getSprite());
 			break;
 		}
-		case Gamestate::HAS_WON: {
+		case Gamestate::HAS_WON: 
+		{
 			renderer->renderSprite(*sprites.menu_elements[(int)MenuElement::TITLE_VICTORY].spriteComponent()->getSprite());
 			break;
 		}

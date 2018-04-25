@@ -77,7 +77,8 @@ bool AngryBirdsGame::init()
 bool AngryBirdsGame::assignTextures()
 {
 	/* Backgrounds */
-	for (int i = 0; i < (int)BackgroundSprites::NUMBER_OF_BACKGROUNDS; i++) {
+	for (int i = 0; i < (int)BackgroundSprites::NUMBER_OF_BACKGROUNDS; i++) 
+	{
 		if (!sprites.backgrounds[i].addSpriteComponent(renderer.get(), "Resources\\UI\\BACKGROUNDS\\" + std::to_string(i) + ".jpg"))
 		{
 			return false;
@@ -85,7 +86,8 @@ bool AngryBirdsGame::assignTextures()
 	}
 
 	/* Menu Elements */
-	for (int i = 0; i < (int)MenuElement::MENU_ELEMENT_COUNT; i++) {
+	for (int i = 0; i < (int)MenuElement::MENU_ELEMENT_COUNT; i++) 
+	{
 		if (!sprites.menu_elements[i].addSpriteComponent(renderer.get(), "Resources\\UI\\MENU_ELEMENTS\\" + std::to_string(i) + ".png"))
 		{
 			return false;
@@ -93,6 +95,8 @@ bool AngryBirdsGame::assignTextures()
 	}
 	sprites.menu_elements[(int)MenuElement::MAIN_LOGO].setOpacity(0);
 	sprites.menu_elements[(int)MenuElement::PRESS_SPACE_TO_START].setOpacity(0);
+	sprites.menu_elements[(int)MenuElement::LEVEL_SELECT_BACKGROUND].setOpacity(0);
+	sprites.menu_elements[(int)MenuElement::CONTROLS_TEXT].setOpacity(0);
 
 	/* Cursors */
 	for (int i = 0; i < (int)GameVars::NUMBER_OF_CURSOR_STATES; i++)
@@ -372,24 +376,29 @@ void AngryBirdsGame::keyHandler(const ASGE::SharedEventData data)
 	auto key = static_cast<const ASGE::KeyEvent*>(data.get());
 
 	//Handle keypresses by gamestate
-	switch (gamestate.current_gamestate) {
+	switch (gamestate.current_gamestate) 
+	{
 		//IN MENU
-		case Gamestate::IN_MENU: {
+		case Gamestate::IN_MENU: 
+		{
 			game_input.gstateInMenu(data);
 			break;
 		}
 		//IN GAME
-		case Gamestate::IS_PLAYING: {
+		case Gamestate::IS_PLAYING: 
+		{
 			game_input.gstatePlaying(data);
 			break;
 		}		
 		//HAS WON or LOST
-		case Gamestate::GAME_OVER: {
+		case Gamestate::GAME_OVER: 
+		{
 			game_input.gstateGameOver(data);
 			break;
 		}
 		//Level Builder Mode (intended for developers only)
-		case Gamestate::LEVEL_BUILDER_MODE: {
+		case Gamestate::LEVEL_BUILDER_MODE: 
+		{
 			game_input.gstateLevelBuilder(data);
 			break;
 		}
@@ -413,12 +422,15 @@ void AngryBirdsGame::clickHandler(const ASGE::SharedEventData data)
 	if (gamestate.current_gamestate == Gamestate::LEVEL_BUILDER_MODE)
 	{
 		//Level Editor mode active - place blocks on left click
-		if (click->button == 0 && click->action == ASGE::KEYS::KEY_RELEASED) {
+		if (click->button == 0 && click->action == ASGE::KEYS::KEY_RELEASED) 
+		{
 			gamestate.debug_place_block = true;
 		}
 		//Cycle block type on right click
-		if (click->button == 1 && click->action == ASGE::KEYS::KEY_RELEASED) {
-			if ((int)mousedata.cursor + 1 > (int)Cursors::PIG) {
+		if (click->button == 1 && click->action == ASGE::KEYS::KEY_RELEASED) 
+		{
+			if ((int)mousedata.cursor + 1 > (int)Cursors::PIG)
+			{
 				mousedata.cursor = Cursors::LONG_BLOCK;
 			}
 			else
@@ -485,29 +497,35 @@ void AngryBirdsGame::update(const ASGE::GameTime& us)
 	//Hide the cursor within the window (we use our own)
 	inputs->setCursorMode(ASGE::CursorMode::HIDDEN);
 
-	switch (gamestate.current_gamestate) {
+	switch (gamestate.current_gamestate) 
+	{
 		//IN MENU
-		case Gamestate::IN_MENU: {
+		case Gamestate::IN_MENU:
+		{
 			game_update.gstateInMenu(us);
 			break;
 		}
 		//IN GAME
-		case Gamestate::IS_PLAYING: {
+		case Gamestate::IS_PLAYING:
+		{
 			game_update.gstatePlaying(us);
 			break;
 		}
 		//HAS_WON or HAS_LOST
-		case Gamestate::GAME_OVER: {
+		case Gamestate::GAME_OVER: 
+		{
 			game_update.gstateGameOver(us);
 			break;
 		}
 		//REQUESTED QUIT
-		case Gamestate::REQUESTED_QUIT: {
+		case Gamestate::REQUESTED_QUIT: 
+		{
 			signalExit();
 			break;
 		}
 		//Level Builder Mode (intended for developers only)
-		case Gamestate::LEVEL_BUILDER_MODE: {
+		case Gamestate::LEVEL_BUILDER_MODE:
+		{
 			game_update.gstateLevelBuilder(us);
 			break;
 		}
@@ -537,27 +555,32 @@ void AngryBirdsGame::render(const ASGE::GameTime& us)
 	renderer->setFont(Fonts::fonts[0]->id);
 
 	//Render gamestate-specific sprites
-	switch (gamestate.current_gamestate) {
+	switch (gamestate.current_gamestate)
+	{
 		//IN MENU
-		case Gamestate::IN_MENU: {
+		case Gamestate::IN_MENU:
+		{
 			//Menu screen
 			game_render.gstateInMenu(us, renderer.get());
 			break;
 		}
 		//IN GAME
-		case Gamestate::IS_PLAYING: {
+		case Gamestate::IS_PLAYING: 
+		{
 			//Render game
 			game_render.gstatePlaying(us, renderer.get());
 			break;
 		}
 		//HAS WON or HAS LOST
-		case Gamestate::GAME_OVER: {
+		case Gamestate::GAME_OVER: 
+		{
 			//Render win/loss screen
 			game_render.gstateGameOver(us, renderer.get());
 			break;
 		}
 		//Level Builder Mode (intended for developers only)
-		case Gamestate::LEVEL_BUILDER_MODE: {
+		case Gamestate::LEVEL_BUILDER_MODE:
+		{
 			game_render.gstateLevelBuilder(us, renderer.get());
 			break;
 		}

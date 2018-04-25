@@ -18,6 +18,7 @@ enum class MenuElement : int
 	MENUOPT_CONTINUE,
 	MENUOPT_MENU,
 	MENUOPT_QUIT,
+	CONTROLS_TEXT,
 
 	MENU_ELEMENT_COUNT //This must always be last!
 };

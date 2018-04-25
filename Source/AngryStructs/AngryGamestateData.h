@@ -22,6 +22,7 @@ struct GamestateData
 	static int game_over_menu_index; //Game over option select index
 	static bool should_show_gameover_options; //Should show gameover options yet?
 	static bool should_allow_splashscreen_inputs; //Should allow splashscreen inputs yet?
+	static bool should_allow_controlscreen_inputs; //Should allow control screen inputs yet?
 
 	/* LEVEL EDITOR DATA */
 	static bool debug_place_block; //Used for level editor mode
