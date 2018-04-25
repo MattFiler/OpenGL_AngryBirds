@@ -2,7 +2,6 @@
 #include <string>
 #include <irrklang.h>
 #include "SpriteComponent.h"
-#include "Vector2.h"
 
 #include "../AngryEnums/AngryDestructionStates.h"
 #include "../AngryEnums/AngryBlockTypes.h"

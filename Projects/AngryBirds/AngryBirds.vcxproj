@@ -119,7 +119,6 @@
     <ClCompile Include="..\..\Source\Game.cpp" />
     <ClCompile Include="..\..\Source\Rect.cpp" />
     <ClCompile Include="..\..\Source\SpriteComponent.cpp" />
-    <ClCompile Include="..\..\Source\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\AngryCode\AngryInput.h" />
@@ -150,7 +149,6 @@
     <ClInclude Include="..\..\Source\Game.h" />
     <ClInclude Include="..\..\Source\Rect.h" />
     <ClInclude Include="..\..\Source\SpriteComponent.h" />
-    <ClInclude Include="..\..\Source\Vector2.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include "SpriteComponent.h"
-#include "Vector2.h"
 
 class UI
 {
