@@ -109,7 +109,6 @@
     <ClCompile Include="..\..\Source\AngryGameObjects\Character.cpp" />
     <ClCompile Include="..\..\Source\AngryGameObjects\EnvironmentBlock.cpp" />
     <ClCompile Include="..\..\Source\AngryGameObjects\FX.cpp" />
-    <ClCompile Include="..\..\Source\AngryGameObjects\GameObject.cpp" />
     <ClCompile Include="..\..\Source\AngryGameObjects\UI.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngryFonts.cpp" />
     <ClCompile Include="..\..\Source\AngryStructs\AngryGamestateData.cpp" />

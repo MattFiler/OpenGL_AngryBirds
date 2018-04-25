@@ -55,9 +55,6 @@
     <ClCompile Include="..\..\Source\AngryGameObjects\FX.cpp">
       <Filter>Source\AngryGameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\AngryGameObjects\GameObject.cpp">
-      <Filter>Source\AngryGameObjects</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">

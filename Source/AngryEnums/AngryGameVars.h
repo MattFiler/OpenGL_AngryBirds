@@ -57,5 +57,8 @@ enum class GameVars : int
 
 	//Number of frames for FX & number of each FX available per frame
 	NUMBER_OF_FRAMES_IN_FX = 4,
-	NUMBER_OF_FX_AVAILABLE = 3
+	NUMBER_OF_FX_AVAILABLE = 3,
+
+	//Number of character frames
+	NUMBER_OF_CHARACTER_FRAMES = 6
 };

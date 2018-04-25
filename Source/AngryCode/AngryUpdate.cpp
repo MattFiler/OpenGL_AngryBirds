@@ -87,24 +87,24 @@ void UpdateStates::gstateInMenu(const ASGE::GameTime & us) {
 					if (gamestate.highscores[i] < (int)level.getScoreThreshold(i, 1))
 					{
 						//0 Stars
-						sprites.menu_score_stars[i].setFrame(0);
+						sprites.menu_score_stars[i].setCurrentFrame(0);
 					}
 					else if (gamestate.highscores[i] >= (int)level.getScoreThreshold(i, 1) &&
 							 gamestate.highscores[i] < (int)level.getScoreThreshold(i, 2))
 					{
 						//1 Star
-						sprites.menu_score_stars[i].setFrame(1);
+						sprites.menu_score_stars[i].setCurrentFrame(1);
 					}
 					else if (gamestate.highscores[i] >= (int)level.getScoreThreshold(i, 2) &&
 							 gamestate.highscores[i] < (int)level.getScoreThreshold(i, 3))
 					{
 						//2 Stars
-						sprites.menu_score_stars[i].setFrame(2);
+						sprites.menu_score_stars[i].setCurrentFrame(2);
 					}
 					else if (gamestate.highscores[i] >= (int)level.getScoreThreshold(i, 3))
 					{
 						//3 Stars
-						sprites.menu_score_stars[i].setFrame(3);
+						sprites.menu_score_stars[i].setCurrentFrame(3);
 					}
 				}
 
@@ -399,7 +399,7 @@ void UpdateStates::performAnimations(double dt_sec)
 				//Animation is done.
 				performing_explosion_fx[i] = false;
 				sprites.explosion[i].despawn();
-				sprites.explosion[i].setFrame(0);
+				sprites.explosion[i].setCurrentFrame(0);
 			}
 		}
 	}
@@ -526,7 +526,7 @@ void UpdateStates::animateStars(float frame_time)
 
 	if (time_since_star_animation_start < 2) 
 	{
-		sprites.gameover_score_stars.setFrame(0);
+		sprites.gameover_score_stars.setCurrentFrame(0);
 		if (gamestate.awarded_stars == 0)
 		{
 			gamestate.should_show_gameover_options = true;
@@ -537,7 +537,7 @@ void UpdateStates::animateStars(float frame_time)
 	{
 		if (gamestate.awarded_stars >= 1)
 		{
-			sprites.gameover_score_stars.setFrame(1);
+			sprites.gameover_score_stars.setCurrentFrame(1);
 			if (!has_played_star_sfx[0])
 			{
 				sound_engine->play2D("Resources\\UI\\SCORE\\STARS\\SFX\\0.mp3", false);
@@ -550,7 +550,7 @@ void UpdateStates::animateStars(float frame_time)
 	{
 		if (gamestate.awarded_stars >= 2)
 		{
-			sprites.gameover_score_stars.setFrame(2);
+			sprites.gameover_score_stars.setCurrentFrame(2);
 			if (!has_played_star_sfx[1])
 			{
 				sound_engine->play2D("Resources\\UI\\SCORE\\STARS\\SFX\\1.mp3", false);
@@ -567,7 +567,7 @@ void UpdateStates::animateStars(float frame_time)
 	{
 		if (gamestate.awarded_stars == 3)
 		{
-			sprites.gameover_score_stars.setFrame(3);
+			sprites.gameover_score_stars.setCurrentFrame(3);
 			if (!has_played_star_sfx[2])
 			{
 				sound_engine->play2D("Resources\\UI\\SCORE\\STARS\\SFX\\2.mp3", false);
@@ -776,7 +776,10 @@ void UpdateStates::handleBirdMovement(double dt_sec, Character &bird)
 
 			//Update lives & bird spawns accordingly
 			gamestate.lives -= 1;
-			sprites.waiting_birds[gamestate.lives-1].despawn();
+			if (gamestate.lives != 0)
+			{
+				sprites.waiting_birds[gamestate.lives - 1].despawn();
+			}
 
 			break;
 		}
